@@ -1,117 +1,84 @@
-# Xagent - AI Agent Framework
+# Xagent
 
-One-command setup for Xavier, RPi3, RPi4, and x86_64.
+A local-first AI agent framework that runs on anything from a Raspberry Pi to a GPU server. Hardware-aware, self-upgrading, and fully private.
 
 ---
 
-## Quick Start
+## What It Does
+
+Xagent is a personal AI assistant that runs on your own hardware using open-source models via Ollama. It detects your hardware, selects the optimal model, and provides a tool-equipped agent accessible via CLI or messaging channels (Telegram, Discord, Slack, etc.).
 
 ```bash
-# Install everything (one command)
-./start.sh
-
-# Manage services
-./manage.sh start     # Start all services
-./manage.sh stop      # Stop everything
-./manage.sh status    # Check status
-./manage.sh logs      # View logs
-./manage.sh test      # Test agent
-```
-
-Services auto-start on boot.
-
----
-
-## What Gets Installed
-
-- Platform detection (Xavier/RPi3/RPi4/x86_64)
-- Python (3.8/3.10/3.12 based on Ubuntu version)
-- Go 1.26.0
-- Ollama + optimal model for your hardware
-- Xagent AI agent binary
-- Systemd services (auto-start on boot)
-
----
-
-## Auto-Start on Boot
-
-After running `./start.sh`, these services start automatically on every boot:
-- `ollama.service` - AI model server
-- `xagent-gateway.service` - AI agent gateway
-
-Manage with: `./manage.sh enable|disable`
-
----
-
-## Documentation
-
-See `docs/` folder for detailed guides.
-
----
-
-## Usage
-
-```bash
-# CLI mode
-xagent agent -m "your question"
-
-# Interactive mode
-xagent agent
-
-# Check status
-xagent status
-
-# Hardware-aware model recommendation
-xagent llm-check hw-detect          # Detect hardware (CPU, GPU, RAM)
-xagent llm-check check              # Full analysis: score all models
-xagent llm-check recommend coding   # Top picks for coding
-xagent llm-check installed          # Rank your installed Ollama models
-xagent llm-check pull llama3.2:3b   # Download a model
-xagent llm-check benchmark phi3     # Benchmark a model
+./start.sh                           # Install everything, auto-start on boot
+xagent agent -m "What can you do?"   # Talk to the agent
 ```
 
 ---
 
-## Platform Support
+## Key Capabilities
 
-| Platform | Ubuntu | Python | Model |
-|----------|--------|--------|-------|
-| Xavier | 20.04 | 3.8 | llama3.1:8b |
-| RPi4 | 22.04 | 3.10 | phi3:3.8b |
-| RPi4 | 24.04 | 3.12 | phi3:3.8b |
-| RPi3 | 22.04 | 3.10 | Gateway only |
+**Hardware-Aware Model Selection** -- Built-in 4D scoring engine (Quality, Speed, Fit, Context) scores 40+ models against your specific CPU/GPU/RAM and recommends the best fit.
+
+**Adaptive Scaling** -- Automatically detects whether it's running on an H100, a Jetson Xavier, or a Raspberry Pi, and adjusts model selection, token limits, and resource usage accordingly.
+
+**Tool-Equipped Agent** -- The agent can execute shell commands, read/write files, search the web, manage Ollama models, control hardware I/O, and spawn sub-agents -- all sandboxed to the workspace.
+
+**10,000+ Community Skills** -- Search, filter, and install skills from the OpenClaw archive. Skills are markdown files that teach the agent domain-specific knowledge.
+
+**Self-Upgrading** -- The agent checks for updates weekly and can upgrade its own binary (with SHA256 verification), pull new models, and update the skills archive.
+
+**Secure by Default** -- Workspace sandboxing, command deny-lists, Chinese service blocklists, no telemetry, systemd hardening.
+
+---
+
+## Supported Hardware
+
+| Platform | Model | Performance |
+|----------|-------|-------------|
+| GPU Server (A100/H100) | llama3.3:70b | 80-120 tok/s |
+| Desktop GPU (RTX 3080+) | llama3.1:8b | 35-70 tok/s |
+| Jetson Xavier | llama3.1:8b | 5-7 tok/s |
+| Raspberry Pi 4 (8GB) | phi3:3.8b | 1.5-2.5 tok/s |
+| Raspberry Pi 3 | Cloud API | Gateway only |
 
 ---
 
 ## Repository Structure
 
 ```
-.
-├── cmd/xagent/       # CLI entry point
-├── pkg/              # Go packages (agent, config, channels, providers, etc.)
-├── workspace/        # Built-in skills
-├── skills/           # OpenClaw community skill archive (10,000+)
-├── reference/        # Vanilla upstream repos (git submodules, read-only)
-│   ├── picoclaw/     # Original picoclaw source
-│   ├── nanobot/      # Original nanobot project
-│   └── openclaw-skills/  # Original skill archive
-├── start.sh          # Master installer (run once)
-├── manage.sh         # Service management (generated at install)
-├── skill_converter.py # Skills search, install, and conversion tool
-├── memory_bridge.py  # Optional Qdrant memory bridge
-├── Makefile          # Build system
-├── go.mod / go.sum   # Go module definition
-└── docs/             # Documentation
+cmd/xagent/         CLI entry point
+pkg/                Go packages
+  agent/            Agent loop, context builder, memory
+  llmcheck/         Hardware detection, model scoring, Ollama client
+  tools/            Sandboxed tools (exec, filesystem, web, llm_check)
+  channels/         Telegram, Discord, Slack, WhatsApp, LINE
+  providers/        LLM backends (Ollama, OpenAI-compat, Anthropic)
+  config/           Configuration management
+  skills/           Skill loader and installer
+  upgrade/          Self-upgrade system
+  hwprofile/        Hardware tier detection
+workspace/          Built-in skills and agent identity files
+skills/             OpenClaw community skill archive (10,000+)
+reference/          Vanilla upstream repos (git submodules, read-only)
+start.sh            One-command installer
+skill_converter.py  Skill search, filter, and install tool
+memory_bridge.py    Optional Qdrant memory bridge
+Makefile            Build system
 ```
 
 ---
 
-## Setup in 3 Steps
+## Documentation
 
-1. **Install:** `./start.sh`
-2. **Start:** `./manage.sh start`
-3. **Use:** `xagent agent -m "Hello!"`
+| Document | Contents |
+|----------|----------|
+| [docs/quickstart.md](docs/quickstart.md) | Get running in 5 minutes |
+| [docs/install.md](docs/install.md) | Full installation guide with manual steps |
+| [docs/features.md](docs/features.md) | Complete feature reference |
+| [docs/system-diagram.md](docs/system-diagram.md) | Architecture diagrams and process flows |
 
 ---
 
-100% local, private, secure AI agents.
+## License
+
+MIT
