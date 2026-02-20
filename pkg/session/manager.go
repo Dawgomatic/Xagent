@@ -145,6 +145,19 @@ func (sm *SessionManager) TruncateHistory(key string, keepLast int) {
 	session.Updated = time.Now()
 }
 
+// GetAllKeys returns all active session keys.
+// SWE100821: Used by epoch manager to count active sessions.
+func (sm *SessionManager) GetAllKeys() []string {
+	sm.mu.RLock()
+	defer sm.mu.RUnlock()
+
+	keys := make([]string, 0, len(sm.sessions))
+	for k := range sm.sessions {
+		keys = append(keys, k)
+	}
+	return keys
+}
+
 // PruneStale deletes sessions older than maxAge from memory and disk.
 // Returns the number of pruned sessions. Called at startup to prevent unbounded growth.
 // SWE100821: session TTL/pruning

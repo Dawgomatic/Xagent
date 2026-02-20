@@ -21,6 +21,8 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/bus"
 	"github.com/Dawgomatic/Xagent/pkg/config"
 	"github.com/Dawgomatic/Xagent/pkg/constants"
+	"github.com/Dawgomatic/Xagent/pkg/epoch"
+	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/session"
@@ -39,6 +41,8 @@ type AgentLoop struct {
 	maxTokens      int     // SWE100821: LLM max_tokens from config (was hard-coded)
 	temperature    float64 // SWE100821: LLM temperature from config (was hard-coded)
 	messageTimeout time.Duration // SWE100821: Per-message timeout to prevent one slow call blocking all
+	identity       *identity.AgentIdentity // SWE100821: Unique agent identity + time tracking
+	epoch          *epoch.Manager          // SWE100821: Epoch lifecycle (wake/sleep journaling)
 	sessions       *session.SessionManager
 	state          *state.Manager
 	contextBuilder *ContextBuilder
@@ -136,9 +140,13 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	// Create state manager for atomic state persistence
 	stateManager := state.NewManager(workspace)
 
-	// Create context builder and set tools registry
+	// SWE100821: Initialize agent identity (unique in space and time) + boot-time tracking
+	agentIdentity := identity.New(workspace)
+
+	// Create context builder and set tools registry + identity
 	contextBuilder := NewContextBuilder(workspace)
 	contextBuilder.SetToolsRegistry(toolsRegistry)
+	contextBuilder.SetIdentity(agentIdentity)
 
 	return &AgentLoop{
 		bus:            msgBus,
@@ -150,6 +158,7 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		maxTokens:      cfg.Agents.Defaults.MaxTokens,                // SWE100821: from config, not hard-coded
 		temperature:    cfg.Agents.Defaults.Temperature,              // SWE100821: from config, not hard-coded
 		messageTimeout: 5 * time.Minute,                              // SWE100821: per-message timeout
+		identity:       agentIdentity,                                // SWE100821: unique identity + time tracking
 		sessions:       sessionsManager,
 		state:          stateManager,
 		contextBuilder: contextBuilder,
@@ -420,6 +429,16 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 			"final_length": len(finalContent),
 		})
 
+	// 10. SWE100821: Record epoch event + stats for wake/sleep journaling
+	if al.epoch != nil {
+		msgPreview := utils.Truncate(opts.UserMessage, 60)
+		al.epoch.RecordEvent("message", fmt.Sprintf("[%s] %s", opts.Channel, msgPreview))
+		al.epoch.UpdateStats(func(s *epoch.EpochStats) {
+			s.MessagesProcessed++
+			s.ToolCalls += iteration - 1 // iterations beyond the first are tool-call rounds
+		})
+	}
+
 	return finalContent, nil
 }
 
@@ -634,7 +653,40 @@ func (al *AgentLoop) GetStartupInfo() map[string]interface{} {
 	// Skills info
 	info["skills"] = al.contextBuilder.GetSkillsInfo()
 
+	// SWE100821: Agent identity + time tracking
+	info["identity"] = map[string]interface{}{
+		"agent_id":   al.identity.AgentID,
+		"session_id": al.identity.SessionID,
+		"boot_time":  al.identity.BootTime.Format(time.RFC3339),
+		"birth_time": al.identity.BirthTime.Format(time.RFC3339),
+	}
+
 	return info
+}
+
+// GetIdentity returns the agent's identity for external consumers.
+// SWE100821: Exposes identity for status/health endpoints.
+func (al *AgentLoop) GetIdentity() *identity.AgentIdentity {
+	return al.identity
+}
+
+// SetEpoch attaches the epoch manager so the agent can journal events.
+// SWE100821: Epoch lifecycle (wake/sleep journaling).
+func (al *AgentLoop) SetEpoch(em *epoch.Manager) {
+	al.epoch = em
+}
+
+// SetPreviousEpoch injects the last epoch into the system prompt context.
+// SWE100821: Wake-up recall — agent remembers what happened last session.
+func (al *AgentLoop) SetPreviousEpoch(rec *epoch.Record) {
+	al.contextBuilder.SetPreviousEpoch(rec)
+}
+
+// GetSessionStats returns counts useful for epoch journaling.
+// SWE100821: Feeds epoch stats at sleep time.
+func (al *AgentLoop) GetSessionStats() (sessions int) {
+	allSessions := al.sessions.GetAllKeys()
+	return len(allSessions)
 }
 
 // formatMessagesForLog formats messages for logging

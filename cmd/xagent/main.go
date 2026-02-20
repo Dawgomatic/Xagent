@@ -29,8 +29,10 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/config"
 	"github.com/Dawgomatic/Xagent/pkg/cron"
 	"github.com/Dawgomatic/Xagent/pkg/devices"
+	"github.com/Dawgomatic/Xagent/pkg/epoch"
 	"github.com/Dawgomatic/Xagent/pkg/health"
 	"github.com/Dawgomatic/Xagent/pkg/heartbeat"
+	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/hwprofile"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 	"github.com/Dawgomatic/Xagent/pkg/migrate"
@@ -682,8 +684,12 @@ func agentCmd() {
 
 	// Print agent startup info (only for interactive mode)
 	startupInfo := agentLoop.GetStartupInfo()
+	identityInfo := startupInfo["identity"].(map[string]interface{})
+	// SWE100821: Log identity + time tracking at agent init
 	logger.InfoCF("agent", "Agent initialized",
 		map[string]interface{}{
+			"agent_id":         identityInfo["agent_id"],
+			"session_id":       identityInfo["session_id"],
 			"tools_count":      startupInfo["tools"].(map[string]interface{})["count"],
 			"skills_total":     startupInfo["skills"].(map[string]interface{})["total"],
 			"skills_available": startupInfo["skills"].(map[string]interface{})["available"],
@@ -857,6 +863,11 @@ func gatewayCmd() {
 	startupInfo := agentLoop.GetStartupInfo()
 	toolsInfo := startupInfo["tools"].(map[string]interface{})
 	skillsInfo := startupInfo["skills"].(map[string]interface{})
+	identityInfo := startupInfo["identity"].(map[string]interface{})
+	// SWE100821: Display unique agent identity + boot time at startup
+	fmt.Printf("  • Agent ID:   %s\n", identityInfo["agent_id"])
+	fmt.Printf("  • Session ID: %s\n", identityInfo["session_id"])
+	fmt.Printf("  • Boot time:  %s\n", identityInfo["boot_time"])
 	fmt.Printf("  • Tools: %d loaded\n", toolsInfo["count"])
 	fmt.Printf("  • Skills: %d/%d available\n",
 		skillsInfo["available"],
@@ -869,6 +880,24 @@ func gatewayCmd() {
 			"skills_total":     skillsInfo["total"],
 			"skills_available": skillsInfo["available"],
 		})
+
+	// SWE100821: Epoch lifecycle — wake up and remember the previous session
+	epochManager := epoch.NewManager(cfg.WorkspacePath(), agentLoop.GetIdentity())
+	prevEpoch, _ := epochManager.Wake()
+	agentLoop.SetEpoch(epochManager)
+	agentLoop.SetPreviousEpoch(prevEpoch)
+	if prevEpoch != nil && prevEpoch.ShutdownTime != nil {
+		fmt.Printf("  • Last epoch: %s (up %s, %d msgs)\n",
+			prevEpoch.BootTime.Format("2006-01-02 15:04"),
+			prevEpoch.Uptime,
+			prevEpoch.Stats.MessagesProcessed)
+	} else {
+		fmt.Println("  • First epoch (no previous session)")
+	}
+	// Prune old epochs (keep last 30, delete anything older than 90 days)
+	if pruned := epochManager.PruneOld(90*24*time.Hour, 30); pruned > 0 {
+		logger.InfoCF("epoch", "Pruned old epochs", map[string]interface{}{"pruned": pruned})
+	}
 
 	// Setup cron tool and service
 	cronService := setupCronTool(agentLoop, msgBus, cfg.WorkspacePath())
@@ -992,6 +1021,19 @@ func gatewayCmd() {
 
 	fmt.Println("\nShutting down...")
 	healthServer.SetReady(false) // SWE100821: Signal not-ready before teardown
+
+	// SWE100821: Epoch sleep — journal what happened this session before shutdown
+	epochManager.UpdateStats(func(s *epoch.EpochStats) {
+		s.SessionsActive = agentLoop.GetSessionStats()
+	})
+	uptime := agentLoop.GetIdentity().Uptime().Truncate(time.Second)
+	reflection := fmt.Sprintf("Agent ran for %s. Shutting down gracefully.", uptime)
+	if err := epochManager.Sleep(reflection); err != nil {
+		logger.ErrorCF("epoch", "Failed to write epoch journal", map[string]interface{}{"error": err.Error()})
+	} else {
+		fmt.Println("✓ Epoch journal saved")
+	}
+
 	cancel()
 	deviceService.Stop()
 	heartbeatService.Stop()
@@ -1020,6 +1062,11 @@ func statusCmd() {
 	// SWE100821: Show hardware tier in status output
 	hwp := hwprofile.Detect()
 	fmt.Printf("Hardware: %s (tier=%s, %dMB RAM)\n", hwp.Platform, hwp.Tier, hwp.RAMTotalMB)
+
+	// SWE100821: Show persistent agent identity + birth time
+	agentID := identity.New(cfg.WorkspacePath())
+	fmt.Printf("Agent ID: %s\n", agentID.AgentID)
+	fmt.Printf("Birth: %s (age: %s)\n", agentID.BirthTime.Format("2006-01-02 15:04:05"), agentID.Age().Truncate(time.Second))
 	fmt.Println()
 
 	if _, err := os.Stat(configPath); err == nil {

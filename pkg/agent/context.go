@@ -8,6 +8,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Dawgomatic/Xagent/pkg/epoch"
+	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/skills"
@@ -18,7 +20,9 @@ type ContextBuilder struct {
 	workspace    string
 	skillsLoader *skills.SkillsLoader
 	memory       *MemoryStore
-	tools        *tools.ToolRegistry // Direct reference to tool registry
+	tools        *tools.ToolRegistry        // Direct reference to tool registry
+	identity     *identity.AgentIdentity    // SWE100821: Agent identity + time tracking
+	prevEpoch    *epoch.Record              // SWE100821: Previous epoch for wake-up recall
 }
 
 func getGlobalConfigDir() string {
@@ -48,12 +52,31 @@ func (cb *ContextBuilder) SetToolsRegistry(registry *tools.ToolRegistry) {
 	cb.tools = registry
 }
 
+// SetIdentity sets the agent identity for system prompt injection.
+// SWE100821: Unique agent identity + time tracking in system prompt.
+func (cb *ContextBuilder) SetIdentity(id *identity.AgentIdentity) {
+	cb.identity = id
+}
+
+// SetPreviousEpoch stores the last epoch for injection into the system prompt.
+// SWE100821: Wake-up recall — the agent remembers what happened last session.
+func (cb *ContextBuilder) SetPreviousEpoch(rec *epoch.Record) {
+	cb.prevEpoch = rec
+}
+
 func (cb *ContextBuilder) getIdentity() string {
 	now := time.Now().Format("2006-01-02 15:04 (Monday)")
 	workspacePath, _ := filepath.Abs(filepath.Join(cb.workspace))
-	runtime := fmt.Sprintf("%s %s, Go %s", runtime.GOOS, runtime.GOARCH, runtime.Version())
+	runtimeStr := fmt.Sprintf("%s %s, Go %s", runtime.GOOS, runtime.GOARCH, runtime.Version())
 
-	// Build tools section dynamically
+	// SWE100821: Inject agent identity + time tracking into system prompt
+	identitySection := ""
+	if cb.identity != nil {
+		identitySection = fmt.Sprintf(`## Agent Identity
+%s
+`, cb.identity.ForSystemPrompt())
+	}
+
 	toolsSection := cb.buildToolsSection()
 
 	return fmt.Sprintf(`# xagent 🦞
@@ -63,7 +86,7 @@ You are xagent, a helpful AI assistant.
 ## Current Time
 %s
 
-## Runtime
+%s## Runtime
 %s
 
 ## Workspace
@@ -81,7 +104,7 @@ Your workspace is at: %s
 2. **Be helpful and accurate** - When using tools, briefly explain what you're doing.
 
 3. **Memory** - When remembering something, write to %s/memory/MEMORY.md`,
-		now, runtime, workspacePath, workspacePath, workspacePath, workspacePath, toolsSection, workspacePath)
+		now, identitySection, runtimeStr, workspacePath, workspacePath, workspacePath, workspacePath, toolsSection, workspacePath)
 }
 
 func (cb *ContextBuilder) buildToolsSection() string {
@@ -126,6 +149,12 @@ func (cb *ContextBuilder) BuildSystemPrompt() string {
 The following skills extend your capabilities. To use a skill, read its SKILL.md file using the read_file tool.
 
 %s`, skillsSummary))
+	}
+
+	// SWE100821: Previous epoch recall — "what happened last session"
+	epochContext := epoch.ForSystemPrompt(cb.prevEpoch)
+	if epochContext != "" {
+		parts = append(parts, "# Previous Session\n\n"+epochContext)
 	}
 
 	// Memory context

@@ -69,6 +69,8 @@
 | Health | `pkg/health/` | HTTP health check endpoint |
 | Heartbeat | `pkg/heartbeat/` | Periodic task scheduler |
 | Session | `pkg/session/` | Conversation history management |
+| Identity | `pkg/identity/` | Unique AgentID + per-boot SessionID + time tracking |
+| Epoch | `pkg/epoch/` | Wake/sleep lifecycle journaling (the "day" above sessions) |
 | State | `pkg/state/` | Persistent key-value state |
 
 ## Installation Flow
@@ -118,6 +120,89 @@ start.sh
          └─ Done. Services auto-start on boot.
 ```
 
+## Lifecycle Hierarchy
+
+<!-- SWE100821: Agent lifecycle layers mapped to human analogy -->
+
+Each agent instance has a layered lifecycle, analogous to human consciousness:
+
+| Layer | Human | Xagent | Persistence |
+|-------|-------|--------|-------------|
+| **Soul** | Who I am, forever | `AgentID` + `IDENTITY.md` + `SOUL.md` | Permanent (survives all restarts) |
+| **Lifetime memory** | Things I know | `MEMORY.md`, daily notes | Permanent (file-based) |
+| **Epoch** | One day (wake → sleep) | `workspace/epochs/*.json` | Across restarts (one file per boot) |
+| **Session** | One conversation | `workspace/sessions/*.json` | Within/across epochs (per channel:user) |
+| **Turn** | One Q&A exchange | `processMessage()` call | Ephemeral (in-memory only) |
+
+```
+PERMANENT ──────────────────────────────────────────────────────────
+  AgentID (uuid, created once, never changes)
+  IDENTITY.md / SOUL.md / USER.md
+  MEMORY.md (long-term knowledge)
+
+EPOCH (one boot cycle) ─────────────────────────────────────────────
+  Wake:  Load previous epoch journal → inject into system prompt
+  Live:  Record events, accumulate stats (messages, tool calls)
+  Sleep: Write epoch journal (events + stats + reflection)
+         └─ workspace/epochs/20260220-143205-<session>.json
+
+SESSION (one conversation) ─────────────────────────────────────────
+  Per channel:user pair (e.g. telegram:123456)
+  History + summary, auto-pruned after TTL
+         └─ workspace/sessions/<channel_user>.json
+
+TURN (one request/response) ────────────────────────────────────────
+  Context build → LLM call → tool calls → response
+  Ephemeral, not persisted directly
+```
+
+### Epoch Wake/Sleep Flow
+
+```
+               ┌─────────────────────┐
+               │    Process Start    │
+               │   (gateway boot)    │
+               └──────────┬──────────┘
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │   identity.New()    │
+               │  Load/create AgentID│
+               │  Mint SessionID     │
+               └──────────┬──────────┘
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │   epoch.Wake()      │◀── Load last epoch journal
+               │  Create new epoch   │    from workspace/epochs/
+               │  Inject prev epoch  │──▶ System prompt gets
+               │  into context       │    "Previous Session" section
+               └──────────┬──────────┘
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │   Agent runs...     │
+               │  RecordEvent()      │──▶ Events logged in-memory
+               │  UpdateStats()      │──▶ Counters incremented
+               └──────────┬──────────┘
+                          │
+                     SIGTERM/SIGINT
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │   epoch.Sleep()     │
+               │  Capture final stats│
+               │  Write reflection   │
+               │  Save journal to    │──▶ workspace/epochs/
+               │  disk (atomic)      │    <timestamp>-<session>.json
+               └──────────┬──────────┘
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │   Process Exit      │
+               └─────────────────────┘
+```
+
 ## Runtime Flow
 
 ```
@@ -133,7 +218,8 @@ Gateway routes to Agent Loop
 Context Builder
   ├─ Load session history
   ├─ Load skills (SKILL.md files)
-  ├─ Load identity (IDENTITY.md, SOUL.md)
+  ├─ Load identity (IDENTITY.md, SOUL.md, AgentID)
+  ├─ Load previous epoch journal (wake-up recall)
   ├─ Load memory (MEMORY.md)
   └─ Build system prompt
      │
@@ -162,8 +248,9 @@ LLM Provider (Ollama / Cloud)
 ├── config.json          ← Agent configuration (provider, model, channels)
 └── workspace/
     ├── sessions/        ← Conversation history (per channel/user)
+    ├── epochs/          ← Epoch journals (one per boot cycle)
     ├── memory/          ← Long-term memory (MEMORY.md)
-    ├── state/           ← Persistent state (key-value pairs)
+    ├── state/           ← Persistent state (key-value pairs, identity.json)
     ├── cron/            ← Scheduled jobs
     ├── skills/          ← User-installed skills
     ├── IDENTITY.md      ← Agent identity and name
