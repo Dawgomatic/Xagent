@@ -1,0 +1,11 @@
+{
+  "owner": "lars147",
+  "slug": "apo-cli",
+  "displayName": "Apo Cli",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1770555316190,
+    "commit": "https://github.com/openclaw/skills/commit/e4ed8c451dd48bfaefbf8fbe6d9f5d9f658a57a5"
+  },
+  "history": []
+}

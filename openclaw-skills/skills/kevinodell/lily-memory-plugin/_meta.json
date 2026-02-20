@@ -1,0 +1,11 @@
+{
+  "owner": "kevinodell",
+  "slug": "lily-memory-plugin",
+  "displayName": "Lily Memory Plugin",
+  "latest": {
+    "version": "5.1.0",
+    "publishedAt": 1771303781968,
+    "commit": "https://github.com/openclaw/skills/commit/599919f7a6a223063a6ab2062a851b6bd22d3927"
+  },
+  "history": []
+}

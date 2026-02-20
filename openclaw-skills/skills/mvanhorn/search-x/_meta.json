@@ -1,0 +1,27 @@
+{
+  "owner": "mvanhorn",
+  "slug": "search-x",
+  "displayName": "OpenClaw Search X",
+  "latest": {
+    "version": "1.0.5",
+    "publishedAt": 1770827734163,
+    "commit": "https://github.com/openclaw/skills/commit/9f72fffd6c7c36e28e3879c2676622de38026b38"
+  },
+  "history": [
+    {
+      "version": "1.0.3",
+      "publishedAt": 1770779232557,
+      "commit": "https://github.com/openclaw/skills/commit/1f9c89742b5de5e87ff0cd99cf498f8cffe4ae0b"
+    },
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770777660433,
+      "commit": "https://github.com/openclaw/skills/commit/9512ba3862296d012dc08b3048117a98685927a8"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769196247403,
+      "commit": "https://github.com/clawdbot/skills/commit/044a43eb18feb4262f1b863fb2349f2ae249e8d0"
+    }
+  ]
+}

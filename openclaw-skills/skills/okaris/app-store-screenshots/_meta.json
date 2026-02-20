@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "app-store-screenshots",
+  "displayName": "App Store Screenshots",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403068492,
+    "commit": "https://github.com/openclaw/skills/commit/fa779bfd03b9f21fe6a31bbab7a675a7686e4d2f"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656791325,
+      "commit": "https://github.com/openclaw/skills/commit/dcead9939ed139024c1176ce20bdfdb45a388351"
+    }
+  ]
+}

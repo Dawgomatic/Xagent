@@ -1,0 +1,11 @@
+{
+  "owner": "namabile",
+  "slug": "openclaw-logfire",
+  "displayName": "OpenClaw Logfire",
+  "latest": {
+    "version": "0.1.2",
+    "publishedAt": 1771225599331,
+    "commit": "https://github.com/openclaw/skills/commit/a62e9e4f2959bed5eba17d0f1f4d80bc9157e120"
+  },
+  "history": []
+}

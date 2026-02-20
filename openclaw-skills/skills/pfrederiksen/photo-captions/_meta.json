@@ -1,0 +1,11 @@
+{
+  "owner": "pfrederiksen",
+  "slug": "photo-captions",
+  "displayName": "Photo Captions",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771361065768,
+    "commit": "https://github.com/openclaw/skills/commit/0510ee853038bc29d07a50fd916abaa07d13c328"
+  },
+  "history": []
+}

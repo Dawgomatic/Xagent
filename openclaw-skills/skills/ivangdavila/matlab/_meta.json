@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "matlab",
+  "displayName": "MATLAB",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770681184306,
+    "commit": "https://github.com/openclaw/skills/commit/850321fbe63365499065612fc56c4e9a7f518a4f"
+  },
+  "history": []
+}

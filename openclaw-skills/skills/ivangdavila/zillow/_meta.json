@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "zillow",
+  "displayName": "Zillow",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771280751708,
+    "commit": "https://github.com/openclaw/skills/commit/c8f9c486d00cd93375c271c70e21b68100f2e6a5"
+  },
+  "history": []
+}

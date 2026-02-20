@@ -1,0 +1,11 @@
+{
+  "owner": "compass-soul",
+  "slug": "transmissions",
+  "displayName": "Transmissions",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771200094948,
+    "commit": "https://github.com/openclaw/skills/commit/fd64254b3e4fe997d7df4cceedf288ae519b3494"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "aisadocs",
+  "slug": "openclaw-aisa-leading-chinese-llm",
+  "displayName": "Chines LLM Models (MiniMax 2.5,Kimi 2.5, Qwen, Doubao, DeepSeek) with one key",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771137270950,
+    "commit": "https://github.com/openclaw/skills/commit/db437e2b4f3883581b27e405558798cee58d9e8b"
+  },
+  "history": []
+}

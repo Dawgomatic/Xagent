@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "video-pro",
+  "displayName": "Video Pro",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770601580410,
+    "commit": "https://github.com/openclaw/skills/commit/90f76e2aef190d0b67c87a42d98957e39861ea37"
+  },
+  "history": []
+}

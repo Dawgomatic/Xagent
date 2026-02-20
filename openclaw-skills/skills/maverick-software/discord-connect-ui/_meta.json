@@ -1,0 +1,11 @@
+{
+  "owner": "maverick-software",
+  "slug": "discord-connect-ui",
+  "displayName": "Discord Connect UI",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771112061046,
+    "commit": "https://github.com/openclaw/skills/commit/e8c8c9ff7b832e799d40b6b5a6cc991faea314ef"
+  },
+  "history": []
+}

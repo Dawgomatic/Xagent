@@ -1,0 +1,11 @@
+{
+  "owner": "jiafar",
+  "slug": "clawcut",
+  "displayName": "ClawCut",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771387741763,
+    "commit": "https://github.com/openclaw/skills/commit/46c037aa95d5f4d2c1abee624638c6741806568e"
+  },
+  "history": []
+}

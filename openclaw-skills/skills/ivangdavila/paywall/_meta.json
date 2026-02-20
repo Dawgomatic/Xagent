@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "paywall",
+  "displayName": "Paywall",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770904623011,
+    "commit": "https://github.com/openclaw/skills/commit/f0437281f2b8b19ed2983660ff191c5dcc839041"
+  },
+  "history": []
+}

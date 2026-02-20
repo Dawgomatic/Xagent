@@ -1,0 +1,11 @@
+{
+  "owner": "neldar",
+  "slug": "webchat-voice-full-stack",
+  "displayName": "Webchat Voice Full Stack",
+  "latest": {
+    "version": "0.1.4",
+    "publishedAt": 1771368378305,
+    "commit": "https://github.com/openclaw/skills/commit/5516d1c3bcf1f24c12ef22c3d61e4e26190053f4"
+  },
+  "history": []
+}

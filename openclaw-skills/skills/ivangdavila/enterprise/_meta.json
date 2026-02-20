@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "enterprise",
+  "displayName": "Enterprise",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771284693902,
+    "commit": "https://github.com/openclaw/skills/commit/0dde2231a12665c76b560dcf6c3f35fb88341354"
+  },
+  "history": []
+}

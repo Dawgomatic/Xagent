@@ -1,0 +1,11 @@
+{
+  "owner": "guohongbin-git",
+  "slug": "mlops-automation-cn",
+  "displayName": "MLOps Automation",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771427892174,
+    "commit": "https://github.com/openclaw/skills/commit/41e9692e2a5072287c5513270a36816321d1fb06"
+  },
+  "history": []
+}

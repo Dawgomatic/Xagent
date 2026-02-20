@@ -1,0 +1,11 @@
+{
+  "owner": "jpbonch",
+  "slug": "agentspend",
+  "displayName": "AgentSpend",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1771391675799,
+    "commit": "https://github.com/openclaw/skills/commit/a74509099e78546ac35204e5da58bbae84c3e081"
+  },
+  "history": []
+}

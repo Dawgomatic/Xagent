@@ -1,0 +1,11 @@
+{
+  "owner": "carol-gutianle",
+  "slug": "modelready",
+  "displayName": "ModelReady",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770455618581,
+    "commit": "https://github.com/openclaw/skills/commit/3e244e625deab172a08c95aa5ff354e4ee3a70cb"
+  },
+  "history": []
+}

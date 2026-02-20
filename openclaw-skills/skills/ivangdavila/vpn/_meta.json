@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "vpn",
+  "displayName": "VPN",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770750588298,
+    "commit": "https://github.com/openclaw/skills/commit/f429475fd88edeb20e221dba1fb613e66fbd1147"
+  },
+  "history": []
+}

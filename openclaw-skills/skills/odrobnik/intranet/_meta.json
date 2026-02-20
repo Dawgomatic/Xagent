@@ -1,0 +1,17 @@
+{
+  "owner": "odrobnik",
+  "slug": "intranet",
+  "displayName": "Intranet",
+  "latest": {
+    "version": "3.2.4",
+    "publishedAt": 1771176990387,
+    "commit": "https://github.com/openclaw/skills/commit/8cde82fb21584180814b810ec56546df9a66ca5c"
+  },
+  "history": [
+    {
+      "version": "3.2.3",
+      "publishedAt": 1771001299099,
+      "commit": "https://github.com/openclaw/skills/commit/9bc8347ed9a496978b3881755c5c6383a43fa7f8"
+    }
+  ]
+}

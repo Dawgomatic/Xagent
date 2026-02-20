@@ -1,0 +1,11 @@
+{
+  "owner": "audsmith28",
+  "slug": "meeting-prep-agent",
+  "displayName": "Meeting Prep Agent",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1770842534758,
+    "commit": "https://github.com/openclaw/skills/commit/c26d9ecc3444cc8b79ca504775a61337d66adc5c"
+  },
+  "history": []
+}

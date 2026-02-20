@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-security-kms",
+  "displayName": "Alicloud Security Kms",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973241444,
+    "commit": "https://github.com/openclaw/skills/commit/8396dbe13c7c3de1e6202c61f957c2664c19b9e1"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768591464,
+      "commit": "https://github.com/openclaw/skills/commit/2a32fc5513d3aeabc874c4aab31c80745cc8e132"
+    }
+  ]
+}

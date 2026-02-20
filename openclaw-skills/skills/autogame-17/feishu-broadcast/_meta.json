@@ -1,0 +1,22 @@
+{
+  "owner": "autogame-17",
+  "slug": "feishu-broadcast",
+  "displayName": "feishu-broadcast",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771155429650,
+    "commit": "https://github.com/openclaw/skills/commit/496f25951d9fc3910c79422520ff80995c0856fc"
+  },
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770791190926,
+      "commit": "https://github.com/openclaw/skills/commit/e323bed3c7fb580da745b1cec47f628b1ffabbb4"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770118163368,
+      "commit": "https://github.com/clawdbot/skills/commit/df8908ac00d72ed74ac045a7d13de36aee177bc9"
+    }
+  ]
+}

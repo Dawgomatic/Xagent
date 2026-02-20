@@ -1,0 +1,11 @@
+{
+  "owner": "mrsirg97-rgb",
+  "slug": "torchliquidationagent",
+  "displayName": "Torch Liquidation Agent",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1770685426601,
+    "commit": "https://github.com/openclaw/skills/commit/457858cc24dc83f0fb6708fe61554598cebfeebf"
+  },
+  "history": []
+}

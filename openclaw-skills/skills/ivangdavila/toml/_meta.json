@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "toml",
+  "displayName": "TOML",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770686778418,
+    "commit": "https://github.com/openclaw/skills/commit/6c05ef4817805a5f80f099abcaa3905ad7058fa6"
+  },
+  "history": []
+}

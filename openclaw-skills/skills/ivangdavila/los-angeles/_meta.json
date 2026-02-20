@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "los-angeles",
+  "displayName": "Los Angeles",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771411879902,
+    "commit": "https://github.com/openclaw/skills/commit/9d23e067f5feb2300faf3035b01e8d6fced5adce"
+  },
+  "history": []
+}

@@ -1,0 +1,22 @@
+{
+  "owner": "iisweetheartii",
+  "slug": "gemini-image-gen",
+  "displayName": "Gemini Image Gen",
+  "latest": {
+    "version": "1.3.1",
+    "publishedAt": 1771230231013,
+    "commit": "https://github.com/openclaw/skills/commit/88439ad3383dac78bc7f6fa7ec08b938d42d33c2"
+  },
+  "history": [
+    {
+      "version": "1.3.0",
+      "publishedAt": 1770270044148,
+      "commit": "https://github.com/clawdbot/skills/commit/b86ec4983482a4a3db26090451614b19d546a34a"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1770179624367,
+      "commit": "https://github.com/clawdbot/skills/commit/59ff365aa772734940638f690368704de6673257"
+    }
+  ]
+}

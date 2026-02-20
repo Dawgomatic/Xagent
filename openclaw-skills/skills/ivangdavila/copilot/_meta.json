@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "copilot",
+  "displayName": "Copilot",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770978692127,
+    "commit": "https://github.com/openclaw/skills/commit/43c1c43c77564507662637cfff9c29a4a4866de9"
+  },
+  "history": []
+}

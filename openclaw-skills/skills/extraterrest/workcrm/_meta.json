@@ -1,0 +1,11 @@
+{
+  "owner": "extraterrest",
+  "slug": "workcrm",
+  "displayName": "Workcrm",
+  "latest": {
+    "version": "0.1.0-alpha.4",
+    "publishedAt": 1771078950872,
+    "commit": "https://github.com/openclaw/skills/commit/e76881e38c295330def5c00c9ab9f7aed5d3bf81"
+  },
+  "history": []
+}

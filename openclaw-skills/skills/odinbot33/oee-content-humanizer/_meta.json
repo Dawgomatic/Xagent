@@ -1,0 +1,11 @@
+{
+  "owner": "odinbot33",
+  "slug": "oee-content-humanizer",
+  "displayName": "OEE Content Humanizer",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771079669077,
+    "commit": "https://github.com/openclaw/skills/commit/f073be5e264f7a2a09bd56146fa0b15276e2383a"
+  },
+  "history": []
+}

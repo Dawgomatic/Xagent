@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "model-council-pro",
+  "displayName": "Model Council Pro",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771143871329,
+    "commit": "https://github.com/openclaw/skills/commit/fe19519b17ef9570421771101e953f645a81030a"
+  },
+  "history": []
+}

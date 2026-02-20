@@ -1,0 +1,17 @@
+{
+  "owner": "extraterrest",
+  "slug": "student-timetable",
+  "displayName": "Student Timetable",
+  "latest": {
+    "version": "0.1.0-alpha.3",
+    "publishedAt": 1771467366775,
+    "commit": "https://github.com/openclaw/skills/commit/18e5babf43524884a94011e01a78c6825497f0c7"
+  },
+  "history": [
+    {
+      "version": "0.1.0-alpha.2",
+      "publishedAt": 1771342552498,
+      "commit": "https://github.com/openclaw/skills/commit/31b3360736eeae7db4a4fb716bed620016bc29e4"
+    }
+  ]
+}

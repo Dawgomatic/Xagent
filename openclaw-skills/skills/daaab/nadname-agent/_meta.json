@@ -1,0 +1,17 @@
+{
+  "owner": "daaab",
+  "slug": "nadname-agent",
+  "displayName": "NadName Agent",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1770603412312,
+    "commit": "https://github.com/openclaw/skills/commit/75f0c6c1c395684354c391264a9f186066995e3e"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770570436769,
+      "commit": "https://github.com/openclaw/skills/commit/1760f50cbfc6e8fbeb4abfa5fb97f0e4926f720d"
+    }
+  ]
+}

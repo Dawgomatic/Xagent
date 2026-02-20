@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-database-rds",
+  "displayName": "Volcengine Database Rds",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769469034,
+    "commit": "https://github.com/openclaw/skills/commit/a64a5d39d2e155b2a8e6fb2f7c939a72ad190948"
+  },
+  "history": []
+}

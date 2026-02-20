@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "in-app-purchases",
+  "displayName": "In-App Purchases",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771367094112,
+    "commit": "https://github.com/openclaw/skills/commit/ff69b589e3900eecfb30bd5fc92775ac2e8ef00a"
+  },
+  "history": []
+}

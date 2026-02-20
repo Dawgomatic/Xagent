@@ -1,0 +1,22 @@
+{
+  "owner": "heyw00d",
+  "slug": "listing-swarm",
+  "displayName": "Listing Swarm",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1770846019225,
+    "commit": "https://github.com/openclaw/skills/commit/ce96c3cdd25e33cf84ac55a28a6c562025265b70"
+  },
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770781329187,
+      "commit": "https://github.com/openclaw/skills/commit/7daa8f1e5d471f7a9553643d42cfac4da7071d8b"
+    },
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770682356195,
+      "commit": "https://github.com/openclaw/skills/commit/4c40994d87f582109865602b261a8909d6478b35"
+    }
+  ]
+}

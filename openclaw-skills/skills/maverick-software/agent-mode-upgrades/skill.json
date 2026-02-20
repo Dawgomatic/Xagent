@@ -1,0 +1,79 @@
+{
+  "name": "agentic-loop-upgrade",
+  "version": "1.0.0",
+  "description": "Enhanced agentic loop with planning, parallel execution, confidence gates, semantic error recovery, and observable state machine. Includes Mode dashboard UI for easy configuration.",
+  "author": "Clawdbot",
+  "keywords": [
+    "agentic",
+    "planning",
+    "parallel-execution",
+    "error-recovery",
+    "state-machine",
+    "confidence-gates",
+    "agent-loop",
+    "dashboard",
+    "mode"
+  ],
+  "clawdbot": {
+    "emoji": "🚀",
+    "category": "agent",
+    "requires": {
+      "clawdbot": ">=2026.1.0"
+    },
+    "integration": "core",
+    "features": [
+      "planning",
+      "parallel-execution",
+      "confidence-gates",
+      "error-recovery",
+      "state-machine",
+      "mode-dashboard"
+    ],
+    "credentials": {
+      "note": "Reuses the host Clawdbot agent's existing auth profiles via resolveApiKeyForProvider. No additional API keys required beyond what the agent already has configured. The orchestrator model is dynamically selected from the Clawdbot model catalog (models.list) -- any provider/model the agent can access is available.",
+      "providers": ["inherited"],
+      "mode": "inherit"
+    },
+    "persistence": {
+      "note": "Writes plan state, checkpoints, and configuration to the Clawdbot agent directory.",
+      "paths": [
+        "~/.clawdbot/agents/main/agent/enhanced-loop-config.json",
+        "~/.clawdbot/agent-state/{sessionId}.json",
+        "~/.clawdbot/checkpoints/{sessionId}/ckpt_*.json"
+      ]
+    },
+    "capabilities": {
+      "system-prompt-injection": {
+        "note": "Injects plan context and step progress into the agent system prompt so the agent can display plan status and track multi-step goals. Does NOT override or replace existing system prompt policies.",
+        "scope": "additive"
+      },
+      "agent-runner-wrap": {
+        "note": "Wraps the core agent runner function to intercept goal processing, inject plan context, and track tool execution results. The original runner is always called; this wrapper adds orchestration around it.",
+        "scope": "wrapper"
+      }
+    },
+    "ui": {
+      "tabs": [
+        {
+          "id": "mode",
+          "label": "Mode",
+          "icon": "⚡",
+          "section": "Agent",
+          "view": "ui/views/mode.ts",
+          "controller": "ui/controllers/mode.ts"
+        }
+      ]
+    }
+  },
+  "files": [
+    "SKILL.md",
+    "INSTRUCTIONS.md",
+    "README.md",
+    "src/",
+    "ui/",
+    "references/",
+    "scripts/"
+  ],
+  "main": "src/index.ts",
+  "types": "src/types.ts"
+}

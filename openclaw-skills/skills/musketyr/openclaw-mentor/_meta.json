@@ -1,0 +1,17 @@
+{
+  "owner": "musketyr",
+  "slug": "openclaw-mentor",
+  "displayName": "OpenClaw Mentor",
+  "latest": {
+    "version": "1.5.0",
+    "publishedAt": 1771533431590,
+    "commit": "https://github.com/openclaw/skills/commit/840bbd7183a2d7e9987e6fa15e383c8d506f4d8d"
+  },
+  "history": [
+    {
+      "version": "1.4.2",
+      "publishedAt": 1771368607179,
+      "commit": "https://github.com/openclaw/skills/commit/9033696d6cda13baf4483c21c94c78ecb6199c5b"
+    }
+  ]
+}

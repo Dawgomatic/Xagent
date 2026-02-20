@@ -1,0 +1,11 @@
+{
+  "owner": "bowen31337",
+  "slug": "gopls-lsp",
+  "displayName": "Gopls LSP",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770606392671,
+    "commit": "https://github.com/openclaw/skills/commit/f47134b31dba52bad60d2c41a763d9a9911a6eb4"
+  },
+  "history": []
+}

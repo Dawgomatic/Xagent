@@ -1,0 +1,11 @@
+{
+  "owner": "chris6970barbarian-hue",
+  "slug": "glitch-dashboard",
+  "displayName": "Dashboard",
+  "latest": {
+    "version": "2026.2.18",
+    "publishedAt": 1771358123301,
+    "commit": "https://github.com/openclaw/skills/commit/b5f5fbf918573f6e57476cc0286a50d1bb788b4e"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "esim",
+  "displayName": "eSIM",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770762823564,
+    "commit": "https://github.com/openclaw/skills/commit/cd3455b7d4cb834de9d9cf58d13291dba012efa3"
+  },
+  "history": []
+}

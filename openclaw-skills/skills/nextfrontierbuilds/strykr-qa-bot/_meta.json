@@ -1,0 +1,17 @@
+{
+  "owner": "nextfrontierbuilds",
+  "slug": "strykr-qa-bot",
+  "displayName": "Strykr Qa Bot",
+  "latest": {
+    "version": "0.1.2",
+    "publishedAt": 1770799073192,
+    "commit": "https://github.com/openclaw/skills/commit/4b6900106dbd7a718286c6233a6caa928aaadf7e"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770050447473,
+      "commit": "https://github.com/clawdbot/skills/commit/10e40d030c08e137d862ebd89b9162aa8540fcfa"
+    }
+  ]
+}

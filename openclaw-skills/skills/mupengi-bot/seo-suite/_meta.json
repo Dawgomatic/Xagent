@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "seo-suite",
+  "displayName": "seo-suite",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771390933095,
+    "commit": "https://github.com/openclaw/skills/commit/0e177663f0dbd59b445aa268d5d764968ae981e4"
+  },
+  "history": []
+}

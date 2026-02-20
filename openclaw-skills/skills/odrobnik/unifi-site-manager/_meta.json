@@ -1,0 +1,37 @@
+{
+  "owner": "odrobnik",
+  "slug": "unifi-site-manager",
+  "displayName": "Unifi",
+  "latest": {
+    "version": "3.2.1",
+    "publishedAt": 1771189872433,
+    "commit": "https://github.com/openclaw/skills/commit/3f4a39ced2b3307d96868a92f0a4e25052206940"
+  },
+  "history": [
+    {
+      "version": "3.2.0",
+      "publishedAt": 1771185519520,
+      "commit": "https://github.com/openclaw/skills/commit/b3b1c79aac9476608d919cc86a767132abb274cc"
+    },
+    {
+      "version": "3.0.4",
+      "publishedAt": 1771168565700,
+      "commit": "https://github.com/openclaw/skills/commit/e9c4bcb999ce2f11565513796ee26f3df9802f81"
+    },
+    {
+      "version": "3.0.2",
+      "publishedAt": 1771147092258,
+      "commit": "https://github.com/openclaw/skills/commit/489c7cda910d7d3a763ee99b04b2573425b2a3f1"
+    },
+    {
+      "version": "1.1.1",
+      "publishedAt": 1770964194133,
+      "commit": "https://github.com/openclaw/skills/commit/c72477bcd25f90d6e5a9d000c11e7013517320bb"
+    },
+    {
+      "version": "1.0.3",
+      "publishedAt": 1770824805500,
+      "commit": "https://github.com/openclaw/skills/commit/5a0da1b86ea6bf9cf53d3559527442b29d536d59"
+    }
+  ]
+}

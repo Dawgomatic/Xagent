@@ -1,0 +1,11 @@
+{
+  "owner": "autogame-17",
+  "slug": "config-validator",
+  "displayName": "Config Validator",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771337056013,
+    "commit": "https://github.com/openclaw/skills/commit/6f5b82377bbf93520fba07ac1fb7f97fb9a4a442"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "atesluks",
+  "slug": "iqair",
+  "displayName": "IQAir Air Quality",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771295895405,
+    "commit": "https://github.com/openclaw/skills/commit/bb6eb44d0349fd1ca9e1add168e3f78c6b9cfc95"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "prom",
+  "displayName": "Prometheus",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770720629824,
+    "commit": "https://github.com/openclaw/skills/commit/29cb165ce3e64da545e85744aef88d9216b652e6"
+  },
+  "history": []
+}

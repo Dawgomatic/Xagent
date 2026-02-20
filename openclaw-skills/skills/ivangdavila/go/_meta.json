@@ -1,0 +1,22 @@
+{
+  "owner": "ivangdavila",
+  "slug": "go",
+  "displayName": "Go",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771105340457,
+    "commit": "https://github.com/openclaw/skills/commit/515f08c4a930577f34b84eb18fa2484e43f8d853"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1771080843972,
+      "commit": "https://github.com/openclaw/skills/commit/15ab867e3058781cd8fd3c089d8b204057977be3"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770678609786,
+      "commit": "https://github.com/openclaw/skills/commit/03d5732eb212e4a9ffa5c7900d3aa1988eb3229f"
+    }
+  ]
+}

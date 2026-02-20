@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "agxntsix-model-intel",
+  "displayName": "Model Intel",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771136187887,
+    "commit": "https://github.com/openclaw/skills/commit/c25635d746cf63aca3762d2a605cdbd0d0f06e45"
+  },
+  "history": []
+}

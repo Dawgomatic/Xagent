@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "docker",
+  "displayName": "Docker",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771006092020,
+    "commit": "https://github.com/openclaw/skills/commit/1f746f17d41567ecec3ebe7a987941903ce01421"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770677458657,
+      "commit": "https://github.com/openclaw/skills/commit/5ecca757f4a35833a20cc836af8c85b9eff9c61d"
+    }
+  ]
+}

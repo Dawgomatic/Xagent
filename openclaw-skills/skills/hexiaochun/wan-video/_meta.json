@@ -1,0 +1,11 @@
+{
+  "owner": "hexiaochun",
+  "slug": "wan-video",
+  "displayName": "Wan 视频生成",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770648621466,
+    "commit": "https://github.com/openclaw/skills/commit/ad2cc802761537b94c903a2fa9612574a8ecd170"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "app-store",
+  "displayName": "App Store",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770927127634,
+    "commit": "https://github.com/openclaw/skills/commit/eb178d3587c468a9c42974d9d74dba992db56032"
+  },
+  "history": []
+}

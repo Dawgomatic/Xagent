@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "fiverr",
+  "displayName": "Fiverr",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771176972932,
+    "commit": "https://github.com/openclaw/skills/commit/cf04d41b83b6bd53b022e21319323ca28cc1e3bd"
+  },
+  "history": []
+}

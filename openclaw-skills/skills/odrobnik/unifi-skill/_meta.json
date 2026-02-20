@@ -1,0 +1,11 @@
+{
+  "owner": "odrobnik",
+  "slug": "unifi-skill",
+  "displayName": "UniFi Site Manager",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770822097598,
+    "commit": "https://github.com/openclaw/skills/commit/bdb77ee66225d34c56b4bab2f1dedc537b6aca10"
+  },
+  "history": []
+}

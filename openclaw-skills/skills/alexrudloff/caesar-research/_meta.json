@@ -1,0 +1,11 @@
+{
+  "owner": "alexrudloff",
+  "slug": "caesar-research",
+  "displayName": "Deep Research with Caesar.org",
+  "latest": {
+    "version": "0.0.1",
+    "publishedAt": 1771257166797,
+    "commit": "https://github.com/openclaw/skills/commit/f4368e1ca94bec2a450b36f609a4fd82218e55fa"
+  },
+  "history": []
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-ai-recommend-airec",
+  "displayName": "Alicloud Ai Recommend Airec",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973175802,
+    "commit": "https://github.com/openclaw/skills/commit/1ec37134a00e6d57de7aa64a44f565e42127a285"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768429994,
+      "commit": "https://github.com/openclaw/skills/commit/1683b0b96115f5d69151d5270e4ebe120d75b2c9"
+    }
+  ]
+}

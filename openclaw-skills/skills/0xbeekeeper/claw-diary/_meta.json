@@ -1,0 +1,17 @@
+{
+  "owner": "0xbeekeeper",
+  "slug": "claw-diary",
+  "displayName": "Claw Diary",
+  "latest": {
+    "version": "1.1.2",
+    "publishedAt": 1771464126471,
+    "commit": "https://github.com/openclaw/skills/commit/0b76841a776432008ea1c957093673c430b491c0"
+  },
+  "history": [
+    {
+      "version": "1.0.3",
+      "publishedAt": 1771423814234,
+      "commit": "https://github.com/openclaw/skills/commit/6efb7955d7ef75684c1c0c3c10b98638d91d7fae"
+    }
+  ]
+}

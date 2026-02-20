@@ -1,0 +1,17 @@
+{
+  "owner": "vvsotnikov",
+  "slug": "aikek",
+  "displayName": "AIKEK API",
+  "latest": {
+    "version": "1.2.0",
+    "publishedAt": 1771226436516,
+    "commit": "https://github.com/openclaw/skills/commit/b7e17fd25f03a01563b840b479a8453cdccb9064"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769858963460,
+      "commit": "https://github.com/clawdbot/skills/commit/c230bc2634fcb9a1373fb0aba1467d6fe4fa6dde"
+    }
+  ]
+}

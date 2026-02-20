@@ -1,0 +1,27 @@
+{
+  "owner": "0x7466",
+  "slug": "bw-cli",
+  "displayName": "Bitwarden CLI",
+  "latest": {
+    "version": "1.1.1",
+    "publishedAt": 1771097879493,
+    "commit": "https://github.com/openclaw/skills/commit/2ad1f93eb292df6fd8ba29558d95127610777f23"
+  },
+  "history": [
+    {
+      "version": "1.4.1",
+      "publishedAt": 1771062878380,
+      "commit": "https://github.com/openclaw/skills/commit/a9f75f6c0d54ec1a3bcc3ed7c0422123430bd636"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1770638576181,
+      "commit": "https://github.com/openclaw/skills/commit/79fb63880a32dd421cc233cb395ff39e8e5748e8"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770576776770,
+      "commit": "https://github.com/openclaw/skills/commit/392d664c5ea94b44926d780dc2e699bdbd75a5cf"
+    }
+  ]
+}

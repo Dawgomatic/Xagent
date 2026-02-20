@@ -1,0 +1,22 @@
+{
+  "owner": "ivaavimusic",
+  "slug": "x402-layer",
+  "displayName": "X402 Layer",
+  "latest": {
+    "version": "1.1.2",
+    "publishedAt": 1771143071918,
+    "commit": "https://github.com/openclaw/skills/commit/af1c9c601f6f06ab1dd91ecf00a556119c13f0aa"
+  },
+  "history": [
+    {
+      "version": "1.1.1",
+      "publishedAt": 1771097168959,
+      "commit": "https://github.com/openclaw/skills/commit/c1a11f7d27f1d0ad48b485203636a7feaf79d600"
+    },
+    {
+      "version": "1.0.1",
+      "publishedAt": 1769772508801,
+      "commit": "https://github.com/clawdbot/skills/commit/13d6fa2f7dc652ac7459c2ce70ee6a941675cb6e"
+    }
+  ]
+}

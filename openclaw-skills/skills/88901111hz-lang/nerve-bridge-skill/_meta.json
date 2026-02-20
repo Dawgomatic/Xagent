@@ -1,0 +1,11 @@
+{
+  "owner": "88901111hz-lang",
+  "slug": "nerve-bridge-skill",
+  "displayName": "Nerve Bridge Skill",
+  "latest": {
+    "version": "v1.0.0",
+    "publishedAt": 1771421946336,
+    "commit": "https://github.com/openclaw/skills/commit/29cc280aaed9da64e7e7fcf5ebe085d1f9ef7759"
+  },
+  "history": []
+}

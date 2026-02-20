@@ -1,0 +1,11 @@
+{
+  "owner": "edmonddantesj",
+  "slug": "publish-guard",
+  "displayName": "PublishGuard — Post Verification & Credential Manager",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1770980702954,
+    "commit": "https://github.com/openclaw/skills/commit/2dcd0348bb734153fe2f9fc9edfc704e9bb3c95d"
+  },
+  "history": []
+}

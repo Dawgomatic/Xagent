@@ -1,0 +1,11 @@
+{
+  "owner": "atlaspa",
+  "slug": "openclaw-smart-router",
+  "displayName": "Openclaw Smart Router",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770917197445,
+    "commit": "https://github.com/openclaw/skills/commit/f36155ceb0692a07debb00d71a866dd0d7d0447b"
+  },
+  "history": []
+}

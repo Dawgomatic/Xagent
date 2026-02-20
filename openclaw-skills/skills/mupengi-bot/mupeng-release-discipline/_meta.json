@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "mupeng-release-discipline",
+  "displayName": "Release Discipline",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771198295647,
+    "commit": "https://github.com/openclaw/skills/commit/8b187d32e4a2e75aec7dc9a797c39cd6725c8c57"
+  },
+  "history": []
+}

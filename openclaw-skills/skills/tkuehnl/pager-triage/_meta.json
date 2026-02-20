@@ -1,0 +1,11 @@
+{
+  "owner": "tkuehnl",
+  "slug": "pager-triage",
+  "displayName": "Pager Triage",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1771471516108,
+    "commit": "https://github.com/openclaw/skills/commit/bb64884bfe16785672e271252788912889b13d64"
+  },
+  "history": []
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "capt-marbles",
+  "slug": "attio-enhanced",
+  "displayName": "Attio Enhanced CRM",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771343298283,
+    "commit": "https://github.com/openclaw/skills/commit/cbac07950e14da696f8385e4c0767e24944e6b59"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771278694208,
+      "commit": "https://github.com/openclaw/skills/commit/f04293cf0d9bb2cd2aa64ee16d101425b35b07af"
+    }
+  ]
+}

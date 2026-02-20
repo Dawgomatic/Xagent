@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "solana",
+  "displayName": "Solana",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770681222385,
+    "commit": "https://github.com/openclaw/skills/commit/b10f71ad9f442aa34dd3f59e37e45c919dd84807"
+  },
+  "history": []
+}

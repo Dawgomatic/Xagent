@@ -1,0 +1,27 @@
+{
+  "owner": "mvanhorn",
+  "slug": "manus",
+  "displayName": "OpenClaw Manus",
+  "latest": {
+    "version": "1.0.7",
+    "publishedAt": 1770827743736,
+    "commit": "https://github.com/openclaw/skills/commit/35975773e5395fda6c898c6e9439abf831dd9a21"
+  },
+  "history": [
+    {
+      "version": "1.0.6",
+      "publishedAt": 1770779842202,
+      "commit": "https://github.com/openclaw/skills/commit/a7c300451e7f0343aa67a83891d52dc013677c57"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1769051834715,
+      "commit": "https://github.com/clawdbot/skills/commit/425926c268e4a5a04b94822fa3f7fce4f8267093"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769048577642,
+      "commit": "https://github.com/clawdbot/skills/commit/fdbc643aff893ad078d1466a2a43e6313ef4423b"
+    }
+  ]
+}

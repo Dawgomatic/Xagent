@@ -1,0 +1,11 @@
+{
+  "owner": "jarekbird",
+  "slug": "namecheap-dns",
+  "displayName": "Namecheap DNS",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771022049153,
+    "commit": "https://github.com/openclaw/skills/commit/9b0717f208ced480f55536b7f5991abf2987126d"
+  },
+  "history": []
+}

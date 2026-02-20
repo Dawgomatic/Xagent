@@ -1,0 +1,11 @@
+{
+  "owner": "thisisjeron",
+  "slug": "food-cal-order",
+  "displayName": "Food Calendar Order - Order food delivery with a calendar event!",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770496552803,
+    "commit": "https://github.com/openclaw/skills/commit/bb1c9e84235a458969c3d1d71a6a50697dd66f10"
+  },
+  "history": []
+}

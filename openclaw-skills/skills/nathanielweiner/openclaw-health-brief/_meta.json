@@ -1,0 +1,11 @@
+{
+  "owner": "nathanielweiner",
+  "slug": "openclaw-health-brief",
+  "displayName": "OpenClaw Health Brief",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770492817990,
+    "commit": "https://github.com/openclaw/skills/commit/471b01c15f2d06dbb3f77cfc4069d1b494ba5998"
+  },
+  "history": []
+}

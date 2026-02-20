@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "oracle-db",
+  "displayName": "Oracle DB",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770727580018,
+    "commit": "https://github.com/openclaw/skills/commit/e1a13366ff6ea05293f7fd353ba9a4f692d0186d"
+  },
+  "history": []
+}

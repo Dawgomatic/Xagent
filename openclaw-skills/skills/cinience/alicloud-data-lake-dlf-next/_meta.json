@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-data-lake-dlf-next",
+  "displayName": "Alicloud Data Lake Dlf Next",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973218489,
+    "commit": "https://github.com/openclaw/skills/commit/42d5d131cd785734e94b0752b672e82a51b66078"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768530684,
+      "commit": "https://github.com/openclaw/skills/commit/fe79ffda495026bf79f5912bef612c8f995c58d8"
+    }
+  ]
+}

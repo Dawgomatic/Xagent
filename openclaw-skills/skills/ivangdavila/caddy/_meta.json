@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "caddy",
+  "displayName": "Caddy",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770741140191,
+    "commit": "https://github.com/openclaw/skills/commit/64631ff43b8a00dbc9f99b4ad2184c7d07ebbbcd"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "product-hunt",
+  "displayName": "Product Hunt",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771192886970,
+    "commit": "https://github.com/openclaw/skills/commit/63dd7658a98d351c454e74e98bf4c09badadbf3a"
+  },
+  "history": []
+}

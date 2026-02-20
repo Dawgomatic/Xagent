@@ -1,0 +1,11 @@
+{
+  "owner": "killgfat",
+  "slug": "marp-cli",
+  "displayName": "Marp Cli",
+  "latest": {
+    "version": "0.0.1",
+    "publishedAt": 1770686346010,
+    "commit": "https://github.com/openclaw/skills/commit/b033e3f840f40de9b7409f72db6fed2fcbbeb056"
+  },
+  "history": []
+}

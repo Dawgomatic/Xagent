@@ -1,0 +1,11 @@
+{
+  "owner": "finnbusse",
+  "slug": "iserv",
+  "displayName": "Iserv",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770746093186,
+    "commit": "https://github.com/openclaw/skills/commit/362ec36cd90d7bc169f8f7e8efbd50fbc53cc50d"
+  },
+  "history": []
+}

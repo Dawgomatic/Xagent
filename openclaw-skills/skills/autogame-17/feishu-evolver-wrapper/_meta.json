@@ -1,0 +1,57 @@
+{
+  "owner": "autogame-17",
+  "slug": "feishu-evolver-wrapper",
+  "displayName": "Feishu Evolver Wrapper",
+  "latest": {
+    "version": "1.6.1",
+    "publishedAt": 1771169237506,
+    "commit": "https://github.com/openclaw/skills/commit/32eba258281b1767c8d575e934654d537ece2512"
+  },
+  "history": [
+    {
+      "version": "1.6.0",
+      "publishedAt": 1771149827816,
+      "commit": "https://github.com/openclaw/skills/commit/1e67fd5773ce544fdf0d9859618fcb90bccd510d"
+    },
+    {
+      "version": "1.5.8",
+      "publishedAt": 1771079258681,
+      "commit": "https://github.com/openclaw/skills/commit/21673f460fbbf7def7d469259eb04c60e7000a06"
+    },
+    {
+      "version": "1.5.3",
+      "publishedAt": 1770915466328,
+      "commit": "https://github.com/openclaw/skills/commit/30878022311a4d8a6f4c0412d46d81b683e3ffad"
+    },
+    {
+      "version": "1.5.2",
+      "publishedAt": 1770823821065,
+      "commit": "https://github.com/openclaw/skills/commit/ae8b75311cc711686cdbb2a484c03b79c955259e"
+    },
+    {
+      "version": "1.5.0",
+      "publishedAt": 1770769965123,
+      "commit": "https://github.com/openclaw/skills/commit/299d3f5d6fcc7e51093eb8a807df0052776fb2af"
+    },
+    {
+      "version": "1.4.0",
+      "publishedAt": 1770650695702,
+      "commit": "https://github.com/openclaw/skills/commit/d11e8f39da75acf156b4ae534ead2df6f5ec4a67"
+    },
+    {
+      "version": "1.2.0",
+      "publishedAt": 1770321027995,
+      "commit": "https://github.com/clawdbot/skills/commit/45b75b255f84bae596edb3f3a179d5c22be4f70a"
+    },
+    {
+      "version": "1.0.42",
+      "publishedAt": 1770140214500,
+      "commit": "https://github.com/clawdbot/skills/commit/20ade305a74c73d83ec3526f137c9c81baeb4614"
+    },
+    {
+      "version": "1.0.39",
+      "publishedAt": 1770136125424,
+      "commit": "https://github.com/clawdbot/skills/commit/cfbee549d2e781c7a10fa2ebe4ebd9cc198b6f34"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "kurinzo",
+  "slug": "tg-media-resolve",
+  "displayName": "Telegram Media Resolver",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770652788674,
+    "commit": "https://github.com/openclaw/skills/commit/86d11f24f71d8ede63f97b22fd3e7d23a8fc10d1"
+  },
+  "history": []
+}

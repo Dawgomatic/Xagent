@@ -1,0 +1,11 @@
+{
+  "owner": "clinicode",
+  "slug": "islamic-daily-reflection",
+  "displayName": "Islamic Reflection",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771030385478,
+    "commit": "https://github.com/openclaw/skills/commit/ade0c128514116d6e49779b7e1b04d11c267a735"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "bun",
+  "displayName": "Bun",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771186696510,
+    "commit": "https://github.com/openclaw/skills/commit/730d9dcfc3146082ac0fa0ef77e3e5827f5857bf"
+  },
+  "history": []
+}

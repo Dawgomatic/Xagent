@@ -1,0 +1,11 @@
+{
+  "owner": "drones277",
+  "slug": "gemini-tg-image-gen",
+  "displayName": "Gemini TG Image Gen",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770596594163,
+    "commit": "https://github.com/openclaw/skills/commit/15a05420fcc623c2873f869f29aec23e00abb269"
+  },
+  "history": []
+}

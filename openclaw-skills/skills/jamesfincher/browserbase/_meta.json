@@ -1,0 +1,11 @@
+{
+  "owner": "jamesfincher",
+  "slug": "browserbase",
+  "displayName": "Browserbase Persist with captcha",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770748803191,
+    "commit": "https://github.com/openclaw/skills/commit/587386e17bab3ae0a52c4b9b50d2036840f562da"
+  },
+  "history": []
+}

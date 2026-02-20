@@ -1,0 +1,17 @@
+{
+  "owner": "andreagriffiths11",
+  "slug": "agent-context",
+  "displayName": "Agent Context",
+  "latest": {
+    "version": "1.3.0",
+    "publishedAt": 1771007192691,
+    "commit": "https://github.com/openclaw/skills/commit/cdde621264426305b2a0db531829a0ed80318e38"
+  },
+  "history": [
+    {
+      "version": "0.1.3",
+      "publishedAt": 1770940216298,
+      "commit": "https://github.com/openclaw/skills/commit/b54cdffb992f1071e16b16d24fb4f7def6e6bdcc"
+    }
+  ]
+}

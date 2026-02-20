@@ -1,0 +1,17 @@
+{
+  "owner": "coenenp",
+  "slug": "gmail-label-manager",
+  "displayName": "Gmail Label Manager",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1770983746583,
+    "commit": "https://github.com/openclaw/skills/commit/f894e0ce88a48db505c4bfcc002e38698c63ddae"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770981858362,
+      "commit": "https://github.com/openclaw/skills/commit/6d0b3a7d980b81f8bdb8ee7cdc9084f10dfdc708"
+    }
+  ]
+}

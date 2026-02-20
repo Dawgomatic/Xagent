@@ -1,0 +1,37 @@
+{
+  "owner": "maikimolto",
+  "slug": "bring-list",
+  "displayName": "Bring! List",
+  "latest": {
+    "version": "1.2.2",
+    "publishedAt": 1771516090053,
+    "commit": "https://github.com/openclaw/skills/commit/439f29c80823457a2e54ef35aa21f7c3ff09cd4c"
+  },
+  "history": [
+    {
+      "version": "1.2.1",
+      "publishedAt": 1771313703703,
+      "commit": "https://github.com/openclaw/skills/commit/f0ddd1edd8eb8242ae03ba7815d3f4d33ca6853d"
+    },
+    {
+      "version": "1.2.0",
+      "publishedAt": 1771247768729,
+      "commit": "https://github.com/openclaw/skills/commit/0b79f87120502c53d187b1147c0af105864db6be"
+    },
+    {
+      "version": "1.1.2",
+      "publishedAt": 1771244811002,
+      "commit": "https://github.com/openclaw/skills/commit/26340415129c62cd23cd3482048a1c855faa26d3"
+    },
+    {
+      "version": "1.1.1",
+      "publishedAt": 1771244533977,
+      "commit": "https://github.com/openclaw/skills/commit/4e94f42b5c33720d5a48b9001107dc38d076d07e"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771242997885,
+      "commit": "https://github.com/openclaw/skills/commit/46a84754786e246c2584953d29da3bf4bfc3faa0"
+    }
+  ]
+}

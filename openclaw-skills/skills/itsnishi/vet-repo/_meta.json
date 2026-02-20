@@ -1,0 +1,11 @@
+{
+  "owner": "itsnishi",
+  "slug": "vet-repo",
+  "displayName": "Vet Repo",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770506425234,
+    "commit": "https://github.com/openclaw/skills/commit/da58c744bfe8a10dc4d87b3a78075a3a0119f342"
+  },
+  "history": []
+}

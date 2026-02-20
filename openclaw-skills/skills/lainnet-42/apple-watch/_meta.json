@@ -1,0 +1,11 @@
+{
+  "owner": "lainnet-42",
+  "slug": "apple-watch",
+  "displayName": "Apple Watch Health Sync",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771475186543,
+    "commit": "https://github.com/openclaw/skills/commit/4b462c47b944857b2e3fae4e55d4354f025c5cef"
+  },
+  "history": []
+}

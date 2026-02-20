@@ -1,0 +1,17 @@
+{
+  "owner": "cheenu1092-oss",
+  "slug": "clawdscan",
+  "displayName": "Clawdscan",
+  "latest": {
+    "version": "0.3.0",
+    "publishedAt": 1770857854299,
+    "commit": "https://github.com/openclaw/skills/commit/3b25208d44fa32fd19a79f0b6be81aed6ad913ed"
+  },
+  "history": [
+    {
+      "version": "0.2.1",
+      "publishedAt": 1770666867676,
+      "commit": "https://github.com/openclaw/skills/commit/d69d4c9241de6d49825a0e93537f895ba5b840b0"
+    }
+  ]
+}

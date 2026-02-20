@@ -1,0 +1,11 @@
+{
+  "owner": "odinbot33",
+  "slug": "oee-knowledge-base",
+  "displayName": "OEE Knowledge Base RAG",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771079524477,
+    "commit": "https://github.com/openclaw/skills/commit/9881a6967c4d5cc61844c74cb71dc723af605280"
+  },
+  "history": []
+}

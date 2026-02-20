@@ -1,0 +1,17 @@
+{
+  "owner": "betsymalthus",
+  "slug": "claw-memory-guardian",
+  "displayName": "Claw Memory Guardian",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770809953787,
+    "commit": "https://github.com/openclaw/skills/commit/d7a2fc95ae7ad64d58dc0d2f3c8124589e3d4ef0"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770741812274,
+      "commit": "https://github.com/openclaw/skills/commit/a8016d27c0894eddd7536a5c15edb9dd2573913c"
+    }
+  ]
+}

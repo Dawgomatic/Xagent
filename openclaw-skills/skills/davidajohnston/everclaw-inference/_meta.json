@@ -1,0 +1,17 @@
+{
+  "owner": "davidajohnston",
+  "slug": "everclaw-inference",
+  "displayName": "Everclaw — Inference You Own",
+  "latest": {
+    "version": "0.9.7",
+    "publishedAt": 1771131088276,
+    "commit": "https://github.com/openclaw/skills/commit/4916c96bb160092ac1103e70a063f711eaa29748"
+  },
+  "history": [
+    {
+      "version": "0.9.2",
+      "publishedAt": 1770873387847,
+      "commit": "https://github.com/openclaw/skills/commit/3e4bc7c54823567ec1c244279f82b60056dd116c"
+    }
+  ]
+}

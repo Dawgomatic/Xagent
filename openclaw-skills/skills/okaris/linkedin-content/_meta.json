@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "linkedin-content",
+  "displayName": "Linkedin Content",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403240552,
+    "commit": "https://github.com/openclaw/skills/commit/8a1290e77e4a76375770c5d252151f3fe74cbdd2"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656553156,
+      "commit": "https://github.com/openclaw/skills/commit/ff956195dc39ab629cf71e0279de6b6160e091e6"
+    }
+  ]
+}

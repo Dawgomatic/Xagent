@@ -1,0 +1,11 @@
+{
+  "owner": "jlevitsk",
+  "slug": "prepper",
+  "displayName": "Prepper Skill",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770862664705,
+    "commit": "https://github.com/openclaw/skills/commit/443619d93f22bdc679f4f2dade3e1af68971b31e"
+  },
+  "history": []
+}

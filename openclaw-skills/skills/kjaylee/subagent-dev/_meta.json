@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "subagent-dev",
+  "displayName": "Subagent Dev",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593680422,
+    "commit": "https://github.com/openclaw/skills/commit/537a5f0545d6a352f73d0ca55bdc1a9acf567c5e"
+  },
+  "history": []
+}

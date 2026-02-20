@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "catalan",
+  "displayName": "Catalan",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770747178313,
+    "commit": "https://github.com/openclaw/skills/commit/d170440a1a4a8d024cee0b5f75a1582dcbdb57b0"
+  },
+  "history": []
+}

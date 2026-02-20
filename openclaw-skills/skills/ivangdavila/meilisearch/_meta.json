@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "meilisearch",
+  "displayName": "Meilisearch",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770750118023,
+    "commit": "https://github.com/openclaw/skills/commit/ef4d85babe0bd75f07c30dca9cbd85b701490b31"
+  },
+  "history": []
+}

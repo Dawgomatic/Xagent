@@ -1,0 +1,17 @@
+{
+  "owner": "bowen31337",
+  "slug": "clawchain",
+  "displayName": "Clawchain",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771038583167,
+    "commit": "https://github.com/openclaw/skills/commit/ddd38b47528acdaea6f18ca595d205d6b122a527"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770606411260,
+      "commit": "https://github.com/openclaw/skills/commit/8ed1c07ab46217aff7ed3acc5271c32b0b82b3e6"
+    }
+  ]
+}

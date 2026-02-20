@@ -1,0 +1,11 @@
+{
+  "owner": "lycohana",
+  "slug": "siliconflow-vision",
+  "displayName": "Siliconflow Vision",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770566424788,
+    "commit": "https://github.com/openclaw/skills/commit/4b1a9e4255579ebb196fa138bc42a95a681f3553"
+  },
+  "history": []
+}

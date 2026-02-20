@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-json-validate",
+  "displayName": "Expanso json-validate",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753107194,
+    "commit": "https://github.com/openclaw/skills/commit/5a1e9eab01a523a38e973cdc2109d1fe3680c3c3"
+  },
+  "history": []
+}

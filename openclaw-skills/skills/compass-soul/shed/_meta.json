@@ -1,0 +1,11 @@
+{
+  "owner": "compass-soul",
+  "slug": "shed",
+  "displayName": "Shed",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771218304204,
+    "commit": "https://github.com/openclaw/skills/commit/4fd696e7a8da2389e91d58f72f8a614a6cb30332"
+  },
+  "history": []
+}

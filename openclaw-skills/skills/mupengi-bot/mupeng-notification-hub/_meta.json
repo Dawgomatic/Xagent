@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "mupeng-notification-hub",
+  "displayName": "Notification Hub",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771198281611,
+    "commit": "https://github.com/openclaw/skills/commit/d4ea5c762f4d0924add479c454b9280fae694cbe"
+  },
+  "history": []
+}

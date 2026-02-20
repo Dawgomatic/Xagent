@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-text-summarize",
+  "displayName": "Expanso text-summarize",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753074537,
+    "commit": "https://github.com/openclaw/skills/commit/23668dd31c354b6b2a11993f3ea52d36a368dd61"
+  },
+  "history": []
+}

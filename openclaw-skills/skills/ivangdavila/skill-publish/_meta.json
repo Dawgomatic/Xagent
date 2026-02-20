@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "skill-publish",
+  "displayName": "Skill Publish",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770826484905,
+    "commit": "https://github.com/openclaw/skills/commit/9cf1e8323cac13861d0ba2967336a197390f5b92"
+  },
+  "history": []
+}

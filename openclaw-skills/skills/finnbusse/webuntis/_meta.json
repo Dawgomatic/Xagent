@@ -1,0 +1,11 @@
+{
+  "owner": "finnbusse",
+  "slug": "webuntis",
+  "displayName": "WebUntis",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770737861231,
+    "commit": "https://github.com/openclaw/skills/commit/36666c338d02c2ba3f8154010887da4f2e31a837"
+  },
+  "history": []
+}

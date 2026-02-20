@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-platform-multicloud-docs-api-benchmark",
+  "displayName": "Alicloud Platform Multicloud Docs Api Benchmark",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770973230420,
+    "commit": "https://github.com/openclaw/skills/commit/2d0b72dde0206598aaa67c441824864ae1e9085a"
+  },
+  "history": []
+}

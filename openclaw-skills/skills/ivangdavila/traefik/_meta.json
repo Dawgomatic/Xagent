@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "traefik",
+  "displayName": "Traefik",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770683678939,
+    "commit": "https://github.com/openclaw/skills/commit/9f397f3919a0df7a0fea960cee42e834d993f4e2"
+  },
+  "history": []
+}

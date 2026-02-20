@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "api",
+  "displayName": "API",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771005393696,
+    "commit": "https://github.com/openclaw/skills/commit/ef37d2f31ae498013062f710c7952513e81daada"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770655833401,
+      "commit": "https://github.com/openclaw/skills/commit/1ee6882b19a7f00b26b9df54d914388656c29ad7"
+    }
+  ]
+}

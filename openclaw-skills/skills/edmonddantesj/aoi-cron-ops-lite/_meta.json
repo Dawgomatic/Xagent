@@ -1,0 +1,11 @@
+{
+  "owner": "edmonddantesj",
+  "slug": "aoi-cron-ops-lite",
+  "displayName": "AOI Cron Ops (Lite)",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771251134667,
+    "commit": "https://github.com/openclaw/skills/commit/0e8d6b5abf84b3a512860dc81cfdfe1d9106a71f"
+  },
+  "history": []
+}

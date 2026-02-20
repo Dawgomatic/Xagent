@@ -1,0 +1,11 @@
+{
+  "owner": "deewooo",
+  "slug": "feishu-upload-skill",
+  "displayName": "Feishu Upload Skill",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771399816367,
+    "commit": "https://github.com/openclaw/skills/commit/ef0c1f3bb296d67ac4652c2a049768d3cab85c14"
+  },
+  "history": []
+}

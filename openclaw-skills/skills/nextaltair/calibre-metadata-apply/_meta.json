@@ -1,0 +1,17 @@
+{
+  "owner": "nextaltair",
+  "slug": "calibre-metadata-apply",
+  "displayName": "Calibre Metadata Apply",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770993524746,
+    "commit": "https://github.com/openclaw/skills/commit/11dc7dec58affe61b5ae2b94ee68823a5290c978"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770905228557,
+      "commit": "https://github.com/openclaw/skills/commit/8139e84629b6120e6f5165a2adae09f7d0f85880"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-ai-video-wan-video",
+  "displayName": "Alicloud Ai Video Wan Video",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770768483543,
+    "commit": "https://github.com/openclaw/skills/commit/c7e1879e247b79ff3fa0adea8b421fdaf2a73e81"
+  },
+  "history": []
+}

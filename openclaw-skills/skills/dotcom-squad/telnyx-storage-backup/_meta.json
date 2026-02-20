@@ -1,0 +1,11 @@
+{
+  "owner": "dotcom-squad",
+  "slug": "telnyx-storage-backup",
+  "displayName": "Backup To Telnyx Storage",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770739849412,
+    "commit": "https://github.com/openclaw/skills/commit/d99616b263e0e17233817f8d5baff69c7b0b19e7"
+  },
+  "history": []
+}

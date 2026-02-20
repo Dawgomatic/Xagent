@@ -1,0 +1,11 @@
+{
+  "owner": "jonisjongithub",
+  "slug": "evm-wallet-venice",
+  "displayName": "EVM Wallet + Venice AI",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770445216849,
+    "commit": "https://github.com/openclaw/skills/commit/c1f0c8933631051802a8ec1e189faeabab3ad20a"
+  },
+  "history": []
+}

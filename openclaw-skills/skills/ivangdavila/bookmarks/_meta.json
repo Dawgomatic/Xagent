@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "bookmarks",
+  "displayName": "Bookmarks",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770777180056,
+    "commit": "https://github.com/openclaw/skills/commit/c7b8bcea0c54e95d136b8d0ebda1926df49991d1"
+  },
+  "history": []
+}

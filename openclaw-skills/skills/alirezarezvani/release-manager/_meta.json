@@ -1,0 +1,11 @@
+{
+  "owner": "alirezarezvani",
+  "slug": "release-manager",
+  "displayName": "release-manager",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771270569886,
+    "commit": "https://github.com/openclaw/skills/commit/ee7414e8458197f6344d3709db5b037984a8d497"
+  },
+  "history": []
+}

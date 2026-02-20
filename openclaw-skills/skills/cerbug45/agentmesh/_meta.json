@@ -1,0 +1,11 @@
+{
+  "owner": "cerbug45",
+  "slug": "agentmesh",
+  "displayName": "AgentMesh",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770913707604,
+    "commit": "https://github.com/openclaw/skills/commit/c51a7aa3d3f023fed6384575bbff998f4154d072"
+  },
+  "history": []
+}

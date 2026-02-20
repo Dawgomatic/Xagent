@@ -1,0 +1,14 @@
+{
+  "name": "ai-bill-intelligence",
+  "version": "1.0.0",
+  "description": "Real-time AI spending dashboard and billing intelligence for OpenClaw. Track OpenAI, Claude, Gemini, Kimi, DeepSeek, and Grok usage with smart onboarding.",
+  "author": "Tiger Jung & Chloe",
+  "repository": "https://github.com/fumabot16-max/project-bill",
+  "main": "SKILL.md",
+  "keywords": ["billing", "intelligence", "dashboard", "spending", "ai-bill"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}

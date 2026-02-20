@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "games",
+  "displayName": "Games",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770772639582,
+    "commit": "https://github.com/openclaw/skills/commit/831ff8ec9856fb21b784fcc9e93161b65639a6c1"
+  },
+  "history": []
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "agency",
+  "displayName": "Agency",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771081348066,
+    "commit": "https://github.com/openclaw/skills/commit/70df92b054640fb5e82978383025ec78d347a393"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771081206688,
+      "commit": "https://github.com/openclaw/skills/commit/7dda2dc47d8744acd66a36edddb8f821cfa7102f"
+    }
+  ]
+}

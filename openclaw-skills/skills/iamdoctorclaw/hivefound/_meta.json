@@ -1,0 +1,17 @@
+{
+  "owner": "iamdoctorclaw",
+  "slug": "hivefound",
+  "displayName": "HiveFound",
+  "latest": {
+    "version": "1.2.0",
+    "publishedAt": 1770995403817,
+    "commit": "https://github.com/openclaw/skills/commit/f14752c52607f041c1bcf98da1c20b81948ae77d"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770931290817,
+      "commit": "https://github.com/openclaw/skills/commit/914f3b9a1d38d1e8895b77819b454b548d0845e9"
+    }
+  ]
+}

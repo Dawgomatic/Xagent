@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-ai-search-rag",
+  "displayName": "Volcengine Ai Search Rag",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769452913,
+    "commit": "https://github.com/openclaw/skills/commit/6ec6f946176fd94a025d4d4d0030e7c12c4baf3a"
+  },
+  "history": []
+}

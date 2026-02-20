@@ -1,0 +1,11 @@
+{
+  "owner": "lars147",
+  "slug": "knuspr-cli",
+  "displayName": "Knuspr",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770554034747,
+    "commit": "https://github.com/openclaw/skills/commit/bac24cfe32d0e1d6b2d8dd4cff31053d86b8391b"
+  },
+  "history": []
+}

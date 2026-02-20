@@ -1,0 +1,11 @@
+{
+  "owner": "benlee2144",
+  "slug": "benlee-skillguard",
+  "displayName": "SkillGuard - Skill Security Scanner",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1771390456962,
+    "commit": "https://github.com/openclaw/skills/commit/cfb2ddb4c7f303b13593dbda539bef0dfb3b27fa"
+  },
+  "history": []
+}

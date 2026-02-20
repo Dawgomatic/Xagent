@@ -1,0 +1,22 @@
+{
+  "owner": "mastergear4824",
+  "slug": "aiclude-vulns-scan",
+  "displayName": "AIclude Security Scanner",
+  "latest": {
+    "version": "3.0.0",
+    "publishedAt": 1771365540283,
+    "commit": "https://github.com/openclaw/skills/commit/60e9bf1c332ede77d23e6e07341d7c7b9225d573"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770971161828,
+      "commit": "https://github.com/openclaw/skills/commit/12fb55e84d742a5a3bda665ebdb50ad2f4b0cd77"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770968368537,
+      "commit": "https://github.com/openclaw/skills/commit/ee2f18a8d517aa332e3f9dd0809209b91a5ff8e6"
+    }
+  ]
+}

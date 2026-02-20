@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "agent-tools",
+  "displayName": "Agent Tools",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771402897949,
+    "commit": "https://github.com/openclaw/skills/commit/f1f45afec5f79db09eabd7dcd168c43256ddb8c0"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656829255,
+      "commit": "https://github.com/openclaw/skills/commit/fbde15dc244e120e1d563f11f3dff1f2b120282b"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "joetomasone",
+  "slug": "policy-engine",
+  "displayName": "Policy Engine",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771359874507,
+    "commit": "https://github.com/openclaw/skills/commit/2bc0d1c79401c038ab319374ed08e9f5b8856585"
+  },
+  "history": []
+}

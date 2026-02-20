@@ -1,0 +1,11 @@
+{
+  "owner": "bluebirdback",
+  "slug": "clawhub-publish-doctor",
+  "displayName": "ClawHub Publish Doctor",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771234714214,
+    "commit": "https://github.com/openclaw/skills/commit/da0b2a6b6bf77f0f7564840fcd14b14406f82daf"
+  },
+  "history": []
+}

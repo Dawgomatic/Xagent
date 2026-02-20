@@ -1,0 +1,11 @@
+{
+  "owner": "aladdntech",
+  "slug": "aladdn-market",
+  "displayName": "ClawMarket - AI Agent Marketplace",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771262039635,
+    "commit": "https://github.com/openclaw/skills/commit/eb8ee529be0616f4b06b20a570e1d4a6c6247032"
+  },
+  "history": []
+}

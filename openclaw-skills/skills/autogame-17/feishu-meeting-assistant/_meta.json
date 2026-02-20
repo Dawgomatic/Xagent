@@ -1,0 +1,11 @@
+{
+  "owner": "autogame-17",
+  "slug": "feishu-meeting-assistant",
+  "displayName": "Feishu Meeting Assistant",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771337133252,
+    "commit": "https://github.com/openclaw/skills/commit/43ac06854f4a36ee10cb04d3fb53db3ebdeadc1f"
+  },
+  "history": []
+}

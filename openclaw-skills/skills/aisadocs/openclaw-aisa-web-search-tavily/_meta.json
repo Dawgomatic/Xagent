@@ -1,0 +1,11 @@
+{
+  "owner": "aisadocs",
+  "slug": "openclaw-aisa-web-search-tavily",
+  "displayName": "Web Search by Tavily",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771075128711,
+    "commit": "https://github.com/openclaw/skills/commit/79df2d1f262582fae6bd63c678f6fb86d7223beb"
+  },
+  "history": []
+}

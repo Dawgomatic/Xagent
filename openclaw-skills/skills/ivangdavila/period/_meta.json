@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "period",
+  "displayName": "Period Tracker",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771181966467,
+    "commit": "https://github.com/openclaw/skills/commit/5ad3cecff56eacbe0704c9f7a760c78f46cc94cd"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770833068922,
+      "commit": "https://github.com/openclaw/skills/commit/f6a7ff4b10951f6545e99bbcd32032fd58c059e2"
+    }
+  ]
+}

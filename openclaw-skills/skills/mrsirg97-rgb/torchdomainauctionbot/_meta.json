@@ -1,0 +1,11 @@
+{
+  "owner": "mrsirg97-rgb",
+  "slug": "torchdomainauctionbot",
+  "displayName": "Torch Domain Auction Bot",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771028937507,
+    "commit": "https://github.com/openclaw/skills/commit/2dced42dbfba2ba18361694523a168c204a0f2ca"
+  },
+  "history": []
+}

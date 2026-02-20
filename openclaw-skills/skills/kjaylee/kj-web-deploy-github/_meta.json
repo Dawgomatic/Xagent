@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "kj-web-deploy-github",
+  "displayName": "Web Deploy GitHub (KJ)",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593582749,
+    "commit": "https://github.com/openclaw/skills/commit/8a94eae7c7af689330b2475d3fe35bb6cff65e8d"
+  },
+  "history": []
+}

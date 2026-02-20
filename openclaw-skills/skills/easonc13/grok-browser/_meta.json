@@ -1,0 +1,11 @@
+{
+  "owner": "easonc13",
+  "slug": "grok-browser",
+  "displayName": "Grok Browser",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771175748655,
+    "commit": "https://github.com/openclaw/skills/commit/9d4082e93a08b08fce303f5712a1cf7d76693818"
+  },
+  "history": []
+}

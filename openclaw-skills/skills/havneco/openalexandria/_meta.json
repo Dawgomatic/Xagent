@@ -1,0 +1,11 @@
+{
+  "owner": "havneco",
+  "slug": "openalexandria",
+  "displayName": "OpenAlexandria",
+  "latest": {
+    "version": "0.2.0",
+    "publishedAt": 1770760442322,
+    "commit": "https://github.com/openclaw/skills/commit/183208a1c2ce4c66830d7b41e8e5b55e1c5bea75"
+  },
+  "history": []
+}

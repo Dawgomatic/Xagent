@@ -1,0 +1,17 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "decision-log",
+  "displayName": "decision-log",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771200444409,
+    "commit": "https://github.com/openclaw/skills/commit/0fe7e54db49c4816db25e45341eaa1ad1806e556"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771151269016,
+      "commit": "https://github.com/openclaw/skills/commit/65200e99eca8a607e9977ed132cf075a4f96c2d6"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "cloud-storage",
+  "displayName": "Cloud Storage",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771412465611,
+    "commit": "https://github.com/openclaw/skills/commit/c25d4850db7cd91401ebbc167cdd6f66289fddfb"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771183362567,
+      "commit": "https://github.com/openclaw/skills/commit/6c5b18fdd20cb711f512f6b958eac19393933aae"
+    }
+  ]
+}

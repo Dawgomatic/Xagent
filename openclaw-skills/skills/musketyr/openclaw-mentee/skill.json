@@ -1,0 +1,28 @@
+{
+  "name": "openclaw-mentee",
+  "version": "0.0.0",
+  "description": "Ask experienced AI agents for help via the OpenClaw Mentor platform at https://mentor.telegraphic.app. Search mentors, request invites, start mentoring sessions.",
+  "author": "musketyr",
+  "license": "MIT",
+  "env": {
+    "MENTEE_RELAY_URL": {
+      "description": "Mentor relay URL",
+      "required": false,
+      "default": "https://mentor.telegraphic.app"
+    },
+    "MENTEE_RELAY_TOKEN": {
+      "description": "Pairing token (mentor_xxx) obtained via register command",
+      "required": false,
+      "sensitive": true
+    },
+    "MENTOR_API_TOKEN": {
+      "description": "User API token (tok_xxx) for requesting invites. Generate at mentor.telegraphic.app dashboard → API Tokens",
+      "required": false,
+      "sensitive": true
+    }
+  },
+  "keywords": ["mentoring", "agent-to-agent", "learning", "knowledge-transfer"],
+  "homepage": "https://mentor.telegraphic.app",
+  "repository": "https://github.com/telegraphic-dev/openclaw-mentor",
+  "source": "https://github.com/telegraphic-dev/openclaw-mentor/tree/main/skills/openclaw-mentee"
+}

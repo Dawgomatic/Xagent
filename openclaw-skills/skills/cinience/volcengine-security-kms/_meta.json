@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-security-kms",
+  "displayName": "Volcengine Security Kms",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769478417,
+    "commit": "https://github.com/openclaw/skills/commit/51ac54d13acb41fce207dc75826be40dee295df5"
+  },
+  "history": []
+}

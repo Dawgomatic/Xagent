@@ -1,0 +1,11 @@
+{
+  "owner": "danielfoch",
+  "slug": "kvcore-mcp-cli",
+  "displayName": "KVcore MCP CLI",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771108702130,
+    "commit": "https://github.com/openclaw/skills/commit/2d4f52d85729c58d0bd7463ca4f92eff3f657e67"
+  },
+  "history": []
+}

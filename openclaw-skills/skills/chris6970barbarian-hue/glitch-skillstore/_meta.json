@@ -1,0 +1,11 @@
+{
+  "owner": "chris6970barbarian-hue",
+  "slug": "glitch-skillstore",
+  "displayName": "Skillstore",
+  "latest": {
+    "version": "2026.2.17",
+    "publishedAt": 1771336626950,
+    "commit": "https://github.com/openclaw/skills/commit/d1811a057b78f332f943b2a528ff10bbd3b453ad"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "gaokao",
+  "displayName": "高考 (Gaokao)",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770993267538,
+    "commit": "https://github.com/openclaw/skills/commit/7f445a96bf0643b726deb075f0bd60e8cf04b355"
+  },
+  "history": []
+}

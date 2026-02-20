@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "windmill",
+  "displayName": "Windmill",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770764206405,
+    "commit": "https://github.com/openclaw/skills/commit/ace98799e286e6dbe859dfd1ec13e18826f82f67"
+  },
+  "history": []
+}

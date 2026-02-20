@@ -1,0 +1,11 @@
+{
+  "owner": "freeai-io",
+  "slug": "social-hub",
+  "displayName": "Social Hub",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770449445940,
+    "commit": "https://github.com/openclaw/skills/commit/722396fdea1875a0b7d6d62d9ef072b4739919cb"
+  },
+  "history": []
+}

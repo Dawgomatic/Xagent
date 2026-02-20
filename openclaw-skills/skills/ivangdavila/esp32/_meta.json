@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "esp32",
+  "displayName": "ESP32",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770681823358,
+    "commit": "https://github.com/openclaw/skills/commit/c78434f0a20832cf16d46d95e04e0e1830319010"
+  },
+  "history": []
+}

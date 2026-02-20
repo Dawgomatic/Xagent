@@ -1,0 +1,11 @@
+{
+  "owner": "johstracke",
+  "slug": "plant-tracker",
+  "displayName": "Plant Tracker",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770548107791,
+    "commit": "https://github.com/openclaw/skills/commit/3be66fc1677b6b09b7b716223dace790b9aba517"
+  },
+  "history": []
+}

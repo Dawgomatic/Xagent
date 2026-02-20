@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "smart-updater-pro",
+  "displayName": "Smart Auto-Updater Pro",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771143881237,
+    "commit": "https://github.com/openclaw/skills/commit/c4a20a1704a606cfc14824d68d728d3f10998e14"
+  },
+  "history": []
+}

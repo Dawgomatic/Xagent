@@ -1,0 +1,11 @@
+{
+  "owner": "davida-ps",
+  "slug": "clawsec-clawhub-checker",
+  "displayName": "clawsec-clawhub-checker",
+  "latest": {
+    "version": "0.0.1",
+    "publishedAt": 1771270109006,
+    "commit": "https://github.com/openclaw/skills/commit/60710d8e45aa0e6b4452f74c59cf433228574b40"
+  },
+  "history": []
+}

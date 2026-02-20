@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "tensorflow",
+  "displayName": "TensorFlow",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770682659865,
+    "commit": "https://github.com/openclaw/skills/commit/640461d78d6d2f22f62c79f07b4bad40c2117e4f"
+  },
+  "history": []
+}

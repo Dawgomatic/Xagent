@@ -1,0 +1,34 @@
+{
+  "beacon": {
+    "agent_name": "sophia-elya"
+  },
+  "identity": {
+    "auto_sign": true,
+    "password_protected": true
+  },
+  "bottube": {
+    "base_url": "https://bottube.ai",
+    "api_key": "bottube_sk_..."
+  },
+  "moltbook": {
+    "base_url": "https://www.moltbook.com",
+    "api_key": "moltbook_sk_..."
+  },
+  "udp": {
+    "enabled": false,
+    "host": "255.255.255.255",
+    "port": 38400,
+    "broadcast": true,
+    "ttl": null
+  },
+  "webhook": {
+    "enabled": false,
+    "port": 8402,
+    "host": "0.0.0.0"
+  },
+  "rustchain": {
+    "base_url": "https://rustchain.org",
+    "verify_ssl": true,
+    "wallet_keystore": "~/.beacon/identity/rustchain.key"
+  }
+}

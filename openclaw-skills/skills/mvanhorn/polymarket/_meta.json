@@ -1,0 +1,22 @@
+{
+  "owner": "mvanhorn",
+  "slug": "polymarket",
+  "displayName": "OpenClaw Polymarket",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1770827747988,
+    "commit": "https://github.com/openclaw/skills/commit/c421abd478bbe0266aa031ea0b2ee4dfc19286d8"
+  },
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770777673196,
+      "commit": "https://github.com/openclaw/skills/commit/64b36df3aa32a03d80329163b8756fe05ae74acd"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769068161418,
+      "commit": "https://github.com/clawdbot/skills/commit/3d476d3e8ef4919783453d9b788d86aa7020cbde"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "cerbug45",
+  "slug": "task-panner-validator",
+  "displayName": "Task Panner Validator for Agents",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771182801511,
+    "commit": "https://github.com/openclaw/skills/commit/dde59955aa9e9f48622fe016c4e3d99ca364717e"
+  },
+  "history": []
+}

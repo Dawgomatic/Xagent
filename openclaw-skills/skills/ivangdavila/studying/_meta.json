@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "studying",
+  "displayName": "Studying",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771184131439,
+    "commit": "https://github.com/openclaw/skills/commit/a96b33e5268a6cb210d04e144d6ec0d906514bef"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770823445248,
+      "commit": "https://github.com/openclaw/skills/commit/9bac67332cd1efc67072ad5ac22905abe9666cc9"
+    }
+  ]
+}

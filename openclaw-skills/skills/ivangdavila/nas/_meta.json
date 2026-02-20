@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "nas",
+  "displayName": "NAS",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771183387446,
+    "commit": "https://github.com/openclaw/skills/commit/a8c713ff1ecf39e69502539c44859b0846400f42"
+  },
+  "history": []
+}

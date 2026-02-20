@@ -1,0 +1,11 @@
+{
+  "owner": "1999azzar",
+  "slug": "node-red-manager",
+  "displayName": "Node Red Manager",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770939037057,
+    "commit": "https://github.com/openclaw/skills/commit/4ae213e08d440b134680fe6edfb9cd1b387038f4"
+  },
+  "history": []
+}

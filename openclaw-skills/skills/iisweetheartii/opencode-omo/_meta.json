@@ -1,0 +1,17 @@
+{
+  "owner": "iisweetheartii",
+  "slug": "opencode-omo",
+  "displayName": "Opencode Omo",
+  "latest": {
+    "version": "0.3.0",
+    "publishedAt": 1771230195367,
+    "commit": "https://github.com/openclaw/skills/commit/43191c791779fce46673f2e7d93fb697b625f537"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1771136222028,
+      "commit": "https://github.com/openclaw/skills/commit/1d2a5274afda75073fe30d9a2972e179bd191b84"
+    }
+  ]
+}

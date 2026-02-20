@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "paris",
+  "displayName": "Paris",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771447194436,
+    "commit": "https://github.com/openclaw/skills/commit/7b8518f25c9804fa128bb3f681610b06116ff036"
+  },
+  "history": []
+}

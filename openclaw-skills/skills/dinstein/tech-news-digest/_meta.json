@@ -1,0 +1,47 @@
+{
+  "owner": "dinstein",
+  "slug": "tech-news-digest",
+  "displayName": "Tech News Digest",
+  "latest": {
+    "version": "3.5.0",
+    "publishedAt": 1771426030890,
+    "commit": "https://github.com/openclaw/skills/commit/7962a00cf78f2e0227b9780ccf76b808e97d539e"
+  },
+  "history": [
+    {
+      "version": "3.4.10",
+      "publishedAt": 1771375572449,
+      "commit": "https://github.com/openclaw/skills/commit/8bf1566c582e4efea87220d3705669b0e06bf6d5"
+    },
+    {
+      "version": "3.4.1",
+      "publishedAt": 1771311620427,
+      "commit": "https://github.com/openclaw/skills/commit/55963deae68897ebbf26cab189735a52f4073796"
+    },
+    {
+      "version": "3.2.0",
+      "publishedAt": 1771212614735,
+      "commit": "https://github.com/openclaw/skills/commit/6ff1ee823d7985660f2bdc57b5b57b5b768fc031"
+    },
+    {
+      "version": "2.6.1",
+      "publishedAt": 1771200596796,
+      "commit": "https://github.com/openclaw/skills/commit/48d2f89dca0fe06c07e2d916b4881fc23b16dac2"
+    },
+    {
+      "version": "2.5.0",
+      "publishedAt": 1771173974990,
+      "commit": "https://github.com/openclaw/skills/commit/e6aab9edab0e7546ec11114adf4b49ccbe9abe6d"
+    },
+    {
+      "version": "2.4.1",
+      "publishedAt": 1771171338455,
+      "commit": "https://github.com/openclaw/skills/commit/e8b98abd801555172a11544aba5e870f22bbd2d4"
+    },
+    {
+      "version": "2.2.1",
+      "publishedAt": 1771166187427,
+      "commit": "https://github.com/openclaw/skills/commit/823986bb9ffd5471a26b0d92cb840296d34042bb"
+    }
+  ]
+}

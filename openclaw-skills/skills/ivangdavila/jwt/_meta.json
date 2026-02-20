@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "jwt",
+  "displayName": "JWT",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771080850587,
+    "commit": "https://github.com/openclaw/skills/commit/a37fa3f1216a6905be36ae26506984dec34c443a"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770687933662,
+      "commit": "https://github.com/openclaw/skills/commit/5078bee40290381998fb65242aa186e2b196ffca"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "content-repurposing",
+  "displayName": "Content Repurposing",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403124999,
+    "commit": "https://github.com/openclaw/skills/commit/dabd8c949275e4f6811d16f068d72ccc2566bbef"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656679797,
+      "commit": "https://github.com/openclaw/skills/commit/6655ee3a99bd431cd7cc4441417ba4ddce2e8179"
+    }
+  ]
+}

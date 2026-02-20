@@ -1,0 +1,11 @@
+{
+  "owner": "bowen31337",
+  "slug": "clangd-lsp",
+  "displayName": "Clangd LSP",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770606391199,
+    "commit": "https://github.com/openclaw/skills/commit/7162dbb2108e7343659fe63a6d93e0b3577bb2f5"
+  },
+  "history": []
+}

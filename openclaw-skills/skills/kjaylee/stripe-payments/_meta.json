@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "stripe-payments",
+  "displayName": "Stripe Payments",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593676194,
+    "commit": "https://github.com/openclaw/skills/commit/ba567705e0ee866d1e09b873782a2e374b7ec69b"
+  },
+  "history": []
+}

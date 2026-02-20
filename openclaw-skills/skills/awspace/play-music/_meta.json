@@ -1,0 +1,11 @@
+{
+  "owner": "awspace",
+  "slug": "play-music",
+  "displayName": "Play Local Music",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770649953512,
+    "commit": "https://github.com/openclaw/skills/commit/cec5e2859249e20b6460b64b0e655ce0774583a5"
+  },
+  "history": []
+}

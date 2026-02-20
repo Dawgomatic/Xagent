@@ -1,0 +1,11 @@
+{
+  "owner": "hexiaochun",
+  "slug": "parse-video",
+  "displayName": "视频链接解析",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770648561504,
+    "commit": "https://github.com/openclaw/skills/commit/52f4d4f8fba800c2ba0fd81c1720b128445f15fa"
+  },
+  "history": []
+}

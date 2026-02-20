@@ -1,0 +1,11 @@
+{
+  "owner": "chris6970barbarian-hue",
+  "slug": "skillstore",
+  "displayName": "Skillstore",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771335257485,
+    "commit": "https://github.com/openclaw/skills/commit/1d73b0f187aac16b898f991bb41afe1d4f7a0c5d"
+  },
+  "history": []
+}

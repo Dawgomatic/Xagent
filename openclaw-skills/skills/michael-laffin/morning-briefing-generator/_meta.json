@@ -1,0 +1,11 @@
+{
+  "owner": "michael-laffin",
+  "slug": "morning-briefing-generator",
+  "displayName": "Morning Briefing Generator",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771095134063,
+    "commit": "https://github.com/openclaw/skills/commit/92f028fe9f3d31ea1780cb6852d7eb083d46b4b6"
+  },
+  "history": []
+}

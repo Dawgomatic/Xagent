@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "astronomy",
+  "displayName": "Astronomy",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770755921122,
+    "commit": "https://github.com/openclaw/skills/commit/ac0d2d6680ed7b911760aa95537fae4e76066c90"
+  },
+  "history": []
+}

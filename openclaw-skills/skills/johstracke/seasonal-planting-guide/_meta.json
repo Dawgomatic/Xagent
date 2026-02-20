@@ -1,0 +1,11 @@
+{
+  "owner": "johstracke",
+  "slug": "seasonal-planting-guide",
+  "displayName": "Seasonal Planting Guide",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770551556732,
+    "commit": "https://github.com/openclaw/skills/commit/a8c20ba8ba90cf97ff375181d470926dd7ef1925"
+  },
+  "history": []
+}

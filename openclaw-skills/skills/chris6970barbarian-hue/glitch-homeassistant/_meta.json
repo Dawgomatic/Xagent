@@ -1,0 +1,11 @@
+{
+  "owner": "chris6970barbarian-hue",
+  "slug": "glitch-homeassistant",
+  "displayName": "Homeassistant",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771335292839,
+    "commit": "https://github.com/openclaw/skills/commit/7c2b9bbfc1675083d1c8a323e159c179f79dbe6a"
+  },
+  "history": []
+}

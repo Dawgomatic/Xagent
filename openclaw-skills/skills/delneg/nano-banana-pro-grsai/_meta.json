@@ -1,0 +1,11 @@
+{
+  "owner": "delneg",
+  "slug": "nano-banana-pro-grsai",
+  "displayName": "Nano Banana Pro via cheaper grsai.com",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771427794797,
+    "commit": "https://github.com/openclaw/skills/commit/61e6de7114d82dcc0c3b7cfa7bbc7a3c2ea00a52"
+  },
+  "history": []
+}

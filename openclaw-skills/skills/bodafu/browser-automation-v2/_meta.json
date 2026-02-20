@@ -1,0 +1,11 @@
+{
+  "owner": "bodafu",
+  "slug": "browser-automation-v2",
+  "displayName": "Browser Automation V2",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1771234356011,
+    "commit": "https://github.com/openclaw/skills/commit/17192c8800563eb437a34e16a375d9b55cfa7600"
+  },
+  "history": []
+}

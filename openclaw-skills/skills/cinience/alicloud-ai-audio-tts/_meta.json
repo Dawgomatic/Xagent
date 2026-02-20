@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-ai-audio-tts",
+  "displayName": "Alicloud Ai Audio Tts",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973056340,
+    "commit": "https://github.com/openclaw/skills/commit/123c00185b6095ae576391ff26762203a642835e"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768394297,
+      "commit": "https://github.com/openclaw/skills/commit/a7a7f56028248dd2c314d2b190095a69eb52ce9c"
+    }
+  ]
+}

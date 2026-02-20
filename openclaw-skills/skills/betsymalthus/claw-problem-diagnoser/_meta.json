@@ -1,0 +1,11 @@
+{
+  "owner": "betsymalthus",
+  "slug": "claw-problem-diagnoser",
+  "displayName": "Claw Problem Diagnoser",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1770809984805,
+    "commit": "https://github.com/openclaw/skills/commit/82fcad4cd4561cdf4c90d016bc3218e3438807b6"
+  },
+  "history": []
+}

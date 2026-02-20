@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "loop",
+  "displayName": "Loop",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771249069363,
+    "commit": "https://github.com/openclaw/skills/commit/6993dd9fff3b406c289989101ad7d6874fddadc7"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770833943168,
+      "commit": "https://github.com/openclaw/skills/commit/6f99e01093b46ca98a56e67f24354e522d838a0e"
+    }
+  ]
+}

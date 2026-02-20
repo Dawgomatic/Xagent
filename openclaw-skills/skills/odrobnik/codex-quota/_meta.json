@@ -1,0 +1,27 @@
+{
+  "owner": "odrobnik",
+  "slug": "codex-quota",
+  "displayName": "Codex Quota",
+  "latest": {
+    "version": "1.2.1",
+    "publishedAt": 1770964146112,
+    "commit": "https://github.com/openclaw/skills/commit/0a33d5ba8cfa33aceeca425e146576970e9c86d2"
+  },
+  "history": [
+    {
+      "version": "1.1.3",
+      "publishedAt": 1770824577877,
+      "commit": "https://github.com/openclaw/skills/commit/4f8164a225049056218472df34865a34ef5d0142"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1768915737231,
+      "commit": "https://github.com/clawdbot/skills/commit/e47fa2607689d0c4c05ae04e67ab7785d8fe943e"
+    },
+    {
+      "version": "1.0.1",
+      "publishedAt": 1768062000043,
+      "commit": "https://github.com/clawdbot/skills/commit/d14ce307da2a1a6c1f9a957cb2852deceb1f6c2d"
+    }
+  ]
+}

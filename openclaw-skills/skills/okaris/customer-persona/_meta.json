@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "customer-persona",
+  "displayName": "Customer Persona",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403134129,
+    "commit": "https://github.com/openclaw/skills/commit/5acc0086103defe51dacb5cafae20e455401a8fa"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656658734,
+      "commit": "https://github.com/openclaw/skills/commit/dcb018f26dae3cd37efefcdb74501d9005a45f0a"
+    }
+  ]
+}

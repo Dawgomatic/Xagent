@@ -1,0 +1,17 @@
+{
+  "owner": "igorls",
+  "slug": "context-builder",
+  "displayName": "Context Builder",
+  "latest": {
+    "version": "0.8.3-1",
+    "publishedAt": 1771221929206,
+    "commit": "https://github.com/openclaw/skills/commit/6be0e354a6d3c01d8c35eafda415657d648774a4"
+  },
+  "history": [
+    {
+      "version": "0.8.1",
+      "publishedAt": 1771156851516,
+      "commit": "https://github.com/openclaw/skills/commit/1daf985325d71d4e1b9ac8e665db0e239897034f"
+    }
+  ]
+}

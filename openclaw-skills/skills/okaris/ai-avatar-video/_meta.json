@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "ai-avatar-video",
+  "displayName": "Ai Avatar Video",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771402978418,
+    "commit": "https://github.com/openclaw/skills/commit/b45e7fbe60382dd6ac1c111b95bd2525e39f20e0"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770362974637,
+      "commit": "https://github.com/openclaw/skills/commit/017e638b234c4adefeb7abf1b201f49b6947d222"
+    }
+  ]
+}

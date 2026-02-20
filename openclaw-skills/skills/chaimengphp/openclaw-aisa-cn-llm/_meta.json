@@ -1,0 +1,11 @@
+{
+  "owner": "chaimengphp",
+  "slug": "openclaw-aisa-cn-llm",
+  "displayName": "One API key for Chinese AI models. Route to Qwen, Deepseek",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770710829338,
+    "commit": "https://github.com/openclaw/skills/commit/43a43d3aba3ebadb35bf966e4b8b9a9c044bfc00"
+  },
+  "history": []
+}

@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-02-18T22:24:00Z",
+  "files": {
+    "injection-sigs.json": {"category": "prompt_injection", "sigCount": 52, "version": "1.0.0"},
+    "exfil-patterns.json": {"category": "data_exfiltration", "sigCount": 32, "version": "1.0.0"},
+    "tool-abuse.json": {"category": "tool_abuse", "sigCount": 27, "version": "1.0.0"},
+    "social-engineering.json": {"category": "social_engineering", "sigCount": 20, "version": "1.0.0"},
+    "openclaw-hardening.json": {"category": "openclaw_hardening", "sigCount": 15, "version": "1.0.0"}
+  },
+  "totalSignatures": 146,
+  "updateStatus": "current"
+}

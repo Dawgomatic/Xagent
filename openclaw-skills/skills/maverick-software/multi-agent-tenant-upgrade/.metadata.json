@@ -1,0 +1,25 @@
+{
+  "name": "agent-chat-ux",
+  "version": "1.1.0",
+  "author": "Charles Sears",
+  "description": "Agent selector dropdown in chat, per-agent session filtering, new session button, Create Agent wizard (manual + AI), emoji picker, fallback model dropdown, and backend agent CRUD methods for the OpenClaw Control UI.",
+  "tags": ["ui", "agents", "chat", "sessions", "webchat", "models", "wizard"],
+  "openclaw_version": ">=2026.2.18",
+  "requires_rebuild": true,
+  "rebuild_targets": ["ui", "gateway"],
+  "patches": [
+    "references/agents-view.txt",
+    "references/agents-utils.txt",
+    "references/app-render-helpers.txt",
+    "references/app-render.txt",
+    "references/app-main.txt",
+    "references/server-agents.txt"
+  ],
+  "created_at": "2026-02-18",
+  "updated_at": "2026-02-18",
+  "clawhub_ready": true,
+  "fixes": [
+    "AI Wizard 401 OAuth auth error",
+    "Agent not found in config after creation"
+  ]
+}

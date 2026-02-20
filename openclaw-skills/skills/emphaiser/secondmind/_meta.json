@@ -1,0 +1,17 @@
+{
+  "owner": "emphaiser",
+  "slug": "secondmind",
+  "displayName": "SecondMind",
+  "latest": {
+    "version": "1.4.0",
+    "publishedAt": 1771186812709,
+    "commit": "https://github.com/openclaw/skills/commit/4b5e2892cf4ccf09cba09c25da6bd11fe01dd386"
+  },
+  "history": [
+    {
+      "version": "1.3.0",
+      "publishedAt": 1770829349296,
+      "commit": "https://github.com/openclaw/skills/commit/6cca2ab8d52aa5274c8a7e0eef0405fe4d6734d8"
+    }
+  ]
+}

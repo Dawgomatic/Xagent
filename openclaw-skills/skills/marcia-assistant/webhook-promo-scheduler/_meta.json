@@ -1,0 +1,11 @@
+{
+  "owner": "marcia-assistant",
+  "slug": "webhook-promo-scheduler",
+  "displayName": "Webhook Promo Scheduler",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1771344445199,
+    "commit": "https://github.com/openclaw/skills/commit/201ea1440eaf9d84b6dec22b5383e76a93765d38"
+  },
+  "history": []
+}

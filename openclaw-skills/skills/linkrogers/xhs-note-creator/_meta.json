@@ -1,0 +1,11 @@
+{
+  "owner": "linkrogers",
+  "slug": "xhs-note-creator",
+  "displayName": "小红书笔记创作技能",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1770934613062,
+    "commit": "https://github.com/openclaw/skills/commit/5b64d88feaa6e58fe7d7331836dab990eb49ecbb"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "unicornbloom",
+  "slug": "bloom-taste-finder",
+  "displayName": "Bloom Taste Finder",
+  "latest": {
+    "version": "2.0.2",
+    "publishedAt": 1770876500055,
+    "commit": "https://github.com/openclaw/skills/commit/1e6eacf3bb4ed4e5cf4a6fc1633a49c9e668a9cb"
+  },
+  "history": []
+}

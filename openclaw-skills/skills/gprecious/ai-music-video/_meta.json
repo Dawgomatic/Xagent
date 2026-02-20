@@ -1,0 +1,11 @@
+{
+  "owner": "gprecious",
+  "slug": "ai-music-video",
+  "displayName": "AI Music Video",
+  "latest": {
+    "version": "1.2.4",
+    "publishedAt": 1771292199703,
+    "commit": "https://github.com/openclaw/skills/commit/59454c3d0559a249aeb614e89b458f4b3c46d9b5"
+  },
+  "history": []
+}

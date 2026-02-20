@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-ai-entry-ark",
+  "displayName": "Volcengine Ai Entry Ark",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769443532,
+    "commit": "https://github.com/openclaw/skills/commit/fa58abe00570928ada7c133edb9b2d588f42a1f7"
+  },
+  "history": []
+}

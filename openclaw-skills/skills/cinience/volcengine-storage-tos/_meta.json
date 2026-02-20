@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-storage-tos",
+  "displayName": "Volcengine Storage Tos",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769481506,
+    "commit": "https://github.com/openclaw/skills/commit/d321b49cd5e31e684b42dcb14537f03db431ea61"
+  },
+  "history": []
+}

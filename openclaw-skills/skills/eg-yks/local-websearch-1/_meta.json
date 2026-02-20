@@ -1,0 +1,11 @@
+{
+  "owner": "eg-yks",
+  "slug": "local-websearch-1",
+  "displayName": "Local Websearch 1",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771084032812,
+    "commit": "https://github.com/openclaw/skills/commit/193be926702331e6d8ff947513e877188c1f55ad"
+  },
+  "history": []
+}

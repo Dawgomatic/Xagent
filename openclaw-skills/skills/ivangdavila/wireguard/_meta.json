@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "wireguard",
+  "displayName": "WireGuard",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770750380110,
+    "commit": "https://github.com/openclaw/skills/commit/f9f17d899a8cc4eb1850e0ae73cf7af5bec1471b"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "flightpath",
+  "slug": "guy-fastmail",
+  "displayName": "Guy Fastmail",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771386325655,
+    "commit": "https://github.com/openclaw/skills/commit/1d1734386ac36ea1ef301b603b529dd4cd00ad69"
+  },
+  "history": []
+}

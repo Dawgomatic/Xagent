@@ -1,0 +1,11 @@
+{
+  "owner": "hogpile",
+  "slug": "intelligent-delegation",
+  "displayName": "Intelligent Delegation",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771347402442,
+    "commit": "https://github.com/openclaw/skills/commit/8d21394266791df2c3e43139aae9389a62f84a5d"
+  },
+  "history": []
+}

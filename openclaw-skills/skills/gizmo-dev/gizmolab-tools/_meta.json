@@ -1,0 +1,11 @@
+{
+  "owner": "gizmo-dev",
+  "slug": "gizmolab-tools",
+  "displayName": "GizmoLab Tools",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770803380979,
+    "commit": "https://github.com/openclaw/skills/commit/9da0dc26ab2b388c95a3828c50fe22ef1f1b871c"
+  },
+  "history": []
+}

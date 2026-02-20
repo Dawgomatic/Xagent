@@ -1,0 +1,11 @@
+{
+  "owner": "lorpha",
+  "slug": "addtocartfrombitable",
+  "displayName": "Add to Cart from Bitable",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770826404239,
+    "commit": "https://github.com/openclaw/skills/commit/3d682205ce0b70ff97ffe0c46d29c308e154c60c"
+  },
+  "history": []
+}

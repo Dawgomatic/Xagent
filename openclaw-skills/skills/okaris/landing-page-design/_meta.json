@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "landing-page-design",
+  "displayName": "Landing Page Design",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403231032,
+    "commit": "https://github.com/openclaw/skills/commit/29c48738cf7ee770c093a12950dd772197ddd48a"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656564507,
+      "commit": "https://github.com/openclaw/skills/commit/f91597caf91814e95c43809a21d22ea24679f225"
+    }
+  ]
+}

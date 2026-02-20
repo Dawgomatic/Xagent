@@ -1,0 +1,11 @@
+{
+  "owner": "kralsamwise",
+  "slug": "kdp-publisher",
+  "displayName": "KDP Publisher",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771348160631,
+    "commit": "https://github.com/openclaw/skills/commit/124915db4ddd7acb1440963014a2ff5de8f1506a"
+  },
+  "history": []
+}

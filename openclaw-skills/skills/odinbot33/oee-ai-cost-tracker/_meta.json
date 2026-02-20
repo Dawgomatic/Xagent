@@ -1,0 +1,11 @@
+{
+  "owner": "odinbot33",
+  "slug": "oee-ai-cost-tracker",
+  "displayName": "OEE AI Cost Tracker",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771080913643,
+    "commit": "https://github.com/openclaw/skills/commit/8c964dc69593c275f3a9136a9f1e89d915eb5cf0"
+  },
+  "history": []
+}

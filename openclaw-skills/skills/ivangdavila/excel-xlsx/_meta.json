@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "excel-xlsx",
+  "displayName": "XLSX",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770686433325,
+    "commit": "https://github.com/openclaw/skills/commit/3fc8517326ed41776e3867971018d5e9cd31412a"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "vps",
+  "displayName": "VPS",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770741383263,
+    "commit": "https://github.com/openclaw/skills/commit/2cfb238199eb81543ca7604f527ad12cdb9a1ca3"
+  },
+  "history": []
+}

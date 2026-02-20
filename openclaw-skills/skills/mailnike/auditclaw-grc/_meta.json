@@ -1,0 +1,17 @@
+{
+  "owner": "mailnike",
+  "slug": "auditclaw-grc",
+  "displayName": "AuditClaw GRC",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771212191376,
+    "commit": "https://github.com/openclaw/skills/commit/da5040493d25044801905464317105ca87104bf8"
+  },
+  "history": [
+    {
+      "version": "6.0.2",
+      "publishedAt": 1771207576105,
+      "commit": "https://github.com/openclaw/skills/commit/c58c81ad56483ec795a3db9330576e96f1c0bc30"
+    }
+  ]
+}

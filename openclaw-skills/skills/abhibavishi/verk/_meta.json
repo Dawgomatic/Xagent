@@ -1,0 +1,17 @@
+{
+  "owner": "abhibavishi",
+  "slug": "verk",
+  "displayName": "Verk Task Management",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771157773114,
+    "commit": "https://github.com/openclaw/skills/commit/3f03982390141ab7976657775c7aa5afb6206edc"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771057524339,
+      "commit": "https://github.com/openclaw/skills/commit/69e09f9d2180c908188e5057412d32e1588e3616"
+    }
+  ]
+}

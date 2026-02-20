@@ -1,0 +1,11 @@
+{
+  "owner": "danielfoch",
+  "slug": "slybroadcast-voicemail",
+  "displayName": "Slybroadcast Voicemail",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771338247315,
+    "commit": "https://github.com/openclaw/skills/commit/a06581c3e9baf5feac8db00ef645c1e15e54cf41"
+  },
+  "history": []
+}

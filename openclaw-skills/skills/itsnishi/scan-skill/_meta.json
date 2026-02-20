@@ -1,0 +1,11 @@
+{
+  "owner": "itsnishi",
+  "slug": "scan-skill",
+  "displayName": "Scan Skill",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770506475290,
+    "commit": "https://github.com/openclaw/skills/commit/414c2fd3120428155557b1ceecdbc02e7462667d"
+  },
+  "history": []
+}

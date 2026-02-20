@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-02-10T12:24:05.023Z",
+  "models": {
+    "openai": "0.0000",
+    "claude": "0.0021",
+    "gemini": "0.0252",
+    "kimi": "0.1980",
+    "deepseek": "0.0000",
+    "grok": "0.0000",
+    "openai_bal": "0.00",
+    "openai_stats": {},
+    "claude_bal": "-0.00",
+    "claude_stats": {
+      "CLAUDE OPUS 4 5 20251101": 149
+    },
+    "gemini_bal": "POST",
+    "gemini_stats": {
+      "GEMINI 3 FLASH PREVIEW": 328071
+    },
+    "kimi_bal": "-0.20",
+    "kimi_stats": {
+      "KIMI K2.5": 388379
+    },
+    "deepseek_bal": "0.00",
+    "deepseek_stats": {},
+    "grok_bal": "0.00",
+    "grok_stats": {}
+  }
+}

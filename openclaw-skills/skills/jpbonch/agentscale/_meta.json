@@ -1,0 +1,11 @@
+{
+  "owner": "jpbonch",
+  "slug": "agentscale",
+  "displayName": "AgentScale",
+  "latest": {
+    "version": "0.1.2",
+    "publishedAt": 1771391774018,
+    "commit": "https://github.com/openclaw/skills/commit/cf46cccfa441debe0007b469113cb2094fbdacaf"
+  },
+  "history": []
+}

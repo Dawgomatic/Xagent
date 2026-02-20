@@ -1,0 +1,11 @@
+{
+  "owner": "abhibavishi",
+  "slug": "wp-to-static",
+  "displayName": "WordPress to Static Site",
+  "latest": {
+    "version": "1.2.0",
+    "publishedAt": 1770900510796,
+    "commit": "https://github.com/openclaw/skills/commit/f1b3ce5c941d89abf02feb64bbfc4f6c8c8d6eb7"
+  },
+  "history": []
+}

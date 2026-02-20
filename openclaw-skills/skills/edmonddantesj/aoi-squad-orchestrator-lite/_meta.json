@@ -1,0 +1,11 @@
+{
+  "owner": "edmonddantesj",
+  "slug": "aoi-squad-orchestrator-lite",
+  "displayName": "AOI Squad Orchestrator (Lite)",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1771142206539,
+    "commit": "https://github.com/openclaw/skills/commit/e796edec0de548e7f905aa8a1807544479556701"
+  },
+  "history": []
+}

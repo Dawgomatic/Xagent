@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "cinience-alicloud-database-rds-supabase",
+  "displayName": "alicloud-database-rds-supabase",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770768320711,
+    "commit": "https://github.com/openclaw/skills/commit/61c7e386fb77ab81bf4ea29ffd4d7d280b5a0f42"
+  },
+  "history": []
+}

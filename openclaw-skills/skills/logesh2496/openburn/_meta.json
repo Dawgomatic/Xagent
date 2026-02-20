@@ -1,0 +1,27 @@
+{
+  "owner": "logesh2496",
+  "slug": "openburn",
+  "displayName": "OpenBurn",
+  "latest": {
+    "version": "1.0.9",
+    "publishedAt": 1771435342181,
+    "commit": "https://github.com/openclaw/skills/commit/86dcc749c0c298fd78f6028839e11f062e9c9177"
+  },
+  "history": [
+    {
+      "version": "1.0.7",
+      "publishedAt": 1771337914521,
+      "commit": "https://github.com/openclaw/skills/commit/e46e1d924b1df5b17d09d6c1801b63d206d2881b"
+    },
+    {
+      "version": "1.0.5",
+      "publishedAt": 1771310218077,
+      "commit": "https://github.com/openclaw/skills/commit/85e88fa807b7963c1723d46df54890522ec41c31"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771229189254,
+      "commit": "https://github.com/openclaw/skills/commit/8f2596ae7a7ab3d2b570d052b09bb018acb93810"
+    }
+  ]
+}

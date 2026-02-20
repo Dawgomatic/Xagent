@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "dialogue-audio",
+  "displayName": "Dialogue Audio",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403154419,
+    "commit": "https://github.com/openclaw/skills/commit/0bb8654c7643874498729193b3c72e3108638117"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656625352,
+      "commit": "https://github.com/openclaw/skills/commit/0f50d2b4bba3bc4f1ae9439fa20c0b89455d1f82"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "qr",
+  "displayName": "QR",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770976265652,
+    "commit": "https://github.com/openclaw/skills/commit/cd7b47e990b64672305284fb6795ca610a7bed25"
+  },
+  "history": []
+}

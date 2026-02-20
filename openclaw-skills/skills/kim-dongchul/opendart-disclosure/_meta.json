@@ -1,0 +1,11 @@
+{
+  "owner": "kim-dongchul",
+  "slug": "opendart-disclosure",
+  "displayName": "OpenDART Disclosure",
+  "latest": {
+    "version": "1.2.0",
+    "publishedAt": 1771332279330,
+    "commit": "https://github.com/openclaw/skills/commit/965b4b9d78b7e0bd882dddae3f8a7046a9af3782"
+  },
+  "history": []
+}

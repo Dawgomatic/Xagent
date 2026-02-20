@@ -1,0 +1,22 @@
+{
+  "owner": "autogame-17",
+  "slug": "security-sentinel",
+  "displayName": "Security Sentinel",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771344380900,
+    "commit": "https://github.com/openclaw/skills/commit/4b4802268aa2aa2c87f70b20a4f99560bb95927e"
+  },
+  "history": [
+    {
+      "version": "1.1.3",
+      "publishedAt": 1770791865317,
+      "commit": "https://github.com/openclaw/skills/commit/1c78820cea1c740863008ab513d0568a4780f148"
+    },
+    {
+      "version": "1.1.2",
+      "publishedAt": 1770118194971,
+      "commit": "https://github.com/clawdbot/skills/commit/82a30984737048feaf93f220743a903068c144d9"
+    }
+  ]
+}

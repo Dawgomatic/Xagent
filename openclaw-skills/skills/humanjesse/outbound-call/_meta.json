@@ -1,0 +1,17 @@
+{
+  "owner": "humanjesse",
+  "slug": "outbound-call",
+  "displayName": "Outbound Call",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771302442988,
+    "commit": "https://github.com/openclaw/skills/commit/1703763a931194a1e331071e22a9180654834724"
+  },
+  "history": [
+    {
+      "version": "0.1.3",
+      "publishedAt": 1771277681636,
+      "commit": "https://github.com/openclaw/skills/commit/a547fd6c38d08da2a3f9757110a6b647795cf514"
+    }
+  ]
+}

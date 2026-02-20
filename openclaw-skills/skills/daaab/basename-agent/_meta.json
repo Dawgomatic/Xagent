@@ -1,0 +1,17 @@
+{
+  "owner": "daaab",
+  "slug": "basename-agent",
+  "displayName": "Basename Agent",
+  "latest": {
+    "version": "1.6.0",
+    "publishedAt": 1770549613213,
+    "commit": "https://github.com/openclaw/skills/commit/faf78a50a98fff4831be4b50211cacea397ab81c"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770292759569,
+      "commit": "https://github.com/clawdbot/skills/commit/b329369c00e3963fead3cf6c5209218c50dc7408"
+    }
+  ]
+}

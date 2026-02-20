@@ -1,0 +1,11 @@
+{
+  "owner": "ianderrington",
+  "slug": "apple-notes-extractor",
+  "displayName": "Apple Notes Extractor",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770988101105,
+    "commit": "https://github.com/openclaw/skills/commit/fd097b438244e408881abcfb27b349ba4307a31f"
+  },
+  "history": []
+}

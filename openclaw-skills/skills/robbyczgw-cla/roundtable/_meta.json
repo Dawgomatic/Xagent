@@ -1,0 +1,11 @@
+{
+  "owner": "robbyczgw-cla",
+  "slug": "roundtable",
+  "displayName": "Roundtable — Multi-Agent Debate Council",
+  "latest": {
+    "version": "0.4.0-beta",
+    "publishedAt": 1771351623743,
+    "commit": "https://github.com/openclaw/skills/commit/71aa2cdb85a64363aaf7e4fe623b65721ecca085"
+  },
+  "history": []
+}

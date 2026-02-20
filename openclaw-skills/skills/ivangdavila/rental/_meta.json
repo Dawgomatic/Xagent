@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "rental",
+  "displayName": "Rental",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770975790138,
+    "commit": "https://github.com/openclaw/skills/commit/888cc71c0a8c1710f40a6d9180096fa14cc376cd"
+  },
+  "history": []
+}

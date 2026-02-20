@@ -1,0 +1,11 @@
+{
+  "owner": "aviclaw",
+  "slug": "solidity-guardian",
+  "displayName": "Solidity Guardian",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1771193882828,
+    "commit": "https://github.com/openclaw/skills/commit/e362af76064823866c301479ddf20d6310bbf42c"
+  },
+  "history": []
+}

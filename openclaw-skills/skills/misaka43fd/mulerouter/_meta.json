@@ -1,0 +1,22 @@
+{
+  "owner": "misaka43fd",
+  "slug": "mulerouter",
+  "displayName": "MuleRouter",
+  "latest": {
+    "version": "0.1.10",
+    "publishedAt": 1771340642885,
+    "commit": "https://github.com/openclaw/skills/commit/84765921f28f9b159fc3acd2a1f2eecba181cbad"
+  },
+  "history": [
+    {
+      "version": "0.1.3",
+      "publishedAt": 1771246023233,
+      "commit": "https://github.com/openclaw/skills/commit/389eeb05f88f77947386c0fd2eb18876f2a4a0d2"
+    },
+    {
+      "version": "0.1.1",
+      "publishedAt": 1770637240277,
+      "commit": "https://github.com/openclaw/skills/commit/a38b124d523a4233ce2911dacdd2f9b0d105e69f"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-tls-inspect",
+  "displayName": "Expanso tls-inspect",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753070634,
+    "commit": "https://github.com/openclaw/skills/commit/835fc9dac7bb8bbda203ff7d5e91d2c058c30e56"
+  },
+  "history": []
+}

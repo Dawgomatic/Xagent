@@ -1,0 +1,17 @@
+{
+  "owner": "bieggerm",
+  "slug": "passwordstore-broker",
+  "displayName": "Passwordstore Broker",
+  "latest": {
+    "version": "1.1.1",
+    "publishedAt": 1771453850206,
+    "commit": "https://github.com/openclaw/skills/commit/f0b108661050d97143bd3fb525c740d5db1682d0"
+  },
+  "history": [
+    {
+      "version": "1.0.3",
+      "publishedAt": 1771452741213,
+      "commit": "https://github.com/openclaw/skills/commit/6d2841668c849e6bf69207cbdec2bcb0ed64eae7"
+    }
+  ]
+}

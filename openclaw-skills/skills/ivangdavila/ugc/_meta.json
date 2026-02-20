@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "ugc",
+  "displayName": "UGC",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770694276237,
+    "commit": "https://github.com/openclaw/skills/commit/1c3d6410917fa8de542ef4d081a4a096b6f30441"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "euda1mon1a",
+  "slug": "keychain-bridge",
+  "displayName": "Keychain Bridge",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771485603628,
+    "commit": "https://github.com/openclaw/skills/commit/4aaa5887a4d6b2675795b7cda531539ab88e21a2"
+  },
+  "history": []
+}

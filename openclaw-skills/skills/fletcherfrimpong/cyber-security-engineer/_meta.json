@@ -1,0 +1,17 @@
+{
+  "owner": "fletcherfrimpong",
+  "slug": "cyber-security-engineer",
+  "displayName": "Cyber Security Engineer",
+  "latest": {
+    "version": "0.1.4",
+    "publishedAt": 1771154770584,
+    "commit": "https://github.com/openclaw/skills/commit/6105e8a6bf5d1ce806e2e426aaef8f6547e6ad72"
+  },
+  "history": [
+    {
+      "version": "0.1.3",
+      "publishedAt": 1771153959700,
+      "commit": "https://github.com/openclaw/skills/commit/eead7b23c638c0881b88c4ba9b10d1ad50fc91b5"
+    }
+  ]
+}

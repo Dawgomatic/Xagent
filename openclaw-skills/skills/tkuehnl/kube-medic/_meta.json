@@ -1,0 +1,11 @@
+{
+  "owner": "tkuehnl",
+  "slug": "kube-medic",
+  "displayName": "Kube Medic",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771231728295,
+    "commit": "https://github.com/openclaw/skills/commit/67169cf10c551f6c3682a203a774b64ef488ab73"
+  },
+  "history": []
+}

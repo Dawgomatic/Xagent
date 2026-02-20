@@ -1,0 +1,11 @@
+{
+  "owner": "guohongbin-git",
+  "slug": "finetune-service-cn",
+  "displayName": "Fine-tune Service CN | 模型微调服务",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771330655468,
+    "commit": "https://github.com/openclaw/skills/commit/940f6518798f8587d88c7df8726903a8a22fbfbc"
+  },
+  "history": []
+}

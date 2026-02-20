@@ -1,0 +1,11 @@
+{
+  "owner": "autogame-17",
+  "slug": "feishu-voice-assistant",
+  "displayName": "Feishu Voice Assistant",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771344340575,
+    "commit": "https://github.com/openclaw/skills/commit/b2ed8b3cfabb1a240960a201250b26a698564c64"
+  },
+  "history": []
+}

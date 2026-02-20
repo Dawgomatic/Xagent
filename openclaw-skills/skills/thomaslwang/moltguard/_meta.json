@@ -1,0 +1,42 @@
+{
+  "owner": "thomaslwang",
+  "slug": "moltguard",
+  "displayName": "MoltGuard - OpenClaw Security",
+  "latest": {
+    "version": "6.0.2",
+    "publishedAt": 1770989110667,
+    "commit": "https://github.com/openclaw/skills/commit/6d6e9a6ade25cbadc13517a8f97e5c997f46e6ec"
+  },
+  "history": [
+    {
+      "version": "5.0.2",
+      "publishedAt": 1770912190963,
+      "commit": "https://github.com/openclaw/skills/commit/95246d23f5c26c4cde9951cab278761cdf5079b2"
+    },
+    {
+      "version": "3.0.5",
+      "publishedAt": 1770552908249,
+      "commit": "https://github.com/openclaw/skills/commit/e3f0e01f110f43d2f8efb152d3bd14320f07281b"
+    },
+    {
+      "version": "3.0.4",
+      "publishedAt": 1770422429980,
+      "commit": "https://github.com/openclaw/skills/commit/af304d9b1e192d4ce6f371e867cbeda487db5e97"
+    },
+    {
+      "version": "2.0.1",
+      "publishedAt": 1770378286178,
+      "commit": "https://github.com/openclaw/skills/commit/0af5745cb83ee90f852aab421da638f6bca7af55"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1770306512990,
+      "commit": "https://github.com/clawdbot/skills/commit/a1b3bcb16ccd09932d1f1a60bd74c94655106e9c"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769912401534,
+      "commit": "https://github.com/clawdbot/skills/commit/1ea3e95053b56c505f0c4ae6cb9ea2b6d04476f4"
+    }
+  ]
+}

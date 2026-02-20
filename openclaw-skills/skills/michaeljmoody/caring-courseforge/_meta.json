@@ -1,0 +1,17 @@
+{
+  "owner": "michaeljmoody",
+  "slug": "caring-courseforge",
+  "displayName": "Caring CourseForge",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1770916147271,
+    "commit": "https://github.com/openclaw/skills/commit/fbac6cc38871a411fe43611bd2479a61a15d2e9b"
+  },
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770853140569,
+      "commit": "https://github.com/openclaw/skills/commit/df9218702acf12b0ccce63142292c37003f459c5"
+    }
+  ]
+}

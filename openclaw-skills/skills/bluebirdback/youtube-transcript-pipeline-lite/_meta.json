@@ -1,0 +1,11 @@
+{
+  "owner": "bluebirdback",
+  "slug": "youtube-transcript-pipeline-lite",
+  "displayName": "YouTube Transcript Pipeline Lite",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771233672382,
+    "commit": "https://github.com/openclaw/skills/commit/2742b80600f70da26be51a8dbf131a87a95110fd"
+  },
+  "history": []
+}

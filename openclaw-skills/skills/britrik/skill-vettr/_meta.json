@@ -1,0 +1,11 @@
+{
+  "owner": "britrik",
+  "slug": "skill-vettr",
+  "displayName": "Skill Vettr",
+  "latest": {
+    "version": "2.0.3",
+    "publishedAt": 1771158561137,
+    "commit": "https://github.com/openclaw/skills/commit/869385d80a296b3db9001ba21397234d6df2eedc"
+  },
+  "history": []
+}

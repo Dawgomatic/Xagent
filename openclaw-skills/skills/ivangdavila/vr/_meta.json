@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "vr",
+  "displayName": "VR",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770723546050,
+    "commit": "https://github.com/openclaw/skills/commit/69fbac6981b28556141d6b229d28df383f645def"
+  },
+  "history": []
+}

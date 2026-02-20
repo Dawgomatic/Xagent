@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-backup-bdrc",
+  "displayName": "Alicloud Backup Bdrc",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973197807,
+    "commit": "https://github.com/openclaw/skills/commit/0aa19bc4ac12a29e1c0c7e9599c8a76353b4d1e0"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768487228,
+      "commit": "https://github.com/openclaw/skills/commit/53ba2b432c8f168150e4d2ca5ad0eeb65a2196d0"
+    }
+  ]
+}

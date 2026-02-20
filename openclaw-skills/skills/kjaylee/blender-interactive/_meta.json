@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "blender-interactive",
+  "displayName": "Blender Interactive",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593627149,
+    "commit": "https://github.com/openclaw/skills/commit/6f3ff17d5c682f3d9533d8b51de2f79d1b2f261f"
+  },
+  "history": []
+}

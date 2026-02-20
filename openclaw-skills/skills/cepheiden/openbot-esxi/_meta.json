@@ -1,0 +1,11 @@
+{
+  "owner": "cepheiden",
+  "slug": "openbot-esxi",
+  "displayName": "Esxi Debian Deploy",
+  "latest": {
+    "version": "0.1.3",
+    "publishedAt": 1771202181930,
+    "commit": "https://github.com/openclaw/skills/commit/cfe4e00fbb186ce0c74cba38d94975399b212500"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "edmonddantesj",
+  "slug": "aoineco-ledger",
+  "displayName": "Aoineco Ledger — AI Agent Financial Tracking Engine",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770981931738,
+    "commit": "https://github.com/openclaw/skills/commit/f4553359c04d20b1add0f95b2174e805f62c03ff"
+  },
+  "history": []
+}

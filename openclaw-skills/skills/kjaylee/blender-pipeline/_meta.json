@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "blender-pipeline",
+  "displayName": "Blender Pipeline",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770601757319,
+    "commit": "https://github.com/openclaw/skills/commit/6e9a8adbaca242381587f67d801895bd97b331e5"
+  },
+  "history": []
+}

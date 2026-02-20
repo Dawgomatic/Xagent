@@ -1,0 +1,32 @@
+{
+  "name": "session-state-tracker",
+  "version": "1.0.1",
+  "description": "Session State Tracker skill for OpenClaw - persistent state management across compaction and restarts",
+  "main": "scripts/state.js",
+  "bin": {
+    "session-state": "./scripts/cli.js"
+  },
+  "files": [
+    "scripts/",
+    "SKILL.md",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node scripts/cli.js --help"
+  },
+  "keywords": [
+    "openclaw",
+    "session",
+    "state",
+    "compaction",
+    "memory"
+  ],
+  "author": "qsmtco",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

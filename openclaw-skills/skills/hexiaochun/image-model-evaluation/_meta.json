@@ -1,0 +1,11 @@
+{
+  "owner": "hexiaochun",
+  "slug": "image-model-evaluation",
+  "displayName": "image-model-evaluation",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770648522403,
+    "commit": "https://github.com/openclaw/skills/commit/9dc4099a719f12924beb4a02ef643e0b3a953480"
+  },
+  "history": []
+}

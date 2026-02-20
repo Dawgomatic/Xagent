@@ -1,0 +1,11 @@
+{
+  "owner": "aviclaw",
+  "slug": "x-research",
+  "displayName": "X Research",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771157707955,
+    "commit": "https://github.com/openclaw/skills/commit/ab7e94d3c382328e5213439fb8e729e04c66911c"
+  },
+  "history": []
+}

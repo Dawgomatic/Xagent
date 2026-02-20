@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "explain",
+  "displayName": "Explain",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771184127984,
+    "commit": "https://github.com/openclaw/skills/commit/431e81783a8c76c703a655a1c00d3641a7e41166"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770892402557,
+      "commit": "https://github.com/openclaw/skills/commit/00e9e36c5602e1ab851bebaafed4bd741c6af5d9"
+    }
+  ]
+}

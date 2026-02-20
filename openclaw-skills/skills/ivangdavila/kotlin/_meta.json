@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "kotlin",
+  "displayName": "Kotlin",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771100283526,
+    "commit": "https://github.com/openclaw/skills/commit/c5023f73ea70a20d25e52913f2dfdbea7dff5a68"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770680242012,
+      "commit": "https://github.com/openclaw/skills/commit/c5f0a552832231bd85ef5e87d3ae4edb25ab2f6a"
+    }
+  ]
+}

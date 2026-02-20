@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "model-intel-pro",
+  "displayName": "Model Intel Pro",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771140081254,
+    "commit": "https://github.com/openclaw/skills/commit/97a12a0333b021558fc8ff7eb6069b4300f6b436"
+  },
+  "history": []
+}

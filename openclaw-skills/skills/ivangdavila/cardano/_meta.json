@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "cardano",
+  "displayName": "Cardano",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770746415706,
+    "commit": "https://github.com/openclaw/skills/commit/4deee5f92be5583df2653c50e1b7e635891e5a31"
+  },
+  "history": []
+}

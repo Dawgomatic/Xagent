@@ -1,0 +1,17 @@
+{
+  "owner": "bowen31337",
+  "slug": "agent-self-governance",
+  "displayName": "agent-self-governance",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771057755490,
+    "commit": "https://github.com/openclaw/skills/commit/096ad3f09e7a65175dfbba4f643edfa9e270c4d5"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770791894822,
+      "commit": "https://github.com/openclaw/skills/commit/85039341592f88c871237e3595dc95e2eb734874"
+    }
+  ]
+}

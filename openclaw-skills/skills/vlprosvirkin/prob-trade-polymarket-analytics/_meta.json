@@ -1,0 +1,11 @@
+{
+  "owner": "vlprosvirkin",
+  "slug": "prob-trade-polymarket-analytics",
+  "displayName": "Openclaw Skill Publish",
+  "latest": {
+    "version": "2.0.3",
+    "publishedAt": 1771443560146,
+    "commit": "https://github.com/openclaw/skills/commit/957bcef8898d5fd4cb17d4f89235bfca5417a5c4"
+  },
+  "history": []
+}

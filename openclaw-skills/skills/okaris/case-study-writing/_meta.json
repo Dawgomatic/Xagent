@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "case-study-writing",
+  "displayName": "Case Study Writing",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403093884,
+    "commit": "https://github.com/openclaw/skills/commit/974494e906fa00d19c29d0e074c6a13fd0e424ee"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656731227,
+      "commit": "https://github.com/openclaw/skills/commit/950471cc34ba40880de3969f86dd8ae95e815fb9"
+    }
+  ]
+}

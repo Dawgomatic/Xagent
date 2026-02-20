@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "writer",
+  "displayName": "Writer",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770664525321,
+    "commit": "https://github.com/openclaw/skills/commit/aca463b1bad74ced351add41a479b34803037080"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770664513124,
+      "commit": "https://github.com/openclaw/skills/commit/79847593cb46d5a09ad7baf12c1547ea95b84587"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "extract-pdf-text",
+  "displayName": "Extract PDF Text",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771460669549,
+    "commit": "https://github.com/openclaw/skills/commit/2c6001421a73170fa8c023e61fa638644839e8ca"
+  },
+  "history": []
+}

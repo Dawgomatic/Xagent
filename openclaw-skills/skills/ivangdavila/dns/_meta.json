@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "dns",
+  "displayName": "DNS",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770691845903,
+    "commit": "https://github.com/openclaw/skills/commit/0e1ba44426e9cca2e3c6834c5f42deb2228a708e"
+  },
+  "history": []
+}

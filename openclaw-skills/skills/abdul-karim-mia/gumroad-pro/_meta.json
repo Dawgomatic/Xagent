@@ -1,0 +1,17 @@
+{
+  "owner": "abdul-karim-mia",
+  "slug": "gumroad-pro",
+  "displayName": "Gumroad Pro",
+  "latest": {
+    "version": "1.2.9",
+    "publishedAt": 1771062376112,
+    "commit": "https://github.com/openclaw/skills/commit/e76e2cf5c789ed22ee2607b7009b83ad2222bb15"
+  },
+  "history": [
+    {
+      "version": "1.2.1",
+      "publishedAt": 1770599823289,
+      "commit": "https://github.com/openclaw/skills/commit/82048bba711f0c2f06fd6610fb8cb79c00c16e3c"
+    }
+  ]
+}

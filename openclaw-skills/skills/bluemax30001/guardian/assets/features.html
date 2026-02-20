@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guardian — Feature Cards</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #0f0f1a;
+    --bg3: #13131f;
+    --border: #1a1a2e;
+    --border-hover: #2a2a4e;
+    --text: #b0b0c8;
+    --dim: #505068;
+    --red: #ff4444;
+    --red-dim: #1a0808;
+    --green: #00ff88;
+    --green-dim: #001a10;
+    --amber: #ffaa00;
+    --amber-dim: #1a1000;
+    --cyan: #00d4ff;
+    --cyan-dim: #001020;
+    --purple: #9b59b6;
+    --purple-dim: #120a18;
+    --blue: #4488ff;
+    --blue-dim: #081028;
+    --white: #e8e8f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Courier New', 'Lucida Console', monospace;
+    min-height: 100vh;
+    padding: 48px 24px 64px;
+  }
+
+  /* ─── HEADER ─────────────────────────────────────────── */
+  .page-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+
+  .page-header h1 {
+    font-size: clamp(22px, 4vw, 36px);
+    color: var(--white);
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+
+  .page-header h1 span { color: var(--cyan); }
+
+  .page-header p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--dim);
+    letter-spacing: 0.05em;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    margin: 20px auto 0;
+  }
+
+  /* ─── GRID ───────────────────────────────────────────── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ─── CARD ───────────────────────────────────────────── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .card::before {
+    /* top accent bar */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card::after {
+    /* ambient glow */
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    filter: blur(30px);
+  }
+
+  .card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  }
+
+  .card:hover::before { opacity: 1; }
+  .card:hover::after  { opacity: 0.35; }
+
+  /* Per-card accent colors */
+  .card.prompt::before  { background: var(--red); }
+  .card.prompt::after   { background: var(--red); }
+  .card.prompt:hover    { border-color: rgba(255,68,68,0.4); box-shadow: 0 16px 48px rgba(255,68,68,0.1); }
+
+  .card.exfil::before   { background: var(--cyan); }
+  .card.exfil::after    { background: var(--cyan); }
+  .card.exfil:hover     { border-color: rgba(0,212,255,0.4); box-shadow: 0 16px 48px rgba(0,212,255,0.1); }
+
+  .card.tool::before    { background: var(--amber); }
+  .card.tool::after     { background: var(--amber); }
+  .card.tool:hover      { border-color: rgba(255,170,0,0.4); box-shadow: 0 16px 48px rgba(255,170,0,0.1); }
+
+  .card.social::before  { background: var(--purple); }
+  .card.social::after   { background: var(--purple); }
+  .card.social:hover    { border-color: rgba(155,89,182,0.4); box-shadow: 0 16px 48px rgba(155,89,182,0.1); }
+
+  .card.kill::before    { background: var(--red); }
+  .card.kill::after     { background: var(--red); }
+  .card.kill:hover      { border-color: rgba(255,68,68,0.4); box-shadow: 0 16px 48px rgba(255,68,68,0.1); }
+
+  .card.intel::before   { background: var(--green); }
+  .card.intel::after    { background: var(--green); }
+  .card.intel:hover     { border-color: rgba(0,255,136,0.4); box-shadow: 0 16px 48px rgba(0,255,136,0.1); }
+
+  /* ─── CARD HEADER ────────────────────────────────────── */
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .icon-wrap {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .card.prompt  .icon-wrap { background: var(--red-dim);    border: 1px solid rgba(255,68,68,0.25); }
+  .card.exfil   .icon-wrap { background: var(--cyan-dim);   border: 1px solid rgba(0,212,255,0.25); }
+  .card.tool    .icon-wrap { background: var(--amber-dim);  border: 1px solid rgba(255,170,0,0.25); }
+  .card.social  .icon-wrap { background: var(--purple-dim); border: 1px solid rgba(155,89,182,0.25); }
+  .card.kill    .icon-wrap { background: var(--red-dim);    border: 1px solid rgba(255,68,68,0.25); }
+  .card.intel   .icon-wrap { background: var(--green-dim);  border: 1px solid rgba(0,255,136,0.25); }
+
+  .card-title-block {}
+
+  .card-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .card.prompt  .card-label { color: var(--red); }
+  .card.exfil   .card-label { color: var(--cyan); }
+  .card.tool    .card-label { color: var(--amber); }
+  .card.social  .card-label { color: var(--purple); }
+  .card.kill    .card-label { color: var(--red); }
+  .card.intel   .card-label { color: var(--green); }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+  }
+
+  /* ─── DESCRIPTION ────────────────────────────────────── */
+  .card-desc {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  /* ─── DIVIDER ────────────────────────────────────────── */
+  .card-line {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 16px;
+  }
+
+  /* ─── OUTCOME ────────────────────────────────────────── */
+  .card-outcome {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--green);
+    padding: 10px 12px;
+    background: var(--green-dim);
+    border: 1px solid rgba(0,255,136,0.15);
+    border-radius: 6px;
+  }
+
+  .outcome-icon { flex-shrink: 0; font-size: 13px; }
+
+  /* ─── CORNER ACCENT ──────────────────────────────────── */
+  .card-corner {
+    position: absolute;
+    top: 12px; right: 14px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  .card.prompt  .card-corner { color: var(--red);    background: var(--red-dim);    border: 1px solid rgba(255,68,68,0.2); }
+  .card.exfil   .card-corner { color: var(--cyan);   background: var(--cyan-dim);   border: 1px solid rgba(0,212,255,0.2); }
+  .card.tool    .card-corner { color: var(--amber);  background: var(--amber-dim);  border: 1px solid rgba(255,170,0,0.2); }
+  .card.social  .card-corner { color: var(--purple); background: var(--purple-dim); border: 1px solid rgba(155,89,182,0.2); }
+  .card.kill    .card-corner { color: var(--red);    background: var(--red-dim);    border: 1px solid rgba(255,68,68,0.2); }
+  .card.intel   .card-corner { color: var(--green);  background: var(--green-dim);  border: 1px solid rgba(0,255,136,0.2); }
+
+  /* ─── ENTER ANIMATIONS ───────────────────────────────── */
+  .card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardIn 0.5s ease forwards;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.15s; }
+  .card:nth-child(3) { animation-delay: 0.25s; }
+  .card:nth-child(4) { animation-delay: 0.35s; }
+  .card:nth-child(5) { animation-delay: 0.45s; }
+  .card:nth-child(6) { animation-delay: 0.55s; }
+
+  @keyframes cardIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────── */
+  .page-footer {
+    text-align: center;
+    margin-top: 52px;
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.05em;
+  }
+
+  .install-cmd {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 24px;
+    background: var(--bg2);
+    border: 1px solid var(--border-hover);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--cyan);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: all;
+  }
+
+  .install-cmd:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 16px rgba(0,212,255,0.15);
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 32px 16px 48px; }
+    .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>🛡️ <span>Guardian</span> — Capabilities</h1>
+  <p>Six layers of protection, running silently inside every agent session</p>
+  <div class="divider"></div>
+</div>
+
+<div class="cards-grid">
+
+  <!-- ── 1. Prompt Injection Detection ─────────────────── -->
+  <div class="card prompt">
+    <span class="card-corner">ACTIVE</span>
+    <div class="card-header">
+      <div class="icon-wrap">🛡️</div>
+      <div class="card-title-block">
+        <div class="card-label">Attack Surface #1</div>
+        <div class="card-title">Prompt Injection Detection</div>
+      </div>
+    </div>
+    <div class="card-desc">
+      Scans every message, tool response, and web content your agent reads for
+      instruction-override attempts. Catches classic "ignore all previous instructions"
+      attacks and sophisticated multi-step injection chains before they execute.
+    </div>
+    <div class="card-line"></div>
+    <div class="card-outcome">
+      <span class="outcome-icon">✓</span>
+      <span>Malicious instructions are silently dropped. Agent continues operating
+      normally without ever knowing an attack was attempted.</span>
+    </div>
+  </div>
+
+  <!-- ── 2. Data Exfiltration Prevention ───────────────── -->
+  <div class="card exfil">
+    <span class="card-corner">ACTIVE</span>
+    <div class="card-header">
+      <div class="icon-wrap">🔐</div>
+      <div class="card-title-block">
+        <div class="card-label">Attack Surface #2</div>
+        <div class="card-title">Data Exfiltration Prevention</div>
+      </div>
+    </div>
+    <div class="card-desc">
+      Monitors all outbound data flows — emails, API calls, file writes, and webhook
+      requests — for secrets, credentials, PII, and sensitive patterns. Applies
+      semantic analysis, not just regex, catching obfuscated leaks too.
+    </div>
+    <div class="card-line"></div>
+    <div class="card-outcome">
+      <span class="outcome-icon">✓</span>
+      <span>API keys, passwords, and PII never leave your infrastructure. Exfil
+      attempts are blocked and the admin is notified in real time.</span>
+    </div>
+  </div>
+
+  <!-- ── 3. Tool Abuse Monitoring ──────────────────────── -->
+  <div class="card tool">
+    <span class="card-corner">ACTIVE</span>
+    <div class="card-header">
+      <div class="icon-wrap">🔧</div>
+      <div class="card-title-block">
+        <div class="card-label">Attack Surface #3</div>
+        <div class="card-title">Tool Abuse Monitoring</div>
+      </div>
+    </div>
+    <div class="card-desc">
+      Wraps every registered tool with a Guardian hook that validates intent before
+      execution. Detects privilege escalation attempts, unauthorized file access,
+      unexpected shell commands, and anomalous call sequences at runtime.
+    </div>
+    <div class="card-line"></div>
+    <div class="card-outcome">
+      <span class="outcome-icon">✓</span>
+      <span>Tools can only be called within their declared scope. Rogue tool usage
+      is blocked before the syscall is ever made.</span>
+    </div>
+  </div>
+
+  <!-- ── 4. Social Engineering Detection ───────────────── -->
+  <div class="card social">
+    <span class="card-corner">ACTIVE</span>
+    <div class="card-header">
+      <div class="icon-wrap">🎭</div>
+      <div class="card-title-block">
+        <div class="card-label">Attack Surface #4</div>
+        <div class="card-title">Social Engineering Detection</div>
+      </div>
+    </div>
+    <div class="card-desc">
+      Identifies manipulation tactics targeting your agent's reasoning — urgency
+      framing, authority spoofing, false maintenance mode triggers, and
+      trust-building sequences that precede a payload delivery.
+    </div>
+    <div class="card-line"></div>
+    <div class="card-outcome">
+      <span class="outcome-icon">✓</span>
+      <span>Behavioural manipulation is neutralised before it can influence
+      agent decisions. No social exploit makes it past layer-4.</span>
+    </div>
+  </div>
+
+  <!-- ── 5. Admin Kill Switch ───────────────────────────── -->
+  <div class="card kill">
+    <span class="card-corner">CRITICAL</span>
+    <div class="card-header">
+      <div class="icon-wrap">🔴</div>
+      <div class="card-title-block">
+        <div class="card-label">Control Plane</div>
+        <div class="card-title">Admin Kill Switch</div>
+      </div>
+    </div>
+    <div class="card-desc">
+      One command — from Telegram, CLI, or API — instantly halts all agent
+      activity. Guardian drains in-flight requests safely, writes a full incident
+      snapshot, and prevents restart until you authorise it.
+    </div>
+    <div class="card-line"></div>
+    <div class="card-outcome">
+      <span class="outcome-icon">✓</span>
+      <span>You are always in control. Full stop in &lt;500ms, reachable from
+      your phone anywhere in the world at any time.</span>
+    </div>
+  </div>
+
+  <!-- ── 6. Threat Intelligence Feed ──────────────────────── -->
+  <div class="card intel">
+    <span class="card-corner">LIVE</span>
+    <div class="card-header">
+      <div class="icon-wrap">📊</div>
+      <div class="card-title-block">
+        <div class="card-label">Intelligence Layer</div>
+        <div class="card-title">Threat Intelligence Feed</div>
+      </div>
+    </div>
+    <div class="card-desc">
+      Every blocked attack enriches a shared, privacy-preserving threat ledger.
+      Guardian automatically pulls emerging attack signatures and distributes
+      community-sourced indicators of compromise across all protected agents.
+    </div>
+    <div class="card-line"></div>
+    <div class="card-outcome">
+      <span class="outcome-icon">✓</span>
+      <span>Your agent learns from attacks against every other Guardian user.
+      Zero-day prompt injections are blocked within hours of discovery.</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  <div>Protect every agent. Zero configuration required.</div>
+  <div class="install-cmd">openclaw skill install guardian</div>
+</div>
+
+</body>
+</html>

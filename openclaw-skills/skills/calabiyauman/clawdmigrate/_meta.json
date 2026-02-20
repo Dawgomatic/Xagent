@@ -1,0 +1,11 @@
+{
+  "owner": "calabiyauman",
+  "slug": "clawdmigrate",
+  "displayName": "clawd-migrate",
+  "latest": {
+    "version": "0.2.1",
+    "publishedAt": 1771009297630,
+    "commit": "https://github.com/openclaw/skills/commit/f005274dfb3752b23e946e91425e6f0ec7b7a5c0"
+  },
+  "history": []
+}

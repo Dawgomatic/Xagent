@@ -1,0 +1,11 @@
+{
+  "owner": "drones277",
+  "slug": "tg-voice-whisper",
+  "displayName": "TG Voice Whisper Transcriber",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770600948272,
+    "commit": "https://github.com/openclaw/skills/commit/e9503af78f29a10e2dca4867e2d4698491850c7c"
+  },
+  "history": []
+}

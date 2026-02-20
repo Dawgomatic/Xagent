@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "fasting",
+  "displayName": "Fasting Tracker",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771181959424,
+    "commit": "https://github.com/openclaw/skills/commit/63b06c9534195dfbdb14d756e76e51ccd96ec0fd"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770834979634,
+      "commit": "https://github.com/openclaw/skills/commit/4ccc3ad64f27ca9592fd48471f72a009661a86c0"
+    }
+  ]
+}

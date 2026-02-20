@@ -1,0 +1,11 @@
+{
+  "owner": "neal-collab",
+  "slug": "multi-agent-blueprint",
+  "displayName": "Multi Agent Blueprint",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1771049910062,
+    "commit": "https://github.com/openclaw/skills/commit/d8b35dbcc1301023a2e4e6da4257be64b564ba48"
+  },
+  "history": []
+}

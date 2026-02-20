@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "restaurants",
+  "displayName": "Restaurants",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770770712460,
+    "commit": "https://github.com/openclaw/skills/commit/47cfea0062c8f8d3531ca2b77f994742651a31c8"
+  },
+  "history": []
+}

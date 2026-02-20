@@ -1,0 +1,17 @@
+{
+  "owner": "daaab",
+  "slug": "base-wallet",
+  "displayName": "Base Wallet",
+  "latest": {
+    "version": "1.5.0",
+    "publishedAt": 1770525484810,
+    "commit": "https://github.com/openclaw/skills/commit/e9cf3f92ace6c4507dfc37b52e0a4dbeae282150"
+  },
+  "history": [
+    {
+      "version": "1.3.0",
+      "publishedAt": 1770524834609,
+      "commit": "https://github.com/openclaw/skills/commit/82a1dfa5298106950dffd394379d0f7285989387"
+    }
+  ]
+}

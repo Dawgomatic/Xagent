@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "passkey",
+  "displayName": "Passkey",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770764233937,
+    "commit": "https://github.com/openclaw/skills/commit/eeff8876fbb6a9e0660095f6fb995c1e4ce0d362"
+  },
+  "history": []
+}

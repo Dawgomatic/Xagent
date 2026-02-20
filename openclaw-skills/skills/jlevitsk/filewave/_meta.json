@@ -1,0 +1,11 @@
+{
+  "owner": "jlevitsk",
+  "slug": "filewave",
+  "displayName": "Filewave",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771283187542,
+    "commit": "https://github.com/openclaw/skills/commit/95d742ea1653f862adb177fd65b403ced9600c27"
+  },
+  "history": []
+}

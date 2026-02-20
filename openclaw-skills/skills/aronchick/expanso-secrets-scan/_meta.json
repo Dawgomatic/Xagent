@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-secrets-scan",
+  "displayName": "Expanso secrets-scan",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753063326,
+    "commit": "https://github.com/openclaw/skills/commit/fd420b6e884f913edbad0fcf3118cc3561d22547"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "merchantguardops",
+  "slug": "merchantguard",
+  "displayName": "MerchantGuard",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1771034558143,
+    "commit": "https://github.com/openclaw/skills/commit/9d3987194e3ca4e54f1b9c2fcfa477a46dad8a50"
+  },
+  "history": []
+}

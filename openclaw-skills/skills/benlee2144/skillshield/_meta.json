@@ -1,0 +1,11 @@
+{
+  "owner": "benlee2144",
+  "slug": "skillshield",
+  "displayName": "Skill Guard",
+  "latest": {
+    "version": "4.0.0",
+    "publishedAt": 1771392549411,
+    "commit": "https://github.com/openclaw/skills/commit/fb39e5a8c81636f81c2c0f1cef28302dcf996aad"
+  },
+  "history": []
+}

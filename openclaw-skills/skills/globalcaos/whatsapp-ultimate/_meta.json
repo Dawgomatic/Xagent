@@ -1,0 +1,57 @@
+{
+  "owner": "globalcaos",
+  "slug": "whatsapp-ultimate",
+  "displayName": "WhatsApp Ultimate",
+  "latest": {
+    "version": "2.0.3",
+    "publishedAt": 1771411808427,
+    "commit": "https://github.com/openclaw/skills/commit/f29ce38e51877840b097b9e0378b88a09d3d2b2f"
+  },
+  "history": [
+    {
+      "version": "1.9.0",
+      "publishedAt": 1771271186357,
+      "commit": "https://github.com/openclaw/skills/commit/0d77aaf87cc9d9e7f381ef902b07e3414133e58c"
+    },
+    {
+      "version": "1.8.1",
+      "publishedAt": 1771108767827,
+      "commit": "https://github.com/openclaw/skills/commit/4eecb0c0b1296bb3f96dea094142641bdd697381"
+    },
+    {
+      "version": "1.5.2",
+      "publishedAt": 1771020752373,
+      "commit": "https://github.com/openclaw/skills/commit/075e54e3d5a8bae0ca0fae401129e1add18e80fb"
+    },
+    {
+      "version": "1.3.0",
+      "publishedAt": 1770909307687,
+      "commit": "https://github.com/openclaw/skills/commit/74f16a1d22f4eb46ab2b101be057a48e3c0ad39b"
+    },
+    {
+      "version": "1.2.1",
+      "publishedAt": 1770790827877,
+      "commit": "https://github.com/openclaw/skills/commit/1439580d6b4a485446fdef156a9e652cc853f93a"
+    },
+    {
+      "version": "1.1.2",
+      "publishedAt": 1770593695919,
+      "commit": "https://github.com/openclaw/skills/commit/91701006dd778d55b83cfec1a48d16eba671b991"
+    },
+    {
+      "version": "1.1.1",
+      "publishedAt": 1770527438632,
+      "commit": "https://github.com/openclaw/skills/commit/e30028eb84a58d3390d02003b5e5d2f9332e6a45"
+    },
+    {
+      "version": "1.2.0",
+      "publishedAt": 1770411775646,
+      "commit": "https://github.com/openclaw/skills/commit/eea378c636a93fea899286268c833c48d37ef261"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1770408150416,
+      "commit": "https://github.com/openclaw/skills/commit/18b4fbf6dc12bed0e0bb19cebe5907951a0c7365"
+    }
+  ]
+}

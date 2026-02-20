@@ -1,0 +1,11 @@
+{
+  "owner": "astonysh",
+  "slug": "deepreader-skill",
+  "displayName": "DeepReader",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771396683482,
+    "commit": "https://github.com/openclaw/skills/commit/b177d855afeb54f4fb9bbcee18c88d3ff600d257"
+  },
+  "history": []
+}

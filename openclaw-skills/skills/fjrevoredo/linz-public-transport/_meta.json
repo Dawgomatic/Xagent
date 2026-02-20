@@ -1,0 +1,11 @@
+{
+  "owner": "fjrevoredo",
+  "slug": "linz-public-transport",
+  "displayName": "Linz Public Transport",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771021272075,
+    "commit": "https://github.com/openclaw/skills/commit/dd65ab60a333797864d0b2a9657eee55a821a69e"
+  },
+  "history": []
+}

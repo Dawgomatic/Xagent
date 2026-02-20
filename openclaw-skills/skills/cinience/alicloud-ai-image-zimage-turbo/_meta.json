@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-ai-image-zimage-turbo",
+  "displayName": "Alicloud Ai Image Zimage Turbo",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973132342,
+    "commit": "https://github.com/openclaw/skills/commit/d9305b95582cfdc6767dd46d62cbc3420d754c62"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768418391,
+      "commit": "https://github.com/openclaw/skills/commit/0b6ddba6ff923d6efde52c512f0cfd52cfef6e79"
+    }
+  ]
+}

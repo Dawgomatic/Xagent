@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "health",
+  "displayName": "Health",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770666905896,
+    "commit": "https://github.com/openclaw/skills/commit/30bb0e6f4c4108f4cb06b96716db253204f05c8d"
+  },
+  "history": []
+}

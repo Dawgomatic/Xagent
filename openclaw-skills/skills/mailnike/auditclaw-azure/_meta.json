@@ -1,0 +1,22 @@
+{
+  "owner": "mailnike",
+  "slug": "auditclaw-azure",
+  "displayName": "AuditClaw Azure",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1771212519247,
+    "commit": "https://github.com/openclaw/skills/commit/337a148238764625073304af15f6a74518b77738"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1771211029501,
+      "commit": "https://github.com/openclaw/skills/commit/69af3153e55b58d369ba577012878fd9e749665d"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771204479561,
+      "commit": "https://github.com/openclaw/skills/commit/4621efbe13bbe59af08f7ce43acf994b34a3a91e"
+    }
+  ]
+}

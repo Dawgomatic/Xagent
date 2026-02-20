@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-compute-swas-open",
+  "displayName": "Alicloud Compute Swas Open",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770768517853,
+    "commit": "https://github.com/openclaw/skills/commit/0110a512a091baa8b5307f3eae48bb28a909dce2"
+  },
+  "history": []
+}

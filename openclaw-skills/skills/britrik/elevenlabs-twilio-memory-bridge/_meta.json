@@ -1,0 +1,11 @@
+{
+  "owner": "britrik",
+  "slug": "elevenlabs-twilio-memory-bridge",
+  "displayName": "Elevenlabs Twilio Memory Bridge",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770555835851,
+    "commit": "https://github.com/openclaw/skills/commit/0d4084e16f3d225f26faccf8b67472d84c754ea5"
+  },
+  "history": []
+}

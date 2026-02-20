@@ -1,0 +1,11 @@
+{
+  "owner": "guohongbin-git",
+  "slug": "pdf-cn",
+  "displayName": "PDF CN | PDF 文档处理",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771321200525,
+    "commit": "https://github.com/openclaw/skills/commit/cf51452dd187eb501c8647646a57dc059d2a01fc"
+  },
+  "history": []
+}

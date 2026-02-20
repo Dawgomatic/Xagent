@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "traditional-chinese",
+  "displayName": "Traditional Chinese",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770747488690,
+    "commit": "https://github.com/openclaw/skills/commit/13d60d3724f8caa943abc81e0a3a595f3f760096"
+  },
+  "history": []
+}

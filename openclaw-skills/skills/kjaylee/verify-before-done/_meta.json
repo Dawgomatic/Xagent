@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "verify-before-done",
+  "displayName": "Verify Before Done",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593695614,
+    "commit": "https://github.com/openclaw/skills/commit/5819e548083664d5592ba2f5dd7f5b68ccc02bb9"
+  },
+  "history": []
+}

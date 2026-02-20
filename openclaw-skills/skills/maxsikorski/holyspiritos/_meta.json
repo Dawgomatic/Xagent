@@ -1,0 +1,17 @@
+{
+  "owner": "maxsikorski",
+  "slug": "holyspiritos",
+  "displayName": "HolySpiritOS",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1770746991739,
+    "commit": "https://github.com/openclaw/skills/commit/e3a5070e1cd490ef97a8e0c4a7bdbc4211ecd121"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770431874875,
+      "commit": "https://github.com/openclaw/skills/commit/b7b2ad2706dc7e88402d3905ee7104f28022a959"
+    }
+  ]
+}

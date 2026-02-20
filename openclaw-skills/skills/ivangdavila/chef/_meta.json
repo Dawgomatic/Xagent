@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "chef",
+  "displayName": "Chef",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770673284856,
+    "commit": "https://github.com/openclaw/skills/commit/5db7c5a85bcc2f24c0864d4bbc2275796cf2060a"
+  },
+  "history": []
+}

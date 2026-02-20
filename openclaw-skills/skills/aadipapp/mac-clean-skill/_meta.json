@@ -1,0 +1,11 @@
+{
+  "owner": "aadipapp",
+  "slug": "mac-clean-skill",
+  "displayName": "mac-clean-skill",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770785297696,
+    "commit": "https://github.com/openclaw/skills/commit/fa9ff7754655360560dd39494b902b8bef7d585c"
+  },
+  "history": []
+}

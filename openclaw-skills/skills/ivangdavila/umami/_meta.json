@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "umami",
+  "displayName": "Umami",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770764230650,
+    "commit": "https://github.com/openclaw/skills/commit/d057b00890114df029245bde6ce4d6a275d4458e"
+  },
+  "history": []
+}

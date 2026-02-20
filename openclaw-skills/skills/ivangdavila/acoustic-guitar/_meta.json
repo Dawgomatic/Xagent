@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "acoustic-guitar",
+  "displayName": "Acoustic Guitar",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770860280122,
+    "commit": "https://github.com/openclaw/skills/commit/11484936843f3ae9f9d799e2187fa5bef889ece7"
+  },
+  "history": []
+}

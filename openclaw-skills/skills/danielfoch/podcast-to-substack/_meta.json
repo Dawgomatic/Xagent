@@ -1,0 +1,11 @@
+{
+  "owner": "danielfoch",
+  "slug": "podcast-to-substack",
+  "displayName": "Podcast to Substack",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771089245861,
+    "commit": "https://github.com/openclaw/skills/commit/d8a633f98bd8459a9df70737cc83241ccf69bba0"
+  },
+  "history": []
+}

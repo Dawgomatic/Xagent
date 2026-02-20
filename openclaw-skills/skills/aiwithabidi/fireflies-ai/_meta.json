@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "fireflies-ai",
+  "displayName": "Fireflies AI",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771302845877,
+    "commit": "https://github.com/openclaw/skills/commit/ab21d522088464fd0c262fdd7faf3a3103e2e2c1"
+  },
+  "history": []
+}

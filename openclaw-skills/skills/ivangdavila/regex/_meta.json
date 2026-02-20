@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "regex",
+  "displayName": "Regex",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770687613348,
+    "commit": "https://github.com/openclaw/skills/commit/f65ec17229e6e70858e0cc4456e691fced03b226"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "msrovani",
+  "slug": "skill-evidenceops",
+  "displayName": "EvidenceOps - Forensic Evidence Management",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771349502788,
+    "commit": "https://github.com/openclaw/skills/commit/3e7e763433a97610698c580849c44853e71b4203"
+  },
+  "history": []
+}

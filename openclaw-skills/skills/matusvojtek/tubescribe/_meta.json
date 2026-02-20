@@ -1,0 +1,52 @@
+{
+  "owner": "matusvojtek",
+  "slug": "tubescribe",
+  "displayName": "TubeScribe",
+  "latest": {
+    "version": "1.1.8",
+    "publishedAt": 1770752892344,
+    "commit": "https://github.com/openclaw/skills/commit/4d843da882af0573b509e7964c6e8ad51db4e5ef"
+  },
+  "history": [
+    {
+      "version": "1.1.6",
+      "publishedAt": 1770695863725,
+      "commit": "https://github.com/openclaw/skills/commit/4610d31592b1805bdf2fcced7edb2185a7a026c6"
+    },
+    {
+      "version": "1.1.4",
+      "publishedAt": 1770578431456,
+      "commit": "https://github.com/openclaw/skills/commit/1c09d252c893df1cee68b1ff609e3f312e3601f7"
+    },
+    {
+      "version": "1.1.2",
+      "publishedAt": 1770405884408,
+      "commit": "https://github.com/openclaw/skills/commit/93ab062d30af91acf1d822f1a831a665a80b53f2"
+    },
+    {
+      "version": "1.1.1",
+      "publishedAt": 1770352257905,
+      "commit": "https://github.com/openclaw/skills/commit/63f457efa3e869d66392572c57ff0c3d13e6b06b"
+    },
+    {
+      "version": "1.0.8",
+      "publishedAt": 1770298864004,
+      "commit": "https://github.com/clawdbot/skills/commit/1d0617ea6a32d0476b19ca8ba47d17990cd4e4fc"
+    },
+    {
+      "version": "1.0.7",
+      "publishedAt": 1770287778934,
+      "commit": "https://github.com/clawdbot/skills/commit/29d6f3c46c242e79e9daf819036bf9fc868b9d21"
+    },
+    {
+      "version": "1.0.4",
+      "publishedAt": 1770287582417,
+      "commit": "https://github.com/clawdbot/skills/commit/c053e6060050146bfbaa8d7f32f5decfe682fa0f"
+    },
+    {
+      "version": "1.0.3",
+      "publishedAt": 1770245001895,
+      "commit": "https://github.com/clawdbot/skills/commit/5c898183137034bcd14dadb861cccf0c6af024d2"
+    }
+  ]
+}

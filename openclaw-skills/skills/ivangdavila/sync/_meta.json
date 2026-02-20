@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "sync",
+  "displayName": "Sync",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770890033244,
+    "commit": "https://github.com/openclaw/skills/commit/1480d3c293d1efdb9b47392ba7c0de5ca2d2d69d"
+  },
+  "history": []
+}

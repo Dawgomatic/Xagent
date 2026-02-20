@@ -1,0 +1,11 @@
+{
+  "owner": "guohongbin-git",
+  "slug": "ml-evolution-agent",
+  "displayName": "ML Evolution Agent",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771308032615,
+    "commit": "https://github.com/openclaw/skills/commit/2f23c60565833dcd29a21fb8012882dec3b93fc4"
+  },
+  "history": []
+}

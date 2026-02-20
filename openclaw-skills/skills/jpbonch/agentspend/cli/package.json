@@ -1,0 +1,27 @@
+{
+  "name": "agentspend",
+  "version": "0.1.9",
+  "description": "CLI for AgentSpend — manage cards and crypto wallets for AI agent payments",
+  "homepage": "https://github.com/jpbonch/agentspend",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpbonch/agentspend.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "agentspend": "dist/index.js"
+  },
+  "dependencies": {
+    "@x402/core": "^2.3.1",
+    "@x402/evm": "^2.3.1",
+    "commander": "^13.0.0",
+    "viem": "^2.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "edmonddantesj",
+  "slug": "aoi-prompt-injection-sentinel",
+  "displayName": "AOI Prompt Injection Sentinel",
+  "latest": {
+    "version": "0.1.2",
+    "publishedAt": 1771138670568,
+    "commit": "https://github.com/openclaw/skills/commit/8089e73dd01c297d786f649f976a3c787e1a0718"
+  },
+  "history": []
+}

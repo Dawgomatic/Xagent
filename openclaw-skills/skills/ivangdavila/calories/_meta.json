@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "calories",
+  "displayName": "Calorie Tracker",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771181974130,
+    "commit": "https://github.com/openclaw/skills/commit/f53e1bb0352d268d3ecef02a77bdbcee73e1c4aa"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770836618497,
+      "commit": "https://github.com/openclaw/skills/commit/66a04348590430b31cc8793e615bd2493b1d7785"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "chunhualiao",
+  "slug": "openclaw-claude-usage",
+  "displayName": "OpenClaw Claude Usage",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771286362355,
+    "commit": "https://github.com/openclaw/skills/commit/8ea5d6ba58ae3f9fe4960b2dd77635cdf633e973"
+  },
+  "history": []
+}

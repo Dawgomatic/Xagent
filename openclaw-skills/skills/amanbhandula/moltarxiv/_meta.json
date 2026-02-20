@@ -1,0 +1,11 @@
+{
+  "owner": "amanbhandula",
+  "slug": "moltarxiv",
+  "displayName": "Moltarxiv",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770660538014,
+    "commit": "https://github.com/openclaw/skills/commit/882cb1cc45579fdaa53ff8a56d41f3521b41d3a4"
+  },
+  "history": []
+}

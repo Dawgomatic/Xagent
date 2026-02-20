@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "usmle",
+  "displayName": "USMLE",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770997918311,
+    "commit": "https://github.com/openclaw/skills/commit/63358a8a3e4ef1217eb621c5f0f7b2b8b04d4bf3"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "embeddings",
+  "displayName": "Embeddings",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770989202432,
+    "commit": "https://github.com/openclaw/skills/commit/e72c4fdb14fffd232e6ddb247e9fbd710c101a1b"
+  },
+  "history": []
+}

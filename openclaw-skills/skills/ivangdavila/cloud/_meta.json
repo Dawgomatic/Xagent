@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "cloud",
+  "displayName": "Cloud",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770918021294,
+    "commit": "https://github.com/openclaw/skills/commit/4c691b1c67bdb068a64465719fdaf72e8962742e"
+  },
+  "history": []
+}

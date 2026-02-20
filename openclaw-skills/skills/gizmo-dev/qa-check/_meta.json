@@ -1,0 +1,11 @@
+{
+  "owner": "gizmo-dev",
+  "slug": "qa-check",
+  "displayName": "QA Check",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771355197958,
+    "commit": "https://github.com/openclaw/skills/commit/e69a4f31c52132c83a267d509f7c1c29ea3fcc02"
+  },
+  "history": []
+}

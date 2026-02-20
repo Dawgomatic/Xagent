@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "cassandra",
+  "displayName": "Cassandra",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770726449510,
+    "commit": "https://github.com/openclaw/skills/commit/2b3cfa0eb75c1409594677d2a683f63bea9866f6"
+  },
+  "history": []
+}

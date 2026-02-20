@@ -1,0 +1,11 @@
+{
+  "owner": "maverick-software",
+  "slug": "plugin-architecture",
+  "displayName": "Plugin UI Architecture",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770568026021,
+    "commit": "https://github.com/openclaw/skills/commit/5425ddb49c76a5d73fdd2f89ac1feea0a167705b"
+  },
+  "history": []
+}

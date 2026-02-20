@@ -1,0 +1,11 @@
+{
+  "owner": "beee003",
+  "slug": "astrai-inference-router",
+  "displayName": "Astrai Inference Router",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771216498093,
+    "commit": "https://github.com/openclaw/skills/commit/63ae7aa0966368059be220b07985d4a81bcd10ed"
+  },
+  "history": []
+}

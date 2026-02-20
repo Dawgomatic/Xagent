@@ -1,0 +1,11 @@
+{
+  "owner": "cole-z",
+  "slug": "govee-control",
+  "displayName": "govee-control",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771340500290,
+    "commit": "https://github.com/openclaw/skills/commit/ad5344f180bd3ed69297e63d1c41ed56c221cabc"
+  },
+  "history": []
+}

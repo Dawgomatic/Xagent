@@ -1,0 +1,11 @@
+{
+  "owner": "gigabit-eth",
+  "slug": "router",
+  "displayName": "SwitchBoard",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771229013916,
+    "commit": "https://github.com/openclaw/skills/commit/a25ec5a9e0b67554a75a55d97cb6e30c0406eb6a"
+  },
+  "history": []
+}

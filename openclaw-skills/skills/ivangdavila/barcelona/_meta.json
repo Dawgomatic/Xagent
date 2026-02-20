@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "barcelona",
+  "displayName": "Barcelona",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771448471838,
+    "commit": "https://github.com/openclaw/skills/commit/0c018f398e8b660d48e0c32b4fc195e2fb98cde9"
+  },
+  "history": []
+}

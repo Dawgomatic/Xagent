@@ -1,0 +1,17 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "insta-post",
+  "displayName": "insta-post",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771200453572,
+    "commit": "https://github.com/openclaw/skills/commit/1f122445a0f7d3d3216ad57297eee91ff880a30b"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771151302276,
+      "commit": "https://github.com/openclaw/skills/commit/042b0e5160030a281845d16ecd24ba062e6f59c6"
+    }
+  ]
+}

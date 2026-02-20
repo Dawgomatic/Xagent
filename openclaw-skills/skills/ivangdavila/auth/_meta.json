@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "auth",
+  "displayName": "Auth",
+  "latest": {
+    "version": "1.3.0",
+    "publishedAt": 1771466235996,
+    "commit": "https://github.com/openclaw/skills/commit/3806d89ec326f1a855d10b8a8928c9f150de0368"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770688289426,
+      "commit": "https://github.com/openclaw/skills/commit/dab2ac25e631bb50a7af47b53067099a246035c8"
+    }
+  ]
+}

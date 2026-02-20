@@ -1,0 +1,11 @@
+{
+  "owner": "blackworm",
+  "slug": "prompt-injection-protection",
+  "displayName": "PROMPT INJECTION PROTECTION",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770652552068,
+    "commit": "https://github.com/openclaw/skills/commit/8e423d26717d5d4ae3c5a178a7ce4337c8b51e9c"
+  },
+  "history": []
+}

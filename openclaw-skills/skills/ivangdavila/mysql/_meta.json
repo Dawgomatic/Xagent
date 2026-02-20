@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "mysql",
+  "displayName": "MySQL",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771068544596,
+    "commit": "https://github.com/openclaw/skills/commit/6b29d6b205de73a0ac6482287d1936b10efa882c"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770689345961,
+      "commit": "https://github.com/openclaw/skills/commit/7a96ea43b7fc46b0a8757aaab8893ceb948675ec"
+    }
+  ]
+}

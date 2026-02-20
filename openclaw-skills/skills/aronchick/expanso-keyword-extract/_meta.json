@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-keyword-extract",
+  "displayName": "Expanso keyword-extract",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753125248,
+    "commit": "https://github.com/openclaw/skills/commit/8743134dd442c8ea2ea1b8c3274492dc69814e5f"
+  },
+  "history": []
+}

@@ -1,0 +1,35 @@
+# Build artifacts
+build/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go
+vendor/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Environment & secrets
+.env
+*.key
+credentials.json
+
+# Editor/OS
+*.swp
+*.swo
+*~
+.DS_Store
+.idea/
+.vscode/
+
+# Generated at install time
+manage.sh
+
+# Node
+node_modules/

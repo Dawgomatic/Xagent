@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "udemy",
+  "displayName": "Udemy",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771177150779,
+    "commit": "https://github.com/openclaw/skills/commit/ceedb4b27889ec1c7cf9f2daed1ed8332dc1e672"
+  },
+  "history": []
+}

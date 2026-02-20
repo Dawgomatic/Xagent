@@ -1,0 +1,11 @@
+{
+  "owner": "aviclaw",
+  "slug": "debridge-mcp",
+  "displayName": "Debridge Mcp",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771292532768,
+    "commit": "https://github.com/openclaw/skills/commit/cfc163b0efa08e04a36daf72e7ff369ffc10a46d"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "abdullah4ai",
+  "slug": "visual-prompt-engine",
+  "displayName": "Visual Prompt Engine",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771343400969,
+    "commit": "https://github.com/openclaw/skills/commit/f3d28acc3716bba8e8086098da68485f7873bdba"
+  },
+  "history": []
+}

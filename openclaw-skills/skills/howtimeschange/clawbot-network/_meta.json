@@ -1,0 +1,11 @@
+{
+  "owner": "howtimeschange",
+  "slug": "clawbot-network",
+  "displayName": "ClawBot Network",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770806183957,
+    "commit": "https://github.com/openclaw/skills/commit/53eed4ecf7a82be77807bcc66d61f3bafbac87ad"
+  },
+  "history": []
+}

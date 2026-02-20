@@ -1,0 +1,17 @@
+{
+  "owner": "atlaspa",
+  "slug": "openclaw-sentry",
+  "displayName": "Openclaw Sentry",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770891998451,
+    "commit": "https://github.com/openclaw/skills/commit/d66aebb83401d88d02fe1f287c1a436a641d056c"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770313118150,
+      "commit": "https://github.com/openclaw/skills/commit/81495a767a448710fcb090a3cc844845fc6f9300"
+    }
+  ]
+}

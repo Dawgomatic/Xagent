@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "course",
+  "displayName": "Course",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771413435994,
+    "commit": "https://github.com/openclaw/skills/commit/ae4ca283905007574e42646ba9f3c6261d9bfe3b"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771091787844,
+      "commit": "https://github.com/openclaw/skills/commit/7e2ed557f7483f40a9a7403f26860274e537d899"
+    }
+  ]
+}

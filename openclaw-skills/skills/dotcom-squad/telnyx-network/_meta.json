@@ -1,0 +1,11 @@
+{
+  "owner": "dotcom-squad",
+  "slug": "telnyx-network",
+  "displayName": "Telnyx Network",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770739720770,
+    "commit": "https://github.com/openclaw/skills/commit/d8ad822eabeeaa4ee60b07ad5abca1e9d9ba2358"
+  },
+  "history": []
+}

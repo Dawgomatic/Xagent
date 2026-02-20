@@ -1,0 +1,11 @@
+{
+  "owner": "iyeque",
+  "slug": "unified-web-search",
+  "displayName": "Unified Web Search",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771323479671,
+    "commit": "https://github.com/openclaw/skills/commit/87f67e67b2e414856a7666878a3a49dda9b38068"
+  },
+  "history": []
+}

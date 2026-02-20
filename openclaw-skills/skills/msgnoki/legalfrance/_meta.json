@@ -1,0 +1,17 @@
+{
+  "owner": "msgnoki",
+  "slug": "legalfrance",
+  "displayName": "LegalFrance",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770965060085,
+    "commit": "https://github.com/openclaw/skills/commit/a56bf0e95a172460b0e9b4b6d66ceffd48195c58"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770941652113,
+      "commit": "https://github.com/openclaw/skills/commit/9c5020fb1fc80c066bf3137fc8a1b3242c2b9ed0"
+    }
+  ]
+}

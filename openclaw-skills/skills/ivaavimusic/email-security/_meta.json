@@ -1,0 +1,11 @@
+{
+  "owner": "ivaavimusic",
+  "slug": "email-security",
+  "displayName": "Email Security",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770576621482,
+    "commit": "https://github.com/openclaw/skills/commit/6e9ec457fce42a3c914ce3aa364c6d47cc57eac6"
+  },
+  "history": []
+}

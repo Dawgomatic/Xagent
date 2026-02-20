@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "robot",
+  "displayName": "Robot",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771265265971,
+    "commit": "https://github.com/openclaw/skills/commit/ff80f5390d3ffc2af3ccca095d4ccb0c8026f68f"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "toefl",
+  "displayName": "TOEFL",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770995112767,
+    "commit": "https://github.com/openclaw/skills/commit/5f9618732747fc24443b90e5d326d722ab2a66b3"
+  },
+  "history": []
+}

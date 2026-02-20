@@ -1,0 +1,17 @@
+{
+  "owner": "odrobnik",
+  "slug": "gemini-yt-video-transcript",
+  "displayName": "Gemini Yt Video Transcript",
+  "latest": {
+    "version": "1.0.4",
+    "publishedAt": 1770882884693,
+    "commit": "https://github.com/openclaw/skills/commit/9a85174b29218aa79c2c655f421cf6c273bceb4e"
+  },
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1769430058543,
+      "commit": "https://github.com/clawdbot/skills/commit/cf3f152d75dcfa9902a14518dfb58f996ff8658c"
+    }
+  ]
+}

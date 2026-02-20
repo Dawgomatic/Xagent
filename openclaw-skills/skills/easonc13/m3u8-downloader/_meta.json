@@ -1,0 +1,11 @@
+{
+  "owner": "easonc13",
+  "slug": "m3u8-downloader",
+  "displayName": "M3U8 Downloader",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771176636735,
+    "commit": "https://github.com/openclaw/skills/commit/4a420c0bd77c3d7064f9e0bf103d59251d70c3ea"
+  },
+  "history": []
+}

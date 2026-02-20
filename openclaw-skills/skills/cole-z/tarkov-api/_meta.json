@@ -1,0 +1,17 @@
+{
+  "owner": "cole-z",
+  "slug": "tarkov-api",
+  "displayName": "Tarkov API + Wiki Hardcore Assistant",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771339925776,
+    "commit": "https://github.com/openclaw/skills/commit/1b67c2d5e3dea01f892bcd9b336ca0f7f6a0c4d3"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771298810295,
+      "commit": "https://github.com/openclaw/skills/commit/65d4f4efe6ba4a01ac43cfffc8f6a0e6226d9a6d"
+    }
+  ]
+}

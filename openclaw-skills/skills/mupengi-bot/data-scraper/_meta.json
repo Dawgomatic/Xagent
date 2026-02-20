@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "data-scraper",
+  "displayName": "Data Scraper",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771382983594,
+    "commit": "https://github.com/openclaw/skills/commit/0321089f1d29ba726e498106e5982804ccb00e58"
+  },
+  "history": []
+}

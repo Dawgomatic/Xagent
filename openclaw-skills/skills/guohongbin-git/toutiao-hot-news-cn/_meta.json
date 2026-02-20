@@ -1,0 +1,11 @@
+{
+  "owner": "guohongbin-git",
+  "slug": "toutiao-hot-news-cn",
+  "displayName": "Toutiao Hot News CN | 今日头条热榜",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771314212177,
+    "commit": "https://github.com/openclaw/skills/commit/13b17eb68570e5db7d3f0e10548acacff114e769"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "cerbug45",
+  "slug": "email-formatter-skill",
+  "displayName": "Cerbug45 Email Formatter",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770854796861,
+    "commit": "https://github.com/openclaw/skills/commit/303b19536911b02057505f51aa312b029aa01769"
+  },
+  "history": []
+}

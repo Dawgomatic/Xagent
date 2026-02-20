@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "secretary",
+  "displayName": "Secretary",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771413424425,
+    "commit": "https://github.com/openclaw/skills/commit/38fccbc6cb69f2b95709a52abbacfd47865e5e97"
+  },
+  "history": [
+    {
+      "version": "1.1.0",
+      "publishedAt": 1771183441902,
+      "commit": "https://github.com/openclaw/skills/commit/9f3244abb25aa5918744452f152d8250b067d0e4"
+    }
+  ]
+}

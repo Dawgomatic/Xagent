@@ -1,0 +1,11 @@
+{
+  "owner": "atlaspa",
+  "slug": "openclaw-action",
+  "displayName": "Openclaw Action",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770891968038,
+    "commit": "https://github.com/openclaw/skills/commit/61a9bb9b2dbe6ac2495b05d869abf33059b378f3"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "mupeng-social-postcjo",
+  "displayName": "social-postcjo",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771175786908,
+    "commit": "https://github.com/openclaw/skills/commit/d49d06ec8d0ed7db0b028f682e2ea5e24600a405"
+  },
+  "history": []
+}

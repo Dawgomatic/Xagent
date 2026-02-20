@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-pii-detect",
+  "displayName": "Expanso pii-detect",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753058839,
+    "commit": "https://github.com/openclaw/skills/commit/1c998355f02c36c64c202f3ff5510a78a4d5e48a"
+  },
+  "history": []
+}

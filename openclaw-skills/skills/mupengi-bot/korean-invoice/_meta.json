@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "korean-invoice",
+  "displayName": "Korean Invoice",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771256309980,
+    "commit": "https://github.com/openclaw/skills/commit/c061f0a45a19738d75400f15c68ab2c93c0db37f"
+  },
+  "history": []
+}

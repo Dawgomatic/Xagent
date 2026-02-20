@@ -1,0 +1,11 @@
+{
+  "owner": "kurtivy",
+  "slug": "openclaw-voice-assistant",
+  "displayName": "Voice Assistant",
+  "latest": {
+    "version": "1.0.4",
+    "publishedAt": 1770928178315,
+    "commit": "https://github.com/openclaw/skills/commit/babf9996caf44c4c287acd675e8c2ffb570b5c14"
+  },
+  "history": []
+}

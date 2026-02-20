@@ -1,0 +1,11 @@
+{
+  "owner": "bluebirdback",
+  "slug": "claw-history",
+  "displayName": "Claw History",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771233970209,
+    "commit": "https://github.com/openclaw/skills/commit/3b4b09f71b77bd32ffb3db8acc3f57f09b14344c"
+  },
+  "history": []
+}

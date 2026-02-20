@@ -1,0 +1,11 @@
+{
+  "owner": "compass-soul",
+  "slug": "agent-safety",
+  "displayName": "Agent Safety",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771200025580,
+    "commit": "https://github.com/openclaw/skills/commit/d5ca0a80514b89092c88a5310ba76d8552d17943"
+  },
+  "history": []
+}

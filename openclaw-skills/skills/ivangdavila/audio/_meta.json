@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "audio",
+  "displayName": "Audio",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771173233743,
+    "commit": "https://github.com/openclaw/skills/commit/3875eef0d1a476f4c2e5f8e117706e58fe7422ce"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770939177873,
+      "commit": "https://github.com/openclaw/skills/commit/b24a76789c64dd366abd433dfca202c44b8df551"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "drones277",
+  "slug": "tg-image-sender",
+  "displayName": "TG Image Sender",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770596506075,
+    "commit": "https://github.com/openclaw/skills/commit/3672585889ff6bddb20d72989f2b7259fe97c6e9"
+  },
+  "history": []
+}

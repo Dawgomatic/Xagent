@@ -1,0 +1,11 @@
+{
+  "owner": "okaris",
+  "slug": "image-to-video",
+  "displayName": "Image To Video",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403203755,
+    "commit": "https://github.com/openclaw/skills/commit/8906a4a781263c4fac7cf1918cd43781eca49500"
+  },
+  "history": []
+}

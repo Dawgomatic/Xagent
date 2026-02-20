@@ -1,0 +1,11 @@
+{
+  "owner": "atlaspa",
+  "slug": "cost-governor",
+  "displayName": "Cost Governor",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770894263807,
+    "commit": "https://github.com/openclaw/skills/commit/f9b21f93878b4227d2a2a91ac1d0dce48f5c1102"
+  },
+  "history": []
+}

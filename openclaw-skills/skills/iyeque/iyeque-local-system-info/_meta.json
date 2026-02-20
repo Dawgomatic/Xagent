@@ -1,0 +1,17 @@
+{
+  "owner": "iyeque",
+  "slug": "iyeque-local-system-info",
+  "displayName": "Local System Info (Iyeque)",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771326702772,
+    "commit": "https://github.com/openclaw/skills/commit/7b795fb8117bde163d0cd7ed2a39601ee5958b57"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771064960700,
+      "commit": "https://github.com/openclaw/skills/commit/7445b9894f43a7826746624cfe332a42f91c4ea5"
+    }
+  ]
+}

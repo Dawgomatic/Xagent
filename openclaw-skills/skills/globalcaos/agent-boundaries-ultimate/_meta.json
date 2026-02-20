@@ -1,0 +1,27 @@
+{
+  "owner": "globalcaos",
+  "slug": "agent-boundaries-ultimate",
+  "displayName": "Agent Boundaries Ultimate",
+  "latest": {
+    "version": "1.2.5",
+    "publishedAt": 1771020748370,
+    "commit": "https://github.com/openclaw/skills/commit/af2d0c7ea329d262b87b1081519f496c23ca0a74"
+  },
+  "history": [
+    {
+      "version": "1.2.3",
+      "publishedAt": 1770816017293,
+      "commit": "https://github.com/openclaw/skills/commit/9725d7febc296a61a83b96fda760c14b5aa7f0d1"
+    },
+    {
+      "version": "1.2.2",
+      "publishedAt": 1770593689564,
+      "commit": "https://github.com/openclaw/skills/commit/2cd72b223984a069a2c8e47cefe3f055d644b6ac"
+    },
+    {
+      "version": "1.2.1",
+      "publishedAt": 1770546076759,
+      "commit": "https://github.com/openclaw/skills/commit/6b14ed9d0fcaafd3f5ee05cb6f7e1fc4dcf5e254"
+    }
+  ]
+}

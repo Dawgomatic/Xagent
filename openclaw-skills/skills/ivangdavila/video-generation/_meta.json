@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "video-generation",
+  "displayName": "Video Generation",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770860905397,
+    "commit": "https://github.com/openclaw/skills/commit/c841296429e2bc8d70baffbd5f9026274465a42b"
+  },
+  "history": []
+}

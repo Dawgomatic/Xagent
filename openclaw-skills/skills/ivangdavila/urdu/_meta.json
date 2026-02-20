@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "urdu",
+  "displayName": "Urdu",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770747971767,
+    "commit": "https://github.com/openclaw/skills/commit/82f0b344014a1964f0c1667c22d0397e0acc0991"
+  },
+  "history": []
+}

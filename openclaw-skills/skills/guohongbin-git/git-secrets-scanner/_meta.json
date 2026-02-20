@@ -1,0 +1,11 @@
+{
+  "owner": "guohongbin-git",
+  "slug": "git-secrets-scanner",
+  "displayName": "Git Secrets Scanner",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771472847977,
+    "commit": "https://github.com/openclaw/skills/commit/6ece5989071606f82bd8aa300d57cd463af9eb36"
+  },
+  "history": []
+}

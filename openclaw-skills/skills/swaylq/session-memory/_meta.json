@@ -1,0 +1,11 @@
+{
+  "owner": "swaylq",
+  "slug": "session-memory",
+  "displayName": "Session Memory",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770562806335,
+    "commit": "https://github.com/openclaw/skills/commit/8aba1628dbb0e494f3c58e70dc37595efd1b237e"
+  },
+  "history": []
+}

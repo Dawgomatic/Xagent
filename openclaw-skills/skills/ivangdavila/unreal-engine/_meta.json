@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "unreal-engine",
+  "displayName": "Unreal Engine",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770684227340,
+    "commit": "https://github.com/openclaw/skills/commit/7aa0c0067fac0951354ffc67b2f7c511d108ae41"
+  },
+  "history": []
+}

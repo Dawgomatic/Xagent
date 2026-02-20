@@ -1,0 +1,17 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "unified-invoice",
+  "displayName": "unified-invoice",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771390924018,
+    "commit": "https://github.com/openclaw/skills/commit/cb9b8d20ff72934f6956a67997267e582ad2522d"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771387222540,
+      "commit": "https://github.com/openclaw/skills/commit/76f97e306c25c4bcc22bf1531f34e6b6037e4022"
+    }
+  ]
+}

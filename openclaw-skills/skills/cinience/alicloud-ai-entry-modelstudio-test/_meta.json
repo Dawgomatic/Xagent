@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-ai-entry-modelstudio-test",
+  "displayName": "Alicloud Ai Entry Modelstudio Test",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973123361,
+    "commit": "https://github.com/openclaw/skills/commit/29306163e6d47475bdb93e120cebe7cd910ba28e"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768409306,
+      "commit": "https://github.com/openclaw/skills/commit/b2cb00b0255b02938eb0a089d1ce7ffec760d0dc"
+    }
+  ]
+}

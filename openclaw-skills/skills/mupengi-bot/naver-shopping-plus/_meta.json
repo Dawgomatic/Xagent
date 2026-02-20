@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "naver-shopping-plus",
+  "displayName": "Naver Shopping Plus",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771256277130,
+    "commit": "https://github.com/openclaw/skills/commit/41abc10fe2f1624504414fe26bda4a8138cbae70"
+  },
+  "history": []
+}

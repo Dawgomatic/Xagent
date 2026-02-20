@@ -1,0 +1,11 @@
+{
+  "owner": "hexiaochun",
+  "slug": "seedance-video",
+  "displayName": "Seedance 视频生成",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770648579024,
+    "commit": "https://github.com/openclaw/skills/commit/7869ab95ff695070a11a211b5f8dd2a994accfc1"
+  },
+  "history": []
+}

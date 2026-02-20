@@ -1,0 +1,11 @@
+{
+  "owner": "w3h9uf",
+  "slug": "hashbox-plugin",
+  "displayName": "@hashingcorp/hashbox-plugin",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771472588623,
+    "commit": "https://github.com/openclaw/skills/commit/3d6d6e937c3479a6b7cd6d37145127631fcc1795"
+  },
+  "history": []
+}

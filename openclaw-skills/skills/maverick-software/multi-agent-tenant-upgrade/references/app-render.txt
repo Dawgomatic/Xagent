@@ -1,0 +1,276 @@
+diff --git a/ui/src/ui/app-render.ts b/ui/src/ui/app-render.ts
+index 9eece106d..ae6ba1328 100644
+--- a/ui/src/ui/app-render.ts
++++ b/ui/src/ui/app-render.ts
+@@ -88,7 +88,7 @@ import { renderChat } from "./views/chat.ts";
+ import { renderConfig } from "./views/config.ts";
+ import { renderCron } from "./views/cron.ts";
+ import { renderDebug } from "./views/debug.ts";
+-import { renderDiscord } from "./views/discord.ts";
++import { renderDiscord, loadDiscordStatus } from "./views/discord.ts";
+ import { renderExecApprovalPrompt } from "./views/exec-approval.ts";
+ import { renderGatewayUrlConfirmation } from "./views/gateway-url-confirmation.ts";
+ import { renderInstances } from "./views/instances.ts";
+@@ -391,6 +391,125 @@ export function renderApp(state: AppViewState) {
+             ? renderAgents({
+                 loading: state.agentsLoading,
+                 error: state.agentsError,
++                showCreateForm: state.showCreateForm,
++                createMode: state.createMode,
++                createName: state.createName,
++                createWorkspace: state.createWorkspace,
++                createEmoji: state.createEmoji,
++                creating: state.creating,
++                createError: state.createError,
++                wizardDescription: state.wizardDescription,
++                wizardLoading: state.wizardLoading,
++                wizardResult: state.wizardResult,
++                onToggleCreateForm: () => {
++                  state.showCreateForm = !state.showCreateForm;
++                  state.createError = null;
++                  state.wizardResult = null;
++                },
++                onCreateModeChange: (mode: "manual" | "wizard") => {
++                  state.createMode = mode;
++                  state.createError = null;
++                },
++                onCreateNameChange: (v: string) => {
++                  state.createName = v;
++                  // Auto-generate workspace slug from name
++                  const slug = v.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
++                  state.createWorkspace = slug ? `~/.openclaw/workspaces/${slug}/` : "";
++                },
++                onCreateWorkspaceChange: (v: string) => { state.createWorkspace = v; },
++                onCreateEmojiChange: (v: string) => { state.createEmoji = v; },
++                onCreateAgent: async () => {
++                  state.creating = true;
++                  state.createError = null;
++                  try {
++                    const name = state.createName.trim();
++                    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
++                    const workspace = state.createWorkspace.trim() || `~/.openclaw/workspaces/${slug}/`;
++                    const params: Record<string, unknown> = { name, workspace };
++                    if (state.createEmoji.trim()) params.emoji = state.createEmoji.trim();
++                    const res = await state.client?.request("agents.create", params) as { ok?: boolean; error?: string } | null;
++                    if (res?.ok) {
++                      state.showCreateForm = false;
++                      state.createName = "";
++                      state.createWorkspace = "";
++                      state.createEmoji = "";
++                      state.agentsLoading = true;
++                      const list = await state.client?.request("agents.list", {});
++                      state.agentsList = list as typeof state.agentsList;
++                      state.agentsLoading = false;
++                      // Refresh configForm so the new agent is found when selected
++                      await loadConfig(state);
++                    } else {
++                      state.createError = (res as any)?.error ?? "Failed to create agent";
++                    }
++                  } catch (err) {
++                    state.createError = String(err);
++                  } finally {
++                    state.creating = false;
++                  }
++                },
++                onWizardDescriptionChange: (v: string) => { state.wizardDescription = v; },
++                onWizardGenerate: async () => {
++                  state.wizardLoading = true;
++                  state.wizardResult = null;
++                  state.createError = null;
++                  try {
++                    const res = await state.client?.request("agents.wizard", {
++                      description: state.wizardDescription,
++                    }) as { name: string; emoji: string; soul: string } | null;
++                    if (res?.name) {
++                      state.wizardResult = res;
++                    } else {
++                      state.createError = "Wizard returned empty result";
++                    }
++                  } catch (err) {
++                    state.createError = String(err);
++                  } finally {
++                    state.wizardLoading = false;
++                  }
++                },
++                onWizardAccept: async () => {
++                  if (!state.wizardResult) return;
++                  state.creating = true;
++                  state.createError = null;
++                  try {
++                    const name = state.wizardResult.name;
++                    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
++                    const workspace = `~/.openclaw/workspaces/${slug}/`;
++                    const params: Record<string, unknown> = {
++                      name,
++                      workspace,
++                      emoji: state.wizardResult.emoji,
++                    };
++                    const res = await state.client?.request("agents.create", params) as { ok?: boolean; agentId?: string; error?: string } | null;
++                    if (res?.ok) {
++                      // Write the generated SOUL.md to the agent's workspace
++                      try {
++                        await state.client?.request("agents.files.set", {
++                          agentId: res.agentId,
++                          name: "SOUL.md",
++                          content: state.wizardResult.soul,
++                        });
++                      } catch { /* best effort */ }
++                      state.showCreateForm = false;
++                      state.wizardResult = null;
++                      state.wizardDescription = "";
++                      state.createMode = "manual";
++                      state.agentsLoading = true;
++                      const list = await state.client?.request("agents.list", {});
++                      state.agentsList = list as typeof state.agentsList;
++                      state.agentsLoading = false;
++                      // Refresh configForm so the new agent is found when selected
++                      await loadConfig(state);
++                    } else {
++                      state.createError = (res as any)?.error ?? "Failed to create agent";
++                    }
++                  } catch (err) {
++                    state.createError = String(err);
++                  } finally {
++                    state.creating = false;
++                  }
++                },
+                 agentsList: state.agentsList,
+                 selectedAgentId: resolvedAgentId,
+                 activePanel: state.agentsPanel,
+@@ -1191,8 +1310,86 @@ export function renderApp(state: AppViewState) {
+                 voiceSaveSuccess: state.discordVoiceSaveSuccess,
+                 voiceRuntimeStatus: state.discordVoiceRuntimeStatus,
+                 voiceResponseToggling: state.discordVoiceResponseToggling,
++                allowFrom: state.discordAllowFrom,
++                activationPhrase: state.discordActivationPhrase,
++                safeguardsSaving: state.discordSafeguardsSaving,
++                safeguardsSaveError: state.discordSafeguardsSaveError,
++                safeguardsSaveSuccess: state.discordSafeguardsSaveSuccess,
++                onAllowFromChange: (value: string) => {
++                  state.discordAllowFrom = value;
++                },
++                onActivationPhraseChange: (value: string) => {
++                  state.discordActivationPhrase = value;
++                },
++                onSaveSafeguards: async () => {
++                  state.discordSafeguardsSaving = true;
++                  state.discordSafeguardsSaveError = null;
++                  state.discordSafeguardsSaveSuccess = false;
++                  try {
++                    const allowFrom = state.discordAllowFrom
++                      .split(",")
++                      .map((s: string) => s.trim())
++                      .filter(Boolean);
++                    await state.client?.request("discord.setSafeguards", {
++                      allowFrom,
++                      activationPhrase: state.discordActivationPhrase,
++                    });
++                    state.discordSafeguardsSaveSuccess = true;
++                    setTimeout(() => {
++                      state.discordSafeguardsSaveSuccess = false;
++                    }, 5000);
++                  } catch (err) {
++                    state.discordSafeguardsSaveError = String(err);
++                  } finally {
++                    state.discordSafeguardsSaving = false;
++                  }
++                },
++                pairingRequests: state.discordPairingRequests,
++                pairingCodeInput: state.discordPairingCodeInput,
++                pairingApproving: state.discordPairingApproving,
++                pairingError: state.discordPairingError,
++                pairingSuccess: state.discordPairingSuccess,
++                onPairingCodeInput: (value: string) => {
++                  state.discordPairingCodeInput = value;
++                },
++                onPairingApprove: async (code: string) => {
++                  state.discordPairingApproving = true;
++                  state.discordPairingError = null;
++                  state.discordPairingSuccess = null;
++                  try {
++                    const res = (await state.client?.request("discord.pairingApprove", { code })) as {
++                      success: boolean;
++                      id?: string;
++                      error?: string;
++                    };
++                    if (res?.success) {
++                      state.discordPairingSuccess = `Approved user ${res.id}`;
++                      state.discordPairingCodeInput = "";
++                      // Refresh pairing list
++                      const pairings = (await state.client?.request("discord.pairingList", {})) as {
++                        requests: typeof state.discordPairingRequests;
++                      };
++                      state.discordPairingRequests = pairings?.requests ?? [];
++                      setTimeout(() => { state.discordPairingSuccess = null; }, 5000);
++                    } else {
++                      state.discordPairingError = res?.error ?? "Failed to approve";
++                    }
++                  } catch (err) {
++                    state.discordPairingError = String(err);
++                  } finally {
++                    state.discordPairingApproving = false;
++                  }
++                },
++                onPairingRefresh: async () => {
++                  try {
++                    const pairings = (await state.client?.request("discord.pairingList", {})) as {
++                      requests: typeof state.discordPairingRequests;
++                    };
++                    state.discordPairingRequests = pairings?.requests ?? [];
++                  } catch { /* ignore */ }
++                },
+                 onRefresh: () => {
+-                  state.discordLoading = true;
++                  void loadDiscordStatus(state as any);
+                 },
+                 onTokenInput: (value) => {
+                   state.discordTestTokenInput = value;
+@@ -1200,21 +1397,25 @@ export function renderApp(state: AppViewState) {
+                 onSaveToken: async (token) => {
+                   state.discordSavingToken = true;
+                   state.discordSaveTokenError = null;
++                  state.discordSaveTokenSuccess = false;
+                   try {
+                     await state.client?.request("discord.setToken", { token });
+                     state.discordSaveTokenSuccess = true;
++                    state.discordTestTokenInput = "";
++                    state.discordSavingToken = false;
++                    // Auto-refresh after gateway restarts
+                     setTimeout(() => {
+                       state.discordSaveTokenSuccess = false;
+-                    }, 3000);
++                      void loadDiscordStatus(state as any);
++                    }, 3500);
+                   } catch (err) {
+                     state.discordSaveTokenError = String(err);
+-                  } finally {
+                     state.discordSavingToken = false;
+                   }
+                 },
+                 onGenerateInvite: async () => {
+                   try {
+-                    const res = (await state.client?.request("discord.generateInvite", {})) as {
++                    const res = (await state.client?.request("discord.invite", {})) as {
+                       url?: string;
+                     } | null;
+                     if (res?.url) {
+@@ -1232,8 +1433,8 @@ export function renderApp(state: AppViewState) {
+                   state.discordVoiceSaveError = null;
+                   try {
+                     await state.client?.request(
+-                      "discord.saveVoiceConfig",
+-                      state.discordVoiceConfig,
++                      "discord.setVoiceConfig",
++                      { config: state.discordVoiceConfig },
+                     );
+                     state.discordVoiceSaveSuccess = true;
+                     setTimeout(() => {
+@@ -1248,7 +1449,7 @@ export function renderApp(state: AppViewState) {
+                 onToggleVoiceResponse: async (enabled) => {
+                   state.discordVoiceResponseToggling = true;
+                   try {
+-                    await state.client?.request("discord.toggleVoiceResponse", { enabled });
++                    await state.client?.request("discord.voice.setResponseEnabled", { enabled });
+                   } catch {
+                     /* ignore */
+                   } finally {

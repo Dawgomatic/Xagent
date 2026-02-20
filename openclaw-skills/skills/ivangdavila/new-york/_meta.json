@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "new-york",
+  "displayName": "New York",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771376027594,
+    "commit": "https://github.com/openclaw/skills/commit/8fd5fd876ae75d7ac289b26514071a96ed78e06b"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "broedkrummen",
+  "slug": "supermemory-free",
+  "displayName": "Supermemory Free",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771158158773,
+    "commit": "https://github.com/openclaw/skills/commit/9306d8690c035484a725460e0025d14093920bab"
+  },
+  "history": []
+}

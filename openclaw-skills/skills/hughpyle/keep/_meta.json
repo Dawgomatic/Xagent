@@ -1,0 +1,42 @@
+{
+  "owner": "hughpyle",
+  "slug": "keep",
+  "displayName": "Keep",
+  "latest": {
+    "version": "0.43.5",
+    "publishedAt": 1771246153290,
+    "commit": "https://github.com/openclaw/skills/commit/56b56bc910afe7b6b026b7aaae1323d61c889720"
+  },
+  "history": [
+    {
+      "version": "0.38.4",
+      "publishedAt": 1771002962104,
+      "commit": "https://github.com/openclaw/skills/commit/a63590c8b867794f136067677e11f9a37fbf93c7"
+    },
+    {
+      "version": "0.31.0",
+      "publishedAt": 1770844254003,
+      "commit": "https://github.com/openclaw/skills/commit/749501d79aaf4f06a6fc6f9c54c48cefc01b5388"
+    },
+    {
+      "version": "0.30.2",
+      "publishedAt": 1770834597369,
+      "commit": "https://github.com/openclaw/skills/commit/7657037f9381a714c2062426193e366077ccb026"
+    },
+    {
+      "version": "0.27.1",
+      "publishedAt": 1770604835808,
+      "commit": "https://github.com/openclaw/skills/commit/41e7c4eb6d77378218f29b1c08e5921aa82533c8"
+    },
+    {
+      "version": "0.8.1",
+      "publishedAt": 1770173490721,
+      "commit": "https://github.com/clawdbot/skills/commit/63a0df502fe01ad0aa6afd3f22907a41f2202725"
+    },
+    {
+      "version": "0.1.0",
+      "publishedAt": 1769885406128,
+      "commit": "https://github.com/clawdbot/skills/commit/40599dff9ee0358ac67ada98913308395f1d9a6e"
+    }
+  ]
+}

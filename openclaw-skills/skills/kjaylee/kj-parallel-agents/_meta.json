@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "kj-parallel-agents",
+  "displayName": "Parallel Agents (KJ)",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593705375,
+    "commit": "https://github.com/openclaw/skills/commit/ed3fadfd1d5b9e99f1246420bfd6a050bf6ed3a8"
+  },
+  "history": []
+}

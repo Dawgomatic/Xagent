@@ -1,0 +1,11 @@
+{
+  "owner": "beee003",
+  "slug": "vynn-backtester",
+  "displayName": "Vynn Backtester",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771217947368,
+    "commit": "https://github.com/openclaw/skills/commit/33df1463a34dc407a5d626cceb236acb187160e6"
+  },
+  "history": []
+}

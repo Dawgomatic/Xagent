@@ -1,0 +1,11 @@
+{
+  "owner": "cerbug45",
+  "slug": "whatsapp-context-manager",
+  "displayName": "Whatsapp Context Manager for Agents",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771184286757,
+    "commit": "https://github.com/openclaw/skills/commit/5eddfe2a130efa2ddf5d309d5e40e6efc84bb71b"
+  },
+  "history": []
+}

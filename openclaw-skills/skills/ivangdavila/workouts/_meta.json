@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "workouts",
+  "displayName": "Workouts",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770767983056,
+    "commit": "https://github.com/openclaw/skills/commit/4648a061b46e6bcb27828927741dc21962056842"
+  },
+  "history": []
+}

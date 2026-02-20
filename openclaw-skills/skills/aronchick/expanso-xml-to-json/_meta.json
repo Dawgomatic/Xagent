@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-xml-to-json",
+  "displayName": "Expanso xml-to-json",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753053244,
+    "commit": "https://github.com/openclaw/skills/commit/ff2b0cf8ba4076a12ff254d256b3a5866841af72"
+  },
+  "history": []
+}

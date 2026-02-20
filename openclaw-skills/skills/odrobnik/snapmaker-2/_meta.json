@@ -1,0 +1,27 @@
+{
+  "owner": "odrobnik",
+  "slug": "snapmaker-2",
+  "displayName": "Snapmaker 2",
+  "latest": {
+    "version": "1.2.1",
+    "publishedAt": 1770964185039,
+    "commit": "https://github.com/openclaw/skills/commit/cc9899739ec47e09612c53f6b0670ad9ec7e61ca"
+  },
+  "history": [
+    {
+      "version": "1.1.1",
+      "publishedAt": 1770902097831,
+      "commit": "https://github.com/openclaw/skills/commit/79b0756b88f4685a877c98b210ed696e29112f81"
+    },
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770835725392,
+      "commit": "https://github.com/openclaw/skills/commit/b5cd31575d56f8e64c404bab519002c2bbc6d33c"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770153998982,
+      "commit": "https://github.com/clawdbot/skills/commit/0b0aa0722f0f135e622d55a077e2f716b49db940"
+    }
+  ]
+}

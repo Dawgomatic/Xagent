@@ -1,0 +1,16 @@
+{
+  "name": "lighter",
+  "version": "1.0.0",
+  "description": "OpenClaw skill for Lighter protocol - ZK rollup orderbook DEX",
+  "main": "scripts/index.js",
+  "scripts": {
+    "test": "echo \"Run individual scripts: node scripts/account.js\""
+  },
+  "dependencies": {
+    "lighter-sdk": "^0.0.11",
+    "ethers": "^6.0.0"
+  },
+  "keywords": ["openclaw", "lighter", "dex", "trading", "defi"],
+  "author": "Avi",
+  "license": "MIT"
+}

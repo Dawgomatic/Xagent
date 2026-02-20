@@ -1,0 +1,11 @@
+{
+  "owner": "michaeljmoody",
+  "slug": "starling-home-hub",
+  "displayName": "Starling Home Hub (Nest/Google Home)",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770916543631,
+    "commit": "https://github.com/openclaw/skills/commit/66f6b1b95d74550f6e3c21b8770fc5e34eb0bdc2"
+  },
+  "history": []
+}

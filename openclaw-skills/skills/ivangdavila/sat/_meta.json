@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "sat",
+  "displayName": "SAT",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771413722879,
+    "commit": "https://github.com/openclaw/skills/commit/73920bb716674a62152952d483e7c129659c29d4"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771086579792,
+      "commit": "https://github.com/openclaw/skills/commit/e73da2fe77170e0b1abddb3f272edb8805ab48e5"
+    }
+  ]
+}

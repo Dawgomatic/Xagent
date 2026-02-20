@@ -1,0 +1,11 @@
+{
+  "owner": "bowen31337",
+  "slug": "solidity-lsp",
+  "displayName": "Solidity LSP",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770606397875,
+    "commit": "https://github.com/openclaw/skills/commit/633f82fb8d44da06ee7b416fd200596a557b445b"
+  },
+  "history": []
+}

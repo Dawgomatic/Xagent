@@ -1,0 +1,11 @@
+{
+  "owner": "gustavoziaugra",
+  "slug": "test-gas-skill",
+  "displayName": "Test Gas Skill",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771049682535,
+    "commit": "https://github.com/openclaw/skills/commit/f8413cdd9818ced3c089cacfe05e0cc916cb03ac"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "navijan",
+  "slug": "capability-evolver",
+  "displayName": "Capability Evolver",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771060973550,
+    "commit": "https://github.com/openclaw/skills/commit/c177df6627a88040be937f497df4b02d493c9536"
+  },
+  "history": []
+}

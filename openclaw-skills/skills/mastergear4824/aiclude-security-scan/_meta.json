@@ -1,0 +1,11 @@
+{
+  "owner": "mastergear4824",
+  "slug": "aiclude-security-scan",
+  "displayName": "AIclude Security Scanner",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770966155964,
+    "commit": "https://github.com/openclaw/skills/commit/a39250d19e9beb576b2fdb6662558fd9433d3bb0"
+  },
+  "history": []
+}

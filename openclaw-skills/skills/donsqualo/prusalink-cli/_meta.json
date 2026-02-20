@@ -1,0 +1,11 @@
+{
+  "owner": "donsqualo",
+  "slug": "prusalink-cli",
+  "displayName": "PrusaLink",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771347791797,
+    "commit": "https://github.com/openclaw/skills/commit/63b25b52d6959fed8620bb6d3c3ce557c97cf0e4"
+  },
+  "history": []
+}

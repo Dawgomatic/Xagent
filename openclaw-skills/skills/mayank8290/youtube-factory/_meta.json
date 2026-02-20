@@ -1,0 +1,22 @@
+{
+  "owner": "mayank8290",
+  "slug": "youtube-factory",
+  "displayName": "Youtube Factory",
+  "latest": {
+    "version": "1.3.0",
+    "publishedAt": 1771168933427,
+    "commit": "https://github.com/openclaw/skills/commit/30a59c0848378b6ce331b74bad3c140bd4923ec5"
+  },
+  "history": [
+    {
+      "version": "1.2.1",
+      "publishedAt": 1770878135597,
+      "commit": "https://github.com/openclaw/skills/commit/9c1bdd9cc59f238640aa1f1c3261329bf80dc702"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770476906985,
+      "commit": "https://github.com/openclaw/skills/commit/48d945c715fcf8c4c83694eab3589e1d3218c241"
+    }
+  ]
+}

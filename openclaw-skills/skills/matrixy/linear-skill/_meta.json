@@ -1,0 +1,17 @@
+{
+  "owner": "matrixy",
+  "slug": "linear-skill",
+  "displayName": "Linear",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771193471214,
+    "commit": "https://github.com/openclaw/skills/commit/a7514069e185e5eff500e6619acdc10f6121a2bf"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1769268693983,
+      "commit": "https://github.com/clawdbot/skills/commit/dded460bc1ef7cad9375b0ca9bc80cd163106125"
+    }
+  ]
+}

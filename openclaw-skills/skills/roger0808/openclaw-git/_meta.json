@@ -1,0 +1,11 @@
+{
+  "owner": "roger0808",
+  "slug": "openclaw-git",
+  "displayName": "OpenClaw Git",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771164925968,
+    "commit": "https://github.com/openclaw/skills/commit/84abc9c1db5c220b821cac33543bea0e4928dfe7"
+  },
+  "history": []
+}

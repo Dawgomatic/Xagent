@@ -1,0 +1,17 @@
+{
+  "owner": "chair4ce",
+  "slug": "braindb",
+  "displayName": "BrainDB",
+  "latest": {
+    "version": "0.5.2",
+    "publishedAt": 1771197399674,
+    "commit": "https://github.com/openclaw/skills/commit/42fc04beb52c1d99504b1e0b5509d6e3903e20bc"
+  },
+  "history": [
+    {
+      "version": "0.5.0",
+      "publishedAt": 1771185577961,
+      "commit": "https://github.com/openclaw/skills/commit/7bbfee0d8322e9732110a4887e3492d803c2984e"
+    }
+  ]
+}

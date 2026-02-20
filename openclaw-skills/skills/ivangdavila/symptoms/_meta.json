@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "symptoms",
+  "displayName": "Symptoms",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770776237489,
+    "commit": "https://github.com/openclaw/skills/commit/c925c5b4cb68e7d52ff5f3ee3a9510b458e81ed4"
+  },
+  "history": []
+}

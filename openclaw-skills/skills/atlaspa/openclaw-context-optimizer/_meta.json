@@ -1,0 +1,11 @@
+{
+  "owner": "atlaspa",
+  "slug": "openclaw-context-optimizer",
+  "displayName": "Openclaw Context Optimizer",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770896560318,
+    "commit": "https://github.com/openclaw/skills/commit/23a114bdfdadb09a814d0eb2aa76efc6935745f2"
+  },
+  "history": []
+}

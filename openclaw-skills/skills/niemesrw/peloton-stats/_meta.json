@@ -1,0 +1,11 @@
+{
+  "owner": "niemesrw",
+  "slug": "peloton-stats",
+  "displayName": "Peloton Stats",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771466703877,
+    "commit": "https://github.com/openclaw/skills/commit/ffa4c184e2256d9f40190fd788bb3546678cc76f"
+  },
+  "history": []
+}

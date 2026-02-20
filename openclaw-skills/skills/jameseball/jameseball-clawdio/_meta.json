@@ -1,0 +1,11 @@
+{
+  "owner": "jameseball",
+  "slug": "jameseball-clawdio",
+  "displayName": "Clawdio",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770525255263,
+    "commit": "https://github.com/openclaw/skills/commit/527f1b2d1b706cc0770c556b2b2989ea0dd27a6f"
+  },
+  "history": []
+}

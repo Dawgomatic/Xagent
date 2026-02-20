@@ -1,0 +1,11 @@
+{
+  "owner": "dotcom-squad",
+  "slug": "telnyx-cli",
+  "displayName": "Telnyx Cli",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770739700579,
+    "commit": "https://github.com/openclaw/skills/commit/d0b2f04f668c3c99c8e8a662becee296e5ecdfeb"
+  },
+  "history": []
+}

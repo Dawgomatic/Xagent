@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "neo4j",
+  "displayName": "Neo4j",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770727005188,
+    "commit": "https://github.com/openclaw/skills/commit/ff38439143ea0e2188366d8927a304331134c739"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "cerbug45",
+  "slug": "sql-query-generator",
+  "displayName": "Sql Query Generator Skill",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770857421467,
+    "commit": "https://github.com/openclaw/skills/commit/12480e9901c15520656a37a5907b6d36365b133d"
+  },
+  "history": []
+}

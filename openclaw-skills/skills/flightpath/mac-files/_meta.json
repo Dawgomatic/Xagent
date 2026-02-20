@@ -1,0 +1,11 @@
+{
+  "owner": "flightpath",
+  "slug": "mac-files",
+  "displayName": "Mac Files",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771386337384,
+    "commit": "https://github.com/openclaw/skills/commit/7683e1df261e09f4916fa6f96d3f76aa7cffc60f"
+  },
+  "history": []
+}

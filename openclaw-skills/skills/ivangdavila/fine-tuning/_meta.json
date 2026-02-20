@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "fine-tuning",
+  "displayName": "Fine-Tuning",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770994270612,
+    "commit": "https://github.com/openclaw/skills/commit/77b8c87d2d5e375add43e0f3e20de690df69324a"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "electron",
+  "displayName": "Electron",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770764215592,
+    "commit": "https://github.com/openclaw/skills/commit/ea21311208722e6d8f03d55c75859189ac8529db"
+  },
+  "history": []
+}

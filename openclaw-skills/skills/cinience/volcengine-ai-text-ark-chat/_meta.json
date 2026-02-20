@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-ai-text-ark-chat",
+  "displayName": "Volcengine Ai Text Ark Chat",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769456352,
+    "commit": "https://github.com/openclaw/skills/commit/f71365fc3cb9a536808c446d0de8a324f30db62f"
+  },
+  "history": []
+}

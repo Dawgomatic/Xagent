@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "clients",
+  "displayName": "Clients",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770773084489,
+    "commit": "https://github.com/openclaw/skills/commit/610f7361dbacf3b14f22ce8e760e8bae8e59723d"
+  },
+  "history": []
+}

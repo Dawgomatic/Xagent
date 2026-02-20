@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "smart-home",
+  "displayName": "Smart Home",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770929493198,
+    "commit": "https://github.com/openclaw/skills/commit/edc3a57d6be885fe5d04c9b60b7626d350891fc6"
+  },
+  "history": []
+}

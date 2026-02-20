@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "llm-evaluator-pro",
+  "displayName": "LLM Evaluator Pro",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771140092289,
+    "commit": "https://github.com/openclaw/skills/commit/7de73f61cab993837f596debec11a3f3c101145c"
+  },
+  "history": []
+}

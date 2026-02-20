@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "cors",
+  "displayName": "CORS",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770688828382,
+    "commit": "https://github.com/openclaw/skills/commit/fa96c96b1b41cf58fff84e13959633f117fd34db"
+  },
+  "history": []
+}

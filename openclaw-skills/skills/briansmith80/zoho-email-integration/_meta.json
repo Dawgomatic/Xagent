@@ -1,0 +1,37 @@
+{
+  "owner": "briansmith80",
+  "slug": "zoho-email-integration",
+  "displayName": "Zoho Email Integration",
+  "latest": {
+    "version": "2.2.7",
+    "publishedAt": 1771406013733,
+    "commit": "https://github.com/openclaw/skills/commit/22c47fa961141bb0817d36204c4a064edd10231a"
+  },
+  "history": [
+    {
+      "version": "2.2.6",
+      "publishedAt": 1771053971137,
+      "commit": "https://github.com/openclaw/skills/commit/404e5b9e0d9b1731b68257a5bd18e945a52cf14f"
+    },
+    {
+      "version": "2.2.4",
+      "publishedAt": 1770917997387,
+      "commit": "https://github.com/openclaw/skills/commit/34c5539abc5c5a58805aede61956974d030b03bc"
+    },
+    {
+      "version": "2.1.0",
+      "publishedAt": 1770374650096,
+      "commit": "https://github.com/openclaw/skills/commit/b84ecdcacd1e70a9e5551132c1e6be6785991669"
+    },
+    {
+      "version": "2.0.6",
+      "publishedAt": 1769951512681,
+      "commit": "https://github.com/clawdbot/skills/commit/c1c5808bbfacb66e7e829412983cf466e74931b5"
+    },
+    {
+      "version": "2.0.2",
+      "publishedAt": 1769706493723,
+      "commit": "https://github.com/clawdbot/skills/commit/f543464ab7ce3aae9652eaf672c267f78ed778e9"
+    }
+  ]
+}

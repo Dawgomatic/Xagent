@@ -1,0 +1,17 @@
+{
+  "owner": "dingqing404",
+  "slug": "geekbench",
+  "displayName": "Geekbench",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771207609281,
+    "commit": "https://github.com/openclaw/skills/commit/6dfcfddf3ed62b6f91eec796ee0c3d3ed715df89"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771162011700,
+      "commit": "https://github.com/openclaw/skills/commit/97789dacc1aab2b16baeb833f128ce8ade8d9a27"
+    }
+  ]
+}

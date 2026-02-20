@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "estonian",
+  "displayName": "Estonian",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770748172869,
+    "commit": "https://github.com/openclaw/skills/commit/5de65c9c4ef47e61c9b5b80461091c0518ac1b07"
+  },
+  "history": []
+}

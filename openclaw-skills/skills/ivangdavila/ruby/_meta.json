@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "ruby",
+  "displayName": "Ruby",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771104457791,
+    "commit": "https://github.com/openclaw/skills/commit/0891ec43fa29148206fdbaa869c167bd9abf0aef"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770680326087,
+      "commit": "https://github.com/openclaw/skills/commit/40f008940ff2c7e4066ea35b38d4e0444afc1069"
+    }
+  ]
+}

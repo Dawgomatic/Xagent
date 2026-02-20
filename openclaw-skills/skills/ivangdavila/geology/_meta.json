@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "geology",
+  "displayName": "Geology",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770754414882,
+    "commit": "https://github.com/openclaw/skills/commit/2c74299b50f88ba974febda2651f1e00103f2b0d"
+  },
+  "history": []
+}

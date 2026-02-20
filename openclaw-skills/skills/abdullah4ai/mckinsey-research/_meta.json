@@ -1,0 +1,11 @@
+{
+  "owner": "abdullah4ai",
+  "slug": "mckinsey-research",
+  "displayName": "McKinsey Research",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770806853567,
+    "commit": "https://github.com/openclaw/skills/commit/e56f5da0d2798ed13333ebd4cdc431e476e58562"
+  },
+  "history": []
+}

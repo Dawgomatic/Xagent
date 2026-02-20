@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "veterinary",
+  "displayName": "Veterinary",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770758716657,
+    "commit": "https://github.com/openclaw/skills/commit/0c745c291722120a48bce7450ca72da318420ec5"
+  },
+  "history": []
+}

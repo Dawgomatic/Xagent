@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "drums",
+  "displayName": "Drums",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770857750672,
+    "commit": "https://github.com/openclaw/skills/commit/0b451fcebc6f26fb22bfb58fd07164b9978fb1a0"
+  },
+  "history": []
+}

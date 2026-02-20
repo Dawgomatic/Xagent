@@ -1,0 +1,17 @@
+{
+  "owner": "a-i-r",
+  "slug": "mineru-pdf-extractor",
+  "displayName": "MinerU PDF Extractor",
+  "latest": {
+    "version": "1.0.5",
+    "publishedAt": 1771418740678,
+    "commit": "https://github.com/openclaw/skills/commit/362d2f83a122fb38b6dc1f57434af8f759779f53"
+  },
+  "history": [
+    {
+      "version": "1.0.4",
+      "publishedAt": 1771405595624,
+      "commit": "https://github.com/openclaw/skills/commit/10bef0ed0613c6f0a49e05e9ab1c0e710a5316a5"
+    }
+  ]
+}

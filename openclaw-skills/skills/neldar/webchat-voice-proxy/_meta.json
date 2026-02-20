@@ -1,0 +1,22 @@
+{
+  "owner": "neldar",
+  "slug": "webchat-voice-proxy",
+  "displayName": "Webchat Voice Proxy",
+  "latest": {
+    "version": "0.2.1",
+    "publishedAt": 1771458899485,
+    "commit": "https://github.com/openclaw/skills/commit/f9f12b8674787110ea666ed56e186e8dd290bafb"
+  },
+  "history": [
+    {
+      "version": "0.2.0",
+      "publishedAt": 1771371143626,
+      "commit": "https://github.com/openclaw/skills/commit/d38d1a05334b2b0f411c24eae8521ca4ad41d1e7"
+    },
+    {
+      "version": "0.1.11",
+      "publishedAt": 1771330352446,
+      "commit": "https://github.com/openclaw/skills/commit/bfdacc93639331e57dc4b8543399b093905755a9"
+    }
+  ]
+}

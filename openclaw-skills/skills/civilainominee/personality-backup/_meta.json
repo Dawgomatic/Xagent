@@ -1,0 +1,17 @@
+{
+  "owner": "civilainominee",
+  "slug": "personality-backup",
+  "displayName": "Personality Backup",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771345398886,
+    "commit": "https://github.com/openclaw/skills/commit/2f18be31cc2343ee0c874063206d35e89d04bda6"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771275667379,
+      "commit": "https://github.com/openclaw/skills/commit/9f4d1df104a2d0555417d61db70e3ef4b091a8a4"
+    }
+  ]
+}

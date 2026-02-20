@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "bluetooth",
+  "displayName": "Bluetooth",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770939599011,
+    "commit": "https://github.com/openclaw/skills/commit/4f4fce70ea66318985859f9e3076895c1485276b"
+  },
+  "history": []
+}

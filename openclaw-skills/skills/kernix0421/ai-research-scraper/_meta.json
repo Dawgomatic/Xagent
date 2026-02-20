@@ -1,0 +1,17 @@
+{
+  "owner": "kernix0421",
+  "slug": "ai-research-scraper",
+  "displayName": "Ai Research Scraper",
+  "latest": {
+    "version": "1.8.14",
+    "publishedAt": 1770921525904,
+    "commit": "https://github.com/openclaw/skills/commit/93d473d3709fc7fc3cd4fb6ced91e0031b5855db"
+  },
+  "history": [
+    {
+      "version": "1.2.0",
+      "publishedAt": 1770892646163,
+      "commit": "https://github.com/openclaw/skills/commit/6d45d7104b82b17a47fbe8b1e8fe172fa43c03c3"
+    }
+  ]
+}

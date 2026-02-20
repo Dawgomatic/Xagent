@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "deno",
+  "displayName": "Deno",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771186702433,
+    "commit": "https://github.com/openclaw/skills/commit/b88056b3da0593fd6c5e41cba6fff590c4efcc7b"
+  },
+  "history": []
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "agent-ui",
+  "displayName": "Agent Ui",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771402942985,
+    "commit": "https://github.com/openclaw/skills/commit/930134805491756471157a006a17b22ddd3a4f7e"
+  },
+  "history": [
+    {
+      "version": "0.1.1",
+      "publishedAt": 1770362909980,
+      "commit": "https://github.com/openclaw/skills/commit/c81f1410b05a1c8603009bf80cad5f49fba23e37"
+    }
+  ]
+}

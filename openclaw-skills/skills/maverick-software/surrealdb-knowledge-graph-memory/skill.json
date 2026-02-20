@@ -1,0 +1,148 @@
+{
+  "name": "surrealdb-memory",
+  "version": "2.1.1",
+  "displayName": "SurrealDB Knowledge Graph Memory",
+  "description": "A comprehensive knowledge graph memory system with semantic search, episodic memory, working memory, and automatic context injection.",
+  "author": "OpenClaw",
+  "license": "MIT",
+  "repository": "https://github.com/openclaw/openclaw",
+  "keywords": [
+    "memory",
+    "knowledge-graph",
+    "surrealdb",
+    "semantic-search",
+    "episodic-memory",
+    "vector-search",
+    "embeddings",
+    "mcp"
+  ],
+  "categories": [
+    "memory",
+    "knowledge-management",
+    "ai-tools"
+  ],
+  "features": [
+    "Semantic fact storage with vector search",
+    "Episodic memory for task histories",
+    "Working memory with crash recovery",
+    "Automatic context injection",
+    "Outcome-based confidence calibration",
+    "Entity extraction and linking",
+    "Confidence decay and maintenance",
+    "MCP server with 11 tools"
+  ],
+
+  "requirements": {
+    "binaries": ["surreal", "python3"],
+    "python": ">=3.10",
+    "pythonPackages": ["surrealdb", "openai", "pyyaml"],
+    "envVars": ["OPENAI_API_KEY"]
+  },
+
+  "capabilities": {
+    "networkAccess": {
+      "required": true,
+      "reason": "Connects to OpenAI API for embeddings and LLM extraction",
+      "endpoints": ["api.openai.com"]
+    },
+    "fileAccess": {
+      "read": ["MEMORY.md", "memory/*.md"],
+      "write": ["~/.openclaw/memory/"],
+      "reason": "Reads memory files for fact extraction, stores database in ~/.openclaw/memory/"
+    },
+    "processSpawn": {
+      "required": true,
+      "commands": ["surreal", "python3"],
+      "reason": "Runs SurrealDB server and Python MCP server"
+    },
+    "serviceManagement": {
+      "required": true,
+      "reason": "Can start/stop SurrealDB server process"
+    }
+  },
+
+  "security": {
+    "reviewRequired": true,
+    "notes": [
+      "OPENAI_API_KEY required - content is sent to OpenAI for embeddings",
+      "Default SurrealDB credentials are root/root - change for production",
+      "extract-knowledge.py reads MEMORY.md and memory/*.md files",
+      "File content is sent to OpenAI API - review files before extraction",
+      "install.sh contains 'curl | sh' installer - review or install SurrealDB manually"
+    ],
+    "riskyOperations": [
+      {
+        "file": "scripts/install.sh",
+        "line": "curl -sSf https://install.surrealdb.com | sh",
+        "risk": "Network installer piped to shell",
+        "mitigation": "Install SurrealDB manually from official releases instead"
+      },
+      {
+        "file": "openclaw-integration/gateway/memory.ts",
+        "line": 237,
+        "risk": "Same curl | sh installer called from gateway",
+        "mitigation": "Use manual installation or review installer script first"
+      },
+      {
+        "file": "scripts/integrate-openclaw.sh",
+        "risk": "Uses sed -i to patch OpenClaw source files",
+        "mitigation": "Copy files manually instead of running this script"
+      },
+      {
+        "file": "scripts/extract-knowledge.py",
+        "risk": "Sends local file content to OpenAI API",
+        "mitigation": "Review MEMORY.md and memory/*.md before running extraction"
+      }
+    ]
+  },
+
+  "integration": {
+    "mcp": true,
+    "gateway": true,
+    "ui": true,
+    "enhancedLoop": true
+  },
+
+  "mcpServer": {
+    "command": ["python3", "scripts/mcp-server-v2.py"],
+    "tools": [
+      "knowledge_search",
+      "knowledge_recall", 
+      "knowledge_store",
+      "knowledge_stats",
+      "knowledge_store_sync",
+      "episode_search",
+      "episode_learnings",
+      "episode_store",
+      "working_memory_status",
+      "context_aware_search",
+      "memory_inject"
+    ]
+  },
+
+  "files": {
+    "skill": "SKILL.md",
+    "schema": "scripts/schema-v2.sql",
+    "mcpServer": "scripts/mcp-server-v2.py",
+    "gatewayIntegration": "openclaw-integration/gateway/memory.ts",
+    "uiView": "openclaw-integration/ui/memory-view.ts",
+    "uiController": "openclaw-integration/ui/memory-controller.ts"
+  },
+
+  "setup": {
+    "manual": [
+      "Install SurrealDB from https://surrealdb.com/install (do NOT use curl | sh)",
+      "Start server: surreal start --bind 127.0.0.1:8000 --user root --pass root file:~/.openclaw/memory/knowledge.db",
+      "Set up Python venv: python3 -m venv .venv && source .venv/bin/activate",
+      "Install Python deps: pip install surrealdb openai pyyaml",
+      "Initialize schema: ./scripts/init-db.sh",
+      "Configure mcporter with surrealdb-memory server",
+      "Enable auto-injection in Mode UI (optional)"
+    ],
+    "automated": {
+      "available": true,
+      "warning": "Automated setup uses network installers - review scripts first",
+      "script": "scripts/install.sh"
+    }
+  }
+}

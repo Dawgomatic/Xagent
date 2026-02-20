@@ -1,0 +1,11 @@
+{
+  "owner": "betsymalthus",
+  "slug": "claw-asset-privacy-guardian",
+  "displayName": "Claw Asset & Privacy Guardian",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770819866132,
+    "commit": "https://github.com/openclaw/skills/commit/f8623ee77cc6e12f9ef7026047aa67e49eca96fe"
+  },
+  "history": []
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "odrobnik",
+  "slug": "klientenportal",
+  "displayName": "Klientenportal",
+  "latest": {
+    "version": "1.5.0",
+    "publishedAt": 1770983877252,
+    "commit": "https://github.com/openclaw/skills/commit/1ae36799d9a2b6606266cd07ac8c85c1d9353694"
+  },
+  "history": [
+    {
+      "version": "1.3.0",
+      "publishedAt": 1770961276621,
+      "commit": "https://github.com/openclaw/skills/commit/7cd78be51e514d435731756e76ac971bd7029163"
+    }
+  ]
+}

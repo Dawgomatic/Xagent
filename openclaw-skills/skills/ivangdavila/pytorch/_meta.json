@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "pytorch",
+  "displayName": "PyTorch",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770682779323,
+    "commit": "https://github.com/openclaw/skills/commit/64bfd82f6c82d226ebd74267cffd2e73be989573"
+  },
+  "history": []
+}

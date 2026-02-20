@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "brand-voice",
+  "displayName": "brand-voice",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771139333349,
+    "commit": "https://github.com/openclaw/skills/commit/9a34711cd831d48a18f77a967b5905b9e1eca7c0"
+  },
+  "history": []
+}

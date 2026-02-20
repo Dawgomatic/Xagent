@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-email-triage",
+  "displayName": "Expanso email-triage",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753083330,
+    "commit": "https://github.com/openclaw/skills/commit/25307023faa75a1901a69c5edb3a573bd8032a65"
+  },
+  "history": []
+}

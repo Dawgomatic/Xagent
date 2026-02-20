@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-log-sanitize",
+  "displayName": "Expanso log-sanitize",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753117809,
+    "commit": "https://github.com/openclaw/skills/commit/4af32275dd32a417b3fb16267795362ea88b1852"
+  },
+  "history": []
+}

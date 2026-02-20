@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "voice-transcriber-pro",
+  "displayName": "Voice Transcriber Pro",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771143858793,
+    "commit": "https://github.com/openclaw/skills/commit/f5087869ea2d6bc1743453b3a446e7df99305d6c"
+  },
+  "history": []
+}

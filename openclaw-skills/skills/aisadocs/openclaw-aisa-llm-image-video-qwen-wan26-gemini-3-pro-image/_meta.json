@@ -1,0 +1,11 @@
+{
+  "owner": "aisadocs",
+  "slug": "openclaw-aisa-llm-image-video-qwen-wan26-gemini-3-pro-image",
+  "displayName": "Generate images & videos with: Gemini 3 Pro Image + Qwen Wan 2.6 (video) via one API key",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770562943290,
+    "commit": "https://github.com/openclaw/skills/commit/773cebb6eb9297c7cde928f6ab5abd3052171e2b"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "crossallen",
+  "slug": "regex-tester",
+  "displayName": "RegexTester",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771035578482,
+    "commit": "https://github.com/openclaw/skills/commit/4ef759d0e1ef7737bd3d353743b9c41cb52dd342"
+  },
+  "history": []
+}

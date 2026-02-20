@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "monero",
+  "displayName": "Monero",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770748333414,
+    "commit": "https://github.com/openclaw/skills/commit/62f10b9364e886025fcfec9503631d76d1b47d2d"
+  },
+  "history": []
+}

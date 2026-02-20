@@ -1,0 +1,11 @@
+{
+  "owner": "crazzies",
+  "slug": "dnfm-tracker",
+  "displayName": "DNFM周本追踪",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770956035867,
+    "commit": "https://github.com/openclaw/skills/commit/811eff231e795d504bbae5c192d39ca61e81a203"
+  },
+  "history": []
+}

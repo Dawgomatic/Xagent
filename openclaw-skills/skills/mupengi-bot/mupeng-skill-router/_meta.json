@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "mupeng-skill-router",
+  "displayName": "skill-router",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771175791539,
+    "commit": "https://github.com/openclaw/skills/commit/5ae0c0cdca28b7d6a3aeb256cd386ab804724442"
+  },
+  "history": []
+}

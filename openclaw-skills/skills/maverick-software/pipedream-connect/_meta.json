@@ -1,0 +1,11 @@
+{
+  "owner": "maverick-software",
+  "slug": "pipedream-connect",
+  "displayName": "Pipedream Connect Integration",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770799577807,
+    "commit": "https://github.com/openclaw/skills/commit/b078a86f6abf8ce84843c87389508d6ab6400d4b"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "security-monitor-deploy",
+  "displayName": "Security Monitor Deploy",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771143891660,
+    "commit": "https://github.com/openclaw/skills/commit/6c47d1fe2918fc57923a1c6f4b11029a44d8a682"
+  },
+  "history": []
+}

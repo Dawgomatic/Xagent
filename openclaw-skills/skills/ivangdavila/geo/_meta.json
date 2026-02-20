@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "geo",
+  "displayName": "GEO",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770914746162,
+    "commit": "https://github.com/openclaw/skills/commit/112b392fceae8536848a4c645da7412dc98ea4e7"
+  },
+  "history": []
+}

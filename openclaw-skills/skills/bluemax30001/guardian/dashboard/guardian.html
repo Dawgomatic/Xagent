@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guardian Security Dashboard</title>
+<style>
+  :root {
+    --bg: #0d1117; --bg2: #161b22; --bg3: #1c2128; --border: #30363d;
+    --text: #e6edf3; --muted: #7d8590; --green: #3fb950; --red: #f85149;
+    --orange: #db6d28; --yellow: #d29922; --blue: #58a6ff; --purple: #bc8cff;
+    --shield: #3fb950;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; font-size: 14px; min-height: 100vh; }
+
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  header .shield { font-size: 28px; }
+  header h1 { font-size: 20px; font-weight: 700; color: var(--shield); }
+  header .subtitle { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  header .status-badge { margin-left: auto; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1px solid; }
+  .status-active { background: rgba(63,185,80,.15); color: var(--green); border-color: var(--green); }
+  .status-monitor { background: rgba(210,153,34,.15); color: var(--yellow); border-color: var(--yellow); }
+  .status-disabled { background: rgba(248,81,73,.15); color: var(--red); border-color: var(--red); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+  /* Stat cards */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .stat-card .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; }
+  .stat-card .sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .val-green { color: var(--green); }
+  .val-red { color: var(--red); }
+  .val-orange { color: var(--orange); }
+  .val-yellow { color: var(--yellow); }
+  .val-blue { color: var(--blue); }
+
+  /* Panels */
+  .panels { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 24px; }
+  @media (max-width: 900px) { .panels { grid-template-columns: 1fr; } }
+  .panel { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .panel-header { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: space-between; }
+  .panel-header .refresh-ts { color: var(--muted); font-size: 11px; font-weight: 400; }
+  .panel-body { padding: 16px; }
+
+  /* Threats table */
+  .threats-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .threats-table th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+  .threats-table td { padding: 8px 10px; border-bottom: 1px solid rgba(48,54,61,.5); vertical-align: top; }
+  .threats-table tr:last-child td { border-bottom: none; }
+  .threats-table tr:hover td { background: rgba(255,255,255,.03); }
+
+  .sev-pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+  .sev-critical { background: rgba(248,81,73,.2); color: var(--red); border: 1px solid rgba(248,81,73,.4); }
+  .sev-high { background: rgba(219,109,40,.2); color: var(--orange); border: 1px solid rgba(219,109,40,.4); }
+  .sev-medium { background: rgba(210,153,34,.2); color: var(--yellow); border: 1px solid rgba(210,153,34,.4); }
+  .sev-low { background: rgba(88,166,255,.2); color: var(--blue); border: 1px solid rgba(88,166,255,.4); }
+
+  .channel-tag { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px; background: rgba(255,255,255,.06); color: var(--muted); }
+  .threat-desc { max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .threat-ts { color: var(--muted); font-size: 11px; white-space: nowrap; }
+  .empty-row { text-align: center; color: var(--muted); padding: 32px !important; }
+
+  /* Config panel */
+  .config-list { list-style: none; }
+  .config-list li { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(48,54,61,.5); font-size: 13px; }
+  .config-list li:last-child { border-bottom: none; }
+  .config-key { color: var(--muted); }
+  .config-val { font-weight: 500; }
+  .config-val.on { color: var(--green); }
+  .config-val.off { color: var(--red); }
+  .config-val.warn { color: var(--yellow); }
+
+  /* Channel breakdown */
+  .channel-row { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid rgba(48,54,61,.5); font-size: 13px; }
+  .channel-row:last-child { border-bottom: none; }
+  .channel-name { flex: 1; text-transform: capitalize; }
+  .channel-bar-wrap { flex: 2; background: rgba(255,255,255,.06); border-radius: 4px; height: 8px; overflow: hidden; }
+  .channel-bar { height: 100%; border-radius: 4px; background: var(--shield); }
+  .channel-count { min-width: 40px; text-align: right; color: var(--muted); font-size: 12px; }
+
+  /* Admin commands */
+  .cmd-block { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 12px; font-family: 'SFMono-Regular', 'Consolas', monospace; font-size: 12px; line-height: 1.8; color: var(--text); overflow-x: auto; }
+  .cmd-comment { color: var(--muted); }
+  .cmd-bin { color: var(--blue); }
+  .cmd-arg { color: var(--green); }
+
+  /* Alert */
+  .alert-bar { padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .alert-critical { background: rgba(248,81,73,.12); border: 1px solid rgba(248,81,73,.3); color: var(--red); }
+  .alert-high { background: rgba(219,109,40,.12); border: 1px solid rgba(219,109,40,.3); color: var(--orange); }
+  .alert-info { background: rgba(63,185,80,.1); border: 1px solid rgba(63,185,80,.25); color: var(--green); }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); padding: 16px 24px; color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-links a { color: var(--blue); text-decoration: none; margin-left: 16px; }
+
+  /* Loading */
+  .loading { color: var(--muted); text-align: center; padding: 32px; }
+  .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--shield); border-radius: 50%; animation: spin .7s linear infinite; margin-right: 8px; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="shield">🛡️</span>
+  <div>
+    <h1>Guardian Security</h1>
+    <div class="subtitle">OpenClaw agent immune system · real-time threat monitoring</div>
+  </div>
+  <span id="header-badge" class="status-badge status-active">● ACTIVE</span>
+</header>
+
+<div class="container">
+
+  <!-- Alert bar (shown only on high/critical threats) -->
+  <div id="alert-bar" style="display:none"></div>
+
+  <!-- Stats row -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="label">Messages Scanned</div>
+      <div class="value val-blue" id="stat-scanned">—</div>
+      <div class="sub" id="stat-scan-rate">loading...</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Active Threats</div>
+      <div class="value val-red" id="stat-threats">—</div>
+      <div class="sub" id="stat-threat-sub">loading...</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Clean Rate</div>
+      <div class="value val-green" id="stat-clean">—</div>
+      <div class="sub">messages with no threat</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Signatures</div>
+      <div class="value val-purple" id="stat-sigs">—</div>
+      <div class="sub">active threat definitions</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Last Scan</div>
+      <div class="value" id="stat-last" style="font-size:18px">—</div>
+      <div class="sub" id="stat-last-sub"></div>
+    </div>
+  </div>
+
+  <!-- Main panels -->
+  <div class="panels">
+
+    <!-- Recent threats -->
+    <div class="panel">
+      <div class="panel-header">
+        🚨 Recent Threats
+        <span class="refresh-ts" id="threats-ts">refreshing...</span>
+      </div>
+      <div class="panel-body" style="padding:0">
+        <table class="threats-table">
+          <thead>
+            <tr>
+              <th>Severity</th>
+              <th>Channel</th>
+              <th>Description</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="threats-tbody">
+            <tr><td class="empty-row" colspan="4"><span class="spinner"></span>Loading threats...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <!-- Channel breakdown -->
+      <div class="panel">
+        <div class="panel-header">📡 Channels Monitored</div>
+        <div class="panel-body" id="channels-panel">
+          <div class="loading"><span class="spinner"></span>loading</div>
+        </div>
+      </div>
+
+      <!-- Config -->
+      <div class="panel">
+        <div class="panel-header">⚙️ Configuration</div>
+        <div class="panel-body">
+          <ul class="config-list" id="config-list">
+            <li><span class="config-key">Loading...</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Admin commands panel -->
+  <div class="panel" style="margin-bottom:24px">
+    <div class="panel-header">🔧 Admin Commands</div>
+    <div class="panel-body">
+      <div class="cmd-block">
+<span class="cmd-comment"># Status and reporting</span>
+<span class="cmd-bin">python3</span> skills/guardian/scripts/admin.py <span class="cmd-arg">status</span>
+<span class="cmd-bin">python3</span> skills/guardian/scripts/admin.py <span class="cmd-arg">report</span>
+<span class="cmd-bin">python3</span> skills/guardian/scripts/admin.py <span class="cmd-arg">threats</span>
+
+<span class="cmd-comment"># Temporary disable (testing / maintenance window)</span>
+<span class="cmd-bin">python3</span> skills/guardian/scripts/admin.py <span class="cmd-arg">disable</span> --until 2h
+<span class="cmd-bin">python3</span> skills/guardian/scripts/admin.py <span class="cmd-arg">enable</span>
+
+<span class="cmd-comment"># Dismiss false positives</span>
+<span class="cmd-bin">python3</span> skills/guardian/scripts/admin.py <span class="cmd-arg">dismiss</span> THREAT-ID
+
+<span class="cmd-comment"># Update threat definitions from upstream</span>
+<span class="cmd-bin">python3</span> skills/guardian/scripts/admin.py <span class="cmd-arg">update-defs</span>
+
+<span class="cmd-comment"># Re-run onboarding (refresh GUARDIAN.md + notification)</span>
+<span class="cmd-bin">python3</span> skills/guardian/scripts/onboard.py <span class="cmd-arg">--refresh</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>🛡️ Guardian v<span id="footer-version">1.0.0</span> · <span id="footer-ts">—</span></span>
+  <span class="footer-links">
+    <a href="https://clawhub.ai/skills/guardian" target="_blank">ClawHub</a>
+    <a href="../README.md" target="_blank">README</a>
+  </span>
+</footer>
+
+<script>
+// ─── Config ───────────────────────────────────────────────
+const DATA_URLS = [
+  // Try relative paths (works when served alongside guardian-threats.json)
+  './guardian-threats.json',
+  '../dashboard/guardian-threats.json',
+  '../../../dashboard/guardian-threats.json',
+];
+const CONFIG_URLS = [
+  './guardian-config.json',
+  '../dashboard/guardian-config.json',
+  '../../../dashboard/guardian-config.json',
+];
+const REFRESH_MS = 15000;
+
+// ─── Helpers ──────────────────────────────────────────────
+function fmtNum(n) {
+  if (n === null || n === undefined) return '—';
+  return Number(n).toLocaleString();
+}
+function fmtPct(n) {
+  if (n === null || n === undefined) return '—';
+  return Number(n).toFixed(1) + '%';
+}
+function fmtAgo(ts) {
+  if (!ts) return 'never';
+  const d = new Date(ts);
+  const s = Math.floor((Date.now() - d) / 1000);
+  if (s < 5) return 'just now';
+  if (s < 60) return s + 's ago';
+  if (s < 3600) return Math.floor(s/60) + 'm ago';
+  if (s < 86400) return Math.floor(s/3600) + 'h ago';
+  return d.toLocaleDateString();
+}
+function fmtTime(ts) {
+  if (!ts) return '—';
+  const d = new Date(ts);
+  return d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+function sevClass(s) {
+  return 'sev-' + (s||'low').toLowerCase();
+}
+
+async function tryFetch(urls) {
+  for (const url of urls) {
+    try {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (r.ok) return r.json();
+    } catch(e) {}
+  }
+  return null;
+}
+
+// ─── Render threats ───────────────────────────────────────
+function renderThreats(data) {
+  const tbody = document.getElementById('threats-tbody');
+  const ts = document.getElementById('threats-ts');
+  if (!data) {
+    tbody.innerHTML = '<tr><td class="empty-row" colspan="4">⚠️ Could not load guardian-threats.json — is the data collector running?</td></tr>';
+    return;
+  }
+
+  ts.textContent = 'updated ' + fmtAgo(data.generated || data.lastScan);
+
+  // Stats
+  const stats = data.stats || {};
+  const scanned = stats.total_scanned || data.scanned || 0;
+  const threats = stats.total_threats || (data.threats && data.threats.length) || 0;
+  const cleanRate = scanned > 0 ? ((scanned - threats) / scanned * 100) : 100;
+
+  document.getElementById('stat-scanned').textContent = fmtNum(scanned);
+  document.getElementById('stat-scan-rate').textContent = 'all channels monitored';
+  document.getElementById('stat-threats').textContent = fmtNum(threats);
+  document.getElementById('stat-threat-sub').textContent = threats === 0 ? 'system clean ✅' : 'requires review';
+  document.getElementById('stat-clean').textContent = fmtPct(cleanRate);
+  document.getElementById('stat-sigs').textContent = fmtNum(stats.definitions || data.sigCount || '—');
+
+  const lastScan = data.lastScan || data.generated;
+  document.getElementById('stat-last').textContent = lastScan ? fmtAgo(lastScan) : '—';
+  document.getElementById('stat-last-sub').textContent = lastScan ? fmtTime(lastScan) : '';
+
+  // Badge
+  const mode = data.mode || 'active';
+  const badge = document.getElementById('header-badge');
+  if (mode === 'disabled') {
+    badge.className = 'status-badge status-disabled'; badge.textContent = '○ DISABLED';
+  } else if (mode === 'monitor') {
+    badge.className = 'status-badge status-monitor'; badge.textContent = '◑ MONITOR';
+  } else {
+    badge.className = 'status-badge status-active'; badge.textContent = '● ACTIVE';
+  }
+
+  // Alert bar
+  const alertBar = document.getElementById('alert-bar');
+  const critThreats = (data.threats || []).filter(t => t.severity === 'critical' && !t.dismissed);
+  const highThreats = (data.threats || []).filter(t => t.severity === 'high' && !t.dismissed);
+  if (critThreats.length > 0) {
+    alertBar.style.display = 'flex';
+    alertBar.className = 'alert-bar alert-critical';
+    alertBar.innerHTML = `🔴 <strong>${critThreats.length} CRITICAL threat${critThreats.length>1?'s':''}</strong> detected — immediate review required`;
+  } else if (highThreats.length > 0) {
+    alertBar.style.display = 'flex';
+    alertBar.className = 'alert-bar alert-high';
+    alertBar.innerHTML = `🟠 <strong>${highThreats.length} high-severity threat${highThreats.length>1?'s':''}</strong> detected`;
+  } else if (scanned > 0) {
+    alertBar.style.display = 'flex';
+    alertBar.className = 'alert-bar alert-info';
+    alertBar.innerHTML = `✅ System clean · ${fmtNum(scanned)} messages scanned · ${fmtPct(cleanRate)} clean rate`;
+  } else {
+    alertBar.style.display = 'none';
+  }
+
+  // Threats table
+  const active = (data.threats || []).filter(t => !t.dismissed).slice(0, 20);
+  if (active.length === 0) {
+    tbody.innerHTML = '<tr><td class="empty-row" colspan="4">✅ No active threats</td></tr>';
+  } else {
+    tbody.innerHTML = active.map(t => `
+      <tr>
+        <td><span class="sev-pill ${sevClass(t.severity)}">${(t.severity||'low').toUpperCase()}</span></td>
+        <td><span class="channel-tag">${t.source || t.channel || '?'}</span></td>
+        <td class="threat-desc" title="${(t.description||'').replace(/"/g,'&quot;')}">${t.description || t.sig_id || '—'}</td>
+        <td class="threat-ts">${fmtAgo(t.detected_at || t.ts)}</td>
+      </tr>
+    `).join('');
+  }
+
+  // Channel breakdown
+  const chanPanel = document.getElementById('channels-panel');
+  const channels = data.channels || stats.by_channel || {};
+  const chanEntries = Object.entries(channels).sort((a,b) => b[1]-a[1]);
+  const maxChan = chanEntries.length > 0 ? chanEntries[0][1] : 1;
+  if (chanEntries.length === 0) {
+    chanPanel.innerHTML = '<div style="color:var(--muted);font-size:13px">No channel data yet</div>';
+  } else {
+    chanPanel.innerHTML = chanEntries.map(([ch, cnt]) => `
+      <div class="channel-row">
+        <span class="channel-name">${ch}</span>
+        <div class="channel-bar-wrap"><div class="channel-bar" style="width:${Math.max(4, cnt/maxChan*100)}%"></div></div>
+        <span class="channel-count">${cnt}</span>
+      </div>
+    `).join('');
+  }
+}
+
+// ─── Render config ────────────────────────────────────────
+function renderConfig(data) {
+  const list = document.getElementById('config-list');
+  if (!data) {
+    list.innerHTML = '<li><span class="config-key">guardian-config.json not found</span></li>';
+    return;
+  }
+
+  const cfg = data.config || data;
+  const items = [
+    ['Enabled', cfg.enabled !== false, cfg.enabled !== false ? 'on' : 'off'],
+    ['Admin Override', cfg.admin_override, cfg.admin_override ? 'warn' : 'on'],
+    ['Threshold', (cfg.severity_threshold||'medium').toUpperCase(), ''],
+    ['Scan Interval', (cfg.scan_interval_minutes||2) + ' min', ''],
+    ['Alert on Critical', cfg.alerts?.notify_on_critical !== false, cfg.alerts?.notify_on_critical !== false ? 'on' : 'off'],
+    ['Daily Digest', cfg.alerts?.daily_digest !== false, cfg.alerts?.daily_digest !== false ? 'on' : 'off'],
+    ['Monitor All', cfg.channels?.monitor_all !== false, cfg.channels?.monitor_all !== false ? 'on' : 'warn'],
+  ];
+
+  list.innerHTML = items.map(([k, v, cls]) => {
+    const display = typeof v === 'boolean' ? (v ? 'ON' : 'OFF') : v;
+    return `<li>
+      <span class="config-key">${k}</span>
+      <span class="config-val ${cls}">${display}</span>
+    </li>`;
+  }).join('');
+
+  // Version in footer
+  if (data.version) document.getElementById('footer-version').textContent = data.version;
+}
+
+// ─── Refresh loop ─────────────────────────────────────────
+async function refresh() {
+  document.getElementById('footer-ts').textContent = 'Last refresh: ' + new Date().toLocaleTimeString();
+  const [threats, config] = await Promise.all([
+    tryFetch(DATA_URLS),
+    tryFetch(CONFIG_URLS),
+  ]);
+  renderThreats(threats);
+  renderConfig(config);
+}
+
+refresh();
+setInterval(refresh, REFRESH_MS);
+</script>
+</body>
+</html>

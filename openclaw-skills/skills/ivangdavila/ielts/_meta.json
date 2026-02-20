@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "ielts",
+  "displayName": "IELTS",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770995079719,
+    "commit": "https://github.com/openclaw/skills/commit/765629416308c69f0d973d671e830d8515b1af70"
+  },
+  "history": []
+}

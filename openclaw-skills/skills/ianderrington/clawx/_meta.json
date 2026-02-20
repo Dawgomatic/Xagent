@@ -1,0 +1,11 @@
+{
+  "owner": "ianderrington",
+  "slug": "clawx",
+  "displayName": "ClawX Agent Verification",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770931028001,
+    "commit": "https://github.com/openclaw/skills/commit/39859007ac1bbf0474cb180ed80a883551136382"
+  },
+  "history": []
+}

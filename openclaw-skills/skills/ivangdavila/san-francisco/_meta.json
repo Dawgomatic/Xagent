@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "san-francisco",
+  "displayName": "San Francisco",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771376046629,
+    "commit": "https://github.com/openclaw/skills/commit/bf18c4c8bcc8d1b6b89fb2f85b92fe00ceca5c27"
+  },
+  "history": []
+}

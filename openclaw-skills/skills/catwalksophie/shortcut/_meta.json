@@ -1,0 +1,22 @@
+{
+  "owner": "catwalksophie",
+  "slug": "shortcut",
+  "displayName": "Shortcut",
+  "latest": {
+    "version": "1.4.1",
+    "publishedAt": 1770542761501,
+    "commit": "https://github.com/openclaw/skills/commit/384f243693163eb6808f0c5c6321f7f014fe5723"
+  },
+  "history": [
+    {
+      "version": "1.2.0",
+      "publishedAt": 1770356380719,
+      "commit": "https://github.com/openclaw/skills/commit/f8b390da9eeddc3a68694928f32a377b39ef6f62"
+    },
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770218449268,
+      "commit": "https://github.com/clawdbot/skills/commit/d159e38e51b8160b06bb9b4c61544965857ffd05"
+    }
+  ]
+}

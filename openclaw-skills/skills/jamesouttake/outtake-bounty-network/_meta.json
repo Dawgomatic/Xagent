@@ -1,0 +1,17 @@
+{
+  "owner": "jamesouttake",
+  "slug": "outtake-bounty-network",
+  "displayName": "Outtake Bounty Network",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771443211055,
+    "commit": "https://github.com/openclaw/skills/commit/932b807f0d97223ca0950e6dbfc72d8020ec3fa7"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1771031714313,
+      "commit": "https://github.com/openclaw/skills/commit/07641879a70eeab9208de4fcc5b5c2fac37e374e"
+    }
+  ]
+}

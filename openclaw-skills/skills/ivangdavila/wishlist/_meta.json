@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "wishlist",
+  "displayName": "Wishlist",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770774091259,
+    "commit": "https://github.com/openclaw/skills/commit/e219913f0a3bc96088d813bb2231e7cec974f095"
+  },
+  "history": []
+}

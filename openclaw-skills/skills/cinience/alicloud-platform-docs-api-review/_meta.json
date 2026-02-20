@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-platform-docs-api-review",
+  "displayName": "Alicloud Platform Docs Api Review",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770973225049,
+    "commit": "https://github.com/openclaw/skills/commit/26d93290dbf5d4e21fbb4256573bd593e03ec4a7"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-ai-misc-model-discovery",
+  "displayName": "Volcengine Ai Misc Model Discovery",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769449830,
+    "commit": "https://github.com/openclaw/skills/commit/5d45c22ca64cd8040a2da068a27357ea614c3cb2"
+  },
+  "history": []
+}

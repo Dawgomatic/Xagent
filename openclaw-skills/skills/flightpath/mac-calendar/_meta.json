@@ -1,0 +1,11 @@
+{
+  "owner": "flightpath",
+  "slug": "mac-calendar",
+  "displayName": "Mac Calendar",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771386328634,
+    "commit": "https://github.com/openclaw/skills/commit/77f7565ca97be984f1f22600050031b5a061f7aa"
+  },
+  "history": []
+}

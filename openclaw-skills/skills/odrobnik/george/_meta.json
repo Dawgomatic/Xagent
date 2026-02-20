@@ -1,0 +1,37 @@
+{
+  "owner": "odrobnik",
+  "slug": "george",
+  "displayName": "George Banking",
+  "latest": {
+    "version": "1.5.1",
+    "publishedAt": 1771481918761,
+    "commit": "https://github.com/openclaw/skills/commit/9f0589f29ffc104af2369b5c6ad440d9d46edf7c"
+  },
+  "history": [
+    {
+      "version": "1.4.1",
+      "publishedAt": 1770964159516,
+      "commit": "https://github.com/openclaw/skills/commit/764b793f3c757d4e992a7c082d156530d01491bb"
+    },
+    {
+      "version": "1.3.1",
+      "publishedAt": 1770912978012,
+      "commit": "https://github.com/openclaw/skills/commit/4efca0811956c852eb252926a2443eeca43845dc"
+    },
+    {
+      "version": "1.3.0",
+      "publishedAt": 1770903579399,
+      "commit": "https://github.com/openclaw/skills/commit/a06b25e59be94ba986aea604a089107ef3efb292"
+    },
+    {
+      "version": "1.2.0",
+      "publishedAt": 1770874094816,
+      "commit": "https://github.com/openclaw/skills/commit/91a0080de231b9794f4fc6ef5856b23f008bef1a"
+    },
+    {
+      "version": "1.0.7",
+      "publishedAt": 1769422703684,
+      "commit": "https://github.com/clawdbot/skills/commit/53b04ff163a62ca33548b1f8c0b5d0a82fb70210"
+    }
+  ]
+}

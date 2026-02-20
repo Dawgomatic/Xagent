@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "water",
+  "displayName": "Water Tracker",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771181947684,
+    "commit": "https://github.com/openclaw/skills/commit/1334ad9d120e579e84231781255b2e53e903fdae"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770842768898,
+      "commit": "https://github.com/openclaw/skills/commit/61f62b52c982eefb11fa96cc5b0b8340ecdbf4fb"
+    }
+  ]
+}

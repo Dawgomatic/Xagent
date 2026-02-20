@@ -1,0 +1,22 @@
+{
+  "owner": "nextaltair",
+  "slug": "calibre-catalog-read",
+  "displayName": "Calibre Catalog Read",
+  "latest": {
+    "version": "1.0.5",
+    "publishedAt": 1770992181653,
+    "commit": "https://github.com/openclaw/skills/commit/9c34297fd116a5c3249c74433a80c34dfc1dc96f"
+  },
+  "history": [
+    {
+      "version": "0.1.1",
+      "publishedAt": 1770905196081,
+      "commit": "https://github.com/openclaw/skills/commit/162b243723edbdafb91a36d11311dd09004b138b"
+    },
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770824117205,
+      "commit": "https://github.com/openclaw/skills/commit/5027e18f1a0ec5dae027ccbaf46ce08fad39529a"
+    }
+  ]
+}

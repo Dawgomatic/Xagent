@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "google-veo",
+  "displayName": "Google Veo",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403193472,
+    "commit": "https://github.com/openclaw/skills/commit/35b664024f12335e65ccbde90f041c54c6bca559"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770363343265,
+      "commit": "https://github.com/openclaw/skills/commit/bed709de0e1d8baaa437a51e041c0abc8f2e64e1"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "cpp",
+  "displayName": "C++",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771103250180,
+    "commit": "https://github.com/openclaw/skills/commit/f12a2cc3bdd016deb267b0cc3b9f42f734ad7e14"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770679844995,
+      "commit": "https://github.com/openclaw/skills/commit/272846679d815ceb4c22f55e609edf6bcff7f655"
+    }
+  ]
+}

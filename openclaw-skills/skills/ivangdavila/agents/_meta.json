@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "agents",
+  "displayName": "Agents",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770983222662,
+    "commit": "https://github.com/openclaw/skills/commit/a9522d895a68d473010a8fd936d7a4ea001e4e50"
+  },
+  "history": []
+}

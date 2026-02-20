@@ -1,0 +1,17 @@
+{
+  "owner": "nextaltair",
+  "slug": "subagent-spawn-command-builder",
+  "displayName": "Subagent Spawn Command Builder",
+  "latest": {
+    "version": "0.1.2",
+    "publishedAt": 1771029448201,
+    "commit": "https://github.com/openclaw/skills/commit/135d7ba5755c710ca2a567a8f0878da76dcb3cfa"
+  },
+  "history": [
+    {
+      "version": "0.1.1",
+      "publishedAt": 1770905311749,
+      "commit": "https://github.com/openclaw/skills/commit/fabb395d847414dd15f659a01eacb4c07e505113"
+    }
+  ]
+}

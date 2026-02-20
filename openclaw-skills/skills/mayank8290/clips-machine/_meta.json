@@ -1,0 +1,17 @@
+{
+  "owner": "mayank8290",
+  "slug": "clips-machine",
+  "displayName": "Clips Machine",
+  "latest": {
+    "version": "1.2.1",
+    "publishedAt": 1770878137821,
+    "commit": "https://github.com/openclaw/skills/commit/5437299c4635aef65e3b7811e2b6466199bc8049"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770476916240,
+      "commit": "https://github.com/openclaw/skills/commit/ad3224a16bdd35bd34b2878f5967b023a987878b"
+    }
+  ]
+}

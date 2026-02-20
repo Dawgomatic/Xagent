@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "piano",
+  "displayName": "Piano",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770857497366,
+    "commit": "https://github.com/openclaw/skills/commit/e14f92d3edca9a533b411e8f3a4dca53e6116994"
+  },
+  "history": []
+}

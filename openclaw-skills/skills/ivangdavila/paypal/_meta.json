@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "paypal",
+  "displayName": "PayPal",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771288311690,
+    "commit": "https://github.com/openclaw/skills/commit/07b0a537b9fb6aa360607271942a896e073bb198"
+  },
+  "history": []
+}

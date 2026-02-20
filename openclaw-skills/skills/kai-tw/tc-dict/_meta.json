@@ -1,0 +1,11 @@
+{
+  "owner": "kai-tw",
+  "slug": "tc-dict",
+  "displayName": "Traditional Chinese Dictionary",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771352278177,
+    "commit": "https://github.com/openclaw/skills/commit/0fd650896d47d1d93a46bfa448124bf9bc514f17"
+  },
+  "history": []
+}

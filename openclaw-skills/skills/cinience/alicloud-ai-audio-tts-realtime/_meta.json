@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-ai-audio-tts-realtime",
+  "displayName": "Alicloud Ai Audio Tts Realtime",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770973104104,
+    "commit": "https://github.com/openclaw/skills/commit/71935048e925a241ca91ba59707c02aaa7f353e9"
+  },
+  "history": []
+}

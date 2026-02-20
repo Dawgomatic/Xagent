@@ -1,0 +1,11 @@
+{
+  "owner": "aadipapp",
+  "slug": "neuralink-decoder",
+  "displayName": "NeuralEntropy",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771308684071,
+    "commit": "https://github.com/openclaw/skills/commit/b5971f1a0647568c04092fa8168266cf8c353fda"
+  },
+  "history": []
+}

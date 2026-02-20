@@ -1,0 +1,11 @@
+{
+  "owner": "danielfoch",
+  "slug": "idx-cma-report",
+  "displayName": "IDX CMA Report",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771305009667,
+    "commit": "https://github.com/openclaw/skills/commit/caa6efa8f95ae0efb7420c712497fd52ebbf2ecb"
+  },
+  "history": []
+}

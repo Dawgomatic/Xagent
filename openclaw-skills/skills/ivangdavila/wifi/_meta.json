@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "wifi",
+  "displayName": "WiFi",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770750735537,
+    "commit": "https://github.com/openclaw/skills/commit/7fe7bf9edac685cc6d3e8fc95a45659695aa698b"
+  },
+  "history": []
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "amitaybohadana",
+  "slug": "paygents",
+  "displayName": "PayGents",
+  "latest": {
+    "version": "0.2.0",
+    "publishedAt": 1771361311401,
+    "commit": "https://github.com/openclaw/skills/commit/5f5b426c275323380bb777b0368b4e2cb129e086"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1771348684276,
+      "commit": "https://github.com/openclaw/skills/commit/459dc198b077706cb39c77577208b9a608c44180"
+    }
+  ]
+}

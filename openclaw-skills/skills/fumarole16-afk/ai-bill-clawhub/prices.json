@@ -1,0 +1,27 @@
+{
+  "openai": {
+    "gpt-4o": {"in": 5.0, "out": 15.0},
+    "gpt-4o-mini": {"in": 0.15, "out": 0.6}
+  },
+  "claude": {
+    "claude-3-5-sonnet-latest": {"in": 3.0, "out": 15.0},
+    "claude-3-opus-latest": {"in": 15.0, "out": 75.0}
+  },
+  "gemini": {
+    "gemini-1.5-pro": {"in": 1.25, "out": 5.0},
+    "gemini-1.5-flash": {"in": 0.075, "out": 0.3},
+    "gemini-3-flash-preview": {"in": 0.075, "out": 0.3}
+  },
+  "kimi": {
+    "kimi-k2.5": {"in": 0.50, "out": 2.40}
+  },
+  "deepseek": {
+    "deepseek-v3": {"in": 0.14, "out": 0.28}
+  },
+  "grok": {
+    "grok-2-1212": {"in": 2.0, "out": 10.0},
+    "grok-2-mini-1212": {"in": 0.6, "out": 2.4}
+  },
+  "updated_at": "2026-02-08T10:10:00Z",
+  "author": "Tiger Jung & Chloe"
+}

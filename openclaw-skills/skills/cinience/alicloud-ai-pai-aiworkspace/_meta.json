@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-ai-pai-aiworkspace",
+  "displayName": "Alicloud Ai Pai Aiworkspace",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973173414,
+    "commit": "https://github.com/openclaw/skills/commit/2ebb0e7f909bffb1d8e58902746ec041ef68da45"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768426514,
+      "commit": "https://github.com/openclaw/skills/commit/173ad7d0b0e2c5ecc469cb655e410737fe95ff97"
+    }
+  ]
+}

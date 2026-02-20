@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "image-edit",
+  "displayName": "Image Editing",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770861845569,
+    "commit": "https://github.com/openclaw/skills/commit/bc7212a51075fa18a718e618ce83c7634ed087fe"
+  },
+  "history": []
+}

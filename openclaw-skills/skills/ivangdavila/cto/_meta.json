@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "cto",
+  "displayName": "Chief Technology Officer",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770991523727,
+    "commit": "https://github.com/openclaw/skills/commit/0baf6de3281680536cca1dc7163ca05486d55c49"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770672217929,
+      "commit": "https://github.com/openclaw/skills/commit/a35f63233fa7481641b0d47ffd314a2bd5d77254"
+    }
+  ]
+}

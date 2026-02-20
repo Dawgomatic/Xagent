@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "postgres-perf",
+  "displayName": "PostgreSQL Performance",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593643300,
+    "commit": "https://github.com/openclaw/skills/commit/0db2018b38190525aad8e911bebb71d2fac8640d"
+  },
+  "history": []
+}

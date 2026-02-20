@@ -1,0 +1,11 @@
+{
+  "owner": "doanbactam",
+  "slug": "claude-agent-team-workflows",
+  "displayName": "Agent Team Workflows",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770956303420,
+    "commit": "https://github.com/openclaw/skills/commit/7ac702e290505d0165ee1cbea983e14d9433f5b5"
+  },
+  "history": []
+}

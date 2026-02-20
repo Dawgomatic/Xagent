@@ -1,0 +1,32 @@
+{
+  "owner": "ericsantos",
+  "slug": "confidant",
+  "displayName": "Confidant",
+  "latest": {
+    "version": "1.3.1",
+    "publishedAt": 1771504670644,
+    "commit": "https://github.com/openclaw/skills/commit/d7a9f3f62e37250d139bd56a4ef4eccd94d3c83d"
+  },
+  "history": [
+    {
+      "version": "1.3.0",
+      "publishedAt": 1771504337900,
+      "commit": "https://github.com/openclaw/skills/commit/3108f54665cd2ddcc6bc47efe02cee30e02d25f8"
+    },
+    {
+      "version": "1.1.1",
+      "publishedAt": 1770036396586,
+      "commit": "https://github.com/clawdbot/skills/commit/af581a229a3c374b8623c6b0c25aa07b99e3db66"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1769905053673,
+      "commit": "https://github.com/clawdbot/skills/commit/8ced5daee07cbc52d8eb92e736dfbcb132cc5571"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769879835547,
+      "commit": "https://github.com/clawdbot/skills/commit/9a90653cd885d5e57f8976460e7c2a26c679aecc"
+    }
+  ]
+}

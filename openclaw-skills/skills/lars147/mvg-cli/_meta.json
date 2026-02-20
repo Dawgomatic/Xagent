@@ -1,0 +1,11 @@
+{
+  "owner": "lars147",
+  "slug": "mvg-cli",
+  "displayName": "Mvg",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771361437263,
+    "commit": "https://github.com/openclaw/skills/commit/fd3d351c3d575c05634e132d8db019c6c7f7aa64"
+  },
+  "history": []
+}

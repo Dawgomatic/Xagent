@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "timescaledb",
+  "displayName": "TimescaleDB",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770727345054,
+    "commit": "https://github.com/openclaw/skills/commit/8bd3b8fa44ff2d44b88651065239af5e89032e66"
+  },
+  "history": []
+}

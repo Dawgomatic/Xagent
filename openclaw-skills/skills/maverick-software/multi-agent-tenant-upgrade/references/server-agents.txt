@@ -1,0 +1,155 @@
+diff --git a/src/gateway/server-methods/agents.ts b/src/gateway/server-methods/agents.ts
+index 04a716e07..0b74fb650 100644
+--- a/src/gateway/server-methods/agents.ts
++++ b/src/gateway/server-methods/agents.ts
+@@ -26,6 +26,8 @@ import {
+   pruneAgentConfig,
+ } from "../../commands/agents.config.js";
+ import { loadConfig, writeConfigFile } from "../../config/config.js";
++import { ensureAuthProfileStore, resolveApiKeyForProvider } from "../../agents/model-auth.js";
++import { createSubsystemLogger } from "../../logging/subsystem.js";
+ import { resolveSessionTranscriptsDirForAgent } from "../../config/sessions/paths.js";
+ import { DEFAULT_AGENT_ID, normalizeAgentId } from "../../routing/session-key.js";
+ import { resolveUserPath } from "../../utils.js";
+@@ -526,4 +528,141 @@ export const agentsHandlers: GatewayRequestHandlers = {
+       undefined,
+     );
+   },
++
++  /**
++   * AI Wizard: generate agent config from a natural language description.
++   * Uses the configured default model to produce name, emoji, and SOUL.md.
++   */
++  "agents.wizard": async ({ params, respond }) => {
++    const wizLog = createSubsystemLogger("agents-wizard");
++    const description = String((params as { description?: string }).description ?? "").trim();
++    if (!description) {
++      respond(false, undefined, errorShape(ErrorCodes.INVALID_REQUEST, "description is required"));
++      return;
++    }
++
++    try {
++      const cfg = loadConfig();
++
++      // Resolve model and API key from config
++      const defaultModel = cfg.agents?.defaults?.model;
++      const modelStr = typeof defaultModel === "string"
++        ? defaultModel
++        : (defaultModel as { primary?: string })?.primary ?? "anthropic/claude-sonnet-4-6";
++      const [provider] = modelStr.split("/");
++      const resolvedProvider = provider || "anthropic";
++
++      // Resolve API key ? raw HTTP calls need an api_key type token (not OAuth/bearer).
++      // If the default auth resolves to OAuth, fall back to an explicit api_key profile,
++      // then fall back to the ANTHROPIC_API_KEY env var directly.
++      let auth = await resolveApiKeyForProvider({ provider: resolvedProvider, cfg });
++      if (auth.mode !== "api-key") {
++        wizLog.debug("Default auth is OAuth/token, looking for api_key profile", {
++          defaultMode: auth.mode,
++          defaultSource: auth.source,
++        });
++        const store = ensureAuthProfileStore();
++        const apiKeyProfile = Object.entries(store.profiles).find(
++          ([, cred]) => cred.provider === resolvedProvider && cred.type === "api_key",
++        );
++        if (apiKeyProfile) {
++          const [profileId] = apiKeyProfile;
++          auth = await resolveApiKeyForProvider({ provider: resolvedProvider, cfg, profileId });
++          wizLog.debug("Using api_key profile for wizard", { profileId, source: auth.source });
++        } else {
++          // Last resort: grab directly from env
++          const envKey = resolvedProvider === "anthropic"
++            ? (process.env.ANTHROPIC_API_KEY ?? "")
++            : (process.env.OPENAI_API_KEY ?? "");
++          if (envKey) {
++            auth = { apiKey: envKey, source: "env", mode: "api-key" };
++            wizLog.debug("Using env API key for wizard", { provider: resolvedProvider });
++          }
++        }
++      }
++
++      const systemPrompt = `You are an AI agent design assistant. Given a description of what someone wants their AI agent to be, generate:
++
++1. A creative, memorable agent name (2-3 words max)
++2. A fitting emoji for the agent
++3. A SOUL.md file that defines the agent's personality, purpose, and behavior guidelines
++
++Respond in this exact JSON format (no markdown, no code fences):
++{"name":"Agent Name","emoji":"?","soul":"# SOUL.md content here\\n\\nFull soul file with personality, purpose, boundaries, etc."}
++
++The SOUL.md should be thoughtful and specific to the agent's purpose. Include sections for Identity, Purpose, Personality/Tone, Boundaries, and any domain-specific guidelines. Use newlines (\\n) in the soul string.`;
++
++      const userPrompt = `Create an AI agent based on this description:\n\n${description}`;
++
++      let body: Record<string, unknown>;
++      let url: string;
++      const headers: Record<string, string> = { "Content-Type": "application/json" };
++
++      if (provider === "anthropic") {
++        url = "https://api.anthropic.com/v1/messages";
++        headers["x-api-key"] = auth.apiKey;
++        headers["anthropic-version"] = "2023-06-01";
++        body = {
++          model: modelStr.replace("anthropic/", ""),
++          max_tokens: 2048,
++          system: systemPrompt,
++          messages: [{ role: "user", content: userPrompt }],
++        };
++      } else {
++        // OpenAI-compatible
++        url = "https://api.openai.com/v1/chat/completions";
++        headers["Authorization"] = `Bearer ${auth.apiKey}`;
++        body = {
++          model: modelStr.replace(`${provider}/`, ""),
++          max_tokens: 2048,
++          messages: [
++            { role: "system", content: systemPrompt },
++            { role: "user", content: userPrompt },
++          ],
++        };
++      }
++
++      wizLog.info("Calling model for agent wizard", { model: modelStr });
++      const res = await fetch(url, {
++        method: "POST",
++        headers,
++        body: JSON.stringify(body),
++      });
++
++      if (!res.ok) {
++        const errText = await res.text().catch(() => "");
++        wizLog.error("Model API error", { status: res.status, body: errText.slice(0, 200) });
++        respond(false, undefined, errorShape(ErrorCodes.INTERNAL_ERROR, `Model API error: ${res.status}`));
++        return;
++      }
++
++      const data = await res.json() as Record<string, unknown>;
++
++      // Extract text from response
++      let text: string;
++      if (provider === "anthropic") {
++        const content = (data.content as Array<{ type: string; text?: string }>) ?? [];
++        text = content.find((c) => c.type === "text")?.text ?? "";
++      } else {
++        const choices = (data.choices as Array<{ message?: { content?: string } }>) ?? [];
++        text = choices[0]?.message?.content ?? "";
++      }
++
++      // Parse JSON from response (strip any markdown fences)
++      const cleaned = text.replace(/```json?\s*/g, "").replace(/```\s*/g, "").trim();
++      const result = JSON.parse(cleaned) as { name: string; emoji: string; soul: string };
++
++      respond(true, {
++        name: result.name,
++        emoji: result.emoji,
++        soul: result.soul,
++      }, undefined);
++    } catch (err) {
++      wizLog.error("Wizard failed", { error: String(err) });
++      respond(false, undefined, errorShape(
++        ErrorCodes.INTERNAL_ERROR,
++        err instanceof Error ? err.message : String(err),
++      ));
++    }
++  },
+ };

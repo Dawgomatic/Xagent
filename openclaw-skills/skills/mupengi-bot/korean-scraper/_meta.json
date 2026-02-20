@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "korean-scraper",
+  "displayName": "Korean Scraper",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771256318187,
+    "commit": "https://github.com/openclaw/skills/commit/dde30da3c82e45cf4ff988b81098ee75f9fd1b6c"
+  },
+  "history": []
+}

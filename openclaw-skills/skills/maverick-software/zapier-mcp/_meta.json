@@ -1,0 +1,11 @@
+{
+  "owner": "maverick-software",
+  "slug": "zapier-mcp",
+  "displayName": "Zapier MCP",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771178006450,
+    "commit": "https://github.com/openclaw/skills/commit/90fee80c9d6403eebfda704a7e5353a49b21add2"
+  },
+  "history": []
+}

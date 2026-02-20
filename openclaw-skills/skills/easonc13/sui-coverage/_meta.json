@@ -1,0 +1,27 @@
+{
+  "owner": "easonc13",
+  "slug": "sui-coverage",
+  "displayName": "Sui Coverage",
+  "latest": {
+    "version": "1.1.1",
+    "publishedAt": 1770682852782,
+    "commit": "https://github.com/openclaw/skills/commit/737a8c61a950a45cba2eef85430ffdf27e425016"
+  },
+  "history": [
+    {
+      "version": "1.1.0",
+      "publishedAt": 1770642891851,
+      "commit": "https://github.com/openclaw/skills/commit/e16aa46a66860deb8c88b4b2b82155c18d65e1fd"
+    },
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770553398432,
+      "commit": "https://github.com/openclaw/skills/commit/0df78c131453c4da1073c2995f862c6ceaa8ffea"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770536132657,
+      "commit": "https://github.com/openclaw/skills/commit/985326045326a8cdda4d7a8388a2b7ff901d0759"
+    }
+  ]
+}

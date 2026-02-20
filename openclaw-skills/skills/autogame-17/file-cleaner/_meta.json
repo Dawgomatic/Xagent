@@ -1,0 +1,11 @@
+{
+  "owner": "autogame-17",
+  "slug": "file-cleaner",
+  "displayName": "File Cleaner",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771344408552,
+    "commit": "https://github.com/openclaw/skills/commit/05496f0df2e6531f471525df23bb618e481719bd"
+  },
+  "history": []
+}

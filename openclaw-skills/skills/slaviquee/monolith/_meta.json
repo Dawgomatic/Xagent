@@ -1,0 +1,11 @@
+{
+  "owner": "slaviquee",
+  "slug": "monolith",
+  "displayName": "Monolith",
+  "latest": {
+    "version": "0.1.4",
+    "publishedAt": 1771526107778,
+    "commit": "https://github.com/openclaw/skills/commit/c5e10fda2a715ba1d0ec11520c0349f2cdb4e071"
+  },
+  "history": []
+}

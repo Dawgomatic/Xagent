@@ -1,0 +1,7 @@
+{
+  "name": "cron-visualizer",
+  "version": "1.0.0",
+  "description": "Visualizes system cron jobs on a 24h timeline to identify overlaps and bottlenecks.",
+  "main": "index.js",
+  "dependencies": {}
+}

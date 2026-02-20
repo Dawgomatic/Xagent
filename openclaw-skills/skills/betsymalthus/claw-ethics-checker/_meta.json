@@ -1,0 +1,11 @@
+{
+  "owner": "betsymalthus",
+  "slug": "claw-ethics-checker",
+  "displayName": "Claw Ethics Checker",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770809963884,
+    "commit": "https://github.com/openclaw/skills/commit/82ac229104dad13a7ed07bf2607ee6e7976fe8e6"
+  },
+  "history": []
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "infrastructure",
+  "displayName": "Infrastructure",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771262865765,
+    "commit": "https://github.com/openclaw/skills/commit/293a425928272b14399c8ab8bb42f19c7917fcf0"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770919042923,
+      "commit": "https://github.com/openclaw/skills/commit/62cf82b95f4a81baac2ef25913683a5642e1dcc9"
+    }
+  ]
+}

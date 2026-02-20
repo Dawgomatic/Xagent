@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "brief",
+  "displayName": "Brief",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771258074928,
+    "commit": "https://github.com/openclaw/skills/commit/1e7fa720655b047280bec1852b9acea3ad1a305c"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770894435106,
+      "commit": "https://github.com/openclaw/skills/commit/8d88b49ca9980fcffb4ac6a124a636f10071bdda"
+    }
+  ]
+}

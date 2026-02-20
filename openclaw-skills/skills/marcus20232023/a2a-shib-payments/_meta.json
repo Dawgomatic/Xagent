@@ -1,0 +1,11 @@
+{
+  "owner": "marcus20232023",
+  "slug": "a2a-shib-payments",
+  "displayName": "A2A SHIB Payment System",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1770816403498,
+    "commit": "https://github.com/openclaw/skills/commit/c3a8c4f61358d8b2081a7057ace6926f535ff4dd"
+  },
+  "history": []
+}

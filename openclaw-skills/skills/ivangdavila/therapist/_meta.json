@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "therapist",
+  "displayName": "Therapist",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770696546019,
+    "commit": "https://github.com/openclaw/skills/commit/b9ac38535a8c0a89e45706507bce6506239e7a69"
+  },
+  "history": []
+}

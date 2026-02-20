@@ -1,0 +1,17 @@
+{
+  "owner": "clawlinker",
+  "slug": "pawr-link-in-bio",
+  "displayName": "Create a linkinbio page on pawr.link",
+  "latest": {
+    "version": "2.0.1",
+    "publishedAt": 1771198069998,
+    "commit": "https://github.com/openclaw/skills/commit/07e210655b1b2817ff75b7b8b16caa7867976145"
+  },
+  "history": [
+    {
+      "version": "2.0.0",
+      "publishedAt": 1771025201683,
+      "commit": "https://github.com/openclaw/skills/commit/d6896140f913b3900137c6231539a58caf843470"
+    }
+  ]
+}

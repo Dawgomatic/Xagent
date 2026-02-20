@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "pkm",
+  "displayName": "Personal Knowledge Base",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770766859608,
+    "commit": "https://github.com/openclaw/skills/commit/dc1767641d8b708a4124cd16d84968c37ed8dbba"
+  },
+  "history": []
+}

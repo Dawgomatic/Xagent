@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "oauth",
+  "displayName": "OAuth",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770688034158,
+    "commit": "https://github.com/openclaw/skills/commit/192f5acafae3a04b96e93b2c053f99433bbf5b04"
+  },
+  "history": []
+}

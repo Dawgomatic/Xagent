@@ -1,0 +1,11 @@
+{
+  "owner": "killgfat",
+  "slug": "pyzotero",
+  "displayName": "Pyzotero",
+  "latest": {
+    "version": "0.2.0",
+    "publishedAt": 1770611117084,
+    "commit": "https://github.com/openclaw/skills/commit/be0fdfda69e57f0341fe3c95c8853f70d6e48a0e"
+  },
+  "history": []
+}

@@ -1,0 +1,22 @@
+{
+  "owner": "edmonddantesj",
+  "slug": "aoi-hackathon-scout-lite",
+  "displayName": "AOI Hackathon Scout (Lite)",
+  "latest": {
+    "version": "0.1.6",
+    "publishedAt": 1771394292715,
+    "commit": "https://github.com/openclaw/skills/commit/146257696473a28fa1217ba1934e1d848ab91c30"
+  },
+  "history": [
+    {
+      "version": "0.1.3",
+      "publishedAt": 1771221252587,
+      "commit": "https://github.com/openclaw/skills/commit/4b74064b3cf16e453a22921a84434ede7d423c86"
+    },
+    {
+      "version": "0.1.2",
+      "publishedAt": 1771138633599,
+      "commit": "https://github.com/openclaw/skills/commit/8effa2822080d8712a7c5bd90e2552f09feac44a"
+    }
+  ]
+}

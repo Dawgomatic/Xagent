@@ -1,0 +1,11 @@
+{
+  "owner": "khaney64",
+  "slug": "leak-check",
+  "displayName": "Leak Check",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771300823349,
+    "commit": "https://github.com/openclaw/skills/commit/96d06eb1cd456e64862a58722fb9e42d95d98501"
+  },
+  "history": []
+}

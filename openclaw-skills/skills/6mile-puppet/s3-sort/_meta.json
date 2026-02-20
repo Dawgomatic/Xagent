@@ -1,0 +1,11 @@
+{
+  "owner": "6mile-puppet",
+  "slug": "s3-sort",
+  "displayName": "Create and manage a sorted directory structure in AWS S3",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771225356679,
+    "commit": "https://github.com/openclaw/skills/commit/2d853c81388545ed69db5f7baa82c02f5b7a49a9"
+  },
+  "history": []
+}

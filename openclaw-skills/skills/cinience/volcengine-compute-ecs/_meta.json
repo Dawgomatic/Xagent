@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-compute-ecs",
+  "displayName": "Volcengine Compute Ecs",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769462727,
+    "commit": "https://github.com/openclaw/skills/commit/ce4693165555d8472a0e0328b125d357afa1adb6"
+  },
+  "history": []
+}

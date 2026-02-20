@@ -1,0 +1,11 @@
+{
+  "owner": "andrewharp",
+  "slug": "runpod",
+  "displayName": "RunPod pod management",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770515915744,
+    "commit": "https://github.com/openclaw/skills/commit/64fb57d77824cf2f8663083df1d8d61b98b26b06"
+  },
+  "history": []
+}

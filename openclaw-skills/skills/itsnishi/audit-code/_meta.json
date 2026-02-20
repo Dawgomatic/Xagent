@@ -1,0 +1,11 @@
+{
+  "owner": "itsnishi",
+  "slug": "audit-code",
+  "displayName": "Audit Code",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770506520844,
+    "commit": "https://github.com/openclaw/skills/commit/0cd759e848cc77d5040660995e71782975503a95"
+  },
+  "history": []
+}

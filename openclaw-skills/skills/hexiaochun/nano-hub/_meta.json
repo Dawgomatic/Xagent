@@ -1,0 +1,11 @@
+{
+  "owner": "hexiaochun",
+  "slug": "nano-hub",
+  "displayName": "Nano Hub",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770648548326,
+    "commit": "https://github.com/openclaw/skills/commit/b8648b55a4f10f8f3dda019e2fab56a6978337e3"
+  },
+  "history": []
+}

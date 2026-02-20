@@ -1,0 +1,11 @@
+{
+  "owner": "0xjordansg-yolo",
+  "slug": "ai-native-websearch-via-tavily-api-returns-concise-relevant-results-for-openclaw",
+  "displayName": "Web Search Tavily",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771074981521,
+    "commit": "https://github.com/openclaw/skills/commit/8235f00d4e8dd76f584c2192266f4f2c94e1b1ba"
+  },
+  "history": []
+}

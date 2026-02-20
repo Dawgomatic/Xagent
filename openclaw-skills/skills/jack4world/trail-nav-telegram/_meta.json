@@ -1,0 +1,17 @@
+{
+  "owner": "jack4world",
+  "slug": "trail-nav-telegram",
+  "displayName": "Trail Nav via Telegram (low-token)",
+  "latest": {
+    "version": "0.3.1",
+    "publishedAt": 1771262006455,
+    "commit": "https://github.com/openclaw/skills/commit/f65b303f49d32f79fdb3e7857877dd1e3586d6e2"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1771236075053,
+      "commit": "https://github.com/openclaw/skills/commit/02a599d04f5a9e4c50386d23061072de726a844b"
+    }
+  ]
+}

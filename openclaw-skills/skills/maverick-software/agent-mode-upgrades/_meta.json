@@ -1,0 +1,17 @@
+{
+  "owner": "maverick-software",
+  "slug": "agent-mode-upgrades",
+  "displayName": "Agentic Mode Upgrades",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771316765099,
+    "commit": "https://github.com/openclaw/skills/commit/232ab322fb2ee4bcf1bf12194ff1e9b34eec503f"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1771313273073,
+      "commit": "https://github.com/openclaw/skills/commit/f0db8cc5848406be451cf68ce4b4041149568530"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "chenkun-nuaa",
+  "slug": "ck-rag-skill",
+  "displayName": "ck-rag-skill",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770789762715,
+    "commit": "https://github.com/openclaw/skills/commit/e854ace2021e7793dda870b99ea63966b8cf0da3"
+  },
+  "history": []
+}

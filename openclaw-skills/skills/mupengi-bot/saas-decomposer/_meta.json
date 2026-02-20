@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "saas-decomposer",
+  "displayName": "Saas Decomposer",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771383021365,
+    "commit": "https://github.com/openclaw/skills/commit/a2001bdb926e6a36cda97079304298c247a7b3ce"
+  },
+  "history": []
+}

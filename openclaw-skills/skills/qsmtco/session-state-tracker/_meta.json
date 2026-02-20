@@ -1,0 +1,11 @@
+{
+  "owner": "qsmtco",
+  "slug": "session-state-tracker",
+  "displayName": "Session State Tracker",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771114404076,
+    "commit": "https://github.com/openclaw/skills/commit/a5a03cb77af7f8d537b0281bc84313d7de353061"
+  },
+  "history": []
+}

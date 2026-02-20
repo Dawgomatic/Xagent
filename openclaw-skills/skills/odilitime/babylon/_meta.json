@@ -1,0 +1,27 @@
+{
+  "owner": "odilitime",
+  "slug": "babylon",
+  "displayName": "Babylon",
+  "latest": {
+    "version": "1.3.1",
+    "publishedAt": 1771290519768,
+    "commit": "https://github.com/openclaw/skills/commit/700badeb075d2d2cb5a4345e73d7d59254de0d57"
+  },
+  "history": [
+    {
+      "version": "1.2.0",
+      "publishedAt": 1770850825970,
+      "commit": "https://github.com/openclaw/skills/commit/9a0a0858a50138cc20454a4068152135a8de1c26"
+    },
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770190079680,
+      "commit": "https://github.com/clawdbot/skills/commit/6a81662f352d017953a63ec011aa4c658576707f"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769929964014,
+      "commit": "https://github.com/clawdbot/skills/commit/0746579e0240ed90f2e37e8ca734a301829b918e"
+    }
+  ]
+}

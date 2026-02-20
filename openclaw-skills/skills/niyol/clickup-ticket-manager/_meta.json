@@ -1,0 +1,11 @@
+{
+  "owner": "niyol",
+  "slug": "clickup-ticket-manager",
+  "displayName": "Clup",
+  "latest": {
+    "version": "0.2.0",
+    "publishedAt": 1771500583329,
+    "commit": "https://github.com/openclaw/skills/commit/5ef50925bae56de544d5acbddd7e1c9af64f9548"
+  },
+  "history": []
+}

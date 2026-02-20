@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "mupeng-trend-radar",
+  "displayName": "Trend Radar",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771198302197,
+    "commit": "https://github.com/openclaw/skills/commit/219e8f82001013b3eff952bf45cd70f9a00183b9"
+  },
+  "history": []
+}

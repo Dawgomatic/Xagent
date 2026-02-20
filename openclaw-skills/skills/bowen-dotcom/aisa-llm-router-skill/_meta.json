@@ -1,0 +1,11 @@
+{
+  "owner": "bowen-dotcom",
+  "slug": "aisa-llm-router-skill",
+  "displayName": "LLM Router Gateway",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770711427189,
+    "commit": "https://github.com/openclaw/skills/commit/fa5ea2b4dd793ad5251002cdc2a76be361e6b8d2"
+  },
+  "history": []
+}

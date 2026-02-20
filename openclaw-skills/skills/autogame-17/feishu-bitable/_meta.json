@@ -1,0 +1,22 @@
+{
+  "owner": "autogame-17",
+  "slug": "feishu-bitable",
+  "displayName": "feishu-bitable",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771155419756,
+    "commit": "https://github.com/openclaw/skills/commit/363ad39a53398ad65b171180ae0a1efe661baf7d"
+  },
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770791186983,
+      "commit": "https://github.com/openclaw/skills/commit/de50230279687a89cb92bd0720b741ad1804b673"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770317665738,
+      "commit": "https://github.com/openclaw/skills/commit/e3dedcd76d5de484f0b96324bf85bfcb3f5f552d"
+    }
+  ]
+}

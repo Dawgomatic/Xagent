@@ -1,0 +1,11 @@
+{
+  "owner": "gizmogremlin",
+  "slug": "voiceai-voiceover-creator",
+  "displayName": "Voice.ai: Creator Voiceover Forge",
+  "latest": {
+    "version": "0.1.3",
+    "publishedAt": 1770758451510,
+    "commit": "https://github.com/openclaw/skills/commit/3561b710c025c48edd00e390f2c03a7bd485d956"
+  },
+  "history": []
+}

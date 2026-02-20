@@ -1,0 +1,11 @@
+{
+  "owner": "dotcom-squad",
+  "slug": "telnyx-rag",
+  "displayName": "Telnyx Rag",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770739903924,
+    "commit": "https://github.com/openclaw/skills/commit/fa9ffd7a20b3d4759a48d528ef414d6e72af1cc6"
+  },
+  "history": []
+}

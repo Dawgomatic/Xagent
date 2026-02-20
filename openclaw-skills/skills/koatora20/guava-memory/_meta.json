@@ -1,0 +1,11 @@
+{
+  "owner": "koatora20",
+  "slug": "guava-memory",
+  "displayName": "Guava Memory",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770809992167,
+    "commit": "https://github.com/openclaw/skills/commit/6b90b84987cc93d9e466545796d82923fee77522"
+  },
+  "history": []
+}

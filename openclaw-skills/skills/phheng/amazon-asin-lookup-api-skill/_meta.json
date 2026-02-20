@@ -1,0 +1,11 @@
+{
+  "owner": "phheng",
+  "slug": "amazon-asin-lookup-api-skill",
+  "displayName": "Amazon Asin Lookup Api Skill",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770508152889,
+    "commit": "https://github.com/openclaw/skills/commit/d34877f3fb6aed266b0f5de5efbbbac4d972345c"
+  },
+  "history": []
+}

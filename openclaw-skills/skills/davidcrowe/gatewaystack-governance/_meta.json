@@ -1,0 +1,11 @@
+{
+  "owner": "davidcrowe",
+  "slug": "gatewaystack-governance",
+  "displayName": "GatewayStack Governance",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1771196510422,
+    "commit": "https://github.com/openclaw/skills/commit/b029f25ce3ffe2d278b2905f455fc4ceee461555"
+  },
+  "history": []
+}

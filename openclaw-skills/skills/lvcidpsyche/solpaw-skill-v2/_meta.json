@@ -1,0 +1,11 @@
+{
+  "owner": "lvcidpsyche",
+  "slug": "solpaw-skill-v2",
+  "displayName": "Solpaw Interaction Skill",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1770690376175,
+    "commit": "https://github.com/openclaw/skills/commit/5f64cb390cdcf12d6ad672372edeecbf63e4796b"
+  },
+  "history": []
+}

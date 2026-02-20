@@ -1,0 +1,22 @@
+{
+  "owner": "hhq0421",
+  "slug": "strava-training-coach",
+  "displayName": "Strava Training Coach",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771483306002,
+    "commit": "https://github.com/openclaw/skills/commit/613594c834d435ef3400c3c236cb42cefb24f55e"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1771391301433,
+      "commit": "https://github.com/openclaw/skills/commit/d90ebfb8484af48642f146bab56b9ab2ab7d1a26"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771311777783,
+      "commit": "https://github.com/openclaw/skills/commit/c090e5e76aac3e16013f4f80a128f5beee767fa7"
+    }
+  ]
+}

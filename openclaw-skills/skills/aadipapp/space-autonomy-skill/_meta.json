@@ -1,0 +1,11 @@
+{
+  "owner": "aadipapp",
+  "slug": "space-autonomy-skill",
+  "displayName": "Pydaqua SpaceAutonomySkill",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771221662001,
+    "commit": "https://github.com/openclaw/skills/commit/d5389e4fd82f66000cf83e7abe3a179d0d81d4d1"
+  },
+  "history": []
+}

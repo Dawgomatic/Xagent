@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "prompt-engineer",
+  "displayName": "Prompt Engineer",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771383005654,
+    "commit": "https://github.com/openclaw/skills/commit/3c02f4146c5fea9e773542d6db7a95330fecb445"
+  },
+  "history": []
+}

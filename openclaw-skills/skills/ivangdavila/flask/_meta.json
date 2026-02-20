@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "flask",
+  "displayName": "Flask",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770683313272,
+    "commit": "https://github.com/openclaw/skills/commit/4d05276d3050d9ac1e93dd57d506ed3b523111ee"
+  },
+  "history": []
+}

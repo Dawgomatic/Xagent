@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "appointment-scheduler",
+  "displayName": "appointment-scheduler",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771390900646,
+    "commit": "https://github.com/openclaw/skills/commit/d54b2b1a9206ad2b75fcee38843f90d0bc542b83"
+  },
+  "history": []
+}

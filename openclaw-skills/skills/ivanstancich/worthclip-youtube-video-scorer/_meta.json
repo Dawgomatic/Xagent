@@ -1,0 +1,11 @@
+{
+  "owner": "ivanstancich",
+  "slug": "worthclip-youtube-video-scorer",
+  "displayName": "Youtube video scorer",
+  "latest": {
+    "version": "1.0.6",
+    "publishedAt": 1770740589980,
+    "commit": "https://github.com/openclaw/skills/commit/4804234c89d106ae7a412ff8122ec97e9118a567"
+  },
+  "history": []
+}

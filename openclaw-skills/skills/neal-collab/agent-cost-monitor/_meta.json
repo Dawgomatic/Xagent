@@ -1,0 +1,11 @@
+{
+  "owner": "neal-collab",
+  "slug": "agent-cost-monitor",
+  "displayName": "Agent Cost Monitor",
+  "latest": {
+    "version": "1.1.1",
+    "publishedAt": 1771049393067,
+    "commit": "https://github.com/openclaw/skills/commit/caf058b2c1073dcfa9a671dc7d4dd369a5ca392b"
+  },
+  "history": []
+}

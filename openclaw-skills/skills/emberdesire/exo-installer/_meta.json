@@ -1,0 +1,11 @@
+{
+  "owner": "emberdesire",
+  "slug": "exo-installer",
+  "displayName": "E.x.O. Installer",
+  "latest": {
+    "version": "0.4.1",
+    "publishedAt": 1770809316339,
+    "commit": "https://github.com/openclaw/skills/commit/71323eecbb50710023d7a2df262f19d4736f8add"
+  },
+  "history": []
+}

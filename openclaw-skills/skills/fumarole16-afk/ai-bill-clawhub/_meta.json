@@ -1,0 +1,11 @@
+{
+  "owner": "fumarole16-afk",
+  "slug": "ai-bill-clawhub",
+  "displayName": "Ai Bill Clawhub",
+  "latest": {
+    "version": "2.1.0",
+    "publishedAt": 1770727668116,
+    "commit": "https://github.com/openclaw/skills/commit/d482dab5524c063d78e2309cca6faaecad094b79"
+  },
+  "history": []
+}

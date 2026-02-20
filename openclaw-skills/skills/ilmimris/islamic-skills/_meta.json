@@ -1,0 +1,11 @@
+{
+  "owner": "ilmimris",
+  "slug": "islamic-skills",
+  "displayName": "Islamic Companion",
+  "latest": {
+    "version": "2.0.1",
+    "publishedAt": 1771316667088,
+    "commit": "https://github.com/openclaw/skills/commit/69b532ce0878ca466641dbf66fa954025e2e0e93"
+  },
+  "history": []
+}

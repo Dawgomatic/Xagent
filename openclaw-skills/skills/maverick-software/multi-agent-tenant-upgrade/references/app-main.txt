@@ -1,0 +1,38 @@
+diff --git a/ui/src/ui/app.ts b/ui/src/ui/app.ts
+index 6c7c1ce22..ae9a2bfd8 100644
+--- a/ui/src/ui/app.ts
++++ b/ui/src/ui/app.ts
+@@ -231,6 +231,16 @@ export class OpenClawApp extends LitElement {
+   @state() agentIdentityById: Record<string, AgentIdentityResult> = {};
+   @state() agentSkillsLoading = false;
+   @state() agentSkillsError: string | null = null;
++  @state() showCreateForm = false;
++  @state() createMode: "manual" | "wizard" = "manual";
++  @state() createName = "";
++  @state() createWorkspace = "";
++  @state() createEmoji = "";
++  @state() creating = false;
++  @state() createError: string | null = null;
++  @state() wizardDescription = "";
++  @state() wizardLoading = false;
++  @state() wizardResult: { name: string; emoji: string; soul: string } | null = null;
+   @state() agentSkillsReport: SkillStatusReport | null = null;
+   @state() agentSkillsAgentId: string | null = null;
+ 
+@@ -425,6 +435,16 @@ export class OpenClawApp extends LitElement {
+     connectedGuilds: string[];
+   } | null = null;
+   @state() discordVoiceResponseToggling = false;
++  @state() discordAllowFrom = "";
++  @state() discordActivationPhrase = "";
++  @state() discordSafeguardsSaving = false;
++  @state() discordSafeguardsSaveError: string | null = null;
++  @state() discordSafeguardsSaveSuccess = false;
++  @state() discordPairingRequests: Array<{ id: string; code: string; createdAt: string; meta?: Record<string, string> }> = [];
++  @state() discordPairingCodeInput = "";
++  @state() discordPairingApproving = false;
++  @state() discordPairingError: string | null = null;
++  @state() discordPairingSuccess: string | null = null;
+ 
+   // API Keys state
+   @state() apikeysLoading = false;

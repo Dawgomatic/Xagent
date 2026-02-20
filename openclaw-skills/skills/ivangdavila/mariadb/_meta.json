@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "mariadb",
+  "displayName": "MariaDB",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770726834690,
+    "commit": "https://github.com/openclaw/skills/commit/800322d6f14f0dbea8c47b5ca43e2bf82a1d2f78"
+  },
+  "history": []
+}

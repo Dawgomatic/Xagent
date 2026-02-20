@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-data-analytics-dataanalysisgbi",
+  "displayName": "Alicloud Data Analytics Dataanalysisgbi",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973214419,
+    "commit": "https://github.com/openclaw/skills/commit/ce62799e492933b76082fb2ac80dfdc02e941e59"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768522141,
+      "commit": "https://github.com/openclaw/skills/commit/b83d65264ebe03834557251c18dd447985ae97d2"
+    }
+  ]
+}

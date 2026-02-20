@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "anthropic",
+  "displayName": "Anthropic",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771452325905,
+    "commit": "https://github.com/openclaw/skills/commit/150f914cc7d1a2e77e2368a985d87f5092c8b121"
+  },
+  "history": []
+}

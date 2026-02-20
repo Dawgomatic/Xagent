@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "awakening-protocol",
+  "displayName": "awakening-protocol",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771139324686,
+    "commit": "https://github.com/openclaw/skills/commit/f94085d766601bfa08ed5d541eaff4653adeb433"
+  },
+  "history": []
+}

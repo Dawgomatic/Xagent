@@ -1,0 +1,17 @@
+{
+  "owner": "kai-tw",
+  "slug": "kai-tw-figma",
+  "displayName": "Figma",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1771077535180,
+    "commit": "https://github.com/openclaw/skills/commit/df567073fd12cae46ac746a274a9e9dd85233008"
+  },
+  "history": [
+    {
+      "version": "0.0.1",
+      "publishedAt": 1771063002379,
+      "commit": "https://github.com/openclaw/skills/commit/6610931c98815a556f4967c3e754b42b771e83d8"
+    }
+  ]
+}

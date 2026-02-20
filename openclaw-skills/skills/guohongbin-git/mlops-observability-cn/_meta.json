@@ -1,0 +1,11 @@
+{
+  "owner": "guohongbin-git",
+  "slug": "mlops-observability-cn",
+  "displayName": "MLOps Observability",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771427901815,
+    "commit": "https://github.com/openclaw/skills/commit/5d49b4ba1b2c74226f42ef46be5e3b84c8eb0857"
+  },
+  "history": []
+}

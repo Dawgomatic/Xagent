@@ -1,0 +1,17 @@
+{
+  "owner": "matrixy",
+  "slug": "audio-reply-skill",
+  "displayName": "Audio Reply",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771193536558,
+    "commit": "https://github.com/openclaw/skills/commit/667677d02b76f89f7ee59d1c42eb39736b991873"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1769182470231,
+      "commit": "https://github.com/clawdbot/skills/commit/98b5c318565fa78aea9803d3fdac6961840f59e8"
+    }
+  ]
+}

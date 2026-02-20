@@ -1,0 +1,40 @@
+{
+  "_comment": "Guardian Security Skill — Configuration. See README.md for details.",
+
+  "enabled": true,
+  "admin_override": false,
+
+  "scan_paths": ["auto"],
+  "db_path": "auto",
+  "scan_interval_minutes": 2,
+  "severity_threshold": "medium",
+
+  "dismissed_signatures": [],
+  "custom_definitions_dir": null,
+
+  "channels": {
+    "monitor_all": true,
+    "exclude_channels": []
+  },
+
+  "alerts": {
+    "notify_on_critical": true,
+    "notify_on_high": false,
+    "daily_digest": true,
+    "daily_digest_time": "09:00"
+  },
+
+  "admin": {
+    "bypass_token": null,
+    "disable_until": null,
+    "trusted_sources": [],
+    "_trusted_sources_note": "Add your primary channel: telegram, discord, signal, slack",
+    "require_confirmation_for_severity": ["critical"]
+  },
+
+  "false_positive_suppression": {
+    "min_context_words": 3,
+    "suppress_assistant_number_matches": true,
+    "allowlist_patterns": []
+  }
+}

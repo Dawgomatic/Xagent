@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-security-cloudfw",
+  "displayName": "Alicloud Security Cloudfw",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973234566,
+    "commit": "https://github.com/openclaw/skills/commit/c60f1c71e2346d32041f0fef224c10ce24be9de5"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768580169,
+      "commit": "https://github.com/openclaw/skills/commit/69e69e962c3504811b8a0eb624b66e7d7612d770"
+    }
+  ]
+}

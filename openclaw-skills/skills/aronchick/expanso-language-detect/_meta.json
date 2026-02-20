@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-language-detect",
+  "displayName": "Expanso language-detect",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753079869,
+    "commit": "https://github.com/openclaw/skills/commit/d3e6b9343107c1aba3c3a3cbc916df17b8bf66dc"
+  },
+  "history": []
+}

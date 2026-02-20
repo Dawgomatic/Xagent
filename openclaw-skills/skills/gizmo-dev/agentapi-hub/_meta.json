@@ -1,0 +1,11 @@
+{
+  "owner": "gizmo-dev",
+  "slug": "agentapi-hub",
+  "displayName": "AgentAPI Hub",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771490982363,
+    "commit": "https://github.com/openclaw/skills/commit/9916496d4cac0cddcdf0bd44fc9ec6997295adb0"
+  },
+  "history": []
+}

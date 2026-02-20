@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "payments",
+  "displayName": "Payments",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770928984475,
+    "commit": "https://github.com/openclaw/skills/commit/768a04834ac4d0c7acc6a4c4b379a842198ce0ca"
+  },
+  "history": []
+}

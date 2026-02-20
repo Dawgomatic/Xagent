@@ -1,0 +1,17 @@
+{
+  "owner": "globalcaos",
+  "slug": "jarvis-voice",
+  "displayName": "Jarvis Voice",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771020741248,
+    "commit": "https://github.com/openclaw/skills/commit/b36c8bb8b1df1bf0065649087a6d622ea11cbfc2"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770411788800,
+      "commit": "https://github.com/openclaw/skills/commit/d208097964787edf4ff06fb54f751b66e22ae7c7"
+    }
+  ]
+}

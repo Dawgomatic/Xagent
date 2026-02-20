@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "fishing",
+  "displayName": "Fishing",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771546035059,
+    "commit": "https://github.com/openclaw/skills/commit/d1b6b0d3113ee97d267a07676ce57f2585938ac2"
+  },
+  "history": []
+}

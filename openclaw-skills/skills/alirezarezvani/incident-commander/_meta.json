@@ -1,0 +1,11 @@
+{
+  "owner": "alirezarezvani",
+  "slug": "incident-commander",
+  "displayName": "Incident Commander",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771261802585,
+    "commit": "https://github.com/openclaw/skills/commit/5266e680c114fbd64e5b7847af29653aea4d4816"
+  },
+  "history": []
+}

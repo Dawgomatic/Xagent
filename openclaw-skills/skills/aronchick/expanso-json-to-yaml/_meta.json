@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-json-to-yaml",
+  "displayName": "Expanso json-to-yaml",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753044967,
+    "commit": "https://github.com/openclaw/skills/commit/7c5509858dcda5fc8246577be1ae0fccdcfa45e4"
+  },
+  "history": []
+}

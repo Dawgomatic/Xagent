@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "message",
+  "displayName": "Message",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771367311070,
+    "commit": "https://github.com/openclaw/skills/commit/31ff24d68718f697351131b3b1dfd5edb902b500"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "akivasolutions",
+  "slug": "plex-ctl",
+  "displayName": "PLEX-CTL",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771046104704,
+    "commit": "https://github.com/openclaw/skills/commit/26a767c7046581e42d3b1e722e36ebecafccea0c"
+  },
+  "history": []
+}

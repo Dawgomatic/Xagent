@@ -1,0 +1,27 @@
+{
+  "owner": "maverick-software",
+  "slug": "surrealdb-knowledge-graph-memory",
+  "displayName": "Agentic Memory Upgrade",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1771463263363,
+    "commit": "https://github.com/openclaw/skills/commit/0ddedf93fa418bcaff50f502760b47b5d147d76b"
+  },
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1771314945738,
+      "commit": "https://github.com/openclaw/skills/commit/5d72fe55a3759880d5073bb7fbbf7865fcf4cb4d"
+    },
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770820781680,
+      "commit": "https://github.com/openclaw/skills/commit/dd55bea30804f908b04804dddcc3df8d4feb84b0"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770706651408,
+      "commit": "https://github.com/openclaw/skills/commit/cf8ef372d530aa4746d2e9736d0a600eb4b9e0c9"
+    }
+  ]
+}

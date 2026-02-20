@@ -1,0 +1,11 @@
+{
+  "owner": "johstracke",
+  "slug": "pest-disease-tracker",
+  "displayName": "Pest & Disease Tracker",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770574282644,
+    "commit": "https://github.com/openclaw/skills/commit/f99c28ee44490944197504580d718eef873fd628"
+  },
+  "history": []
+}

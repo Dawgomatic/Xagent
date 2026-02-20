@@ -1,0 +1,17 @@
+{
+  "owner": "aronchick",
+  "slug": "sentiment-score",
+  "displayName": "Sentiment Score",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771188227689,
+    "commit": "https://github.com/openclaw/skills/commit/894d350a1998ba3719338fa8e4f96e3b73395780"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771188201560,
+      "commit": "https://github.com/openclaw/skills/commit/7b388c8983c3d8742349d1f79c9797b1e65a54de"
+    }
+  ]
+}

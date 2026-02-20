@@ -1,0 +1,11 @@
+{
+  "owner": "maxdraki",
+  "slug": "rtm",
+  "displayName": "Remember The Milk",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1770883220993,
+    "commit": "https://github.com/openclaw/skills/commit/32c2f4a4524e9c5f0820bfe1fd9f0313436400bf"
+  },
+  "history": []
+}

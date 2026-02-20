@@ -1,0 +1,32 @@
+{
+  "owner": "autogame-17",
+  "slug": "feishu-chat-forwarder",
+  "displayName": "feishu-chat-forwarder",
+  "latest": {
+    "version": "1.0.3",
+    "publishedAt": 1771046434418,
+    "commit": "https://github.com/openclaw/skills/commit/40a7d1de74070627ea660b1fb77be8f83f6cd65d"
+  },
+  "history": [
+    {
+      "version": "1.0.5",
+      "publishedAt": 1770791206968,
+      "commit": "https://github.com/openclaw/skills/commit/f428ba4b5b58e68a5827bcbc93c4575d4e65c50b"
+    },
+    {
+      "version": "1.0.4",
+      "publishedAt": 1770790945417,
+      "commit": "https://github.com/openclaw/skills/commit/78255a10e474881022d368eda393801a01c03d83"
+    },
+    {
+      "version": "1.0.3",
+      "publishedAt": 1770561254748,
+      "commit": "https://github.com/openclaw/skills/commit/7dfd6d6e5849cc6b3e21979a6bd0536006c572b6"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769956974452,
+      "commit": "https://github.com/clawdbot/skills/commit/fa32215b97aaa401d17e2ac3fcfb6c7d1621a9fd"
+    }
+  ]
+}

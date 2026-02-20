@@ -1,0 +1,11 @@
+{
+  "owner": "alirezarezvani",
+  "slug": "agent-designer",
+  "displayName": "agent-designer",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771270589254,
+    "commit": "https://github.com/openclaw/skills/commit/f66cebd15374a316825c2cff3b61bbeafa4dbd8a"
+  },
+  "history": []
+}

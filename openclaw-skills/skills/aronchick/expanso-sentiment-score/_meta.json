@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-sentiment-score",
+  "displayName": "Expanso sentiment-score",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753121386,
+    "commit": "https://github.com/openclaw/skills/commit/b3fa2d1453a7f014d5665b0dd448cd5478d1c0d0"
+  },
+  "history": []
+}

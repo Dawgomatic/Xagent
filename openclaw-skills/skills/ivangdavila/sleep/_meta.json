@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "sleep",
+  "displayName": "Sleep",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771181962960,
+    "commit": "https://github.com/openclaw/skills/commit/44643bb5393f1918761099af1c935c050c354b8b"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770826329019,
+      "commit": "https://github.com/openclaw/skills/commit/155a932e468ccff7ea597e8ebea7547c946670e8"
+    }
+  ]
+}

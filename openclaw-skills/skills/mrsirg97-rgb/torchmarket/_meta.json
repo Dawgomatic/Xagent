@@ -1,0 +1,87 @@
+{
+  "owner": "mrsirg97-rgb",
+  "slug": "torchmarket",
+  "displayName": "Torch Market",
+  "latest": {
+    "version": "4.4.2",
+    "publishedAt": 1771384557519,
+    "commit": "https://github.com/openclaw/skills/commit/ac8bc30a01809eaba71fe3c3bd3a96119d9b6416"
+  },
+  "history": [
+    {
+      "version": "4.4.1",
+      "publishedAt": 1771276739304,
+      "commit": "https://github.com/openclaw/skills/commit/1f34f8a3edf3cb653dec7b7a6e2ed43727b93cc8"
+    },
+    {
+      "version": "4.3.1",
+      "publishedAt": 1771206476255,
+      "commit": "https://github.com/openclaw/skills/commit/dc473ffd23b728b188a2aa2714373d3676189ab3"
+    },
+    {
+      "version": "4.2.9",
+      "publishedAt": 1771127566182,
+      "commit": "https://github.com/openclaw/skills/commit/a3e6d8bf84a5583e832dd38c0f46409d1b6b906a"
+    },
+    {
+      "version": "4.2.7",
+      "publishedAt": 1771047060437,
+      "commit": "https://github.com/openclaw/skills/commit/8c78e553656bab12f6a8bafd28b1cb5f1ebb97ca"
+    },
+    {
+      "version": "4.2.3",
+      "publishedAt": 1770952570527,
+      "commit": "https://github.com/openclaw/skills/commit/2be54d37df4ae94c133981c4533cdc1a36cc570b"
+    },
+    {
+      "version": "4.1.0",
+      "publishedAt": 1770872599017,
+      "commit": "https://github.com/openclaw/skills/commit/11ab523be282506a3eabc2643c04c9fc3a459e7d"
+    },
+    {
+      "version": "4.0.4",
+      "publishedAt": 1770829077460,
+      "commit": "https://github.com/openclaw/skills/commit/a7bc07b5b1d54647e31978071ed664b3f2edd0ac"
+    },
+    {
+      "version": "4.0.3",
+      "publishedAt": 1770770404914,
+      "commit": "https://github.com/openclaw/skills/commit/cfcc1975b38a5f14213201963d76f4db6bdf49c4"
+    },
+    {
+      "version": "3.0.9",
+      "publishedAt": 1770693807129,
+      "commit": "https://github.com/openclaw/skills/commit/9deefd81f783794c4d4802a2684f1778204a9e84"
+    },
+    {
+      "version": "3.0.5",
+      "publishedAt": 1770594931538,
+      "commit": "https://github.com/openclaw/skills/commit/28f76c59b57def49fe80050446e661705f9db9e5"
+    },
+    {
+      "version": "2.0.5",
+      "publishedAt": 1770516117920,
+      "commit": "https://github.com/openclaw/skills/commit/a6056a5113ff59d769ed55fa2026e119210576cf"
+    },
+    {
+      "version": "1.4.1",
+      "publishedAt": 1770428799856,
+      "commit": "https://github.com/openclaw/skills/commit/4221e46889344e42842d2b240f5f90ded9b71713"
+    },
+    {
+      "version": "1.4.0",
+      "publishedAt": 1770334535051,
+      "commit": "https://github.com/openclaw/skills/commit/0673d80f09d8c4de7d2d2cded537233c05823dd9"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1770328986120,
+      "commit": "https://github.com/clawdbot/skills/commit/3f37d55e4f553b714979f1a120f3e8c11b8b0c64"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770248760451,
+      "commit": "https://github.com/clawdbot/skills/commit/467de7e9685b12521d0c2ea8c8fbbd907c7fcdb9"
+    }
+  ]
+}

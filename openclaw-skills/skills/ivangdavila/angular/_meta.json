@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "angular",
+  "displayName": "Angular",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771104783152,
+    "commit": "https://github.com/openclaw/skills/commit/c5fbcbf85831edfee995f93d85d8b82aee7239a8"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770684457319,
+      "commit": "https://github.com/openclaw/skills/commit/b91a02e8febeb6b4126ecf0fc3a66067c8757e44"
+    }
+  ]
+}

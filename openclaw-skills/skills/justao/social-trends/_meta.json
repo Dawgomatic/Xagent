@@ -1,0 +1,11 @@
+{
+  "owner": "justao",
+  "slug": "social-trends",
+  "displayName": "Social Trends",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770953641464,
+    "commit": "https://github.com/openclaw/skills/commit/cc4d9a4d24bfeb3e665d80497d1e4c28e98f0376"
+  },
+  "history": []
+}

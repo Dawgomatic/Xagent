@@ -1,0 +1,11 @@
+{
+  "owner": "lorpha",
+  "slug": "feishu-group-mention-responder",
+  "displayName": "Feishu Group Mention Responder",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770826428145,
+    "commit": "https://github.com/openclaw/skills/commit/6702a966dd03cfd66dc1c323dd2bfac91216fd9b"
+  },
+  "history": []
+}

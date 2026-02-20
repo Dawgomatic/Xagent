@@ -1,0 +1,11 @@
+{
+  "owner": "marceloadryao",
+  "slug": "enginemind-eft",
+  "displayName": "EFT - Emotional Framework Translator",
+  "latest": {
+    "version": "1.4.0",
+    "publishedAt": 1770672313937,
+    "commit": "https://github.com/openclaw/skills/commit/537c32282aea37712577d739b10dbb048f9d686d"
+  },
+  "history": []
+}

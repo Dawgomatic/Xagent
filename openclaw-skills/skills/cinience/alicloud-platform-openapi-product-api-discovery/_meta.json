@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-platform-openapi-product-api-discovery",
+  "displayName": "Alicloud Platform Openapi Product Api Discovery",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770768572500,
+    "commit": "https://github.com/openclaw/skills/commit/7b19d32002a58fcdd24264add07469636e4178cd"
+  },
+  "history": []
+}

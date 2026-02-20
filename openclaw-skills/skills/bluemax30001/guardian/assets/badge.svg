@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" width="220" height="56" role="img" aria-label="Guardian v1.0.0">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <!-- Cyan accent gradient -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#00b8d9"/>
+    </linearGradient>
+    <!-- Shield gradient -->
+    <linearGradient id="shieldGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#006080;stop-opacity:0.8"/>
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Subtle drop shadow -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <!-- Clip rounded rect -->
+    <clipPath id="roundClip">
+      <rect width="220" height="56" rx="8" ry="8"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer glow border -->
+  <rect width="220" height="56" rx="8" ry="8" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Main background -->
+  <rect width="220" height="56" rx="8" ry="8" fill="url(#bgGrad)" clip-path="url(#roundClip)"/>
+
+  <!-- Left accent panel -->
+  <rect x="0" y="0" width="68" height="56" fill="#0a1520" clip-path="url(#roundClip)"/>
+
+  <!-- Separator line -->
+  <line x1="68" y1="8" x2="68" y2="48" stroke="#00d4ff" stroke-width="1" opacity="0.3"/>
+
+  <!-- Top highlight line -->
+  <rect x="0" y="0" width="220" height="1" rx="0" fill="#00d4ff" opacity="0.15" clip-path="url(#roundClip)"/>
+
+  <!-- ── SHIELD ICON ── -->
+  <!-- Main shield shape (centered in left panel, x=34 center) -->
+  <path d="M34,10 L46,14 L46,26 Q46,36 34,42 Q22,36 22,26 L22,14 Z"
+        fill="url(#shieldGrad)" filter="url(#glow)" opacity="0.95"/>
+  <!-- Shield inner border -->
+  <path d="M34,11 L45,14.8 L45,26 Q45,35 34,41 Q23,35 23,26 L23,14.8 Z"
+        fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+  <!-- Shield checkmark -->
+  <path d="M29,26 L32.5,30 L39,22"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+
+  <!-- ── TEXT: "Guardian" ── -->
+  <text x="80" y="24" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="15" font-weight="700" fill="#e8e8f0" letter-spacing="0.5">
+    Guardian
+  </text>
+
+  <!-- ── TAGLINE ── -->
+  <text x="80" y="39" font-family="'Courier New', 'Lucida Console', monospace"
+        font-size="9.5" fill="#00d4ff" letter-spacing="0.8" opacity="0.85">
+    AI Security Shield
+  </text>
+
+  <!-- ── VERSION BADGE ── -->
+  <rect x="153" y="18" width="52" height="20" rx="4" ry="4" fill="#00d4ff" opacity="0.12"/>
+  <rect x="153" y="18" width="52" height="20" rx="4" ry="4" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.5"/>
+  <text x="179" y="31.5" font-family="'Courier New', monospace"
+        font-size="9.5" font-weight="700" fill="#00d4ff" text-anchor="middle" letter-spacing="0.3">
+    v1.0.0
+  </text>
+
+  <!-- Subtle scanline texture overlay -->
+  <rect width="220" height="56" rx="8" ry="8" clip-path="url(#roundClip)"
+        fill="url(#bgGrad)" opacity="0.0"/>
+
+  <!-- Bottom highlight -->
+  <rect x="0" y="55" width="220" height="1" fill="#fff" opacity="0.04" clip-path="url(#roundClip)"/>
+</svg>

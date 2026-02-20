@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "events",
+  "displayName": "Events",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770773377529,
+    "commit": "https://github.com/openclaw/skills/commit/4ed9601125b92c38dd3df92e4c0d3f9dd4f45d6d"
+  },
+  "history": []
+}

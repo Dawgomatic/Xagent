@@ -1,0 +1,11 @@
+{
+  "owner": "betsymalthus",
+  "slug": "claw-security-scanner",
+  "displayName": "Claw Security Scanner",
+  "latest": {
+    "version": "0.1.1",
+    "publishedAt": 1770809974252,
+    "commit": "https://github.com/openclaw/skills/commit/7b4332049b42254c6114592219b6938ef0547f65"
+  },
+  "history": []
+}

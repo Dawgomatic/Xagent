@@ -1,0 +1,11 @@
+{
+  "owner": "0xjordansg-yolo",
+  "slug": "openclaw-aisa-youtube",
+  "displayName": "Search YouTube videos, channels, and playlists",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771258169983,
+    "commit": "https://github.com/openclaw/skills/commit/2e5b4e013beac468c141a603216d236c855a9406"
+  },
+  "history": []
+}

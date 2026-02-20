@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-backup-hbr",
+  "displayName": "Alicloud Backup Hbr",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973200470,
+    "commit": "https://github.com/openclaw/skills/commit/e699eec13cfee01c16d7d84f83edea56278fae2d"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768492121,
+      "commit": "https://github.com/openclaw/skills/commit/8677c54325149a5a8efee0d3a52d4da52ad6c633"
+    }
+  ]
+}

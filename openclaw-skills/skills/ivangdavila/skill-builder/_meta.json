@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "skill-builder",
+  "displayName": "Skill Builder",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770825334409,
+    "commit": "https://github.com/openclaw/skills/commit/5e709b808fd04205b47fb24e38807f0563b15506"
+  },
+  "history": []
+}

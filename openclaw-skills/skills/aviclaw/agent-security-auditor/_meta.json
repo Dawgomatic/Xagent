@@ -1,0 +1,11 @@
+{
+  "owner": "aviclaw",
+  "slug": "agent-security-auditor",
+  "displayName": "Agent Security Auditor",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771267035887,
+    "commit": "https://github.com/openclaw/skills/commit/fb50cc6657bbca6be431a86bd1829ce916fd39ba"
+  },
+  "history": []
+}

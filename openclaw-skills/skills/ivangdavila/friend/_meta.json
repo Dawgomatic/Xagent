@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "friend",
+  "displayName": "Friend",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771181951854,
+    "commit": "https://github.com/openclaw/skills/commit/73146d879c72b26c74793133ff6de8b19f8c50c3"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770932712930,
+      "commit": "https://github.com/openclaw/skills/commit/4b5e6e52cd0e88e26ed1a2c2cc4d80ddc6fd2565"
+    }
+  ]
+}

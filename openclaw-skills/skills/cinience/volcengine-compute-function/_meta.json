@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "volcengine-compute-function",
+  "displayName": "Volcengine Compute Function",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770769466030,
+    "commit": "https://github.com/openclaw/skills/commit/fa2b02db9f4bcf7d6600f8b639affdf315619155"
+  },
+  "history": []
+}

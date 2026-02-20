@@ -1,0 +1,17 @@
+{
+  "owner": "hades-ye",
+  "slug": "x402-payment-demo",
+  "displayName": "x402-payment-demo",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770479507625,
+    "commit": "https://github.com/openclaw/skills/commit/3aaa15c30943e12847ed39bffa3f81b99e6cc5e0"
+  },
+  "history": [
+    {
+      "version": "0.0.1",
+      "publishedAt": 1770222504102,
+      "commit": "https://github.com/clawdbot/skills/commit/9da6b64a9be1352f35fa8a5d041447a6364720af"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "xiaoyaner0201",
+  "slug": "vscode-node",
+  "displayName": "VS Code / Cursor Node",
+  "latest": {
+    "version": "0.2.0",
+    "publishedAt": 1771129688343,
+    "commit": "https://github.com/openclaw/skills/commit/45796cb9c0b70431f55b36e6d203cce1c3f66d60"
+  },
+  "history": []
+}

@@ -1,0 +1,32 @@
+{
+  "owner": "davida-ps",
+  "slug": "clawsec-suite",
+  "displayName": "clawsec-suite",
+  "latest": {
+    "version": "0.1.2",
+    "publishedAt": 1771260968830,
+    "commit": "https://github.com/openclaw/skills/commit/4528d635aff1b6d7b911e51656c1cf21a050d604"
+  },
+  "history": [
+    {
+      "version": "0.0.10",
+      "publishedAt": 1770918413795,
+      "commit": "https://github.com/openclaw/skills/commit/6839e400e5868e3966aec328f7546531c0fcf917"
+    },
+    {
+      "version": "0.0.9",
+      "publishedAt": 1770619196118,
+      "commit": "https://github.com/openclaw/skills/commit/5d647a0eed8a5e2e1e1424fc4149a6c42bb8a4c0"
+    },
+    {
+      "version": "0.0.8",
+      "publishedAt": 1770586770789,
+      "commit": "https://github.com/openclaw/skills/commit/35318211f654a39f316c605b457e63f39acb29dd"
+    },
+    {
+      "version": "0.0.6",
+      "publishedAt": 1770333472513,
+      "commit": "https://github.com/openclaw/skills/commit/604cc91d2a275468b5203cdbd453c8ac2e586d10"
+    }
+  ]
+}

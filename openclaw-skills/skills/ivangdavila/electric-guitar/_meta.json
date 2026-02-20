@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "electric-guitar",
+  "displayName": "Electric Guitar",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770858982358,
+    "commit": "https://github.com/openclaw/skills/commit/baa84e59577efc4144e3e1c6a112c6eed50928ff"
+  },
+  "history": []
+}

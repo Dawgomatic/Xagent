@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "youtube-pro",
+  "displayName": "YouTube Pro",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593788991,
+    "commit": "https://github.com/openclaw/skills/commit/4b3ec222d399a0abae4a08cd66f4ce5ac1ad5bb2"
+  },
+  "history": []
+}

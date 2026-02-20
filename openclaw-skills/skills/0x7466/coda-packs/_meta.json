@@ -1,0 +1,11 @@
+{
+  "owner": "0x7466",
+  "slug": "coda-packs",
+  "displayName": "Coda Packs",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770585786575,
+    "commit": "https://github.com/openclaw/skills/commit/dd23dbaff8629a9c42243a8dd1bd2dd7c4feed5b"
+  },
+  "history": []
+}

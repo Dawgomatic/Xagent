@@ -1,0 +1,11 @@
+{
+  "owner": "aiwithabidi",
+  "slug": "skill-auditor-v2",
+  "displayName": "Skill Auditor v2",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1771139753558,
+    "commit": "https://github.com/openclaw/skills/commit/1be26e90bd38208617f81229e30deb1b58d70d4a"
+  },
+  "history": []
+}

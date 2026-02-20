@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "bar-exam",
+  "displayName": "Bar Exam",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771102868049,
+    "commit": "https://github.com/openclaw/skills/commit/2ec8ab1877f652465262bba678f17dd31f00b8bb"
+  },
+  "history": []
+}

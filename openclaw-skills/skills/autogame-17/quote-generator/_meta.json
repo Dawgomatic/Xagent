@@ -1,0 +1,11 @@
+{
+  "owner": "autogame-17",
+  "slug": "quote-generator",
+  "displayName": "Quote Generator",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771340749155,
+    "commit": "https://github.com/openclaw/skills/commit/c7fdcc92d6544ceb1d23dda219799456cf02fcd3"
+  },
+  "history": []
+}

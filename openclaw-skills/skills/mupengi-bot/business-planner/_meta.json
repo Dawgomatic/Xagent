@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "business-planner",
+  "displayName": "business-planner",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771139339147,
+    "commit": "https://github.com/openclaw/skills/commit/d22207fc236e4046fe0c6a2a2164405c3cb35fa9"
+  },
+  "history": []
+}

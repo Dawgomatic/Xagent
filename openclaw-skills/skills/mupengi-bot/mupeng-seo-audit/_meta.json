@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "mupeng-seo-audit",
+  "displayName": "seo-audit",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771175781295,
+    "commit": "https://github.com/openclaw/skills/commit/90ce9372de0d5433c7b7ff3d8461bd7032c56dce"
+  },
+  "history": []
+}

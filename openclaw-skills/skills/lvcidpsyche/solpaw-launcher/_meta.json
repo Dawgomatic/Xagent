@@ -1,0 +1,17 @@
+{
+  "owner": "lvcidpsyche",
+  "slug": "solpaw-launcher",
+  "displayName": "Solpaw-Launcher",
+  "latest": {
+    "version": "3.0.2",
+    "publishedAt": 1770754666111,
+    "commit": "https://github.com/openclaw/skills/commit/8840d867770d80c494bf5caec4df26d154b15b46"
+  },
+  "history": [
+    {
+      "version": "3.0.1",
+      "publishedAt": 1770747771614,
+      "commit": "https://github.com/openclaw/skills/commit/94af3e4f46b66a57e8e4269b3573ea75874af188"
+    }
+  ]
+}

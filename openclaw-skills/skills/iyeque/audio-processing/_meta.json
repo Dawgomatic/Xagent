@@ -1,0 +1,11 @@
+{
+  "owner": "iyeque",
+  "slug": "audio-processing",
+  "displayName": "Audio Processing",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771323415274,
+    "commit": "https://github.com/openclaw/skills/commit/3a4ba156417dc5cfc04071ba9ef39da0a3ce4af0"
+  },
+  "history": []
+}

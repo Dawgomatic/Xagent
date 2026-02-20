@@ -1,0 +1,11 @@
+{
+  "owner": "guoqiao",
+  "slug": "url2pdf",
+  "displayName": "URL to PDF",
+  "latest": {
+    "version": "0.0.2",
+    "publishedAt": 1770717903500,
+    "commit": "https://github.com/openclaw/skills/commit/adbe6bd3abd6ca7eb3191f905034d0f114c03e0f"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "ijaack",
+  "slug": "arena-agent",
+  "displayName": "Arena Agent",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770455703299,
+    "commit": "https://github.com/openclaw/skills/commit/4a42bdce367ad39032fa1d0af21aea198b6c7c08"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "kellyclaudeai",
+  "slug": "openclaw-deck",
+  "displayName": "OpenClaw Deck",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1770680761742,
+    "commit": "https://github.com/openclaw/skills/commit/e53fb855613b5478f283fe184fea32d4cb9472f1"
+  },
+  "history": []
+}

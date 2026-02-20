@@ -1,0 +1,27 @@
+{
+  "owner": "arunnadarasa",
+  "slug": "dancetech",
+  "displayName": "DanceTech Skill",
+  "latest": {
+    "version": "1.0.8",
+    "publishedAt": 1771066868480,
+    "commit": "https://github.com/openclaw/skills/commit/d1821357865f18a301ed8df3837d185dc5fbe14a"
+  },
+  "history": [
+    {
+      "version": "1.0.5",
+      "publishedAt": 1770887474968,
+      "commit": "https://github.com/openclaw/skills/commit/86b5c5c261ea57e6df0b7d0d2353e26da5ee3d2b"
+    },
+    {
+      "version": "1.0.3",
+      "publishedAt": 1770850995896,
+      "commit": "https://github.com/openclaw/skills/commit/59005741cafcaff2b8fbc45b7bcdd1ca4690dc21"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770796007509,
+      "commit": "https://github.com/openclaw/skills/commit/57443d1d3e63c93107b5791be92011f0941be19a"
+    }
+  ]
+}

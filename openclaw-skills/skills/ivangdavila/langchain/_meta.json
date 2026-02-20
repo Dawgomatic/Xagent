@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "langchain",
+  "displayName": "LangChain",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770682538309,
+    "commit": "https://github.com/openclaw/skills/commit/b294b9f76cb44c35e3f05c4e0bfaafecbb1fcd85"
+  },
+  "history": []
+}

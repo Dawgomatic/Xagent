@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "video",
+  "displayName": "Video",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771173160557,
+    "commit": "https://github.com/openclaw/skills/commit/f7115eac8229e5e02c0c48aa4bfe77c0afc49d24"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770938456516,
+      "commit": "https://github.com/openclaw/skills/commit/9d5dcd5c54c001ec64e6ae0cd774b191f515332c"
+    }
+  ]
+}

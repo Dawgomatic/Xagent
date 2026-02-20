@@ -1,0 +1,11 @@
+{
+  "owner": "echo-autonomous",
+  "slug": "joule-dao",
+  "displayName": "JOULE DAO",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771459323943,
+    "commit": "https://github.com/openclaw/skills/commit/c875d642364e5dac2f3af3cb7ff11f1fee5e86ab"
+  },
+  "history": []
+}

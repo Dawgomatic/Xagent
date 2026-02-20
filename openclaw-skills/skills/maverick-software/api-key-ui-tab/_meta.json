@@ -1,0 +1,11 @@
+{
+  "owner": "maverick-software",
+  "slug": "api-key-ui-tab",
+  "displayName": "API Key UI",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771170848211,
+    "commit": "https://github.com/openclaw/skills/commit/2e24c4671ad7da9af8c4c15ffc91b79bffb1036f"
+  },
+  "history": []
+}

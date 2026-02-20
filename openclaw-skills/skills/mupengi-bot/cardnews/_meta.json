@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "cardnews",
+  "displayName": "Cardnews",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771151219482,
+    "commit": "https://github.com/openclaw/skills/commit/1372479bf0bff6d72fc5c75065d102939365972d"
+  },
+  "history": []
+}

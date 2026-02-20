@@ -1,0 +1,11 @@
+{
+  "owner": "elodyzen",
+  "slug": "email-sender",
+  "displayName": "Email Sender",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771153154836,
+    "commit": "https://github.com/openclaw/skills/commit/45e175722025a3f13ea9c549cf69189c2ce1b5b7"
+  },
+  "history": []
+}

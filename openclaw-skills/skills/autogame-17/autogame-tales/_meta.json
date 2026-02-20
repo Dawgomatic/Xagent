@@ -1,0 +1,17 @@
+{
+  "owner": "autogame-17",
+  "slug": "autogame-tales",
+  "displayName": "Autogame Tales",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771333509343,
+    "commit": "https://github.com/openclaw/skills/commit/c3da1adb9ac2551e6429f7b2b99688b9b47b43a0"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770648876361,
+      "commit": "https://github.com/openclaw/skills/commit/f7dc6156ae22c504de31550aa5080d4128401300"
+    }
+  ]
+}

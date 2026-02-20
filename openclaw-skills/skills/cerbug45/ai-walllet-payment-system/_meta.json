@@ -1,0 +1,11 @@
+{
+  "owner": "cerbug45",
+  "slug": "ai-walllet-payment-system",
+  "displayName": "AI Walllet Payment System",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771129479827,
+    "commit": "https://github.com/openclaw/skills/commit/d28ffa3690749a8edeaaa530649b307c28115ef2"
+  },
+  "history": []
+}

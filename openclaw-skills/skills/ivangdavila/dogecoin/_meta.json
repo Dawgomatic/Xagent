@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "dogecoin",
+  "displayName": "Dogecoin",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770747138470,
+    "commit": "https://github.com/openclaw/skills/commit/bd895a0e29a6019732569dc11d98b01e81563c24"
+  },
+  "history": []
+}

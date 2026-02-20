@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-media-video-translation",
+  "displayName": "Alicloud Media Video Translation",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1770768556255,
+    "commit": "https://github.com/openclaw/skills/commit/dd03ff7e4325ebce225883f8842d91a0f6dd2a14"
+  },
+  "history": []
+}

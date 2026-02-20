@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "pets",
+  "displayName": "Pets",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770977175311,
+    "commit": "https://github.com/openclaw/skills/commit/9ceeed149e5099105ca5179c9c8a660416d576c0"
+  },
+  "history": []
+}

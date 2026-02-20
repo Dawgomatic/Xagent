@@ -1,0 +1,11 @@
+{
+  "owner": "akivasolutions",
+  "slug": "clawtv",
+  "displayName": "ClawTV",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771046600608,
+    "commit": "https://github.com/openclaw/skills/commit/6bdcdc086c82249d363f425620a4009b3931903e"
+  },
+  "history": []
+}

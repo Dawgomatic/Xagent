@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "weaviate",
+  "displayName": "Weaviate",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771281714191,
+    "commit": "https://github.com/openclaw/skills/commit/c7ca42a342427edcad8bb49b3a5f8410d6cd187b"
+  },
+  "history": []
+}

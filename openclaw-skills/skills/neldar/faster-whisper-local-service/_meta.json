@@ -1,0 +1,11 @@
+{
+  "owner": "neldar",
+  "slug": "faster-whisper-local-service",
+  "displayName": "Faster Whisper Local Service",
+  "latest": {
+    "version": "0.1.6",
+    "publishedAt": 1771368118716,
+    "commit": "https://github.com/openclaw/skills/commit/d23fe2ec0b0c7ab3af51c9b87b50b41b461e9872"
+  },
+  "history": []
+}

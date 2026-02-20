@@ -1,0 +1,11 @@
+{
+  "owner": "jack4world",
+  "slug": "remotion-excalidraw-tts",
+  "displayName": "Remotion + Excalidraw + TTS",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1770626983138,
+    "commit": "https://github.com/openclaw/skills/commit/3f51881f00ae45a1c9dbbbdcf5f56cef656f6bd6"
+  },
+  "history": []
+}

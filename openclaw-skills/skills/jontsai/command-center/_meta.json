@@ -1,0 +1,32 @@
+{
+  "owner": "jontsai",
+  "slug": "command-center",
+  "displayName": "Openclaw Command Center",
+  "latest": {
+    "version": "1.0.4",
+    "publishedAt": 1770930383884,
+    "commit": "https://github.com/openclaw/skills/commit/5122474b0e6a1cb0f1a29061bfba98360018da92"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770628857551,
+      "commit": "https://github.com/openclaw/skills/commit/4b39adceefb66c7ebd7da6073a98f0659411c269"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770387746503,
+      "commit": "https://github.com/openclaw/skills/commit/508420cf56b0704ef83ce0ee2f913e62108413b6"
+    },
+    {
+      "version": "0.2.0",
+      "publishedAt": 1770188184728,
+      "commit": "https://github.com/clawdbot/skills/commit/504514bfa11dc62fd4b7a467274d1a4f10f3e349"
+    },
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770154365299,
+      "commit": "https://github.com/clawdbot/skills/commit/c8bf6b02990c219834d048265b6e3a88d8c80ab7"
+    }
+  ]
+}

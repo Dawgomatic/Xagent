@@ -1,0 +1,11 @@
+{
+  "owner": "abyousef739",
+  "slug": "clawcache-free",
+  "displayName": "ClawCache Free - LLM Cost Tracking & Caching",
+  "latest": {
+    "version": "0.2.0",
+    "publishedAt": 1771099286219,
+    "commit": "https://github.com/openclaw/skills/commit/0a72f45d4049cdc860a38aef0c4b437c97efec4b"
+  },
+  "history": []
+}

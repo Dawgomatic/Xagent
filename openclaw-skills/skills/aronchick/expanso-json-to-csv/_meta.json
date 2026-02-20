@@ -1,0 +1,11 @@
+{
+  "owner": "aronchick",
+  "slug": "expanso-json-to-csv",
+  "displayName": "Expanso json-to-csv",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770753100481,
+    "commit": "https://github.com/openclaw/skills/commit/27f9ef2e73ed6f89636d5e3038df928e81cf0504"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "jiafar",
+  "slug": "clawprompt",
+  "displayName": "Clawprompt",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771402811286,
+    "commit": "https://github.com/openclaw/skills/commit/921be559ec5513560f5f71b79b4d012319c807bb"
+  },
+  "history": []
+}

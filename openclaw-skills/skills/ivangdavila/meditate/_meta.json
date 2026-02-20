@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "meditate",
+  "displayName": "Meditate",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771412049156,
+    "commit": "https://github.com/openclaw/skills/commit/f5aebbef80c76c16555f9768711c4cba46adc36a"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771287333342,
+      "commit": "https://github.com/openclaw/skills/commit/d33c5c580e0892d33c674997c67310a77fc22e10"
+    }
+  ]
+}

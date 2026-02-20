@@ -1,0 +1,11 @@
+{
+  "owner": "johstracke",
+  "slug": "compost-tracker",
+  "displayName": "Compost Tracker",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770613775815,
+    "commit": "https://github.com/openclaw/skills/commit/3862136b85a8114b6cc3786baf2b922537d9d9df"
+  },
+  "history": []
+}

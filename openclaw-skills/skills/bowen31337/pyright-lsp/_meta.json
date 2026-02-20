@@ -1,0 +1,11 @@
+{
+  "owner": "bowen31337",
+  "slug": "pyright-lsp",
+  "displayName": "Pyright LSP",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770606394283,
+    "commit": "https://github.com/openclaw/skills/commit/3f5855991186dca33409458548a58fbfa629e97a"
+  },
+  "history": []
+}

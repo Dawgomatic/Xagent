@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "trader",
+  "displayName": "Trader",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770674529774,
+    "commit": "https://github.com/openclaw/skills/commit/3ad54f868dd010dca401c3fb1979d0d40b6e2e4f"
+  },
+  "history": []
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "rails",
+  "displayName": "Rails",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771104773468,
+    "commit": "https://github.com/openclaw/skills/commit/3ab0b64a2b8d840081ed6084b464cb0960053164"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770744649900,
+      "commit": "https://github.com/openclaw/skills/commit/c256c0ed01bd38c8512e2d0ea968f9ce4661820e"
+    }
+  ]
+}

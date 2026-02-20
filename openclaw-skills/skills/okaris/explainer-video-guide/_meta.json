@@ -1,0 +1,17 @@
+{
+  "owner": "okaris",
+  "slug": "explainer-video-guide",
+  "displayName": "Explainer Video Guide",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1771403176770,
+    "commit": "https://github.com/openclaw/skills/commit/3beac0378a79d08ecab44bd838095999151bffe7"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770656588488,
+      "commit": "https://github.com/openclaw/skills/commit/82a6837974648ffd35700aa6819e57cf88b7f2ec"
+    }
+  ]
+}

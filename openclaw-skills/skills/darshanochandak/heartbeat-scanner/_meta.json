@@ -1,0 +1,11 @@
+{
+  "owner": "darshanochandak",
+  "slug": "heartbeat-scanner",
+  "displayName": "heartbeat-scanner",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1771231996385,
+    "commit": "https://github.com/openclaw/skills/commit/28a881c5921b70866b10ae97be47a41c3520f36b"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "easonc13",
+  "slug": "sui-auto-test",
+  "displayName": "Sui Auto Test",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770536763630,
+    "commit": "https://github.com/openclaw/skills/commit/81187442826132cc86523b8cde6a355bc39282ec"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "koatora20",
+  "slug": "mv-pipeline",
+  "displayName": "MV Pipeline",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770498441201,
+    "commit": "https://github.com/openclaw/skills/commit/ef9d06b7c4dca0f0086b35493c025c6af61a0fc5"
+  },
+  "history": []
+}

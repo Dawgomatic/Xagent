@@ -1,0 +1,11 @@
+{
+  "owner": "bluebirdback",
+  "slug": "exec-error-doctor",
+  "displayName": "Exec Error Doctor",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771243276571,
+    "commit": "https://github.com/openclaw/skills/commit/9d32b48236760abe76a346b717815d877fcfbb0f"
+  },
+  "history": []
+}

@@ -1,0 +1,32 @@
+{
+  "owner": "lifeissea",
+  "slug": "startup-0to1",
+  "displayName": "Startup 0to1",
+  "latest": {
+    "version": "0.7.22",
+    "publishedAt": 1771508602973,
+    "commit": "https://github.com/openclaw/skills/commit/b93ee70bd4988159e968d44a2cc6459034808bf1"
+  },
+  "history": [
+    {
+      "version": "0.7.13",
+      "publishedAt": 1771429345244,
+      "commit": "https://github.com/openclaw/skills/commit/d4ffc7821b117900b676acac162fa9c1c7cfae1c"
+    },
+    {
+      "version": "0.7.12",
+      "publishedAt": 1771428335672,
+      "commit": "https://github.com/openclaw/skills/commit/5b3aed138352fdb6a68253fcc8b58a87fe75b853"
+    },
+    {
+      "version": "0.7.9",
+      "publishedAt": 1771414089542,
+      "commit": "https://github.com/openclaw/skills/commit/3335559121a1216bf1336dc0559d39e647212ed3"
+    },
+    {
+      "version": "0.7.8",
+      "publishedAt": 1771413843800,
+      "commit": "https://github.com/openclaw/skills/commit/66daf5c184b1a842730fdf51f94514e303c5e61a"
+    }
+  ]
+}

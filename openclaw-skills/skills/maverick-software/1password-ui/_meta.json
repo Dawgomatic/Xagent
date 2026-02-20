@@ -1,0 +1,11 @@
+{
+  "owner": "maverick-software",
+  "slug": "1password-ui",
+  "displayName": "1Password Web UI",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770829019431,
+    "commit": "https://github.com/openclaw/skills/commit/cf8d4452c042d1f1c7238bf0df92bf8e60762a05"
+  },
+  "history": []
+}

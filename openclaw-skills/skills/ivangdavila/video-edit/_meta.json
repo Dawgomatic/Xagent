@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "video-edit",
+  "displayName": "Video Editing",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770861854973,
+    "commit": "https://github.com/openclaw/skills/commit/c6bb84f7582a4c572016738f04e49d5b5149d0cd"
+  },
+  "history": []
+}

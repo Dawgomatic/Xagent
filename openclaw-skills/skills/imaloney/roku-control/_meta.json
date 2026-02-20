@@ -1,0 +1,11 @@
+{
+  "owner": "imaloney",
+  "slug": "roku-control",
+  "displayName": "Roku Control",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770609726959,
+    "commit": "https://github.com/openclaw/skills/commit/0f5c356a7609117680f7cf79ea303d89ecc1019a"
+  },
+  "history": []
+}

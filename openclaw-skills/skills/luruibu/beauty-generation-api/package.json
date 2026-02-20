@@ -1,0 +1,36 @@
+{
+  "name": "beauty-generation-free",
+  "version": "1.2.26",
+  "description": "FREE AI image generation service for creating professional portrait images with 140+ nationalities, diverse styles, and comprehensive customization. Fast generation (3-5 seconds).",
+  "main": "SKILL.md",
+  "author": "DiversityFaces Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luruibu/beauty-generation"
+  },
+  "homepage": "https://gen1.diversityfaces.org",
+  "bugs": {
+    "url": "https://github.com/luruibu/beauty-generation/issues"
+  },
+  "keywords": [
+    "beauty-generation",
+    "portrait-photography",
+    "character-design",
+    "ai-art",
+    "image-generation",
+    "professional-headshots",
+    "safe-ai",
+    "content-safety",
+    "diverse-representation"
+  ],
+  "scripts": {
+    "test": "python3 scripts/generate.py --test",
+    "generate": "python3 scripts/generate.py"
+  },
+  "files": [
+    "SKILL.md",
+    "scripts/",
+    "README.md"
+  ]
+}

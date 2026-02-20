@@ -1,0 +1,11 @@
+{
+  "owner": "0x7466",
+  "slug": "coda",
+  "displayName": "Coda",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770583874306,
+    "commit": "https://github.com/openclaw/skills/commit/bce599859d7249196ef1f7bdf30d7398f8ed9f80"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "pfrederiksen",
+  "slug": "synology-backup",
+  "displayName": "Synology Backup",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771547851357,
+    "commit": "https://github.com/openclaw/skills/commit/13dab45ba4bd680584b22d7339beaccac489fac6"
+  },
+  "history": []
+}

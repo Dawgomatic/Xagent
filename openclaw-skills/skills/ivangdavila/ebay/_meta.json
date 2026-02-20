@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "ebay",
+  "displayName": "eBay",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771279956508,
+    "commit": "https://github.com/openclaw/skills/commit/ff78aea03e90c88aaeffe158909c0ccb3b0d8445"
+  },
+  "history": []
+}

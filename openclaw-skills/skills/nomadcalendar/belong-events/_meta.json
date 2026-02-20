@@ -1,0 +1,11 @@
+{
+  "owner": "nomadcalendar",
+  "slug": "belong-events",
+  "displayName": "Belong Events - Discover and Organize",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771224969651,
+    "commit": "https://github.com/openclaw/skills/commit/64a98ff2b367168cd87dda893c09cf61a03e407b"
+  },
+  "history": []
+}

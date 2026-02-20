@@ -1,0 +1,11 @@
+{
+  "owner": "atlaspa",
+  "slug": "openclaw-memory",
+  "displayName": "Openclaw Memory",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770894316692,
+    "commit": "https://github.com/openclaw/skills/commit/8ebc8083c27f8a113e6417f9e54fb85e0b68c59b"
+  },
+  "history": []
+}

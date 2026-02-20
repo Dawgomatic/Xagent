@@ -1,0 +1,17 @@
+{
+  "owner": "gizmogremlin",
+  "slug": "openclaw-skill-voice-ai-voices",
+  "displayName": "Voice Ai Tts",
+  "latest": {
+    "version": "1.1.4",
+    "publishedAt": 1771278006435,
+    "commit": "https://github.com/openclaw/skills/commit/872dd1b1ab13d0749f56450fad1e407febb73539"
+  },
+  "history": [
+    {
+      "version": "0.1.1",
+      "publishedAt": 1769868475534,
+      "commit": "https://github.com/clawdbot/skills/commit/74b2f6ee55ad814b628f754cff96bf9110430a19"
+    }
+  ]
+}

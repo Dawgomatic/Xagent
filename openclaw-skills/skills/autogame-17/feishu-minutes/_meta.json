@@ -1,0 +1,22 @@
+{
+  "owner": "autogame-17",
+  "slug": "feishu-minutes",
+  "displayName": "feishu-minutes",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771155461535,
+    "commit": "https://github.com/openclaw/skills/commit/94ec3c75da713c201af96dfea2482512974bcf5c"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770791723713,
+      "commit": "https://github.com/openclaw/skills/commit/69d48d289dfbb7763b53e3a2faaea56c446db563"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770118158749,
+      "commit": "https://github.com/clawdbot/skills/commit/98e1d65beabf6dc5429189337c579711c783ab95"
+    }
+  ]
+}

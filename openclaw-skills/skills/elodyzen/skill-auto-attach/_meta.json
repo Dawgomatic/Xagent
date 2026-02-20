@@ -1,0 +1,11 @@
+{
+  "owner": "elodyzen",
+  "slug": "skill-auto-attach",
+  "displayName": "Skill Auto Attach",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771152905611,
+    "commit": "https://github.com/openclaw/skills/commit/b5cfa5a8925a32fc5c16b305c9bc48ad61ee03f6"
+  },
+  "history": []
+}

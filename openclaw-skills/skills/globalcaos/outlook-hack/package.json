@@ -1,0 +1,30 @@
+{
+  "name": "outlook-hack",
+  "version": "1.0.0",
+  "description": "Access Outlook email via the browser relay — read, search, send, reply to emails and check calendar without separate auth. When IMAP is blocked and Microsoft Graph API requires admin consent you can't get, this is the third option: just open Outlook in Chrome, click the relay button, and your agent has full email access. Zero API keys, zero admin approval, zero config.",
+  "homepage": "https://github.com/globalcaos/clawdbot-moltbot-openclaw",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/globalcaos/clawdbot-moltbot-openclaw"
+  },
+  "keywords": [
+    "openclaw",
+    "outlook",
+    "email",
+    "microsoft",
+    "office365",
+    "browser-relay",
+    "no-api-key",
+    "corporate-email",
+    "msal",
+    "calendar",
+    "exchange",
+    "imap-alternative",
+    "graph-api-alternative",
+    "chrome-extension",
+    "zero-config",
+    "agent-skill"
+  ],
+  "author": "Oscar Serra",
+  "license": "MIT"
+}

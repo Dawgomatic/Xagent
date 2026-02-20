@@ -1,0 +1,22 @@
+{
+  "owner": "ivangdavila",
+  "slug": "skill-finder",
+  "displayName": "Skill Finder",
+  "latest": {
+    "version": "1.0.4",
+    "publishedAt": 1771203103227,
+    "commit": "https://github.com/openclaw/skills/commit/5653cdbeec6d30668e4d5be76891f5eb51624d61"
+  },
+  "history": [
+    {
+      "version": "1.0.3",
+      "publishedAt": 1771200565896,
+      "commit": "https://github.com/openclaw/skills/commit/8138705dce9ed7f24059c0647fe251839864d47a"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770826004776,
+      "commit": "https://github.com/openclaw/skills/commit/e0d9e26f32f5dfc87211473ea2f71bddeff7bceb"
+    }
+  ]
+}

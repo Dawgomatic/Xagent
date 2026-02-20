@@ -1,0 +1,11 @@
+{
+  "owner": "moeye",
+  "slug": "mission-control-dashboard",
+  "displayName": "Mission Control Dashboard",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770798513477,
+    "commit": "https://github.com/openclaw/skills/commit/a379c8056b5fc9e7f67db399aac4659bc75f5b23"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "danielfoch",
+  "slug": "show-booking",
+  "displayName": "Show Booking",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771189091197,
+    "commit": "https://github.com/openclaw/skills/commit/eea1cdda152e2cf4fba3a536f3acd46007dec0fb"
+  },
+  "history": []
+}

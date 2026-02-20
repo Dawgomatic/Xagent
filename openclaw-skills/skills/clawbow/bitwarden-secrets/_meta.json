@@ -1,0 +1,11 @@
+{
+  "owner": "clawbow",
+  "slug": "bitwarden-secrets",
+  "displayName": "Bitwarden Secrets",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771267851992,
+    "commit": "https://github.com/openclaw/skills/commit/432300bd45c39d187214d86b8850c120ca7b066c"
+  },
+  "history": []
+}

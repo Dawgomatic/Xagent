@@ -1,0 +1,32 @@
+{
+  "owner": "dinstein",
+  "slug": "media-news-digest",
+  "displayName": "Media News Digest",
+  "latest": {
+    "version": "1.7.1",
+    "publishedAt": 1771470668230,
+    "commit": "https://github.com/openclaw/skills/commit/184aaec7885bca0e14da5c4377d0aa0f2007315a"
+  },
+  "history": [
+    {
+      "version": "1.6.3",
+      "publishedAt": 1771375582182,
+      "commit": "https://github.com/openclaw/skills/commit/43e2fd70fbd7b9a09a50458f9144e10c702a15cf"
+    },
+    {
+      "version": "1.6.1",
+      "publishedAt": 1771329585077,
+      "commit": "https://github.com/openclaw/skills/commit/e0e0d2efcfb74132dabf647a5b6c8357f1877c66"
+    },
+    {
+      "version": "1.6.0",
+      "publishedAt": 1771302892917,
+      "commit": "https://github.com/openclaw/skills/commit/b3025b45d4f97bd911f598bb95c91c70c4c62a3e"
+    },
+    {
+      "version": "1.3.0",
+      "publishedAt": 1771232597533,
+      "commit": "https://github.com/openclaw/skills/commit/323487faab39653aee723884764b6c24a15f3014"
+    }
+  ]
+}

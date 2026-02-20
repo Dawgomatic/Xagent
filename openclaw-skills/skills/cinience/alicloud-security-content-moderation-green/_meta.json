@@ -1,0 +1,17 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-security-content-moderation-green",
+  "displayName": "Alicloud Security Content Moderation Green",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1770973232625,
+    "commit": "https://github.com/openclaw/skills/commit/a584047a6723716cce83ab7ffb81333fc2e93b51"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770768576487,
+      "commit": "https://github.com/openclaw/skills/commit/857587aaf3e088dda0dfe0c996e39623a12606ff"
+    }
+  ]
+}

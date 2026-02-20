@@ -1,0 +1,11 @@
+{
+  "owner": "cinience",
+  "slug": "alicloud-ai-audio-tts-voice-clone",
+  "displayName": "Alicloud Ai Audio Tts Voice Clone",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770973109098,
+    "commit": "https://github.com/openclaw/skills/commit/4beceef3f37fc3ee0dc38e373510c85032956b65"
+  },
+  "history": []
+}

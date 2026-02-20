@@ -1,0 +1,11 @@
+{
+  "owner": "abhibavishi",
+  "slug": "azure-image-gen",
+  "displayName": "Azure Image Gen",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771233177511,
+    "commit": "https://github.com/openclaw/skills/commit/baf34055b7e467f775cb259b33ed68e0cf69a7fe"
+  },
+  "history": []
+}

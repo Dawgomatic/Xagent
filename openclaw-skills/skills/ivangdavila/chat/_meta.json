@@ -1,0 +1,22 @@
+{
+  "owner": "ivangdavila",
+  "slug": "chat",
+  "displayName": "Chat",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771251220050,
+    "commit": "https://github.com/openclaw/skills/commit/a908d447c8ae8ada699e4ea4c33b20a4f13b280b"
+  },
+  "history": [
+    {
+      "version": "1.0.3",
+      "publishedAt": 1770812803625,
+      "commit": "https://github.com/openclaw/skills/commit/f8428eff8d5d89bfe4a0657a201dc679cd31a797"
+    },
+    {
+      "version": "1.0.2",
+      "publishedAt": 1770812769802,
+      "commit": "https://github.com/openclaw/skills/commit/647375b672b3d3f3ffea2859c5f9ad7f35764cb6"
+    }
+  ]
+}

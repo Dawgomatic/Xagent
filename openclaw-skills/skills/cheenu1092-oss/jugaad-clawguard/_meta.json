@@ -1,0 +1,17 @@
+{
+  "owner": "cheenu1092-oss",
+  "slug": "jugaad-clawguard",
+  "displayName": "ClawGuard by jugaad-lab",
+  "latest": {
+    "version": "1.3.1",
+    "publishedAt": 1770666840244,
+    "commit": "https://github.com/openclaw/skills/commit/f29143e0dbeafba63974243c5fdb8da24cf0da52"
+  },
+  "history": [
+    {
+      "version": "1.1.0",
+      "publishedAt": 1770575677539,
+      "commit": "https://github.com/openclaw/skills/commit/fbc066f6edb57c78d2f92a4bba1086c95fbd640d"
+    }
+  ]
+}

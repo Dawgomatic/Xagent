@@ -1,0 +1,17 @@
+{
+  "owner": "ivanheral",
+  "slug": "videogames",
+  "displayName": "Videogames",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771272839516,
+    "commit": "https://github.com/openclaw/skills/commit/86d6e98e9e325540cea163ef63cc0c80c73c980d"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770770026385,
+      "commit": "https://github.com/openclaw/skills/commit/11d0003d7dcd28cdc1a0c77720ff174d06adf5e1"
+    }
+  ]
+}

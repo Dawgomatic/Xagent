@@ -1,0 +1,11 @@
+{
+  "owner": "edmonddantesj",
+  "slug": "aoi-openclaw-security-toolkit-core",
+  "displayName": "AOI OpenClaw Security Toolkit (Core)",
+  "latest": {
+    "version": "0.1.6",
+    "publishedAt": 1771228843761,
+    "commit": "https://github.com/openclaw/skills/commit/c9eee244789315b23d11af3111a39d5cc325add6"
+  },
+  "history": []
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "hexiaochun",
+  "slug": "sora-2",
+  "displayName": "Sora 2 视频生成",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770648584515,
+    "commit": "https://github.com/openclaw/skills/commit/4731494626da34f8d18bd7fee315dc74cb675726"
+  },
+  "history": []
+}

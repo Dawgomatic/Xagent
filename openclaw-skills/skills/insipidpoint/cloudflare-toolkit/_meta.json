@@ -1,0 +1,17 @@
+{
+  "owner": "insipidpoint",
+  "slug": "cloudflare-toolkit",
+  "displayName": "Cloudflare",
+  "latest": {
+    "version": "1.5.0",
+    "publishedAt": 1771241243577,
+    "commit": "https://github.com/openclaw/skills/commit/5c1752fd748d4785acf47ea8f7770504e94a9bea"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771229991269,
+      "commit": "https://github.com/openclaw/skills/commit/d461d1b607b544e7353bd1c3166408df5ab5f43b"
+    }
+  ]
+}

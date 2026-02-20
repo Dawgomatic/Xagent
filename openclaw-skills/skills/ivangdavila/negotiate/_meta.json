@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "negotiate",
+  "displayName": "Negotiation",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770923265869,
+    "commit": "https://github.com/openclaw/skills/commit/4cc4d2bbbf4bf22476ffb1601b8867ef8999f105"
+  },
+  "history": []
+}

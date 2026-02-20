@@ -1,0 +1,11 @@
+{
+  "owner": "neal-collab",
+  "slug": "nas-agent-sync",
+  "displayName": "NAS Agent Sync",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771049236879,
+    "commit": "https://github.com/openclaw/skills/commit/84ab65d75481cc8fc515c7d0f2592207c3ec8e2f"
+  },
+  "history": []
+}

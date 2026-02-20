@@ -1,0 +1,17 @@
+{
+  "owner": "djemec",
+  "slug": "bioskills",
+  "displayName": "BioSkills",
+  "latest": {
+    "version": "3.0.0",
+    "publishedAt": 1771028991879,
+    "commit": "https://github.com/openclaw/skills/commit/8835f303c71fa8f133cac8f8d9bbddb58d7761b0"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770678315117,
+      "commit": "https://github.com/openclaw/skills/commit/6c9c49958fffbd060484ad5cda0df21142f51e8c"
+    }
+  ]
+}

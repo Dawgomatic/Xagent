@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "autonomy",
+  "displayName": "Autonomy",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771249327703,
+    "commit": "https://github.com/openclaw/skills/commit/38779b47fcf4f6711edb0b8888387a85f81b2006"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770857621593,
+      "commit": "https://github.com/openclaw/skills/commit/c2ed7cf4ae72892ba682c5529bc977aafa8d069b"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "owner": "mvanhorn",
+  "slug": "remotion-server",
+  "displayName": "OpenClaw Remotion",
+  "latest": {
+    "version": "1.0.4",
+    "publishedAt": 1770827756591,
+    "commit": "https://github.com/openclaw/skills/commit/a4d5b3a2045ef5e7b8a5227af383424fd0b89176"
+  },
+  "history": [
+    {
+      "version": "1.0.3",
+      "publishedAt": 1770779239532,
+      "commit": "https://github.com/openclaw/skills/commit/ea3940757ddeb4c469cadbaab3e53644cf606074"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1769098285666,
+      "commit": "https://github.com/clawdbot/skills/commit/fc07d182f28fd2e16562d0c43ac7dbfaddf4f922"
+    }
+  ]
+}

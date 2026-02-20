@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "frontend",
+  "displayName": "Frontend Design",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1771458614911,
+    "commit": "https://github.com/openclaw/skills/commit/5d9b49462863d3d7eea3ff124c285631a2f9d484"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770693066527,
+      "commit": "https://github.com/openclaw/skills/commit/8213558733d7965ae6c1a3c98cfdf9563c83eeeb"
+    }
+  ]
+}

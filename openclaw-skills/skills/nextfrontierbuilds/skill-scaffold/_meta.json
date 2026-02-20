@@ -1,0 +1,22 @@
+{
+  "owner": "nextfrontierbuilds",
+  "slug": "skill-scaffold",
+  "displayName": "Skill Scaffold",
+  "latest": {
+    "version": "1.0.4",
+    "publishedAt": 1770799050273,
+    "commit": "https://github.com/openclaw/skills/commit/08046c054095cf6ee1eac8165cb59960ba813528"
+  },
+  "history": [
+    {
+      "version": "1.0.3",
+      "publishedAt": 1770220748302,
+      "commit": "https://github.com/clawdbot/skills/commit/1c363db9d7fd97d0f7ef7671428a6a8242bda430"
+    },
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770050345111,
+      "commit": "https://github.com/clawdbot/skills/commit/0d301cf3b83c34506698387163d3b77245bedde9"
+    }
+  ]
+}

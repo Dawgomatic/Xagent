@@ -1,0 +1,11 @@
+{
+  "owner": "mupengi-bot",
+  "slug": "cs-autoresponder",
+  "displayName": "cs-autoresponder",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771387513858,
+    "commit": "https://github.com/openclaw/skills/commit/e2e519d41df5b4aa0b801866d07c259ef2bb9d69"
+  },
+  "history": []
+}

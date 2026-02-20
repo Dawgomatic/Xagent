@@ -1,0 +1,17 @@
+{
+  "owner": "iyeque",
+  "slug": "iyeque-unified-web-search",
+  "displayName": "Unified Web Search (Iyeque)",
+  "latest": {
+    "version": "1.1.1",
+    "publishedAt": 1771348098747,
+    "commit": "https://github.com/openclaw/skills/commit/298a3b4d33ba25bc3b751e80b5928bb282b68353"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771064943756,
+      "commit": "https://github.com/openclaw/skills/commit/d21d7b71085a5eb51cf72d11cee6e93d85088b39"
+    }
+  ]
+}

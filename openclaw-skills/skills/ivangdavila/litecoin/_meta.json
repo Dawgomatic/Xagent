@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "litecoin",
+  "displayName": "Litecoin",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770747437596,
+    "commit": "https://github.com/openclaw/skills/commit/e31f8241bf35854774abb4bf6070c83cfe2bdcf2"
+  },
+  "history": []
+}

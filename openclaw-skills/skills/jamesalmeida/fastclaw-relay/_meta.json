@@ -1,0 +1,11 @@
+{
+  "owner": "jamesalmeida",
+  "slug": "fastclaw-relay",
+  "displayName": "FastClaw Relay",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770601453965,
+    "commit": "https://github.com/openclaw/skills/commit/67a8366d7c004cbc44843fe5d44023a456ffccc2"
+  },
+  "history": []
+}

@@ -1,0 +1,32 @@
+{
+  "owner": "daaab",
+  "slug": "walletconnect-agent",
+  "displayName": "Walletconnect Agent",
+  "latest": {
+    "version": "1.6.0",
+    "publishedAt": 1770549734800,
+    "commit": "https://github.com/openclaw/skills/commit/918cf4102d9e683b62df0e92121aaa3aa885f9a6"
+  },
+  "history": [
+    {
+      "version": "1.5.0",
+      "publishedAt": 1770525485004,
+      "commit": "https://github.com/openclaw/skills/commit/da117a57d7887cddbb1fd67efc9ad888fbe9ed67"
+    },
+    {
+      "version": "1.1.1",
+      "publishedAt": 1770522385823,
+      "commit": "https://github.com/openclaw/skills/commit/2288ccae5b9a79e523eaaeb617bb2fab1b0a5188"
+    },
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770455418355,
+      "commit": "https://github.com/openclaw/skills/commit/989687fc4b41764680841b2a1af9b6b1361d7ef0"
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": 1770292315751,
+      "commit": "https://github.com/clawdbot/skills/commit/b39480cfefb94d40c5fdddc2ce785ab770f97bab"
+    }
+  ]
+}

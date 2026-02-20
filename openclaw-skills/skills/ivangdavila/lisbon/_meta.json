@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "lisbon",
+  "displayName": "Lisbon",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771461496002,
+    "commit": "https://github.com/openclaw/skills/commit/d5d39adb746c238bea558b088fc4d30fced64057"
+  },
+  "history": []
+}

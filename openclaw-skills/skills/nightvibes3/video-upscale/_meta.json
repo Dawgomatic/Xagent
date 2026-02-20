@@ -1,0 +1,11 @@
+{
+  "owner": "nightvibes3",
+  "slug": "video-upscale",
+  "displayName": "Video Upscale",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771533679436,
+    "commit": "https://github.com/openclaw/skills/commit/9b5783162bb05378beb6fc7f01d089dde9c8c30d"
+  },
+  "history": []
+}

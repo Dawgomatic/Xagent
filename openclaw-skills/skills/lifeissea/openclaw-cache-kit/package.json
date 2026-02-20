@@ -1,0 +1,7 @@
+{
+  "name": "openclaw-cache-kit",
+  "version": "1.0.4",
+  "description": "Apply Claude prompt caching optimizations to OpenClaw - up to 89% API cost reduction",
+  "keywords": ["openclaw", "caching", "cost-optimization", "claude", "performance"],
+  "files": ["SKILL.md", "scripts/apply.sh", "scripts/check-savings.sh", "scripts/cron-md-template.md"]
+}

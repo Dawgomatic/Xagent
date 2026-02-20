@@ -1,0 +1,11 @@
+{
+  "owner": "kjaylee",
+  "slug": "skill-authoring",
+  "displayName": "Skill Authoring",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770593671059,
+    "commit": "https://github.com/openclaw/skills/commit/4a7aa1a05324624c5d4bdd583168189d8fe04c9d"
+  },
+  "history": []
+}

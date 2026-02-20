@@ -1,0 +1,11 @@
+{
+  "owner": "guohongbin-git",
+  "slug": "mlops-validation-cn",
+  "displayName": "MLOps Validation CN",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771465653898,
+    "commit": "https://github.com/openclaw/skills/commit/f270f2a3a0b542e260f7ff58c1f6aebbf7b97758"
+  },
+  "history": []
+}

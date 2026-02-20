@@ -1,0 +1,11 @@
+{
+  "owner": "justasknudge",
+  "slug": "daily-briefing-skill",
+  "displayName": "Daily Briefing",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1771317306797,
+    "commit": "https://github.com/openclaw/skills/commit/ee73467e437c7899e88fa80adc9dd03a3bcaa241"
+  },
+  "history": []
+}

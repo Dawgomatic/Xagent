@@ -1,0 +1,11 @@
+{
+  "owner": "autogame-17",
+  "slug": "cron-visualizer",
+  "displayName": "Cron Visualizer",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771337128305,
+    "commit": "https://github.com/openclaw/skills/commit/0af731fe298115f76beb9beb8fe003d8fc4322f2"
+  },
+  "history": []
+}

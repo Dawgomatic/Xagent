@@ -1,0 +1,22 @@
+{
+  "owner": "autogame-17",
+  "slug": "feishu-group-manager",
+  "displayName": "feishu-group-manager",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771155440392,
+    "commit": "https://github.com/openclaw/skills/commit/dec96a7e87dc6a8c7ba91404a9d7d3beabc354de"
+  },
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1770791659953,
+      "commit": "https://github.com/openclaw/skills/commit/bcd250929508337cc6e1eb72f5295074b7078a58"
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770317581897,
+      "commit": "https://github.com/openclaw/skills/commit/d1533a1a8199289f0f213b8171930a8a90f93868"
+    }
+  ]
+}

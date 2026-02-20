@@ -1,0 +1,11 @@
+{
+  "owner": "hexiaochun",
+  "slug": "sutui-minimax-tts",
+  "displayName": "MiniMax 多人对话语音合成",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770648535549,
+    "commit": "https://github.com/openclaw/skills/commit/8ddabf6e3af8ab4277adebf6db546fb02a01356f"
+  },
+  "history": []
+}

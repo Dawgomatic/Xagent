@@ -1,0 +1,11 @@
+{
+  "owner": "dotcom-squad",
+  "slug": "telnyx-tts",
+  "displayName": "Telnyx Tts",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770739689462,
+    "commit": "https://github.com/openclaw/skills/commit/2074ad4cb72051c0dd4f2b8a16925397981c345d"
+  },
+  "history": []
+}

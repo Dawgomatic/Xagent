@@ -1,0 +1,11 @@
+{
+  "owner": "bshandley",
+  "slug": "ai-usage",
+  "displayName": "AI Usage",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1771116616427,
+    "commit": "https://github.com/openclaw/skills/commit/ce118610ff9dd578b96a6fe81e73cbbbd21a5059"
+  },
+  "history": []
+}

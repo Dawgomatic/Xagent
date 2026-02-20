@@ -1,0 +1,11 @@
+{
+  "owner": "bill492",
+  "slug": "video-understanding",
+  "displayName": "Video Understanding",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771017037812,
+    "commit": "https://github.com/openclaw/skills/commit/817db95701e7b2d8733c24eadedcf8308f1fe6fa"
+  },
+  "history": []
+}

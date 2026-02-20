@@ -1,0 +1,11 @@
+{
+  "owner": "markeljan",
+  "slug": "codex-multi-subscription-auth-fallbacks",
+  "displayName": "Codex Multi Subscription Auth Fallbacks",
+  "latest": {
+    "version": "1.1.0",
+    "publishedAt": 1771370678503,
+    "commit": "https://github.com/openclaw/skills/commit/eaa84cc02c9537bc1097b2fd63c5285695ea5038"
+  },
+  "history": []
+}

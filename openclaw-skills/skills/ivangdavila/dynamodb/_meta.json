@@ -1,0 +1,11 @@
+{
+  "owner": "ivangdavila",
+  "slug": "dynamodb",
+  "displayName": "DynamoDB",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1770727133287,
+    "commit": "https://github.com/openclaw/skills/commit/d0a6e63d2bccedf231d2b1b06ace2e90e50339cc"
+  },
+  "history": []
+}

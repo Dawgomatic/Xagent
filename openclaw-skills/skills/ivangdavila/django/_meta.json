@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "django",
+  "displayName": "Django",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771104769330,
+    "commit": "https://github.com/openclaw/skills/commit/1298fdfc99de5f36d081c1a374b5648c3f01253b"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770683195925,
+      "commit": "https://github.com/openclaw/skills/commit/2539ce142d78a0a112e825de6eb09b77a42d2839"
+    }
+  ]
+}

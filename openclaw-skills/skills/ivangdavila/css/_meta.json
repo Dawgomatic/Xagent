@@ -1,0 +1,17 @@
+{
+  "owner": "ivangdavila",
+  "slug": "css",
+  "displayName": "CSS",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771075855617,
+    "commit": "https://github.com/openclaw/skills/commit/4c3e422e6c26c7ad6d8b79e6209389afa51a01c7"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770680939150,
+      "commit": "https://github.com/openclaw/skills/commit/12e248fd8c3d05c5b83c3e6f887ee1ecc2629edd"
+    }
+  ]
+}
