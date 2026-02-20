@@ -1,0 +1,9 @@
+[submodule "reference/picoclaw"]
+	path = reference/picoclaw
+	url = https://github.com/sipeed/picoclaw.git
+[submodule "reference/nanobot"]
+	path = reference/nanobot
+	url = https://github.com/HKUDS/nanobot.git
+[submodule "reference/openclaw-skills"]
+	path = reference/openclaw-skills
+	url = https://github.com/moltbot/skills.git
