@@ -7,3 +7,6 @@
 [submodule "reference/openclaw-skills"]
 	path = reference/openclaw-skills
 	url = https://github.com/moltbot/skills.git
+[submodule "reference/llm-checker"]
+	path = reference/llm-checker
+	url = https://github.com/Pavelevich/llm-checker.git
