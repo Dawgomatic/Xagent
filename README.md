@@ -60,6 +60,14 @@ xagent agent
 
 # Check status
 xagent status
+
+# Hardware-aware model recommendation
+xagent llm-check hw-detect          # Detect hardware (CPU, GPU, RAM)
+xagent llm-check check              # Full analysis: score all models
+xagent llm-check recommend coding   # Top picks for coding
+xagent llm-check installed          # Rank your installed Ollama models
+xagent llm-check pull llama3.2:3b   # Download a model
+xagent llm-check benchmark phi3     # Benchmark a model
 ```
 
 ---

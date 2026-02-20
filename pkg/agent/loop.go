@@ -89,6 +89,9 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	registry.Register(tools.NewI2CTool())
 	registry.Register(tools.NewSPITool())
 
+	// LLM hardware analysis and model recommendation
+	registry.Register(tools.NewLLMCheckTool())
+
 	// Message tool - available to both agent and subagent
 	// Subagent uses it to communicate directly with user
 	messageTool := tools.NewMessageTool()
