@@ -12,8 +12,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/sipeed/picoclaw/pkg/hwprofile"
-	"github.com/sipeed/picoclaw/pkg/logger"
+	"github.com/Dawgomatic/Xagent/pkg/hwprofile"
+	"github.com/Dawgomatic/Xagent/pkg/logger"
 )
 
 // ReadinessChecker is called by /readyz to verify external deps (e.g., Ollama).

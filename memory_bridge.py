@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 memory_bridge.py - SWE100821
-Bridge between PicoClaw Markdown memory and Qdrant vector database.
+Bridge between Xagent Markdown memory and Qdrant vector database.
 Enables semantic search over long-term agent memory using local embeddings.
 """
 
@@ -305,7 +305,7 @@ Examples:
     
     if command == "sync":
         # Sync from MEMORY.md
-        memory_file = Path.home() / ".picoclaw" / "workspace" / "memory" / "MEMORY.md"
+        memory_file = Path.home() / ".xagent" / "workspace" / "memory" / "MEMORY.md"
         
         if len(sys.argv) > 2:
             # Custom path provided
@@ -347,7 +347,7 @@ Examples:
     
     elif command == "watch":
         # Watch mode
-        memory_file = Path.home() / ".picoclaw" / "workspace" / "memory" / "MEMORY.md"
+        memory_file = Path.home() / ".xagent" / "workspace" / "memory" / "MEMORY.md"
         
         if len(sys.argv) > 2:
             memory_file = Path(sys.argv[2])

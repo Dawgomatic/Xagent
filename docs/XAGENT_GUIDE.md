@@ -1,11 +1,11 @@
-# PicoClaw Complete Guide
-**By SWE100821** | Comprehensive documentation for PicoClaw AI Agent
+# Xagent Complete Guide
+**By SWE100821** | Comprehensive documentation for Xagent AI Agent
 
 ---
 
 ## 📋 Overview
 
-PicoClaw is an ultra-lightweight personal AI Assistant built in Go, running on hardware from $10 devices to high-end Xavier boards. This guide covers everything from installation to advanced usage.
+Xagent is an ultra-lightweight personal AI Assistant built in Go, running on hardware from $10 devices to high-end Xavier boards. This guide covers everything from installation to advanced usage.
 
 **Key Features:**
 - 🪶 Ultra-Lightweight: <10MB RAM footprint
@@ -30,7 +30,7 @@ This automatically:
 3. Installs correct Python version
 4. Installs Go 1.21.6
 5. Installs Ollama + optimal model
-6. Builds PicoClaw
+6. Builds Xagent
 7. Creates systemd services
 8. Enables auto-start on boot
 
@@ -54,40 +54,40 @@ This automatically:
 
 ```bash
 # One-off queries
-picoclaw agent -m "What is 2+2?"
-picoclaw agent -m "Write a Python script to sort a list"
+xagent agent -m "What is 2+2?"
+xagent agent -m "Write a Python script to sort a list"
 
 # Interactive mode
-picoclaw agent
+xagent agent
 
 # With custom session
-picoclaw agent -s "project-work"
+xagent agent -s "project-work"
 
 # Check status
-picoclaw status
+xagent status
 ```
 
 ### Gateway Mode (Chat Apps)
 
 ```bash
 # Start gateway (for Telegram, Discord, etc.)
-picoclaw gateway
+xagent gateway
 
 # With debug logging
-picoclaw gateway --debug
+xagent gateway --debug
 ```
 
 ---
 
 ## 🔧 Configuration
 
-### Main Config File: `~/.picoclaw/config.json`
+### Main Config File: `~/.xagent/config.json`
 
 ```json
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.xagent/workspace",
       "restrict_to_workspace": true,
       "provider": "vllm",
       "model": "llama3.1:8b",
@@ -129,7 +129,7 @@ picoclaw gateway --debug
 ### Workspace Layout
 
 ```
-~/.picoclaw/workspace/
+~/.xagent/workspace/
 ├── sessions/          # Conversation sessions and history
 ├── memory/           # Long-term memory (MEMORY.md)
 ├── state/            # Persistent state
@@ -148,7 +148,7 @@ picoclaw gateway --debug
 ## 🔒 Security Features
 
 ### Workspace Sandboxing
-By default, PicoClaw runs in a sandboxed environment:
+By default, Xagent runs in a sandboxed environment:
 
 ```json
 {
@@ -204,7 +204,7 @@ Even with `restrict_to_workspace: false`, these are blocked:
 }
 ```
 
-4. **Start:** `picoclaw gateway`
+4. **Start:** `xagent gateway`
 
 ### Discord
 
@@ -233,31 +233,31 @@ Even with `restrict_to_workspace: false`, these are blocked:
 
 ```bash
 # List available built-in skills
-picoclaw skills list-builtin
+xagent skills list-builtin
 
 # Install all built-in skills
-picoclaw skills install-builtin
+xagent skills install-builtin
 
 # List installed skills
-picoclaw skills list
+xagent skills list
 
 # Show skill details
-picoclaw skills show weather
+xagent skills show weather
 ```
 
 ### Install from GitHub
 
 ```bash
 # Install from official repository
-picoclaw skills install sipeed/picoclaw-skills/weather
+xagent skills install sipeed/xagent-skills/weather
 
 # Remove skill
-picoclaw skills remove weather
+xagent skills remove weather
 ```
 
 ### Custom Skills
 
-Create in `~/.picoclaw/workspace/skills/my-skill/SKILL.md`:
+Create in `~/.xagent/workspace/skills/my-skill/SKILL.md`:
 
 ```markdown
 ---
@@ -279,7 +279,7 @@ Agent can use this information to help with tasks.
 
 ### Heartbeat (Periodic Tasks)
 
-Create `~/.picoclaw/workspace/HEARTBEAT.md`:
+Create `~/.xagent/workspace/HEARTBEAT.md`:
 
 ```markdown
 # Periodic Tasks
@@ -307,20 +307,20 @@ Create `~/.picoclaw/workspace/HEARTBEAT.md`:
 
 ```bash
 # Add one-time reminder
-picoclaw cron add -n "Meeting reminder" -m "Remind about meeting" -e 3600
+xagent cron add -n "Meeting reminder" -m "Remind about meeting" -e 3600
 
 # Add recurring task
-picoclaw cron add -n "Daily backup" -m "Run backup" -c "0 2 * * *"
+xagent cron add -n "Daily backup" -m "Run backup" -c "0 2 * * *"
 
 # List jobs
-picoclaw cron list
+xagent cron list
 
 # Remove job
-picoclaw cron remove <job_id>
+xagent cron remove <job_id>
 
 # Enable/disable
-picoclaw cron enable <job_id>
-picoclaw cron disable <job_id>
+xagent cron enable <job_id>
+xagent cron disable <job_id>
 ```
 
 ---
@@ -384,7 +384,7 @@ picoclaw cron disable <job_id>
 ollama pull mistral:7b
 
 # Update config
-nano ~/.picoclaw/config.json
+nano ~/.xagent/config.json
 # Change "model": "mistral:7b"
 
 # Restart
@@ -398,16 +398,16 @@ nano ~/.picoclaw/config.json
 ### Using Docker Compose
 
 ```bash
-cd /home/dawg/Desktop/AI_agents/picoclaw
+cd /home/dawg/Desktop/AI_agents/xagent
 
 # Copy config
-cp ~/.picoclaw/config.json config/config.json
+cp ~/.xagent/config.json config/config.json
 
 # Build and start
 docker-compose --profile gateway up -d
 
 # Check logs
-docker-compose logs -f picoclaw-gateway
+docker-compose logs -f xagent-gateway
 
 # Stop
 docker-compose --profile gateway down
@@ -422,7 +422,7 @@ docker-compose --profile gateway down
 After running `./start.sh`, these services are created:
 
 **ollama.service** - AI model server
-**picoclaw-gateway.service** - AI agent gateway
+**xagent-gateway.service** - AI agent gateway
 
 Both automatically start on boot.
 
@@ -430,19 +430,19 @@ Both automatically start on boot.
 
 ```bash
 # Start/stop/restart
-sudo systemctl start picoclaw-gateway
-sudo systemctl stop picoclaw-gateway
-sudo systemctl restart picoclaw-gateway
+sudo systemctl start xagent-gateway
+sudo systemctl stop xagent-gateway
+sudo systemctl restart xagent-gateway
 
 # Status
-sudo systemctl status picoclaw-gateway
+sudo systemctl status xagent-gateway
 
 # Enable/disable auto-start
-sudo systemctl enable picoclaw-gateway
-sudo systemctl disable picoclaw-gateway
+sudo systemctl enable xagent-gateway
+sudo systemctl disable xagent-gateway
 
 # View logs
-sudo journalctl -u picoclaw-gateway -f
+sudo journalctl -u xagent-gateway -f
 sudo journalctl -u ollama -f
 ```
 
@@ -493,7 +493,7 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```bash
 ./manage.sh logs
 sudo systemctl status ollama
-sudo systemctl status picoclaw-gateway
+sudo systemctl status xagent-gateway
 ```
 
 ### Ollama Not Responding
@@ -504,8 +504,8 @@ sudo systemctl restart ollama
 
 ### Agent Errors
 ```bash
-picoclaw status
-cat ~/.picoclaw/config.json
+xagent status
+cat ~/.xagent/config.json
 ```
 
 ### Slow Responses
@@ -537,14 +537,14 @@ cat ~/.picoclaw/config.json
 3. **Monitor logs regularly:** `./manage.sh logs`
 4. **Update periodically:**
    ```bash
-   cd /home/dawg/Desktop/AI_agents/picoclaw
+   cd /home/dawg/Desktop/AI_agents/xagent
    git pull
    make build
    ./manage.sh restart
    ```
 5. **Backup configuration:**
    ```bash
-   cp ~/.picoclaw/config.json ~/config.backup.json
+   cp ~/.xagent/config.json ~/config.backup.json
    ```
 
 ---
@@ -558,7 +558,7 @@ cat ~/.picoclaw/config.json
 
 ### Daily Use
 ```bash
-picoclaw agent -m "your question"
+xagent agent -m "your question"
 ```
 
 ### Management

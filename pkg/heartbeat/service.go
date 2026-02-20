@@ -1,8 +1,8 @@
-// PicoClaw - Ultra-lightweight personal AI agent
+// Xagent - Ultra-lightweight personal AI agent
 // Inspired by and based on nanobot: https://github.com/HKUDS/nanobot
 // License: MIT
 //
-// Copyright (c) 2026 PicoClaw contributors
+// Copyright (c) 2026 Xagent contributors
 
 package heartbeat
 
@@ -14,11 +14,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/sipeed/picoclaw/pkg/bus"
-	"github.com/sipeed/picoclaw/pkg/constants"
-	"github.com/sipeed/picoclaw/pkg/logger"
-	"github.com/sipeed/picoclaw/pkg/state"
-	"github.com/sipeed/picoclaw/pkg/tools"
+	"github.com/Dawgomatic/Xagent/pkg/bus"
+	"github.com/Dawgomatic/Xagent/pkg/constants"
+	"github.com/Dawgomatic/Xagent/pkg/logger"
+	"github.com/Dawgomatic/Xagent/pkg/state"
+	"github.com/Dawgomatic/Xagent/pkg/tools"
 )
 
 const (
@@ -277,7 +277,7 @@ Add your heartbeat tasks below this line:
 ## Weekly Upgrade Check
 
 Once per week (check the workspace/upgrade_check.log for the last check date),
-run: picoclaw upgrade --check
+run: xagent upgrade --check
 If an update is available, inform the user with the version details.
 Write the current date to workspace/upgrade_check.log after checking.
 `

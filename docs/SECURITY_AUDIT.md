@@ -1,7 +1,7 @@
-# PicoClaw Security Audit Report
+# Xagent Security Audit Report
 **Date:** 2026-02-15  
 **Auditor:** SWE100821  
-**Subject:** Backdoor and vulnerability assessment for picoclaw AI agent
+**Subject:** Backdoor and vulnerability assessment for xagent AI agent
 
 ---
 
@@ -9,7 +9,7 @@
 
 ✅ **NO CRITICAL SECURITY ISSUES OR BACKDOORS FOUND**
 
-After thorough examination of the picoclaw codebase, I found **no evidence of malicious backdoors, data exfiltration, or unauthorized network communication**. The project appears to be a legitimate, open-source AI agent framework built in Go.
+After thorough examination of the xagent codebase, I found **no evidence of malicious backdoors, data exfiltration, or unauthorized network communication**. The project appears to be a legitimate, open-source AI agent framework built in Go.
 
 ---
 
@@ -36,7 +36,7 @@ After thorough examination of the picoclaw codebase, I found **no evidence of ma
 
 ### 2. ✅ Chinese Company Connection - LEGITIMATE
 - **Company:** Sipeed (矽速科技) - established Chinese hardware maker
-- **Domain:** Official site is `picoclaw.io` and `sipeed.com`
+- **Domain:** Official site is `xagent.io` and `sipeed.com`
 - **Purpose:** Low-cost AI agent for their hardware (LicheeRV-Nano, MaixCAM, etc.)
 - **License:** MIT License (fully open source)
 - **README Warning:** Explicitly warns about crypto scams using their name
@@ -47,7 +47,7 @@ After thorough examination of the picoclaw codebase, I found **no evidence of ma
 
 ### 3. ✅ Data Handling - SECURE
 **Configuration:**
-- API keys stored locally in `~/.picoclaw/config.json`
+- API keys stored locally in `~/.xagent/config.json`
 - No hardcoded credentials found
 - Workspace sandboxing enabled by default (`restrict_to_workspace: true`)
 
@@ -55,7 +55,7 @@ After thorough examination of the picoclaw codebase, I found **no evidence of ma
 ```json
 {
   "restrict_to_workspace": true,  // ✅ Limits file access
-  "workspace": "~/.picoclaw/workspace"  // ✅ Isolated directory
+  "workspace": "~/.xagent/workspace"  // ✅ Isolated directory
 }
 ```
 
@@ -100,7 +100,7 @@ After thorough examination of the picoclaw codebase, I found **no evidence of ma
 ---
 
 ### 6. ✅ Code Architecture - TRANSPARENT
-**Main Entry Point:** `/cmd/picoclaw/main.go`
+**Main Entry Point:** `/cmd/xagent/main.go`
 - Clean command structure
 - No obfuscated code
 - Clear initialization flow
@@ -155,7 +155,7 @@ cmd := exec.CommandContext(ctx, "sh", "-c", command)
 
 ### 3. Third-Party Skills
 ```bash
-picoclaw skills install <github-repo>
+xagent skills install <github-repo>
 ```
 **Impact:** Installs code from external GitHub repos  
 **Mitigation:** Only install from trusted sources
@@ -169,7 +169,7 @@ picoclaw skills install <github-repo>
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.xagent/workspace",
       "restrict_to_workspace": true,  // ✅ Keep enabled
       "model": "anthropic/claude-sonnet-4.5"  // ✅ Use Western provider
     }
@@ -201,7 +201,7 @@ picoclaw skills install <github-repo>
 
 ## Comparison with Similar Projects
 
-| Feature | PicoClaw | AutoGPT | LangChain | Agent Zero |
+| Feature | Xagent | AutoGPT | LangChain | Agent Zero |
 |---------|----------|---------|-----------|------------|
 | Open Source | ✅ MIT | ✅ MIT | ✅ MIT | ✅ MIT |
 | Telemetry | ❌ None | ⚠️ Optional | ⚠️ Some | ❌ None |
@@ -238,7 +238,7 @@ To verify the security yourself:
 
 ```bash
 # Check for hidden network calls
-cd picoclaw
+cd xagent
 grep -r "http\." pkg/ cmd/ | grep -v "test"
 grep -r "POST\|GET" pkg/ | grep -v "test\|comment"
 
@@ -258,7 +258,7 @@ cat config/config.example.json
 ---
 
 ## References
-- Repository: https://github.com/sipeed/picoclaw
+- Repository: https://github.com/sipeed/xagent
 - License: MIT (confirmed at `LICENSE`)
 - Company: Sipeed (https://sipeed.com)
 - Inspired by: nanobot (HKUDS)

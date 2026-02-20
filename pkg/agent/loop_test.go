@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sipeed/picoclaw/pkg/bus"
-	"github.com/sipeed/picoclaw/pkg/config"
-	"github.com/sipeed/picoclaw/pkg/providers"
-	"github.com/sipeed/picoclaw/pkg/tools"
+	"github.com/Dawgomatic/Xagent/pkg/bus"
+	"github.com/Dawgomatic/Xagent/pkg/config"
+	"github.com/Dawgomatic/Xagent/pkg/providers"
+	"github.com/Dawgomatic/Xagent/pkg/tools"
 )
 
 // mockProvider is a simple mock LLM provider for testing

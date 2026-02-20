@@ -14,7 +14,7 @@ cd /home/dawg/Desktop/AI_agents
 - Auto-detects platform (Xavier/RPi3/RPi4/x86_64)
 - Installs Python (3.8/3.10/3.12), Go, Ollama
 - Downloads optimal model for your hardware
-- Builds PicoClaw
+- Builds Xagent
 - Creates systemd services (auto-start on boot)
 
 **Installation takes:** 5-10 minutes
@@ -42,14 +42,14 @@ cd /home/dawg/Desktop/AI_agents
 
 ### CLI Mode (One-off queries)
 ```bash
-picoclaw agent -m "What is 2+2?"
-picoclaw agent -m "Write a Python hello world"
-picoclaw agent -m "Search for AI news"
+xagent agent -m "What is 2+2?"
+xagent agent -m "Write a Python hello world"
+xagent agent -m "Search for AI news"
 ```
 
 ### Interactive Mode
 ```bash
-picoclaw agent
+xagent agent
 
 # Then type your questions:
 > What files are in my workspace?
@@ -59,8 +59,8 @@ picoclaw agent
 
 ### Check Status
 ```bash
-picoclaw status        # Show configuration
-picoclaw --version     # Show version
+xagent status        # Show configuration
+xagent --version     # Show version
 ```
 
 ---
@@ -71,17 +71,17 @@ Services **automatically start** on boot after installation.
 
 **Installed services:**
 - `ollama.service` - AI model server (port 11434)
-- `picoclaw-gateway.service` - AI agent gateway (port 18790)
+- `xagent-gateway.service` - AI agent gateway (port 18790)
 
 **Manual control:**
 ```bash
-sudo systemctl start picoclaw-gateway
-sudo systemctl stop picoclaw-gateway
-sudo systemctl restart picoclaw-gateway
-sudo systemctl status picoclaw-gateway
+sudo systemctl start xagent-gateway
+sudo systemctl stop xagent-gateway
+sudo systemctl restart xagent-gateway
+sudo systemctl status xagent-gateway
 
 # View live logs
-sudo journalctl -u picoclaw-gateway -f
+sudo journalctl -u xagent-gateway -f
 sudo journalctl -u ollama -f
 ```
 
@@ -90,7 +90,7 @@ sudo journalctl -u ollama -f
 ## 📂 File Locations
 
 ```
-~/.picoclaw/
+~/.xagent/
 ├── config.json              # Configuration
 └── workspace/               # Agent workspace
     ├── sessions/            # Chat history
@@ -100,8 +100,8 @@ sudo journalctl -u ollama -f
     └── USER.md              # Your preferences
 
 /var/log/
-├── picoclaw-gateway.log     # Gateway logs
-└── picoclaw-gateway-error.log
+├── xagent-gateway.log     # Gateway logs
+└── xagent-gateway-error.log
 
 ~/.ollama_model              # Current model name
 ```
@@ -119,7 +119,7 @@ ollama list
 ollama pull mistral:7b
 
 # Update config
-nano ~/.picoclaw/config.json
+nano ~/.xagent/config.json
 # Change "model": "mistral:7b"
 
 # Restart
@@ -131,7 +131,7 @@ nano ~/.picoclaw/config.json
 # 1. Create bot: Talk to @BotFather on Telegram
 # 2. Get user ID: Talk to @userinfobot
 # 3. Edit config:
-nano ~/.picoclaw/config.json
+nano ~/.xagent/config.json
 
 # Add under "channels":
 {
@@ -149,27 +149,27 @@ nano ~/.picoclaw/config.json
 ### Install Skills
 ```bash
 # List built-in skills
-picoclaw skills list-builtin
+xagent skills list-builtin
 
 # Install all built-in skills
-picoclaw skills install-builtin
+xagent skills install-builtin
 
 # Install from GitHub
-picoclaw skills install sipeed/picoclaw-skills/weather
+xagent skills install sipeed/xagent-skills/weather
 ```
 
 ### View Agent Memory
 ```bash
-cat ~/.picoclaw/workspace/memory/MEMORY.md
+cat ~/.xagent/workspace/memory/MEMORY.md
 ```
 
 ### Schedule Tasks
 ```bash
 # Add reminder
-picoclaw cron add -n "Check email" -m "Check my email" -e 3600
+xagent cron add -n "Check email" -m "Check my email" -e 3600
 
 # List scheduled tasks
-picoclaw cron list
+xagent cron list
 ```
 
 ---
@@ -219,10 +219,10 @@ sudo systemctl start ollama
 ### Agent gives errors
 ```bash
 # Check configuration
-picoclaw status
+xagent status
 
 # View config
-cat ~/.picoclaw/config.json
+cat ~/.xagent/config.json
 
 # Test Ollama directly
 ollama run llama3.1:8b "test message"
@@ -234,10 +234,10 @@ ollama run llama3.1:8b "test message"
 ollama pull tinyllama:1.1b
 
 # Update config
-sed -i 's/phi3:3.8b/tinyllama:1.1b/' ~/.picoclaw/config.json
+sed -i 's/phi3:3.8b/tinyllama:1.1b/' ~/.xagent/config.json
 
 # Reduce tokens
-# Edit ~/.picoclaw/config.json
+# Edit ~/.xagent/config.json
 # Change "max_tokens": 2048
 ```
 
@@ -262,9 +262,9 @@ sudo swapon /swapfile
 ./manage.sh stop
 
 # Remove old installation
-rm -rf ~/.picoclaw
-sudo systemctl disable picoclaw-gateway
-sudo rm /etc/systemd/system/picoclaw-gateway.service
+rm -rf ~/.xagent
+sudo systemctl disable xagent-gateway
+sudo rm /etc/systemd/system/xagent-gateway.service
 
 # Reinstall
 cd /home/dawg/Desktop/AI_agents
@@ -275,12 +275,12 @@ cd /home/dawg/Desktop/AI_agents
 
 ## 📊 Configuration Reference
 
-### Basic Config (~/.picoclaw/config.json)
+### Basic Config (~/.xagent/config.json)
 ```json
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.xagent/workspace",
       "restrict_to_workspace": true,
       "provider": "vllm",
       "model": "llama3.1:8b",
@@ -315,7 +315,7 @@ cd /home/dawg/Desktop/AI_agents
 - **Ollama Setup:** `OLLAMA_SETUP.md` - Detailed Ollama guide
 - **Cloud APIs:** `CLOUD_API_SETUP.md` - Use OpenAI/Anthropic instead
 - **Multi-Platform:** `MULTIPLATFORM.md` - Platform compatibility
-- **Full Guide:** `PICOCLAW_GUIDE.md` - Complete documentation
+- **Full Guide:** `XAGENT_GUIDE.md` - Complete documentation
 
 ---
 
@@ -335,7 +335,7 @@ cd /home/dawg/Desktop/AI_agents
 ./manage.sh status
 
 # Use the agent
-picoclaw agent -m "What's on my schedule today?"
+xagent agent -m "What's on my schedule today?"
 
 # Evening - services keep running (or stop to save resources)
 ./manage.sh stop

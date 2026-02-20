@@ -1,7 +1,7 @@
-# PicoClaw + Ollama Setup (Fully Local & Private)
+# Xagent + Ollama Setup (Fully Local & Private)
 **Date:** 2026-02-16  
 **Author:** SWE100821  
-**Purpose:** Run picoclaw with local opensource models via Ollama
+**Purpose:** Run xagent with local opensource models via Ollama
 
 ---
 
@@ -24,7 +24,7 @@
 
 2. **Software:**
    - Ollama installed
-   - Go 1.21+ (for building picoclaw)
+   - Go 1.21+ (for building xagent)
 
 ---
 
@@ -59,7 +59,7 @@ curl http://localhost:11434/api/tags
 
 ## Step 2: Download Models
 
-### Recommended Models for Picoclaw
+### Recommended Models for Xagent
 
 ```bash
 # Option 1: Llama 3.1 8B (Best balance)
@@ -93,14 +93,14 @@ curl http://localhost:11434/api/generate -d '{
 
 ---
 
-## Step 3: Install PicoClaw
+## Step 3: Install Xagent
 
 ```bash
 cd /home/dawg/Desktop/AI_agents
 
 # Clone repository
-git clone https://github.com/sipeed/picoclaw.git
-cd picoclaw
+git clone https://github.com/sipeed/xagent.git
+cd xagent
 
 # Build dependencies
 make deps
@@ -109,7 +109,7 @@ make deps
 make build
 
 # Test
-./picoclaw version
+./xagent version
 ```
 
 ---
@@ -120,14 +120,14 @@ make build
 
 ```bash
 # Create config directory
-mkdir -p ~/.picoclaw
+mkdir -p ~/.xagent
 
 # Create config for Ollama
-cat > ~/.picoclaw/config.json << 'EOF'
+cat > ~/.xagent/config.json << 'EOF'
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.xagent/workspace",
       "restrict_to_workspace": true,
       "provider": "vllm",
       "model": "llama3.1:8b",
@@ -167,7 +167,7 @@ cat > ~/.picoclaw/config.json << 'EOF'
 EOF
 
 # Secure the config
-chmod 600 ~/.picoclaw/config.json
+chmod 600 ~/.xagent/config.json
 ```
 
 **Key Configuration:**
@@ -180,22 +180,22 @@ chmod 600 ~/.picoclaw/config.json
 ## Step 5: Initialize Workspace
 
 ```bash
-cd /home/dawg/Desktop/AI_agents/picoclaw
+cd /home/dawg/Desktop/AI_agents/xagent
 
-# Initialize picoclaw
-./picoclaw onboard
+# Initialize xagent
+./xagent onboard
 
 # Verify status
-./picoclaw status
+./xagent status
 ```
 
 Expected output:
 ```
-🦞 picoclaw Status
+🦞 xagent Status
 Version: dev
 ...
-Config: /home/dawg/.picoclaw/config.json ✓
-Workspace: /home/dawg/.picoclaw/workspace ✓
+Config: /home/dawg/.xagent/config.json ✓
+Workspace: /home/dawg/.xagent/workspace ✓
 Model: llama3.1:8b
 ...
 ```
@@ -206,31 +206,31 @@ Model: llama3.1:8b
 
 ### Basic Test
 ```bash
-cd /home/dawg/Desktop/AI_agents/picoclaw
+cd /home/dawg/Desktop/AI_agents/xagent
 
 # Simple query
-./picoclaw agent -m "What is 2+2?"
+./xagent agent -m "What is 2+2?"
 
 # More complex query
-./picoclaw agent -m "Write a hello world program in Python"
+./xagent agent -m "Write a hello world program in Python"
 ```
 
 ### Test Tool Use
 ```bash
 # Test web search (DuckDuckGo)
-./picoclaw agent -m "Search for latest news about AI"
+./xagent agent -m "Search for latest news about AI"
 
 # Test file operations (in sandbox)
-./picoclaw agent -m "Create a file called test.txt with 'Hello World' in it"
+./xagent agent -m "Create a file called test.txt with 'Hello World' in it"
 
 # Verify sandbox (should fail - path outside workspace)
-./picoclaw agent -m "Read the file /etc/passwd"
+./xagent agent -m "Read the file /etc/passwd"
 ```
 
 ### Interactive Mode
 ```bash
 # Start interactive session
-./picoclaw agent
+./xagent agent
 
 # Type your queries:
 > What files are in my workspace?
@@ -258,7 +258,7 @@ Environment="OLLAMA_FLASH_ATTENTION=1"
 sudo systemctl restart ollama
 ```
 
-### PicoClaw Settings for Local Models
+### Xagent Settings for Local Models
 
 ```json
 {
@@ -296,10 +296,10 @@ sudo systemctl restart ollama
 ollama pull qwen2.5:7b
 
 # Update config
-sed -i 's/"model": "llama3.1:8b"/"model": "qwen2.5:7b"/' ~/.picoclaw/config.json
+sed -i 's/"model": "llama3.1:8b"/"model": "qwen2.5:7b"/' ~/.xagent/config.json
 
 # Test
-./picoclaw agent -m "Hello from new model!"
+./xagent agent -m "Hello from new model!"
 ```
 
 ---
@@ -310,7 +310,7 @@ sed -i 's/"model": "llama3.1:8b"/"model": "qwen2.5:7b"/' ~/.picoclaw/config.json
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.xagent/workspace",
       "restrict_to_workspace": true,
       "provider": "vllm",
       "model": "llama3.1:8b",
@@ -413,15 +413,15 @@ sed -i 's/"model": "llama3.1:8b"/"model": "qwen2.5:7b"/' ~/.picoclaw/config.json
 ### Use Different Models per Task
 ```bash
 # General queries: Llama 3.1
-./picoclaw agent -m "What's the weather?"
+./xagent agent -m "What's the weather?"
 
 # For coding: Switch to DeepSeek Coder
 # Edit config to use deepseek-coder:6.7b, then:
-./picoclaw agent -m "Write a Python function to sort a list"
+./xagent agent -m "Write a Python function to sort a list"
 
 # For speed: Switch to Mistral
 # Edit config to use mistral:7b, then:
-./picoclaw agent -m "Quick question: what is 2+2?"
+./xagent agent -m "Quick question: what is 2+2?"
 ```
 
 ---
@@ -459,7 +459,7 @@ free -h
 ollama pull mistral:7b  # or phi3:3.8b
 
 # Update config to use smaller model
-sed -i 's/llama3.1:8b/mistral:7b/' ~/.picoclaw/config.json
+sed -i 's/llama3.1:8b/mistral:7b/' ~/.xagent/config.json
 ```
 
 ### Issue: Slow responses
@@ -475,11 +475,11 @@ ollama ps
 ### Issue: Workspace errors
 ```bash
 # Verify sandbox is working
-./picoclaw agent -m "List files in /tmp"
+./xagent agent -m "List files in /tmp"
 # Should fail with "path outside working dir"
 
 # Check config
-grep "restrict_to_workspace" ~/.picoclaw/config.json
+grep "restrict_to_workspace" ~/.xagent/config.json
 # Should show: "restrict_to_workspace": true
 ```
 
@@ -504,11 +504,11 @@ grep "restrict_to_workspace" ~/.picoclaw/config.json
 ### Check What's Running
 ```bash
 # Create monitoring script
-cat > ~/check_picoclaw_local.sh << 'EOF'
+cat > ~/check_xagent_local.sh << 'EOF'
 #!/bin/bash
-# SWE100821: Monitor local picoclaw setup
+# SWE100821: Monitor local xagent setup
 
-echo "=== PicoClaw Local Setup Check ==="
+echo "=== Xagent Local Setup Check ==="
 date
 echo ""
 
@@ -522,11 +522,11 @@ else
 fi
 
 echo ""
-echo "2. PicoClaw Status:"
-if pgrep -f picoclaw > /dev/null; then
-    echo "   ✅ PicoClaw running"
+echo "2. Xagent Status:"
+if pgrep -f xagent > /dev/null; then
+    echo "   ✅ Xagent running"
 else
-    echo "   ⏸️  PicoClaw not running"
+    echo "   ⏸️  Xagent not running"
 fi
 
 echo ""
@@ -535,14 +535,14 @@ netstat -tuln | grep -E '11434|18790'
 
 echo ""
 echo "4. Config Check:"
-grep -E "restrict_to_workspace|api_base" ~/.picoclaw/config.json
+grep -E "restrict_to_workspace|api_base" ~/.xagent/config.json
 
 echo ""
 echo "=== All Local - No Cloud Services ==="
 EOF
 
-chmod +x ~/check_picoclaw_local.sh
-~/check_picoclaw_local.sh
+chmod +x ~/check_xagent_local.sh
+~/check_xagent_local.sh
 ```
 
 ---
@@ -564,8 +564,8 @@ Even with Telegram, all processing stays local:
 ```
 
 **What happens:**
-1. Telegram message received → picoclaw
-2. picoclaw sends to Ollama (localhost)
+1. Telegram message received → xagent
+2. xagent sends to Ollama (localhost)
 3. Response generated locally
 4. Reply sent via Telegram
 
@@ -585,18 +585,18 @@ ollama pull llama3.1:8b
 # Test Ollama directly
 ollama run llama3.1:8b "test query"
 
-# Start picoclaw (CLI)
-cd /home/dawg/Desktop/AI_agents/picoclaw
-./picoclaw agent
+# Start xagent (CLI)
+cd /home/dawg/Desktop/AI_agents/xagent
+./xagent agent
 
-# Start picoclaw (gateway for Telegram)
-./picoclaw gateway
+# Start xagent (gateway for Telegram)
+./xagent gateway
 
 # Check status
-./picoclaw status
+./xagent status
 
 # Monitor both services
-ps aux | grep -E "ollama|picoclaw"
+ps aux | grep -E "ollama|xagent"
 ```
 
 ---
@@ -657,10 +657,10 @@ ps aux | grep -E "ollama|picoclaw"
 
 1. ✅ Install Ollama: `curl -fsSL https://ollama.com/install.sh | sh`
 2. ✅ Download model: `ollama pull llama3.1:8b`
-3. ✅ Clone picoclaw: `git clone https://github.com/sipeed/picoclaw.git`
-4. ✅ Build: `cd picoclaw && make build`
-5. ✅ Configure: Copy config above to `~/.picoclaw/config.json`
-6. ✅ Test: `./picoclaw agent -m "Hello!"`
+3. ✅ Clone xagent: `git clone https://github.com/sipeed/xagent.git`
+4. ✅ Build: `cd xagent && make build`
+5. ✅ Configure: Copy config above to `~/.xagent/config.json`
+6. ✅ Test: `./xagent agent -m "Hello!"`
 
 ---
 

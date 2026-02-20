@@ -1,9 +1,10 @@
-# AI Agents - Complete Installation System
-**By SWE100821** | One-command setup for Xavier, RPi3, RPi4, x86_64
+# Xagent - AI Agent Framework
+
+One-command setup for Xavier, RPi3, RPi4, and x86_64.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Install everything (one command)
@@ -17,57 +18,53 @@
 ./manage.sh test      # Test agent
 ```
 
-**That's it!** Services auto-start on boot.
+Services auto-start on boot.
 
 ---
 
-## 📦 What Gets Installed
+## What Gets Installed
 
-- ✅ **Platform detection** (Xavier/RPi3/RPi4/x86_64)
-- ✅ **Python** (3.8/3.10/3.12 based on Ubuntu version)
-- ✅ **Go 1.21.6**
-- ✅ **Ollama** + optimal model for your hardware
-- ✅ **PicoClaw** AI agent
-- ✅ **Systemd services** (auto-start on boot)
+- Platform detection (Xavier/RPi3/RPi4/x86_64)
+- Python (3.8/3.10/3.12 based on Ubuntu version)
+- Go 1.26.0
+- Ollama + optimal model for your hardware
+- Xagent AI agent binary
+- Systemd services (auto-start on boot)
 
 ---
 
-## 🔄 Auto-Start on Boot
+## Auto-Start on Boot
 
 After running `./start.sh`, these services start automatically on every boot:
 - `ollama.service` - AI model server
-- `picoclaw-gateway.service` - AI agent gateway
+- `xagent-gateway.service` - AI agent gateway
 
 Manage with: `./manage.sh enable|disable`
 
 ---
 
-## 📚 Documentation
+## Documentation
 
-See `docs/` folder for detailed guides:
-- `docs/QUICK_START.md` - Quick reference
-- `docs/picoclaw_security_audit.md` - Security analysis
-- `docs/picoclaw_ollama_setup.md` - Detailed setup
-- `docs/MULTIPLATFORM_GUIDE.md` - Platform specifics
+See `docs/` folder for detailed guides.
 
 ---
 
-## 🎯 Usage
+## Usage
 
 ```bash
 # CLI mode
-picoclaw agent -m "your question"
+xagent agent -m "your question"
 
 # Interactive mode
-picoclaw agent
+xagent agent
 
 # Check status
-picoclaw status
+xagent status
 ```
 
 ---
 
-## 🛠️ Platform Support
+## Platform Support
 
 | Platform | Ubuntu | Python | Model |
 |----------|--------|--------|-------|
@@ -78,26 +75,35 @@ picoclaw status
 
 ---
 
-## 📁 Structure
+## Repository Structure
 
 ```
 .
+├── cmd/xagent/       # CLI entry point
+├── pkg/              # Go packages (agent, config, channels, providers, etc.)
+├── workspace/        # Built-in skills
+├── skills/           # OpenClaw community skill archive (10,000+)
+├── reference/        # Vanilla upstream repos (git submodules, read-only)
+│   ├── picoclaw/     # Original picoclaw source
+│   ├── nanobot/      # Original nanobot project
+│   └── openclaw-skills/  # Original skill archive
 ├── start.sh          # Master installer (run once)
-├── manage.sh         # Service management (run anytime)
-├── README.md         # This file
-└── docs/             # All documentation
+├── manage.sh         # Service management (generated at install)
+├── skill_converter.py # Skills search, install, and conversion tool
+├── memory_bridge.py  # Optional Qdrant memory bridge
+├── Makefile          # Build system
+├── go.mod / go.sum   # Go module definition
+└── docs/             # Documentation
 ```
 
 ---
 
-## ✅ Complete Setup in 3 Steps
+## Setup in 3 Steps
 
 1. **Install:** `./start.sh`
 2. **Start:** `./manage.sh start`
-3. **Use:** `picoclaw agent -m "Hello!"`
-
-Services auto-start on reboot!
+3. **Use:** `xagent agent -m "Hello!"`
 
 ---
 
-**Created by SWE100821** | 100% local, private, secure AI agents
+100% local, private, secure AI agents.

@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	githubAPIBase = "https://api.github.com/repos/sipeed/picoclaw"
+	githubAPIBase = "https://api.github.com/repos/Dawgomatic/Xagent"
 	httpTimeout   = 30 * time.Second
 )
 
@@ -52,7 +52,7 @@ func CheckLatest(currentVersion string) (*CheckResult, error) {
 		return nil, fmt.Errorf("creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/vnd.github+json")
-	req.Header.Set("User-Agent", "picoclaw-upgrade/"+currentVersion)
+	req.Header.Set("User-Agent", "xagent-upgrade/"+currentVersion)
 
 	resp, err := client.Do(req)
 	if err != nil {
@@ -91,7 +91,7 @@ func CheckLatest(currentVersion string) (*CheckResult, error) {
 func binaryAssetName() string {
 	goos := runtime.GOOS
 	goarch := runtime.GOARCH
-	name := fmt.Sprintf("picoclaw-%s-%s", goos, goarch)
+	name := fmt.Sprintf("xagent-%s-%s", goos, goarch)
 	if goos == "windows" {
 		name += ".exe"
 	}

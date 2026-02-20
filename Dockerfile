@@ -1,5 +1,5 @@
 # ============================================================
-# Stage 1: Build the picoclaw binary
+# Stage 1: Build the xagent binary
 # ============================================================
 FROM golang:1.26.0-alpine AS builder
 
@@ -23,10 +23,10 @@ FROM alpine:3.23
 RUN apk add --no-cache ca-certificates tzdata curl
 
 # Copy binary
-COPY --from=builder /src/build/picoclaw /usr/local/bin/picoclaw
+COPY --from=builder /src/build/xagent /usr/local/bin/xagent
 
-# Create picoclaw home directory
-RUN /usr/local/bin/picoclaw onboard
+# Create xagent home directory
+RUN /usr/local/bin/xagent onboard
 
-ENTRYPOINT ["picoclaw"]
+ENTRYPOINT ["xagent"]
 CMD ["gateway"]

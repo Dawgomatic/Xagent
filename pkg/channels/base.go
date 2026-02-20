@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/sipeed/picoclaw/pkg/bus"
-	"github.com/sipeed/picoclaw/pkg/logger"
+	"github.com/Dawgomatic/Xagent/pkg/bus"
+	"github.com/Dawgomatic/Xagent/pkg/logger"
 )
 
 // genRequestID generates a short unique request ID for log tracing.

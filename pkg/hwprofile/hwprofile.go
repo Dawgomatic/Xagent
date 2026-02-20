@@ -523,8 +523,8 @@ func (p *Profile) BestAvailableModel() string {
 	return available[0]
 }
 
-// ProfilePath returns ~/.picoclaw/hwprofile.json for persisting profiles.
+// ProfilePath returns ~/.xagent/hwprofile.json for persisting profiles.
 func ProfilePath() string {
 	home, _ := os.UserHomeDir()
-	return filepath.Join(home, ".picoclaw", "hwprofile.json")
+	return filepath.Join(home, ".xagent", "hwprofile.json")
 }

@@ -8,7 +8,7 @@
 **New users:** Read in this order:
 1. **QUICKSTART.md** - Installation and daily usage
 2. **SECURITY_AUDIT.md** - Security review (safe to use)
-3. **PICOCLAW_GUIDE.md** - Complete documentation
+3. **XAGENT_GUIDE.md** - Complete documentation
 
 ---
 
@@ -21,7 +21,7 @@
   - Common tasks and troubleshooting
   - Platform-specific tips
 
-- **PICOCLAW_GUIDE.md** 📖 **COMPLETE GUIDE**
+- **XAGENT_GUIDE.md** 📖 **COMPLETE GUIDE**
   - Full documentation
   - All features explained
   - Configuration reference
@@ -72,7 +72,7 @@ Everything you need is in the 6 main docs above.
 
 ### Adding Telegram Bot
 → **QUICKSTART.md** (Section: Add Telegram Bot)  
-→ **PICOCLAW_GUIDE.md** (Section: Chat Channels)
+→ **XAGENT_GUIDE.md** (Section: Chat Channels)
 
 ### Changing AI Model
 → **QUICKSTART.md** (Section: Change AI Model)  
@@ -80,7 +80,7 @@ Everything you need is in the 6 main docs above.
 
 ### Troubleshooting
 → **QUICKSTART.md** (Section: Troubleshooting)  
-→ **PICOCLAW_GUIDE.md** (Section: Troubleshooting)
+→ **XAGENT_GUIDE.md** (Section: Troubleshooting)
 
 ### Security Questions
 → **SECURITY_AUDIT.md** (Complete audit)
@@ -98,7 +98,7 @@ Everything you need is in the 6 main docs above.
 | File | Lines | Purpose |
 |------|-------|---------|
 | QUICKSTART.md | ~400 | Daily reference |
-| PICOCLAW_GUIDE.md | ~600 | Complete guide |
+| XAGENT_GUIDE.md | ~600 | Complete guide |
 | OLLAMA_SETUP.md | ~670 | Local setup |
 | CLOUD_API_SETUP.md | ~690 | Cloud setup |
 | MULTIPLATFORM.md | ~520 | Platform guide |
@@ -114,15 +114,15 @@ Everything you need is in the 6 main docs above.
 
 **Installation & Setup**
 - Quick: QUICKSTART.md
-- Detailed: PICOCLAW_GUIDE.md
+- Detailed: XAGENT_GUIDE.md
 - Local models: OLLAMA_SETUP.md
 - Cloud APIs: CLOUD_API_SETUP.md
 
 **Usage & Features**
 - Commands: QUICKSTART.md
-- All features: PICOCLAW_GUIDE.md
-- Skills: PICOCLAW_GUIDE.md (Skills System)
-- Automation: PICOCLAW_GUIDE.md (Scheduled Tasks)
+- All features: XAGENT_GUIDE.md
+- Skills: XAGENT_GUIDE.md (Skills System)
+- Automation: XAGENT_GUIDE.md (Scheduled Tasks)
 
 **Platform & Compatibility**
 - Your platform: MULTIPLATFORM.md
@@ -131,12 +131,12 @@ Everything you need is in the 6 main docs above.
 
 **Security & Privacy**
 - Security audit: SECURITY_AUDIT.md
-- Privacy features: PICOCLAW_GUIDE.md (Security Features)
-- Sandboxing: PICOCLAW_GUIDE.md (Security Features)
+- Privacy features: XAGENT_GUIDE.md (Security Features)
+- Sandboxing: XAGENT_GUIDE.md (Security Features)
 
 **Troubleshooting**
 - Common issues: QUICKSTART.md (Troubleshooting)
-- Detailed fixes: PICOCLAW_GUIDE.md (Troubleshooting)
+- Detailed fixes: XAGENT_GUIDE.md (Troubleshooting)
 - Platform issues: MULTIPLATFORM.md (Troubleshooting)
 
 ---
@@ -144,7 +144,7 @@ Everything you need is in the 6 main docs above.
 ## 🆘 Getting Help
 
 1. **Check QUICKSTART.md** - Covers 90% of common tasks
-2. **Search PICOCLAW_GUIDE.md** - Complete documentation
+2. **Search XAGENT_GUIDE.md** - Complete documentation
 3. **Check logs:** `./manage.sh logs`
 4. **Test agent:** `./manage.sh test`
 

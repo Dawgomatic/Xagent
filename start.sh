@@ -257,7 +257,7 @@ download_model() {
         return
     }
     
-    # Persist detected hardware config for configure_picoclaw
+    # Persist detected hardware config for configure_xagent
     cat > ~/.ollama_model << HWEOF
 MODEL=$MODEL
 COMPUTE_TIER=$COMPUTE_TIER
@@ -274,31 +274,25 @@ HWEOF
     log_success "Model downloaded: $MODEL"
 }
 
-# Install PicoClaw
-install_picoclaw() {
-    log_info "Installing PicoClaw..."
+# Install Xagent
+install_xagent() {
+    log_info "Building Xagent..."
     
-    if [ ! -d "$INSTALL_DIR/picoclaw" ]; then
-        mkdir -p "$INSTALL_DIR"
-        cd "$INSTALL_DIR"
-        git clone -q https://github.com/sipeed/picoclaw.git
-    fi
-    
-    cd "$INSTALL_DIR/picoclaw"
+    cd "$INSTALL_DIR"
     
     make deps > /dev/null 2>&1
     make build > /dev/null 2>&1
     
-    sudo ln -sf "$INSTALL_DIR/picoclaw/picoclaw" /usr/local/bin/picoclaw
+    sudo ln -sf "$INSTALL_DIR/build/xagent" /usr/local/bin/xagent
     
-    log_success "PicoClaw installed"
+    log_success "Xagent built and installed"
 }
 
-# Configure PicoClaw - SWE100821: Hardware-correlated config auto-generation
-configure_picoclaw() {
-    log_info "Configuring PicoClaw..."
+# Configure Xagent - SWE100821: Hardware-correlated config auto-generation
+configure_xagent() {
+    log_info "Configuring Xagent..."
     
-    mkdir -p ~/.picoclaw
+    mkdir -p ~/.xagent
     
     # SWE100821: Load hardware-detected settings from download_model phase
     if [ -f ~/.ollama_model ]; then
@@ -312,11 +306,11 @@ configure_picoclaw() {
     
     log_info "Config: model=$MODEL max_tokens=$MAX_TOKENS temp=$TEMPERATURE iterations=$MAX_ITER"
     
-    cat > ~/.picoclaw/config.json << EOF
+    cat > ~/.xagent/config.json << EOF
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.xagent/workspace",
       "restrict_to_workspace": true,
       "provider": "vllm",
       "model": "$MODEL",
@@ -353,21 +347,21 @@ configure_picoclaw() {
 }
 EOF
     
-    chmod 600 ~/.picoclaw/config.json
-    picoclaw onboard > /dev/null 2>&1 || true
+    chmod 600 ~/.xagent/config.json
+    xagent onboard > /dev/null 2>&1 || true
     
-    log_success "PicoClaw configured (tier=$COMPUTE_TIER)"
+    log_success "Xagent configured (tier=$COMPUTE_TIER)"
 }
 
-# Create systemd service for PicoClaw Gateway
-create_picoclaw_service() {
-    log_info "Creating PicoClaw systemd service..."
+# Create systemd service for Xagent Gateway
+create_xagent_service() {
+    log_info "Creating Xagent systemd service..."
     
     # SWE100821: Service file for auto-start
-    sudo tee /etc/systemd/system/picoclaw-gateway.service > /dev/null << EOF
+    sudo tee /etc/systemd/system/xagent-gateway.service > /dev/null << EOF
 [Unit]
-Description=PicoClaw AI Agent Gateway
-Documentation=https://github.com/sipeed/picoclaw
+Description=Xagent AI Agent Gateway
+Documentation=https://github.com/sipeed/xagent
 After=network.target ollama.service
 Wants=ollama.service
 
@@ -377,7 +371,7 @@ User=$USER
 WorkingDirectory=$HOME_DIR
 Environment="PATH=/usr/local/go/bin:/usr/local/bin:/usr/bin:/bin"
 Environment="HOME=$HOME_DIR"
-ExecStart=/usr/local/bin/picoclaw gateway
+ExecStart=/usr/local/bin/xagent gateway
 # SWE100821: Health check - systemd can verify gateway is alive
 ExecStartPost=/bin/sh -c 'sleep 2 && curl -sf http://127.0.0.1:18791/healthz || exit 1'
 Restart=on-failure
@@ -385,13 +379,13 @@ RestartSec=10
 # SWE100821: Use journald for log rotation, compression, and journalctl support
 StandardOutput=journal
 StandardError=journal
-SyslogIdentifier=picoclaw-gateway
+SyslogIdentifier=xagent-gateway
 
 # Security hardening
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
-ReadWritePaths=$HOME_DIR/.picoclaw $HOME_DIR/.config/picoclaw
+ReadWritePaths=$HOME_DIR/.xagent $HOME_DIR/.config/xagent
 
 [Install]
 WantedBy=multi-user.target
@@ -401,7 +395,7 @@ EOF
     if [ -f "$INSTALL_DIR/memory_bridge.py" ]; then
         sudo tee /etc/systemd/system/memory-bridge.service > /dev/null << EOF
 [Unit]
-Description=PicoClaw Memory Bridge - SWE100821
+Description=Xagent Memory Bridge - SWE100821
 After=network.target ollama.service
 Wants=ollama.service
 
@@ -425,7 +419,7 @@ EOF
 
     sudo systemctl daemon-reload
     
-    log_success "PicoClaw service created"
+    log_success "Xagent service created"
 }
 
 # Enable and start services
@@ -441,9 +435,9 @@ enable_services() {
         log_success "Ollama service enabled"
     fi
     
-    # Enable PicoClaw (but don't start yet - user may want to configure first)
-    sudo systemctl enable picoclaw-gateway > /dev/null 2>&1
-    log_success "PicoClaw gateway service enabled (not started yet)"
+    # Enable Xagent (but don't start yet - user may want to configure first)
+    sudo systemctl enable xagent-gateway > /dev/null 2>&1
+    log_success "Xagent gateway service enabled (not started yet)"
 }
 
 # Block outbound connections to known Chinese cloud/service domains
@@ -479,7 +473,7 @@ setup_network_blocklist() {
         "tieba.baidu.com"
     )
 
-    HOSTS_MARKER="# === PicoClaw Chinese Service Blocklist ==="
+    HOSTS_MARKER="# === Xagent Chinese Service Blocklist ==="
     HOSTS_FILE="/etc/hosts"
 
     if grep -q "$HOSTS_MARKER" "$HOSTS_FILE" 2>/dev/null; then
@@ -493,7 +487,7 @@ setup_network_blocklist() {
             for domain in "${BLOCKLIST_DOMAINS[@]}"; do
                 echo "0.0.0.0 $domain"
             done
-            echo "# === End PicoClaw Blocklist ==="
+            echo "# === End Xagent Blocklist ==="
         } | sudo tee -a "$HOSTS_FILE" > /dev/null
         log_success "Added ${#BLOCKLIST_DOMAINS[@]} Chinese domains to /etc/hosts blocklist"
     fi
@@ -528,7 +522,7 @@ setup_network_blocklist() {
             "139.9.0.0/16"      # Huawei Cloud
         )
 
-        IPTABLES_CHAIN="PICOCLAW_BLOCK"
+        IPTABLES_CHAIN="XAGENT_BLOCK"
         if ! sudo iptables -L "$IPTABLES_CHAIN" -n &>/dev/null; then
             sudo iptables -N "$IPTABLES_CHAIN" 2>/dev/null
             for cidr in "${CN_CIDRS[@]}"; do
@@ -565,32 +559,32 @@ case "$1" in
     start)
         echo "Starting services..."
         sudo systemctl start ollama 2>/dev/null && echo "✓ Ollama started"
-        sudo systemctl start picoclaw-gateway && echo "✓ PicoClaw started"
+        sudo systemctl start xagent-gateway && echo "✓ Xagent started"
         ;;
     stop)
         echo "Stopping services..."
-        sudo systemctl stop picoclaw-gateway && echo "✓ PicoClaw stopped"
+        sudo systemctl stop xagent-gateway && echo "✓ Xagent stopped"
         sudo systemctl stop ollama 2>/dev/null && echo "✓ Ollama stopped"
         ;;
     restart)
         echo "Restarting services..."
         sudo systemctl restart ollama 2>/dev/null && echo "✓ Ollama restarted"
-        sudo systemctl restart picoclaw-gateway && echo "✓ PicoClaw restarted"
+        sudo systemctl restart xagent-gateway && echo "✓ Xagent restarted"
         ;;
     status)
         echo "=== Service Status ==="
         systemctl status ollama 2>/dev/null | grep -E "Active:|Main PID:" || echo "Ollama: not installed"
         echo ""
-        systemctl status picoclaw-gateway | grep -E "Active:|Main PID:"
+        systemctl status xagent-gateway | grep -E "Active:|Main PID:"
         echo ""
-        echo "=== PicoClaw Status ==="
-        picoclaw status
+        echo "=== Xagent Status ==="
+        xagent status
         ;;
     logs)
         echo "=== Recent Logs ==="
-        echo "--- PicoClaw Gateway ---"
+        echo "--- Xagent Gateway ---"
         # SWE100821: Use journalctl now that we log to journald
-        sudo journalctl -u picoclaw-gateway -n 30 --no-pager 2>/dev/null || echo "No PicoClaw logs"
+        sudo journalctl -u xagent-gateway -n 30 --no-pager 2>/dev/null || echo "No Xagent logs"
         echo ""
         echo "--- Ollama ---"
         sudo journalctl -u ollama -n 20 --no-pager 2>/dev/null || echo "No Ollama logs"
@@ -598,16 +592,16 @@ case "$1" in
     enable)
         echo "Enabling auto-start on boot..."
         sudo systemctl enable ollama 2>/dev/null && echo "✓ Ollama enabled"
-        sudo systemctl enable picoclaw-gateway && echo "✓ PicoClaw enabled"
+        sudo systemctl enable xagent-gateway && echo "✓ Xagent enabled"
         ;;
     disable)
         echo "Disabling auto-start..."
-        sudo systemctl disable picoclaw-gateway && echo "✓ PicoClaw disabled"
+        sudo systemctl disable xagent-gateway && echo "✓ Xagent disabled"
         sudo systemctl disable ollama 2>/dev/null && echo "✓ Ollama disabled"
         ;;
     test)
         echo "Testing agent..."
-        picoclaw agent -m "Quick test: what is 2+2?"
+        xagent agent -m "Quick test: what is 2+2?"
         ;;
     # SWE100821: Health check command for quick liveness verification
     health)
@@ -617,7 +611,7 @@ case "$1" in
         ;;
     upgrade)
         shift
-        picoclaw upgrade "\$@"
+        xagent upgrade "\$@"
         ;;
     skills)
         SCRIPT_DIR="\$(cd "\$(dirname "\$0")" && pwd)"
@@ -644,7 +638,7 @@ case "$1" in
         echo "  disable  - Disable auto-start on boot"
         echo "  test     - Test the agent"
         echo "  health   - Run health check"
-        echo "  upgrade  - Self-upgrade PicoClaw (--check, --model, --all)"
+        echo "  upgrade  - Self-upgrade Xagent (--check, --model, --all)"
         echo "  skills   - Manage OpenClaw skills (list, search, install, info)"
         echo ""
         echo "Skills Commands:"
@@ -712,38 +706,38 @@ To re-enable:
 
 ```bash
 # CLI mode (one-off)
-picoclaw agent -m "your question"
+xagent agent -m "your question"
 
 # Interactive mode
-picoclaw agent
+xagent agent
 
 # Check status
-picoclaw status
+xagent status
 ```
 
 ## Service Management
 
 ```bash
 # Manual service control
-sudo systemctl start picoclaw-gateway
-sudo systemctl stop picoclaw-gateway
-sudo systemctl restart picoclaw-gateway
-sudo systemctl status picoclaw-gateway
+sudo systemctl start xagent-gateway
+sudo systemctl stop xagent-gateway
+sudo systemctl restart xagent-gateway
+sudo systemctl status xagent-gateway
 
 # View service logs
-sudo journalctl -u picoclaw-gateway -f
+sudo journalctl -u xagent-gateway -f
 ```
 
 ## Configuration
 
-- Config: `~/.picoclaw/config.json`
-- Workspace: `~/.picoclaw/workspace/`
-- Logs: `/var/log/picoclaw-gateway.log`
+- Config: `~/.xagent/config.json`
+- Workspace: `~/.xagent/workspace/`
+- Logs: `/var/log/xagent-gateway.log`
 
 ## Installed Services
 
 1. **ollama.service** - AI model server (port 11434)
-2. **picoclaw-gateway.service** - AI agent gateway (port 18790)
+2. **xagent-gateway.service** - AI agent gateway (port 18790)
 
 Both start automatically on boot!
 EOF
@@ -751,20 +745,18 @@ EOF
     log_success "Quick start guide created"
 }
 
-# Clone OpenClaw skills hub for access to 10,000+ community skills
+# Ensure OpenClaw skills archive is present
 clone_openclaw_skills() {
-    local SKILLS_DIR="$INSTALL_DIR/openclaw-skills"
-    if [ -d "$SKILLS_DIR/.git" ]; then
-        log_info "OpenClaw skills already cloned, pulling updates..."
-        cd "$SKILLS_DIR" && git pull --ff-only 2>/dev/null || true
-        cd "$INSTALL_DIR"
+    local SKILLS_DIR="$INSTALL_DIR/skills"
+    if [ -d "$SKILLS_DIR/skills" ]; then
+        log_info "Skills archive already present"
     else
         log_info "Cloning OpenClaw skills hub (10,000+ community skills)..."
         if git clone --depth 1 https://github.com/moltbot/skills.git "$SKILLS_DIR" 2>/dev/null; then
-            log_success "OpenClaw skills hub cloned"
+            log_success "Skills hub cloned to $SKILLS_DIR"
         else
             log_warn "Could not clone skills hub (no internet?). Skipping."
-            log_warn "Clone manually later: git clone https://github.com/moltbot/skills.git openclaw-skills"
+            log_warn "Clone manually later: git clone https://github.com/moltbot/skills.git skills"
             return 0
         fi
     fi
@@ -802,7 +794,7 @@ main() {
     
     log_info "This will:"
     echo "  1. Install all dependencies (Python, Go, Ollama)"
-    echo "  2. Build PicoClaw"
+    echo "  2. Build Xagent"
     echo "  3. Create systemd services"
     echo "  4. Enable auto-start on boot"
     echo ""
@@ -827,10 +819,10 @@ main() {
         download_model
     fi
     
-    install_picoclaw
-    configure_picoclaw
+    install_xagent
+    configure_xagent
     clone_openclaw_skills
-    create_picoclaw_service
+    create_xagent_service
     enable_services
     setup_network_blocklist
     create_management_script
@@ -852,7 +844,7 @@ main() {
     echo ""
     echo "Services enabled for auto-start on boot:"
     echo "  ✓ ollama.service $([ "$OLLAMA_SUPPORTED" = false ] && echo '(skipped)' || echo '')"
-    echo "  ✓ picoclaw-gateway.service"
+    echo "  ✓ xagent-gateway.service"
     echo ""
     echo "Quick Commands:"
     echo "  Start:   ./manage.sh start"
@@ -866,7 +858,7 @@ main() {
     echo "  Curated: ./manage.sh skills install-curated"
     echo ""
     echo "Or use directly:"
-    echo "  picoclaw agent -m 'Hello!'"
+    echo "  xagent agent -m 'Hello!'"
     echo ""
     echo "Documentation: $INSTALL_DIR/docs/"
     echo "Quick Start:   $INSTALL_DIR/QUICK_START.md"
@@ -879,7 +871,7 @@ main() {
         log_info "Starting services..."
         sudo systemctl start ollama 2>/dev/null || true
         sleep 2
-        sudo systemctl start picoclaw-gateway
+        sudo systemctl start xagent-gateway
         sleep 2
         echo ""
         log_success "Services started!"

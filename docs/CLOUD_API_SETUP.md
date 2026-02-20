@@ -1,7 +1,7 @@
-# PicoClaw Secure Setup Guide
+# Xagent Secure Setup Guide
 **Date:** 2026-02-16  
 **Author:** SWE100821  
-**Purpose:** Install and configure picoclaw with security-hardened settings
+**Purpose:** Install and configure xagent with security-hardened settings
 
 ---
 
@@ -15,15 +15,15 @@
 
 ---
 
-## Step 1: Install PicoClaw
+## Step 1: Install Xagent
 
 ### Option A: Build from Source (Recommended for Security)
 
 ```bash
 # Clone the repository
 cd /home/dawg/Desktop/AI_agents
-git clone https://github.com/sipeed/picoclaw.git
-cd picoclaw
+git clone https://github.com/sipeed/xagent.git
+cd xagent
 
 # Verify the source code (optional but recommended)
 # Review go.mod for dependencies
@@ -39,19 +39,19 @@ make build
 sudo make install
 
 # Or use the local binary
-./picoclaw version
+./xagent version
 ```
 
 ### Option B: Docker (Maximum Isolation)
 
 ```bash
-cd /home/dawg/Desktop/AI_agents/picoclaw
+cd /home/dawg/Desktop/AI_agents/xagent
 
 # Review the Dockerfile first
 cat Dockerfile
 
 # Build Docker image
-docker build -t picoclaw:secure .
+docker build -t xagent:secure .
 
 # We'll configure it in Step 2
 ```
@@ -62,18 +62,18 @@ docker build -t picoclaw:secure .
 
 ### Create Config Directory
 ```bash
-mkdir -p ~/.picoclaw
+mkdir -p ~/.xagent
 ```
 
 ### Create Secure config.json
 
 ```bash
 # Create the secure configuration
-cat > ~/.picoclaw/config.json << 'EOF'
+cat > ~/.xagent/config.json << 'EOF'
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.xagent/workspace",
       "restrict_to_workspace": true,
       "provider": "anthropic",
       "model": "claude-sonnet-4.5",
@@ -213,11 +213,11 @@ EOF
 # Get your Anthropic API key from https://console.anthropic.com
 
 # Edit the config file
-nano ~/.picoclaw/config.json
+nano ~/.xagent/config.json
 
 # Replace YOUR_ANTHROPIC_API_KEY_HERE with your actual key
 # Or use sed:
-sed -i 's/YOUR_ANTHROPIC_API_KEY_HERE/sk-ant-your-actual-key-here/' ~/.picoclaw/config.json
+sed -i 's/YOUR_ANTHROPIC_API_KEY_HERE/sk-ant-your-actual-key-here/' ~/.xagent/config.json
 ```
 
 ---
@@ -225,17 +225,17 @@ sed -i 's/YOUR_ANTHROPIC_API_KEY_HERE/sk-ant-your-actual-key-here/' ~/.picoclaw/
 ## Step 3: Initialize Workspace
 
 ```bash
-# Initialize picoclaw (creates workspace with default files)
-picoclaw onboard
+# Initialize xagent (creates workspace with default files)
+xagent onboard
 
 # Or if using local binary:
-cd /home/dawg/Desktop/AI_agents/picoclaw
-./picoclaw onboard
+cd /home/dawg/Desktop/AI_agents/xagent
+./xagent onboard
 ```
 
 This creates:
 ```
-~/.picoclaw/workspace/
+~/.xagent/workspace/
 ├── sessions/          # Conversation history
 ├── memory/            # Long-term memory
 ├── state/             # Persistent state
@@ -255,12 +255,12 @@ This creates:
 ### Check Configuration
 ```bash
 # Verify configuration loaded correctly
-picoclaw status
+xagent status
 
 # Expected output should show:
 # - Anthropic API: ✓
 # - Chinese APIs (Zhipu, Moonshot): not set
-# - Workspace: ~/.picoclaw/workspace ✓
+# - Workspace: ~/.xagent/workspace ✓
 ```
 
 ### Test Sandbox Restrictions
@@ -269,7 +269,7 @@ picoclaw status
 echo "test" > /tmp/test_file.txt
 
 # Try to read it (should fail if restrictions are working)
-picoclaw agent -m "Read the file /tmp/test_file.txt"
+xagent agent -m "Read the file /tmp/test_file.txt"
 
 # Expected: Error message about path outside workspace
 ```
@@ -277,11 +277,11 @@ picoclaw agent -m "Read the file /tmp/test_file.txt"
 ### Verify No Chinese Endpoints
 ```bash
 # Monitor network connections while running
-# Terminal 1: Start picoclaw
-picoclaw agent
+# Terminal 1: Start xagent
+xagent agent
 
 # Terminal 2: Monitor connections
-sudo netstat -tunapl | grep picoclaw
+sudo netstat -tunapl | grep xagent
 
 # Should only see connections to:
 # - api.anthropic.com (or your chosen provider)
@@ -295,23 +295,23 @@ sudo netstat -tunapl | grep picoclaw
 ### Create Docker Compose with Secure Config
 
 ```bash
-cd /home/dawg/Desktop/AI_agents/picoclaw
+cd /home/dawg/Desktop/AI_agents/xagent
 
 # Create docker-compose.secure.yml
 cat > docker-compose.secure.yml << 'EOF'
 version: '3.8'
 
 services:
-  picoclaw-agent:
+  xagent-agent:
     build: .
-    container_name: picoclaw-secure
+    container_name: xagent-secure
     volumes:
-      - ./config/config.json:/root/.picoclaw/config.json:ro
-      - picoclaw-workspace:/root/.picoclaw/workspace
+      - ./config/config.json:/root/.xagent/config.json:ro
+      - xagent-workspace:/root/.xagent/workspace
     environment:
-      - PICOCLAW_AGENTS_DEFAULTS_RESTRICT_TO_WORKSPACE=true
+      - XAGENT_AGENTS_DEFAULTS_RESTRICT_TO_WORKSPACE=true
     networks:
-      - picoclaw-net
+      - xagent-net
     restart: unless-stopped
     # Security options
     security_opt:
@@ -326,10 +326,10 @@ services:
     user: "1000:1000"  # Run as non-root
 
 volumes:
-  picoclaw-workspace:
+  xagent-workspace:
 
 networks:
-  picoclaw-net:
+  xagent-net:
     driver: bridge
 EOF
 ```
@@ -338,10 +338,10 @@ EOF
 ```bash
 # Copy your config to the docker directory
 mkdir -p config
-cp ~/.picoclaw/config.json config/config.json
+cp ~/.xagent/config.json config/config.json
 
 # Edit to use Docker-friendly paths
-sed -i 's|~/.picoclaw/workspace|/root/.picoclaw/workspace|g' config/config.json
+sed -i 's|~/.xagent/workspace|/root/.xagent/workspace|g' config/config.json
 ```
 
 ### Run in Docker
@@ -353,7 +353,7 @@ docker-compose -f docker-compose.secure.yml up -d
 docker-compose -f docker-compose.secure.yml logs -f
 
 # Run commands inside container
-docker exec -it picoclaw-secure picoclaw agent -m "Hello, test message"
+docker exec -it xagent-secure xagent agent -m "Hello, test message"
 
 # Stop
 docker-compose -f docker-compose.secure.yml down
@@ -389,7 +389,7 @@ docker-compose -f docker-compose.secure.yml down
 
 4. **Start Gateway:**
 ```bash
-picoclaw gateway
+xagent gateway
 ```
 
 ### Discord (Also Safe)
@@ -430,29 +430,29 @@ picoclaw gateway
 ### Monitor Logs
 ```bash
 # If using system install
-journalctl -u picoclaw -f
+journalctl -u xagent -f
 
 # If running manually
-picoclaw gateway > ~/picoclaw.log 2>&1 &
-tail -f ~/picoclaw.log
+xagent gateway > ~/xagent.log 2>&1 &
+tail -f ~/xagent.log
 ```
 
 ### Check for Unexpected Connections
 ```bash
 # Create monitoring script
-cat > ~/monitor_picoclaw.sh << 'EOF'
+cat > ~/monitor_xagent.sh << 'EOF'
 #!/bin/bash
-# SWE100821: Monitor picoclaw network connections
+# SWE100821: Monitor xagent network connections
 
-echo "=== PicoClaw Network Monitor ==="
+echo "=== Xagent Network Monitor ==="
 echo "Checking for unexpected connections..."
 echo ""
 
-# Get picoclaw PID
-PID=$(pgrep -f picoclaw)
+# Get xagent PID
+PID=$(pgrep -f xagent)
 
 if [ -z "$PID" ]; then
-    echo "⚠️  PicoClaw not running"
+    echo "⚠️  Xagent not running"
     exit 1
 fi
 
@@ -472,52 +472,52 @@ echo ""
 echo "Monitor complete at $(date)"
 EOF
 
-chmod +x ~/monitor_picoclaw.sh
+chmod +x ~/monitor_xagent.sh
 
 # Run it
-~/monitor_picoclaw.sh
+~/monitor_xagent.sh
 ```
 
 ### Regular Security Checks
 ```bash
 # Create weekly security audit script
-cat > ~/audit_picoclaw.sh << 'EOF'
+cat > ~/audit_xagent.sh << 'EOF'
 #!/bin/bash
 # SWE100821: Weekly security audit
 
-echo "=== PicoClaw Security Audit ==="
+echo "=== Xagent Security Audit ==="
 date
 
 # Check config permissions
 echo ""
 echo "1. Config File Permissions:"
-ls -la ~/.picoclaw/config.json
+ls -la ~/.xagent/config.json
 
 # Check for Chinese endpoints in config
 echo ""
 echo "2. Chinese Endpoints Check:"
-grep -i "\.cn\|zhipu\|moonshot\|deepseek" ~/.picoclaw/config.json && \
+grep -i "\.cn\|zhipu\|moonshot\|deepseek" ~/.xagent/config.json && \
     echo "⚠️  Chinese endpoints found in config" || \
     echo "✅ No Chinese endpoints configured"
 
 # Check workspace restrictions
 echo ""
 echo "3. Workspace Restrictions:"
-grep "restrict_to_workspace" ~/.picoclaw/config.json
+grep "restrict_to_workspace" ~/.xagent/config.json
 
 # Check enabled channels
 echo ""
 echo "4. Enabled Channels:"
-grep -A2 "\"enabled\": true" ~/.picoclaw/config.json
+grep -A2 "\"enabled\": true" ~/.xagent/config.json
 
 echo ""
 echo "Audit complete"
 EOF
 
-chmod +x ~/audit_picoclaw.sh
+chmod +x ~/audit_xagent.sh
 
 # Run weekly via cron
-(crontab -l 2>/dev/null; echo "0 9 * * 1 ~/audit_picoclaw.sh > ~/picoclaw_audit.log 2>&1") | crontab -
+(crontab -l 2>/dev/null; echo "0 9 * * 1 ~/audit_xagent.sh > ~/xagent_audit.log 2>&1") | crontab -
 ```
 
 ---
@@ -527,28 +527,28 @@ chmod +x ~/audit_picoclaw.sh
 ### CLI Mode (Most Secure)
 ```bash
 # One-off query
-picoclaw agent -m "What is the weather today?"
+xagent agent -m "What is the weather today?"
 
 # Interactive mode
-picoclaw agent
+xagent agent
 
 # With custom session
-picoclaw agent -s "project-session" -m "Continue our project discussion"
+xagent agent -s "project-session" -m "Continue our project discussion"
 ```
 
 ### Gateway Mode (For Chat Apps)
 ```bash
 # Start gateway (Telegram/Discord)
-picoclaw gateway
+xagent gateway
 
 # With debug logging
-picoclaw gateway --debug
+xagent gateway --debug
 ```
 
 ### Safe Web Search
 ```bash
 # DuckDuckGo is enabled by default (no API key needed)
-picoclaw agent -m "Search for latest AI news"
+xagent agent -m "Search for latest AI news"
 
 # To use Brave Search (optional, requires API key):
 # 1. Get key from https://brave.com/search/api (free tier)
@@ -565,7 +565,7 @@ picoclaw agent -m "Search for latest AI news"
 
 ### List Built-in Skills
 ```bash
-picoclaw skills list-builtin
+xagent skills list-builtin
 ```
 
 ### Install Only Trusted Skills
@@ -573,20 +573,20 @@ picoclaw skills list-builtin
 # ⚠️ ONLY install from verified sources
 # Review the skill code first on GitHub
 
-# Example: Install from official picoclaw skills repo
-picoclaw skills install sipeed/picoclaw-skills/weather
+# Example: Install from official xagent skills repo
+xagent skills install sipeed/xagent-skills/weather
 
 # Or install built-in skills (safer)
-picoclaw skills install-builtin
+xagent skills install-builtin
 ```
 
 ### Review Skill Before Using
 ```bash
 # Show skill details
-picoclaw skills show weather
+xagent skills show weather
 
 # Check skill source files
-cat ~/.picoclaw/workspace/skills/weather/SKILL.md
+cat ~/.xagent/workspace/skills/weather/SKILL.md
 ```
 
 ---
@@ -599,7 +599,7 @@ cat ~/.picoclaw/workspace/skills/weather/SKILL.md
 - [ ] `restrict_to_workspace: true` set
 - [ ] Chinese API keys left blank/empty
 - [ ] Chinese channels disabled (QQ, Feishu, DingTalk)
-- [ ] Config file permissions: `chmod 600 ~/.picoclaw/config.json`
+- [ ] Config file permissions: `chmod 600 ~/.xagent/config.json`
 - [ ] Gateway bound to localhost: `"host": "127.0.0.1"`
 
 ### ✅ Runtime Security
@@ -612,7 +612,7 @@ cat ~/.picoclaw/workspace/skills/weather/SKILL.md
 ### ✅ Ongoing Maintenance
 - [ ] Weekly security audit scheduled
 - [ ] Regular config backups
-- [ ] Update checks: `git pull` in picoclaw directory
+- [ ] Update checks: `git pull` in xagent directory
 - [ ] Review changelogs before updating
 
 ---
@@ -622,16 +622,16 @@ cat ~/.picoclaw/workspace/skills/weather/SKILL.md
 ### Error: "API key not configured"
 ```bash
 # Check config is loaded
-picoclaw status
+xagent status
 
 # Verify API key in config
-grep "api_key" ~/.picoclaw/config.json | head -5
+grep "api_key" ~/.xagent/config.json | head -5
 ```
 
 ### Error: "Path outside working dir"
 ```bash
 # This is expected! Workspace restrictions are working.
-# All file operations must be inside ~/.picoclaw/workspace/
+# All file operations must be inside ~/.xagent/workspace/
 ```
 
 ### Connection Timeout
@@ -646,10 +646,10 @@ sudo iptables -L -n | grep 443
 ### Docker Issues
 ```bash
 # Check container logs
-docker logs picoclaw-secure
+docker logs xagent-secure
 
 # Shell into container
-docker exec -it picoclaw-secure /bin/sh
+docker exec -it xagent-secure /bin/sh
 
 # Rebuild clean
 docker-compose -f docker-compose.secure.yml down -v
@@ -662,27 +662,27 @@ docker-compose -f docker-compose.secure.yml build --no-cache
 
 ```bash
 # Stop any running instances
-pkill picoclaw
+pkill xagent
 
 # Remove binary
-sudo rm /usr/local/bin/picoclaw
+sudo rm /usr/local/bin/xagent
 
 # Remove config and data (⚠️ deletes everything)
-rm -rf ~/.picoclaw
+rm -rf ~/.xagent
 
 # Remove source
-rm -rf /home/dawg/Desktop/AI_agents/picoclaw
+rm -rf /home/dawg/Desktop/AI_agents/xagent
 
 # Remove Docker
 docker-compose -f docker-compose.secure.yml down -v
-docker rmi picoclaw:secure
+docker rmi xagent:secure
 ```
 
 ---
 
 ## References
-- Security Audit: `/home/dawg/Desktop/AI_agents/picoclaw_security_audit.md`
-- Official Docs: https://github.com/sipeed/picoclaw
+- Security Audit: `/home/dawg/Desktop/AI_agents/xagent_security_audit.md`
+- Official Docs: https://github.com/sipeed/xagent
 - Anthropic API: https://console.anthropic.com
 - OpenAI API: https://platform.openai.com
 - OpenRouter: https://openrouter.ai

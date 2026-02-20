@@ -35,7 +35,7 @@ The script will:
 4. ✅ Install compatible Go version for your architecture
 5. ✅ Install Ollama (if recommended for your platform)
 6. ✅ Download appropriate model for your hardware
-7. ✅ Build and configure PicoClaw
+7. ✅ Build and configure Xagent
 8. ✅ Create platform-specific configuration
 
 ---
@@ -136,19 +136,19 @@ Performance: ~2 tokens/sec (usable)
 ollama pull tinyllama:1.1b
 
 # Update config
-sed -i 's/phi3:3.8b/tinyllama:1.1b/' ~/.picoclaw/config.json
+sed -i 's/phi3:3.8b/tinyllama:1.1b/' ~/.xagent/config.json
 ```
 
 ### Raspberry Pi 3 (Ubuntu 22.04)
 **Recommendation:** Skip local model, use cloud API
 
 ```bash
-# Install PicoClaw only
+# Install Xagent only
 ./install_multiplatform.sh
 # (Will skip Ollama automatically)
 
 # Configure for cloud API (optional)
-cat > ~/.picoclaw/config.json << 'EOF'
+cat > ~/.xagent/config.json << 'EOF'
 {
   "agents": {
     "defaults": {
@@ -250,15 +250,15 @@ ollama pull phi3:3.8b
 # Skip - not recommended
 ```
 
-### 6. Install PicoClaw
+### 6. Install Xagent
 
 ```bash
 cd /home/dawg/Desktop/AI_agents
-git clone https://github.com/sipeed/picoclaw.git
-cd picoclaw
+git clone https://github.com/sipeed/xagent.git
+cd xagent
 make deps
 make build
-sudo ln -s $(pwd)/picoclaw /usr/local/bin/picoclaw
+sudo ln -s $(pwd)/xagent /usr/local/bin/xagent
 ```
 
 ---
@@ -293,7 +293,7 @@ ollama pull mistral:7b
 ollama pull tinyllama:1.1b
 
 # Reduce token limit in config
-sed -i 's/"max_tokens": 4096/"max_tokens": 1024/' ~/.picoclaw/config.json
+sed -i 's/"max_tokens": 4096/"max_tokens": 1024/' ~/.xagent/config.json
 ```
 
 **Problem: System freezes**
@@ -336,17 +336,17 @@ After running the installer:
 # Check platform info
 cat /home/dawg/Desktop/AI_agents/PLATFORM_INFO.txt
 
-# Test PicoClaw
-picoclaw status
+# Test Xagent
+xagent status
 
 # Test agent
-picoclaw agent -m "What platform am I running on?"
+xagent agent -m "What platform am I running on?"
 
 # Check Ollama (if installed)
 curl http://localhost:11434/api/tags
 
 # View configuration
-cat ~/.picoclaw/config.json | grep -E "model|api_base"
+cat ~/.xagent/config.json | grep -E "model|api_base"
 ```
 
 ---
@@ -356,41 +356,41 @@ cat ~/.picoclaw/config.json | grep -E "model|api_base"
 ### All Platforms:
 ```bash
 # 1. Test basic functionality
-picoclaw agent -m "Hello!"
+xagent agent -m "Hello!"
 
 # 2. Check logs
-picoclaw status
+xagent status
 
 # 3. Read documentation
-cat /home/dawg/Desktop/AI_agents/README_PICOCLAW.md
+cat /home/dawg/Desktop/AI_agents/README_XAGENT.md
 ```
 
 ### Xavier (High Performance):
 ```bash
 # Enable more features
-picoclaw skills list-builtin
-picoclaw skills install-builtin
+xagent skills list-builtin
+xagent skills install-builtin
 
 # Add Telegram bot
-# See README_PICOCLAW.md for setup
+# See README_XAGENT.md for setup
 ```
 
 ### RPi 4 (Good Performance):
 ```bash
 # Test web search
-picoclaw agent -m "Search for today's weather"
+xagent agent -m "Search for today's weather"
 
 # Try coding task
-picoclaw agent -m "Write a simple Python calculator"
+xagent agent -m "Write a simple Python calculator"
 ```
 
 ### RPi 3 (Limited):
 ```bash
 # Use as gateway only
-picoclaw gateway
+xagent gateway
 
 # Or configure for cloud API
-# See picoclaw_secure_setup_guide.md
+# See xagent_secure_setup_guide.md
 ```
 
 ---
@@ -459,8 +459,8 @@ picoclaw gateway
 ## 🔄 Updating
 
 ```bash
-# Update PicoClaw
-cd /home/dawg/Desktop/AI_agents/picoclaw
+# Update Xagent
+cd /home/dawg/Desktop/AI_agents/xagent
 git pull
 make build
 
@@ -493,8 +493,8 @@ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
 ```
 
 **Need help?**
-- See: `README_PICOCLAW.md`
-- See: `picoclaw_ollama_setup.md`
+- See: `README_XAGENT.md`
+- See: `xagent_ollama_setup.md`
 - Check: `/home/dawg/Desktop/AI_agents/PLATFORM_INFO.txt`
 
 ---

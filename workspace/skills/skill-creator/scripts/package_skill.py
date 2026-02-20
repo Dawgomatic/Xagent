@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Validate and package a PicoClaw skill into a distributable .skill file.
+Validate and package a Xagent skill into a distributable .skill file.
 
 Usage:
     python3 package_skill.py <path/to/skill-folder> [output-directory]

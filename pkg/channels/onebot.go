@@ -7,8 +7,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/sipeed/picoclaw/pkg/bus"
-	"github.com/sipeed/picoclaw/pkg/config"
+	"github.com/Dawgomatic/Xagent/pkg/bus"
+	"github.com/Dawgomatic/Xagent/pkg/config"
 )
 
 type OneBotChannel struct {

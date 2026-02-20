@@ -1,40 +1,40 @@
 services:
   # ─────────────────────────────────────────────
-  # PicoClaw Agent (one-shot query)
-  #   docker compose run --rm picoclaw-agent -m "Hello"
+  # Xagent Agent (one-shot query)
+  #   docker compose run --rm xagent-agent -m "Hello"
   # ─────────────────────────────────────────────
-  picoclaw-agent:
+  xagent-agent:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: picoclaw-agent
+    container_name: xagent-agent
     profiles:
       - agent
     volumes:
-      - ./config/config.json:/root/.picoclaw/config.json:ro
-      - picoclaw-workspace:/root/.picoclaw/workspace
-    entrypoint: ["picoclaw", "agent"]
+      - ./config/config.json:/root/.xagent/config.json:ro
+      - xagent-workspace:/root/.xagent/workspace
+    entrypoint: ["xagent", "agent"]
     stdin_open: true
     tty: true
 
   # ─────────────────────────────────────────────
-  # PicoClaw Gateway (Long-running Bot)
-  #   docker compose up picoclaw-gateway
+  # Xagent Gateway (Long-running Bot)
+  #   docker compose up xagent-gateway
   # ─────────────────────────────────────────────
-  picoclaw-gateway:
+  xagent-gateway:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: picoclaw-gateway
+    container_name: xagent-gateway
     restart: unless-stopped
     profiles:
       - gateway
     volumes:
       # Configuration file
-      - ./config/config.json:/root/.picoclaw/config.json:ro
+      - ./config/config.json:/root/.xagent/config.json:ro
       # Persistent workspace (sessions, memory, logs)
-      - picoclaw-workspace:/root/.picoclaw/workspace
+      - xagent-workspace:/root/.xagent/workspace
     command: ["gateway"]
 
 volumes:
-  picoclaw-workspace:
+  xagent-workspace:

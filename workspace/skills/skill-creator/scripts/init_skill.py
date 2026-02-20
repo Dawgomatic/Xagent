@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Initialize a new PicoClaw skill with proper structure.
+Initialize a new Xagent skill with proper structure.
 
 Usage:
     python3 init_skill.py <skill-name> --path <output-directory> [options]
@@ -133,7 +133,7 @@ def create_skill(name: str, path: str, resources: list, examples: bool, descript
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Initialize a new PicoClaw skill")
+    parser = argparse.ArgumentParser(description="Initialize a new Xagent skill")
     parser.add_argument("name", help="Skill name (lowercase-hyphen format)")
     parser.add_argument("--path", required=True, help="Output directory")
     parser.add_argument("--resources", default="",

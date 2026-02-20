@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-OpenClaw → PicoClaw Skill Converter
+OpenClaw → Xagent Skill Converter
 
-Converts skills from the openclaw-skills archive into PicoClaw-compatible
-format and installs them into the PicoClaw workspace skills directory.
+Converts skills from the skills archive into Xagent-compatible
+format and installs them into the Xagent workspace skills directory.
 
 Usage:
     # List all available skills
@@ -35,9 +35,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-OPENCLAW_SKILLS_DIR = Path(__file__).parent / "openclaw-skills" / "skills"
-PICOCLAW_WORKSPACE_SKILLS = Path(__file__).parent / "picoclaw" / "workspace" / "skills"
-PICOCLAW_GLOBAL_SKILLS = Path.home() / ".picoclaw" / "skills"
+OPENCLAW_SKILLS_DIR = Path(__file__).parent / "skills" / "skills"
+XAGENT_WORKSPACE_SKILLS = Path(__file__).parent / "workspace" / "skills"
+XAGENT_GLOBAL_SKILLS = Path.home() / ".xagent" / "skills"
 
 SKIP_FILES = {"_meta.json", ".clawhub", ".clawdhub", ".clawhubignore", ".clawdhubignore"}
 
@@ -654,7 +654,7 @@ def parse_yaml_ish(text: str) -> dict:
 
 def convert_metadata(fm: dict) -> dict:
     """
-    Convert OpenClaw metadata keys to PicoClaw's nanobot format.
+    Convert OpenClaw metadata keys to Xagent's nanobot format.
     metadata.openclaw / metadata.clawdbot / metadata.clawdis -> metadata.nanobot
     """
     md = fm.get("metadata")
@@ -730,7 +730,7 @@ def build_frontmatter_string(fm: dict) -> str:
 
 
 def convert_skill(owner: str, slug: str, skill_dir: Path, dest_dir: Path, force: bool = False) -> bool:
-    """Convert a single OpenClaw skill to PicoClaw format."""
+    """Convert a single OpenClaw skill to Xagent format."""
     skill_md = skill_dir / "SKILL.md"
     if not skill_md.exists():
         skill_md = skill_dir / "skill.md"
@@ -786,7 +786,7 @@ def convert_skill(owner: str, slug: str, skill_dir: Path, dest_dir: Path, force:
 
 
 def find_all_skills() -> list[dict]:
-    """Scan the openclaw-skills archive and return a list of all skills."""
+    """Scan the skills archive and return a list of all skills."""
     skills = []
     if not OPENCLAW_SKILLS_DIR.exists():
         return skills
@@ -840,7 +840,7 @@ def find_all_skills() -> list[dict]:
 def cmd_list(args):
     """List all available skills."""
     skills = find_all_skills()
-    print(f"Found {len(skills)} skills in openclaw-skills archive\n")
+    print(f"Found {len(skills)} skills in skills archive\n")
 
     limit = args.limit or 50
     for i, s in enumerate(skills[:limit]):
@@ -990,10 +990,10 @@ def cmd_install(args):
               f"(current: {sys.platform}). Use --force to install anyway.")
         return
 
-    dest = Path(args.dest) if args.dest else PICOCLAW_GLOBAL_SKILLS
+    dest = Path(args.dest) if args.dest else XAGENT_GLOBAL_SKILLS
     dest.mkdir(parents=True, exist_ok=True)
 
-    print(f"Converting {owner}/{slug} -> PicoClaw format")
+    print(f"Converting {owner}/{slug} -> Xagent format")
     ok = convert_skill(owner, slug, skill_dir, dest, force=args.force)
     if ok:
         print(f"\nInstalled to {dest / slug}")
@@ -1026,7 +1026,7 @@ def cmd_install(args):
                     print(f"  {pkg_type} packages:")
                     print(f"    {pkg_type} install {' '.join(pkgs)}")
 
-        print(f"\nPicoClaw will auto-discover it on next startup.")
+        print(f"\nXagent will auto-discover it on next startup.")
 
 
 def cmd_install_publisher(args):
@@ -1037,7 +1037,7 @@ def cmd_install_publisher(args):
         print(f"Publisher '{owner}' not found in archive")
         return
 
-    dest = Path(args.dest) if args.dest else PICOCLAW_GLOBAL_SKILLS
+    dest = Path(args.dest) if args.dest else XAGENT_GLOBAL_SKILLS
     dest.mkdir(parents=True, exist_ok=True)
 
     count = 0
@@ -1053,7 +1053,7 @@ def cmd_install_publisher(args):
 
 def cmd_install_curated(args):
     """Install a curated set of high-quality skills."""
-    dest = Path(args.dest) if args.dest else PICOCLAW_GLOBAL_SKILLS
+    dest = Path(args.dest) if args.dest else XAGENT_GLOBAL_SKILLS
     dest.mkdir(parents=True, exist_ok=True)
 
     print("Installing curated skill set...\n")
@@ -1098,8 +1098,8 @@ def cmd_check(args):
 def cmd_check_installed(args):
     """Check dependencies for all currently installed skills."""
     search_dirs = []
-    ws = PICOCLAW_WORKSPACE_SKILLS
-    gs = PICOCLAW_GLOBAL_SKILLS
+    ws = XAGENT_WORKSPACE_SKILLS
+    gs = XAGENT_GLOBAL_SKILLS
 
     if args.dest:
         search_dirs.append(Path(args.dest))
@@ -1186,7 +1186,7 @@ def cmd_ready(args):
 
 def cmd_bulk(args):
     """Bulk convert all skills (or filtered subset)."""
-    dest = Path(args.dest) if args.dest else PICOCLAW_GLOBAL_SKILLS
+    dest = Path(args.dest) if args.dest else XAGENT_GLOBAL_SKILLS
     dest.mkdir(parents=True, exist_ok=True)
 
     skills = find_all_skills()
@@ -1221,7 +1221,7 @@ def cmd_bulk(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="OpenClaw -> PicoClaw Skill Converter",
+        description="OpenClaw -> Xagent Skill Converter",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )
@@ -1243,7 +1243,7 @@ def main():
 
     p_install = sub.add_parser("install", help="Convert and install a skill")
     p_install.add_argument("skill", help="Skill in owner/slug format")
-    p_install.add_argument("--dest", help="Destination directory (default: ~/.picoclaw/skills)")
+    p_install.add_argument("--dest", help="Destination directory (default: ~/.xagent/skills)")
     p_install.add_argument("--force", action="store_true", help="Overwrite existing")
 
     p_pub = sub.add_parser("install-publisher", help="Install all skills from a publisher")
@@ -1276,8 +1276,8 @@ def main():
     args = parser.parse_args()
 
     if not OPENCLAW_SKILLS_DIR.exists():
-        print(f"Error: openclaw-skills archive not found at {OPENCLAW_SKILLS_DIR}")
-        print("Run: git clone https://github.com/moltbot/skills.git openclaw-skills")
+        print(f"Error: skills archive not found at {OPENCLAW_SKILLS_DIR}")
+        print("Run: git clone https://github.com/moltbot/skills.git skills")
         sys.exit(1)
 
     commands = {
