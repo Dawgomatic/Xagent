@@ -47,6 +47,11 @@ type AgentLoop struct {
 	state          *state.Manager
 	contextBuilder *ContextBuilder
 	tools          *tools.ToolRegistry
+	middleware     *tools.ToolMiddleware    // SWE100821: Tool middleware (caching, circuit breaker, analytics)
+	planner        *Planner                // SWE100821: Plan-Act-Reflect loop
+	provenance     *ProvenanceTracker      // SWE100821: Provenance tracking per turn
+	dream          *DreamMode              // SWE100821: Offline reflection during idle
+	personality    *PersonalityTracker     // SWE100821: Personality evolution
 	running        atomic.Bool
 	summarizing    sync.Map // Tracks which sessions are currently being summarized
 }
@@ -148,6 +153,21 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	contextBuilder.SetToolsRegistry(toolsRegistry)
 	contextBuilder.SetIdentity(agentIdentity)
 
+	// SWE100821: Create tool middleware layer (caching, circuit breaker, analytics)
+	toolMiddleware := tools.NewToolMiddleware(toolsRegistry)
+
+	// SWE100821: Create planner for Plan-Act-Reflect loop
+	planner := NewPlanner(provider, cfg.Agents.Defaults.Model, cfg.Agents.Defaults.MaxTokens, cfg.Agents.Defaults.Temperature)
+
+	// SWE100821: Create provenance tracker
+	provenance := NewProvenanceTracker(workspace)
+
+	// SWE100821: Create dream mode for offline reflection
+	dreamMode := NewDreamMode(provider, cfg.Agents.Defaults.Model, workspace)
+
+	// SWE100821: Create personality tracker
+	personalityTracker := NewPersonalityTracker(workspace, provider, cfg.Agents.Defaults.Model)
+
 	return &AgentLoop{
 		bus:            msgBus,
 		provider:       provider,
@@ -163,6 +183,11 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		state:          stateManager,
 		contextBuilder: contextBuilder,
 		tools:          toolsRegistry,
+		middleware:     toolMiddleware,                                // SWE100821: middleware layer
+		planner:        planner,                                      // SWE100821: Plan-Act-Reflect
+		provenance:     provenance,                                   // SWE100821: provenance tracking
+		dream:          dreamMode,                                    // SWE100821: dream mode
+		personality:    personalityTracker,                            // SWE100821: personality evolution
 		summarizing:    sync.Map{},
 	}
 }
@@ -354,6 +379,7 @@ func (al *AgentLoop) processSystemMessage(ctx context.Context, msg bus.InboundMe
 
 // runAgentLoop is the core message processing logic.
 // It handles context building, LLM calls, tool execution, and response handling.
+// SWE100821: Now integrates Plan-Act-Reflect, provenance tracking, personality observation, and dream mode.
 func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (string, error) {
 	// 0. Record last channel for heartbeat notifications (skip internal channels)
 	if opts.Channel != "" && opts.ChatID != "" {
@@ -364,6 +390,15 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 				logger.WarnCF("agent", "Failed to record last channel: %v", map[string]interface{}{"error": err.Error()})
 			}
 		}
+	}
+
+	// SWE100821: Start provenance tracking for this turn
+	turnID := fmt.Sprintf("%s-%d", opts.SessionKey, time.Now().UnixMilli())
+	al.provenance.StartTurn(turnID, opts.SessionKey, opts.Channel, opts.UserMessage, al.model)
+
+	// SWE100821: Record activity to reset dream mode idle timer
+	if al.dream != nil {
+		al.dream.RecordActivity()
 	}
 
 	// 1. Update tool contexts
@@ -385,6 +420,44 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		opts.ChatID,
 	)
 
+	// SWE100821: Generate execution plan (Plan phase of Plan-Act-Reflect)
+	var plan *AgentPlan
+	if al.planner != nil && !opts.NoHistory {
+		toolSummaries := al.tools.GetSummaries()
+		var err error
+		plan, err = al.planner.GeneratePlan(ctx, opts.UserMessage, toolSummaries)
+		if err != nil {
+			logger.WarnCF("planner", "Plan generation failed, proceeding without plan",
+				map[string]interface{}{"error": err.Error()})
+		} else if plan != nil {
+			al.provenance.SetPlanSteps(len(plan.Steps))
+		}
+	}
+
+	// SWE100821: Inject plan into context if generated
+	if plan != nil {
+		planContext := plan.ForSystemPrompt()
+		if planContext != "" && len(messages) > 0 {
+			messages[0].Content += "\n\n" + planContext
+		}
+	}
+
+	// SWE100821: Inject personality adaptations into context
+	if al.personality != nil {
+		personalityContext := al.personality.ForSystemPrompt()
+		if personalityContext != "" && len(messages) > 0 {
+			messages[0].Content += "\n\n" + personalityContext
+		}
+	}
+
+	// SWE100821: Inject tool-use learning hints into context
+	if al.middleware != nil {
+		hints := al.middleware.GetToolHints()
+		if hints != "" && len(messages) > 0 {
+			messages[0].Content += "\n\n## Tool Performance Hints\n" + hints
+		}
+	}
+
 	// 3. Save user message to session
 	al.sessions.AddMessage(opts.SessionKey, "user", opts.UserMessage)
 
@@ -393,9 +466,6 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 	if err != nil {
 		return "", err
 	}
-
-	// If last tool had ForUser content and we already sent it, we might not need to send final response
-	// This is controlled by the tool's Silent flag and ForUser content
 
 	// 5. Handle empty response
 	if finalContent == "" {
@@ -439,7 +509,50 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		})
 	}
 
+	// 11. SWE100821: Finalize provenance tracking
+	al.provenance.SetIterations(iteration)
+	if err := al.provenance.FinishTurn(); err != nil {
+		logger.WarnCF("provenance", "Failed to save provenance",
+			map[string]interface{}{"error": err.Error()})
+	}
+
+	// 12. SWE100821: Feed personality tracker
+	if al.personality != nil {
+		al.personality.Observe(len(opts.UserMessage), len(finalContent), nil)
+	}
+
 	return finalContent, nil
+}
+
+// StartDreamMode starts the dream mode background loop.
+// SWE100821: Call this after the agent loop is running.
+func (al *AgentLoop) StartDreamMode(ctx context.Context) {
+	if al.dream == nil {
+		return
+	}
+	al.dream.SetInsightCallback(func(insight string) {
+		// SWE100821: Send dream insight to last active channel
+		channelKey := al.state.GetLastChannel()
+		if channelKey == "" {
+			return
+		}
+		parts := strings.SplitN(channelKey, ":", 2)
+		if len(parts) != 2 {
+			return
+		}
+		al.bus.PublishOutbound(bus.OutboundMessage{
+			Channel: parts[0],
+			ChatID:  parts[1],
+			Content: insight,
+		})
+	})
+	al.dream.Start(ctx)
+}
+
+// GetMiddleware returns the tool middleware for external configuration.
+// SWE100821: Allows gateway to add approval hooks, etc.
+func (al *AgentLoop) GetMiddleware() *tools.ToolMiddleware {
+	return al.middleware
 }
 
 // runLLMIteration executes the LLM call loop with tool handling.
@@ -550,6 +663,10 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 					"iteration": iteration,
 				})
 
+			// SWE100821: Track tool execution timing for provenance
+			start := time.Now()
+			_ = start
+
 			// Create async callback for tools that implement AsyncTool
 			// NOTE: Following openclaw's design, async tools do NOT send results directly to users.
 			// Instead, they notify the agent via PublishInbound, and the agent decides
@@ -566,7 +683,17 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 				}
 			}
 
-			toolResult := al.tools.ExecuteWithContext(ctx, tc.Name, tc.Arguments, opts.Channel, opts.ChatID, asyncCallback)
+			// SWE100821: Execute through middleware layer (caching, circuit breaker, analytics)
+			var toolResult *tools.ToolResult
+			if al.middleware != nil {
+				toolResult = al.middleware.Execute(ctx, tc.Name, tc.Arguments, opts.Channel, opts.ChatID, asyncCallback)
+			} else {
+				toolResult = al.tools.ExecuteWithContext(ctx, tc.Name, tc.Arguments, opts.Channel, opts.ChatID, asyncCallback)
+			}
+
+			// SWE100821: Record tool call in provenance
+			toolLatency := time.Since(start)
+			al.provenance.RecordToolCall(tc.Name, !toolResult.IsError, toolLatency.Milliseconds())
 
 			// Send ForUser content to user immediately if not Silent
 			if !toolResult.Silent && toolResult.ForUser != "" && opts.SendResponse {

@@ -84,7 +84,7 @@ func (t *LLMCheckTool) hwDetect() *ToolResult {
 		return ErrorResult(fmt.Sprintf("hardware detection failed: %v", err))
 	}
 	data, _ := json.MarshalIndent(hw, "", "  ")
-	return SuccessResult(string(data))
+	return NewToolResult(string(data))
 }
 
 func (t *LLMCheckTool) check(category string) *ToolResult {
@@ -123,7 +123,7 @@ func (t *LLMCheckTool) check(category string) *ToolResult {
 		}
 	}
 
-	return SuccessResult(sb.String())
+	return NewToolResult(sb.String())
 }
 
 func (t *LLMCheckTool) recommend(category string) *ToolResult {
@@ -134,7 +134,7 @@ func (t *LLMCheckTool) recommend(category string) *ToolResult {
 
 	recs := llmcheck.Recommend(category, hw)
 	if len(recs) == 0 {
-		return SuccessResult("No compatible models found for this hardware and category.")
+		return NewToolResult("No compatible models found for this hardware and category.")
 	}
 
 	var sb strings.Builder
@@ -142,7 +142,7 @@ func (t *LLMCheckTool) recommend(category string) *ToolResult {
 	for i, r := range recs {
 		sb.WriteString(fmt.Sprintf("%d. %s\n", i+1, llmcheck.FormatRecommendation(r)))
 	}
-	return SuccessResult(sb.String())
+	return NewToolResult(sb.String())
 }
 
 func (t *LLMCheckTool) installed(category string) *ToolResult {
@@ -157,7 +157,7 @@ func (t *LLMCheckTool) installed(category string) *ToolResult {
 	}
 
 	if len(recs) == 0 {
-		return SuccessResult("No models installed in Ollama.")
+		return NewToolResult("No models installed in Ollama.")
 	}
 
 	var sb strings.Builder
@@ -165,7 +165,7 @@ func (t *LLMCheckTool) installed(category string) *ToolResult {
 	for i, r := range recs {
 		sb.WriteString(fmt.Sprintf("%d. %s\n", i+1, llmcheck.FormatRecommendation(r)))
 	}
-	return SuccessResult(sb.String())
+	return NewToolResult(sb.String())
 }
 
 func (t *LLMCheckTool) pull(model string) *ToolResult {
@@ -183,7 +183,7 @@ func (t *LLMCheckTool) pull(model string) *ToolResult {
 		return ErrorResult(fmt.Sprintf("pull failed: %v", err))
 	}
 	_ = lastStatus
-	return SuccessResult(fmt.Sprintf("Successfully pulled model: %s", model))
+	return NewToolResult(fmt.Sprintf("Successfully pulled model: %s", model))
 }
 
 func (t *LLMCheckTool) benchmark(model string) *ToolResult {
@@ -194,5 +194,5 @@ func (t *LLMCheckTool) benchmark(model string) *ToolResult {
 	}
 
 	data, _ := json.MarshalIndent(result, "", "  ")
-	return SuccessResult(string(data))
+	return NewToolResult(string(data))
 }

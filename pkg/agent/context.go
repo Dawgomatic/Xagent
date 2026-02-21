@@ -1,6 +1,7 @@
 package agent
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -11,18 +12,21 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/epoch"
 	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
+	"github.com/Dawgomatic/Xagent/pkg/memory"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/skills"
 	"github.com/Dawgomatic/Xagent/pkg/tools"
 )
 
 type ContextBuilder struct {
-	workspace    string
-	skillsLoader *skills.SkillsLoader
-	memory       *MemoryStore
-	tools        *tools.ToolRegistry        // Direct reference to tool registry
-	identity     *identity.AgentIdentity    // SWE100821: Agent identity + time tracking
-	prevEpoch    *epoch.Record              // SWE100821: Previous epoch for wake-up recall
+	workspace      string
+	skillsLoader   *skills.SkillsLoader
+	memory         *MemoryStore
+	semanticMemory *memory.SemanticMemory      // SWE100821: Vector-based semantic memory
+	tools          *tools.ToolRegistry          // Direct reference to tool registry
+	identity       *identity.AgentIdentity      // SWE100821: Agent identity + time tracking
+	prevEpoch      *epoch.Record                // SWE100821: Previous epoch for wake-up recall
+	autoDiscoverer *skills.AutoDiscoverer       // SWE100821: Skill auto-discovery
 }
 
 func getGlobalConfigDir() string {
@@ -40,10 +44,19 @@ func NewContextBuilder(workspace string) *ContextBuilder {
 	builtinSkillsDir := filepath.Join(wd, "skills")
 	globalSkillsDir := filepath.Join(getGlobalConfigDir(), "skills")
 
+	// SWE100821: Initialize semantic memory (Qdrant + Ollama embeddings)
+	semanticMem := memory.NewSemanticMemory("", "", "", "")
+
+	// SWE100821: Initialize skill auto-discoverer
+	catalogPath := filepath.Join(workspace, "skill_catalog.json")
+	autoDisc := skills.NewAutoDiscoverer(workspace, catalogPath)
+
 	return &ContextBuilder{
-		workspace:    workspace,
-		skillsLoader: skills.NewSkillsLoader(workspace, globalSkillsDir, builtinSkillsDir),
-		memory:       NewMemoryStore(workspace),
+		workspace:      workspace,
+		skillsLoader:   skills.NewSkillsLoader(workspace, globalSkillsDir, builtinSkillsDir),
+		memory:         NewMemoryStore(workspace),
+		semanticMemory: semanticMem,
+		autoDiscoverer: autoDisc,
 	}
 }
 
@@ -163,6 +176,14 @@ The following skills extend your capabilities. To use a skill, read its SKILL.md
 		parts = append(parts, "# Memory\n\n"+memoryContext)
 	}
 
+	// SWE100821: Skill auto-discovery prompt
+	if cb.autoDiscoverer != nil {
+		discoverPrompt := cb.autoDiscoverer.ForSystemPrompt()
+		if discoverPrompt != "" {
+			parts = append(parts, discoverPrompt)
+		}
+	}
+
 	// Join with "---" separator
 	return strings.Join(parts, "\n\n---\n\n")
 }
@@ -190,6 +211,16 @@ func (cb *ContextBuilder) BuildMessages(history []providers.Message, summary str
 	messages := []providers.Message{}
 
 	systemPrompt := cb.BuildSystemPrompt()
+
+	// SWE100821: Inject semantic memory recall based on user's message
+	if cb.semanticMemory != nil && cb.semanticMemory.IsAvailable() {
+		ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+		semanticContext := cb.semanticMemory.ForSystemPrompt(ctx, currentMessage, 5)
+		cancel()
+		if semanticContext != "" {
+			systemPrompt += "\n\n" + semanticContext
+		}
+	}
 
 	// Add Current Session info if provided
 	if channel != "" && chatID != "" {

@@ -294,17 +294,15 @@ func DefaultConfig() *Config {
 				AllowFrom:          FlexibleStringSlice{},
 			},
 		},
+		// SWE100821: Removed Zhipu, Moonshot, ShengSuanYun (Chinese providers stripped)
 		Providers: ProvidersConfig{
 			Anthropic:    ProviderConfig{},
 			OpenAI:       ProviderConfig{},
 			OpenRouter:   ProviderConfig{},
 			Groq:         ProviderConfig{},
-			Zhipu:        ProviderConfig{},
 			VLLM:         ProviderConfig{},
 			Gemini:       ProviderConfig{},
 			Nvidia:       ProviderConfig{},
-			Moonshot:     ProviderConfig{},
-			ShengSuanYun: ProviderConfig{},
 		},
 		Gateway: GatewayConfig{
 			Host: "0.0.0.0",
@@ -380,6 +378,7 @@ func (c *Config) WorkspacePath() string {
 	return expandHome(c.Agents.Defaults.Workspace)
 }
 
+// SWE100821: Cleaned up references to removed Chinese providers (Zhipu, ShengSuanYun)
 func (c *Config) GetAPIKey() string {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
@@ -395,17 +394,14 @@ func (c *Config) GetAPIKey() string {
 	if c.Providers.Gemini.APIKey != "" {
 		return c.Providers.Gemini.APIKey
 	}
-	if c.Providers.Zhipu.APIKey != "" {
-		return c.Providers.Zhipu.APIKey
-	}
 	if c.Providers.Groq.APIKey != "" {
 		return c.Providers.Groq.APIKey
 	}
 	if c.Providers.VLLM.APIKey != "" {
 		return c.Providers.VLLM.APIKey
 	}
-	if c.Providers.ShengSuanYun.APIKey != "" {
-		return c.Providers.ShengSuanYun.APIKey
+	if c.Providers.Nvidia.APIKey != "" {
+		return c.Providers.Nvidia.APIKey
 	}
 	return ""
 }
@@ -419,9 +415,7 @@ func (c *Config) GetAPIBase() string {
 		}
 		return "https://openrouter.ai/api/v1"
 	}
-	if c.Providers.Zhipu.APIKey != "" {
-		return c.Providers.Zhipu.APIBase
-	}
+	// SWE100821: Removed Zhipu reference
 	if c.Providers.VLLM.APIKey != "" && c.Providers.VLLM.APIBase != "" {
 		return c.Providers.VLLM.APIBase
 	}
@@ -436,17 +430,14 @@ func (c *Config) Validate() (warnings []string, err error) {
 	defer c.mu.RUnlock()
 
 	// Check that at least one provider has credentials or a local API base
+	// SWE100821: Cleaned up references to removed Chinese providers
 	hasProvider := c.Providers.OpenRouter.APIKey != "" ||
 		c.Providers.Anthropic.APIKey != "" || c.Providers.Anthropic.AuthMethod != "" ||
 		c.Providers.OpenAI.APIKey != "" || c.Providers.OpenAI.AuthMethod != "" ||
 		c.Providers.Groq.APIKey != "" ||
-		c.Providers.Zhipu.APIKey != "" ||
 		c.Providers.Gemini.APIKey != "" ||
 		c.Providers.VLLM.APIBase != "" ||
 		c.Providers.Nvidia.APIKey != "" ||
-		c.Providers.Moonshot.APIKey != "" ||
-		c.Providers.ShengSuanYun.APIKey != "" ||
-		c.Providers.DeepSeek.APIKey != "" ||
 		c.Providers.GitHubCopilot.APIBase != ""
 
 	if !hasProvider {

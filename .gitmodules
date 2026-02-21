@@ -10,3 +10,6 @@
 [submodule "reference/llm-checker"]
 	path = reference/llm-checker
 	url = https://github.com/Pavelevich/llm-checker.git
+[submodule "reference/picolm"]
+	path = reference/picolm
+	url = https://github.com/RightNow-AI/picolm.git

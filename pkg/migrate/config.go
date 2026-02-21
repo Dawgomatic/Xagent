@@ -113,8 +113,8 @@ func ConvertConfig(data map[string]interface{}) (*config.Config, []string, error
 				cfg.Providers.OpenRouter = pc
 			case "groq":
 				cfg.Providers.Groq = pc
+			// SWE100821: Zhipu provider removed (Chinese service)
 			case "zhipu":
-				cfg.Providers.Zhipu = pc
 			case "vllm":
 				cfg.Providers.VLLM = pc
 			case "gemini":
@@ -244,9 +244,7 @@ func MergeConfig(existing, incoming *config.Config) *config.Config {
 	if existing.Providers.Groq.APIKey == "" {
 		existing.Providers.Groq = incoming.Providers.Groq
 	}
-	if existing.Providers.Zhipu.APIKey == "" {
-		existing.Providers.Zhipu = incoming.Providers.Zhipu
-	}
+	// SWE100821: Zhipu provider removed (Chinese service)
 	if existing.Providers.VLLM.APIKey == "" && existing.Providers.VLLM.APIBase == "" {
 		existing.Providers.VLLM = incoming.Providers.VLLM
 	}

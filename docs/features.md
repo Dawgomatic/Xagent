@@ -174,3 +174,322 @@ Qdrant-powered vector memory for semantic search across conversation history:
 # Requires Qdrant running on localhost:6333
 # Configured via memory_bridge.py
 ```
+
+---
+
+<!-- SWE100821: New features added 2026-02-21 -->
+
+## Plan-Act-Reflect Loop
+
+Enhanced reasoning with three-phase processing:
+
+1. **Plan** — LLM generates a multi-step plan before executing
+2. **Act** — Tools are called according to the plan
+3. **Reflect** — After each tool result, the agent evaluates progress and may replan
+
+Includes a **chain-of-thought scratchpad** — internal reasoning buffer that persists across tool calls but isn't sent to the user.
+
+```
+User message → Plan (3-5 steps) → Execute step 1 → Reflect → Execute step 2 → ... → Final response
+```
+
+Location: `pkg/agent/planner.go`
+
+---
+
+## Tool Middleware Layer
+
+Cross-cutting concerns for all tool executions:
+
+| Feature | Description |
+|---------|-------------|
+| **Pre/Post Hooks** | Run custom logic before/after any tool call |
+| **Result Caching** | Deterministic tools (read_file, list_dir) cached with TTL |
+| **Circuit Breaker** | Tools that fail 3x in a row are temporarily disabled |
+| **Usage Analytics** | Per-tool success rate, latency, call count |
+| **Tool-Use Learning** | Injects performance hints into system prompt |
+
+Location: `pkg/tools/middleware.go`
+
+---
+
+## Tool Call Approval Mode
+
+Configurable approval gate for destructive operations. When enabled:
+
+- `exec`, `write_file`, `edit_file` send a confirmation prompt to the user before executing
+- Recently-approved tools are auto-approved for a configurable window (default: 5 min)
+- Especially useful for autonomous channels (Telegram, Discord)
+
+Location: `pkg/tools/approval.go`
+
+---
+
+## Integrated Semantic Memory
+
+Native Go Qdrant client replaces the disconnected Python memory_bridge.py:
+
+- Auto-embeds conversation summaries and epoch journals via Ollama (`nomic-embed-text`)
+- On each new message, similarity-searches and injects top-k relevant memories into context
+- Falls back gracefully to file-based memory if Qdrant is unavailable
+- Collection auto-created on first use
+
+Location: `pkg/memory/semantic.go`
+
+---
+
+## Memory Importance Scoring
+
+Multi-factor scoring for memory retrieval:
+
+| Factor | Weight | Description |
+|--------|--------|-------------|
+| Recency | 0.25 | Exponential decay with 7-day half-life |
+| Salience | 0.20 | Keyword detection (important, error, secret, etc.) |
+| Novelty | 0.15 | Unique terms not seen in other recent memories |
+| Reference | 0.10 | Log-scaled count of how often recalled |
+| Semantic | 0.30 | Vector similarity score from Qdrant |
+
+Location: `pkg/memory/scoring.go`
+
+---
+
+## Automatic Memory Consolidation
+
+Periodic cron job that prevents memory bloat:
+
+- **Weekly**: Clusters daily notes → generates weekly summary → archives daily notes
+- **Monthly**: Merges weekly summaries → generates monthly summary → appends key insights to MEMORY.md
+- Runs via the existing cron system
+
+Location: `pkg/memory/consolidation.go`
+
+---
+
+## Specialized Subagent Roles
+
+Built-in role templates for subagents:
+
+| Role | Tools Allowed | Purpose |
+|------|---------------|---------|
+| **researcher** | web_search, web_fetch, read_file | Information gathering |
+| **coder** | read_file, write_file, edit_file, exec | Code implementation |
+| **reviewer** | read_file, list_dir | Code review (read-only) |
+| **planner** | read_file, list_dir | Task decomposition |
+| **sysadmin** | exec, read_file, list_dir | System health monitoring |
+
+Each role has a tailored system prompt and restricted tool set.
+
+Location: `pkg/orchestration/roles.go`
+
+---
+
+## Task DAG Execution
+
+Directed acyclic graph engine for complex multi-step tasks:
+
+- Models tasks as nodes with dependencies
+- Executes independent tasks in parallel, dependent tasks sequentially
+- Validates DAG for cycles and missing dependencies
+- Human-readable execution summary with status markers
+
+```
+Task A (research) ──┐
+                    ├──▶ Task C (synthesis) ──▶ Task D (output)
+Task B (analysis) ──┘
+```
+
+Location: `pkg/orchestration/dag.go`
+
+---
+
+## Subagent Result Aggregation
+
+When multiple subagents run in parallel, the aggregator:
+
+- Collects all results
+- Synthesizes a unified, coherent response via LLM
+- Notes conflicts or contradictions between results
+- Falls back to concatenation if synthesis fails
+
+Location: `pkg/orchestration/aggregator.go`
+
+---
+
+## Dream Mode (Offline Reflection)
+
+Genuinely unique — autonomous offline reflection during idle periods:
+
+- When no messages arrive for 2+ hours, the agent enters "dream mode"
+- Reviews recent epoch journals and daily notes
+- Identifies patterns, contradictions, and gaps in knowledge
+- Generates insights and writes them to daily notes
+- Optionally sends a proactive message: "💭 While reflecting, I noticed..."
+- Minimum 12-hour interval between dream sessions
+
+Location: `pkg/agent/dream.go`
+
+---
+
+## Personality Evolution
+
+Tracks interaction patterns and adapts agent behavior:
+
+- Observes user message length, response preferences, frequent topics
+- Computes traits: verbosity (0=terse, 1=verbose), formality, creativity
+- Injects adaptations into system prompt: "User prefers concise, direct responses"
+- Generates monthly "personality diff" showing trait evolution
+- Stores profile in `workspace/state/personality.json`
+
+Location: `pkg/agent/personality.go`
+
+---
+
+## Context Compression via Distillation
+
+Two-model approach for better context utilization:
+
+- Small/fast model summarizes older conversation history
+- Main model gets: compressed history + recent messages at full fidelity
+- Preserves more information in the same context window vs simple truncation
+- Configurable recent window size (default: 6 messages kept uncompressed)
+
+Location: `pkg/agent/compression.go`
+
+---
+
+## Namespace-Based Sandbox (Linux)
+
+Process isolation using Linux namespaces:
+
+| Namespace | Effect |
+|-----------|--------|
+| PID | Can't see host processes |
+| Network | No network by default (whitelist available) |
+| UTS | Isolated hostname |
+
+Additionally:
+- Resource limits via cgroups (CPU%, memory MB)
+- `SIGKILL` on parent death (`Pdeathsig`)
+- Optional filesystem jail with bind mounts
+- Falls back to basic timeout isolation on non-Linux
+
+Location: `pkg/sandbox/namespace_linux.go`, `pkg/sandbox/namespace_other.go`
+
+---
+
+## Agent-to-Agent Communication
+
+HTTP-based protocol for multi-agent cooperation:
+
+- Structured message format: query, notify, response
+- Peer registry with endpoint URLs
+- Point-to-point and broadcast messaging
+- HTTP handler mountable on the gateway (`/a2a`)
+- Supports use cases like sensor-Pi → analysis-desktop
+
+Location: `pkg/agent2agent/protocol.go`
+
+---
+
+## Skill Auto-Discovery
+
+When the agent encounters a task it can't handle:
+
+- Searches the 10,000+ skill archive by keyword matching
+- Ranks results by relevance (name, description, tags)
+- Suggests installation: "These skills might help: ..."
+- Also triggered on tool errors via `SuggestForError()`
+- Turns failures into learning opportunities
+
+Location: `pkg/skills/autodiscover.go`
+
+---
+
+## Dynamic Tool Loading from Skills
+
+Skills can register custom tools at runtime via SKILL.md frontmatter:
+
+```yaml
+---
+tools:
+  - name: weather_fetch
+    description: Fetch weather for a location
+    command: "curl -s 'wttr.in/{location}?format=3'"
+    parameters:
+      location: { type: string, description: City name }
+---
+```
+
+Skills become first-class citizens in the tool system, not just prompt context.
+
+Location: `pkg/skills/dynamic_tools.go`
+
+---
+
+## Hardware-Reactive Behavior
+
+Automatic actions when hardware events occur:
+
+| Device Class | Event | Action |
+|-------------|-------|--------|
+| Camera | Plugged in | "📷 Camera connected. I can help with photos." |
+| USB Storage | Plugged in | "💾 USB storage connected. Want me to index it?" |
+| Audio | Plugged in | "🎤 Audio device connected. Voice mode available." |
+| USB Storage | Removed | "⏏️ USB device disconnected." |
+
+Custom reactions can be added programmatically.
+
+Location: `pkg/devices/reactive.go`
+
+---
+
+## Voice Conversation Mode (TTS)
+
+Completes the voice loop: voice input (Whisper) → agent → TTS output:
+
+- **Piper** (preferred) — high-quality local TTS, no cloud dependency
+- **espeak-ng** (fallback) — available on most Linux systems
+- Auto-detects available TTS engine
+- Generates WAV files with automatic cleanup
+
+Location: `pkg/voice/tts.go`
+
+---
+
+## Provenance Tracking
+
+Full lineage tracking for every agent response:
+
+- Which tools were called (with success/failure and latency)
+- Which skills contributed
+- Which memories were recalled
+- Which provider/model generated the response
+- Plan step count and total iterations
+- Stored as daily JSONL files in `workspace/provenance/`
+
+Location: `pkg/agent/provenance.go`
+
+---
+
+## Composable Workflows (Recipes)
+
+User-defined multi-step workflows as JSON files:
+
+```json
+{
+  "name": "morning-briefing",
+  "trigger": { "type": "cron", "schedule": "0 7 * * *" },
+  "steps": [
+    { "tool": "web_search", "args": { "query": "top tech news" } },
+    { "tool": "exec", "args": { "command": "cat /sys/class/thermal/thermal_zone0/temp" } }
+  ],
+  "synthesize": "Give me a morning briefing with news and system health.",
+  "channel": "telegram",
+  "enabled": true
+}
+```
+
+Bridges the gap between cron jobs and full agent conversations. Supports cron, event, and manual triggers.
+
+Location: `pkg/workflows/recipe.go`
