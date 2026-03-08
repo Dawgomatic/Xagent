@@ -29,6 +29,7 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/state"
 	"github.com/Dawgomatic/Xagent/pkg/tools"
 	"github.com/Dawgomatic/Xagent/pkg/utils"
+	"github.com/Dawgomatic/Xagent/pkg/vault"
 )
 
 type AgentLoop struct {
@@ -38,20 +39,22 @@ type AgentLoop struct {
 	model          string
 	contextWindow  int // Maximum context window size in tokens
 	maxIterations  int
-	maxTokens      int     // SWE100821: LLM max_tokens from config (was hard-coded)
-	temperature    float64 // SWE100821: LLM temperature from config (was hard-coded)
-	messageTimeout time.Duration // SWE100821: Per-message timeout to prevent one slow call blocking all
+	maxTokens      int                     // SWE100821: LLM max_tokens from config (was hard-coded)
+	temperature    float64                 // SWE100821: LLM temperature from config (was hard-coded)
+	messageTimeout time.Duration           // SWE100821: Per-message timeout to prevent one slow call blocking all
 	identity       *identity.AgentIdentity // SWE100821: Unique agent identity + time tracking
 	epoch          *epoch.Manager          // SWE100821: Epoch lifecycle (wake/sleep journaling)
 	sessions       *session.SessionManager
 	state          *state.Manager
 	contextBuilder *ContextBuilder
 	tools          *tools.ToolRegistry
-	middleware     *tools.ToolMiddleware    // SWE100821: Tool middleware (caching, circuit breaker, analytics)
-	planner        *Planner                // SWE100821: Plan-Act-Reflect loop
-	provenance     *ProvenanceTracker      // SWE100821: Provenance tracking per turn
-	dream          *DreamMode              // SWE100821: Offline reflection during idle
-	personality    *PersonalityTracker     // SWE100821: Personality evolution
+	middleware     *tools.ToolMiddleware // SWE100821: Tool middleware (caching, circuit breaker, analytics)
+	planner        *Planner              // SWE100821: Plan-Act-Reflect loop
+	provenance     *ProvenanceTracker    // SWE100821: Provenance tracking per turn
+	dream          *DreamMode            // SWE100821: Offline reflection during idle
+	personality    *PersonalityTracker   // SWE100821: Personality evolution
+	feedback       *tools.FeedbackTool   // OpenClaw-RL: User feedback for RL training
+	vaultWriter    *vault.VaultWriter    // Obsidian knowledge vault
 	running        atomic.Bool
 	summarizing    sync.Map // Tracks which sessions are currently being summarized
 }
@@ -70,7 +73,7 @@ type processOptions struct {
 
 // createToolRegistry creates a tool registry with common tools.
 // This is shared between main agent and subagents.
-func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msgBus *bus.MessageBus) *tools.ToolRegistry {
+func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msgBus *bus.MessageBus) (*tools.ToolRegistry, *tools.FeedbackTool) {
 	registry := tools.NewToolRegistry()
 
 	// File system tools
@@ -114,7 +117,11 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	})
 	registry.Register(messageTool)
 
-	return registry
+	// OpenClaw-RL: Feedback tool for user ratings
+	feedbackTool := tools.NewFeedbackTool(workspace)
+	registry.Register(feedbackTool)
+
+	return registry, feedbackTool
 }
 
 func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers.LLMProvider) *AgentLoop {
@@ -124,11 +131,11 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	restrict := cfg.Agents.Defaults.RestrictToWorkspace
 
 	// Create tool registry for main agent
-	toolsRegistry := createToolRegistry(workspace, restrict, cfg, msgBus)
+	toolsRegistry, feedbackTool := createToolRegistry(workspace, restrict, cfg, msgBus)
 
 	// Create subagent manager with its own tool registry
 	subagentManager := tools.NewSubagentManager(provider, cfg.Agents.Defaults.Model, workspace, msgBus)
-	subagentTools := createToolRegistry(workspace, restrict, cfg, msgBus)
+	subagentTools, _ := createToolRegistry(workspace, restrict, cfg, msgBus)
 	// Subagent doesn't need spawn/subagent tools to avoid recursion
 	subagentManager.SetTools(subagentTools)
 
@@ -168,6 +175,26 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	// SWE100821: Create personality tracker
 	personalityTracker := NewPersonalityTracker(workspace, provider, cfg.Agents.Defaults.Model)
 
+	// Obsidian vault: create and initialize if enabled
+	var vw *vault.VaultWriter
+	if cfg.Vault.Enabled {
+		vaultPath := cfg.Vault.Path
+		if strings.HasPrefix(vaultPath, "~/") {
+			if home, err := os.UserHomeDir(); err == nil {
+				vaultPath = filepath.Join(home, vaultPath[2:])
+			}
+		}
+		if vaultPath == "" {
+			vaultPath = filepath.Join(workspace, "vault")
+		}
+		vw = vault.NewVaultWriter(vaultPath)
+		if err := vw.Init(); err != nil {
+			logger.WarnCF("vault", "Failed to initialize Obsidian vault",
+				map[string]interface{}{"error": err.Error(), "path": vaultPath})
+			vw = nil
+		}
+	}
+
 	return &AgentLoop{
 		bus:            msgBus,
 		provider:       provider,
@@ -175,19 +202,21 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		model:          cfg.Agents.Defaults.Model,
 		contextWindow:  cfg.Agents.Defaults.MaxTokens,
 		maxIterations:  cfg.Agents.Defaults.MaxToolIterations,
-		maxTokens:      cfg.Agents.Defaults.MaxTokens,                // SWE100821: from config, not hard-coded
-		temperature:    cfg.Agents.Defaults.Temperature,              // SWE100821: from config, not hard-coded
-		messageTimeout: 5 * time.Minute,                              // SWE100821: per-message timeout
-		identity:       agentIdentity,                                // SWE100821: unique identity + time tracking
+		maxTokens:      cfg.Agents.Defaults.MaxTokens,   // SWE100821: from config, not hard-coded
+		temperature:    cfg.Agents.Defaults.Temperature, // SWE100821: from config, not hard-coded
+		messageTimeout: 5 * time.Minute,                 // SWE100821: per-message timeout
+		identity:       agentIdentity,                   // SWE100821: unique identity + time tracking
 		sessions:       sessionsManager,
 		state:          stateManager,
 		contextBuilder: contextBuilder,
 		tools:          toolsRegistry,
-		middleware:     toolMiddleware,                                // SWE100821: middleware layer
-		planner:        planner,                                      // SWE100821: Plan-Act-Reflect
-		provenance:     provenance,                                   // SWE100821: provenance tracking
-		dream:          dreamMode,                                    // SWE100821: dream mode
-		personality:    personalityTracker,                            // SWE100821: personality evolution
+		middleware:     toolMiddleware,     // SWE100821: middleware layer
+		planner:        planner,            // SWE100821: Plan-Act-Reflect
+		provenance:     provenance,         // SWE100821: provenance tracking
+		dream:          dreamMode,          // SWE100821: dream mode
+		personality:    personalityTracker, // SWE100821: personality evolution
+		feedback:       feedbackTool,       // OpenClaw-RL: feedback tool
+		vaultWriter:    vw,                 // Obsidian knowledge vault
 		summarizing:    sync.Map{},
 	}
 }
@@ -404,6 +433,22 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 	// 1. Update tool contexts
 	al.updateToolContexts(opts.Channel, opts.ChatID)
 
+	// OpenClaw-RL: Set session context on feedback tool and RL provider
+	if al.feedback != nil {
+		al.feedback.SetSessionID(opts.SessionKey)
+	}
+	if rlProvider, ok := al.provider.(*providers.RLProvider); ok {
+		turnType := providers.RLTurnMain
+		if opts.NoHistory || constants.IsInternalChannel(opts.Channel) {
+			turnType = providers.RLTurnSide
+		}
+		rlProvider.SetSessionContext(&providers.RLSessionContext{
+			SessionID:   opts.SessionKey,
+			TurnType:    turnType,
+			SessionDone: false,
+		})
+	}
+
 	// 2. Build messages (skip history for heartbeat)
 	var history []providers.Message
 	var summary string
@@ -455,6 +500,14 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		hints := al.middleware.GetToolHints()
 		if hints != "" && len(messages) > 0 {
 			messages[0].Content += "\n\n## Tool Performance Hints\n" + hints
+		}
+	}
+
+	// OpenClaw-RL: Inject user feedback summary into context
+	if al.feedback != nil {
+		feedbackSummary := al.feedback.GetFeedbackSummary()
+		if feedbackSummary != "" && len(messages) > 0 {
+			messages[0].Content += "\n\n" + feedbackSummary
 		}
 	}
 
@@ -521,6 +574,33 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		al.personality.Observe(len(opts.UserMessage), len(finalContent), nil)
 	}
 
+	// 13. Obsidian vault: write session note with wikilinks
+	if al.vaultWriter != nil {
+		prov := al.provenance.GetCurrent()
+		vaultData := vault.SessionData{
+			SessionKey:  opts.SessionKey,
+			Channel:     opts.Channel,
+			Model:       al.model,
+			UserMessage: opts.UserMessage,
+			Response:    finalContent,
+			LatencyMs:   time.Since(time.Now()).Milliseconds(), // approximate
+			Iterations:  iteration,
+		}
+		if prov != nil {
+			vaultData.LatencyMs = prov.LatencyMs
+			for _, tc := range prov.ToolsCalled {
+				vaultData.ToolsUsed = append(vaultData.ToolsUsed, tc.Name)
+			}
+			vaultData.SkillsUsed = prov.SkillsUsed
+			vaultData.MemoryHits = prov.MemoryHits
+			vaultData.PlanSteps = prov.PlanSteps
+		}
+		if err := al.vaultWriter.WriteSessionNote(vaultData); err != nil {
+			logger.WarnCF("vault", "Failed to write session note",
+				map[string]interface{}{"error": err.Error()})
+		}
+	}
+
 	return finalContent, nil
 }
 
@@ -546,6 +626,22 @@ func (al *AgentLoop) StartDreamMode(ctx context.Context) {
 			Content: insight,
 		})
 	})
+
+	// Obsidian vault: write dream notes when dream mode produces results
+	if al.vaultWriter != nil {
+		al.dream.SetDreamCallback(func(result DreamResult) {
+			if err := al.vaultWriter.WriteDreamNote(vault.DreamData{
+				Insights:  result.Insights,
+				Patterns:  result.Patterns,
+				Questions: result.Questions,
+				Timestamp: result.DreamedAt,
+			}); err != nil {
+				logger.WarnCF("vault", "Failed to write dream note",
+					map[string]interface{}{"error": err.Error()})
+			}
+		})
+	}
+
 	al.dream.Start(ctx)
 }
 

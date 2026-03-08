@@ -1,0 +1,102 @@
+# OpenClaw-RL Docker Compose Setup
+#
+# This launches the RL training server alongside xagent.
+# The RL server acts as an OpenAI-compatible proxy that collects training data
+# from live conversations and runs reinforcement learning in the background.
+#
+# Prerequisites:
+#   - NVIDIA GPUs with CUDA 12.9 support
+#   - nvidia-container-toolkit installed
+#   - Model checkpoints downloaded to ./models/
+#
+# Usage:
+#   # Start the RL server (requires GPUs)
+#   docker compose -f docker-compose.rl.yml up rl-server
+#
+#   # Start xagent configured to use the RL server
+#   docker compose -f docker-compose.rl.yml up xagent
+#
+#   # Start both together
+#   docker compose -f docker-compose.rl.yml up
+#
+# Configuration:
+#   Set environment variables or edit .env file:
+#     HF_CKPT=/path/to/model/checkpoint
+#     PRM_MODEL_PATH=/path/to/reward/model
+#     SGLANG_API_KEY=your-api-key
+#     NUM_GPUS=8
+
+version: "3.8"
+
+services:
+  # RL Training Server (Python/Slime/SGLang)
+  # Serves the model as an OpenAI-compatible API while collecting
+  # training data and running RL updates in the background.
+  rl-server:
+    build:
+      context: ./reference/openclaw-rl
+      dockerfile: Dockerfile.rl
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: ${NUM_GPUS:-8}
+              capabilities: [gpu]
+    ports:
+      - "${RL_PORT:-30000}:30000"
+    volumes:
+      - ${HF_CKPT:-./models/qwen3-4b}:/models/checkpoint
+      - ${PRM_MODEL_PATH:-./models/prm}:/models/prm
+      - ${SAVE_CKPT:-./checkpoints}:/checkpoints
+      - rl-records:/records
+    environment:
+      - NUM_GPUS=${NUM_GPUS:-8}
+      - ACTOR_GPUS=${ACTOR_GPUS:-4}
+      - ROLLOUT_GPUS=${ROLLOUT_GPUS:-2}
+      - PRM_GPUS=${PRM_GPUS:-2}
+      - HF_CKPT=/models/checkpoint
+      - PRM_MODEL_PATH=/models/prm
+      - SAVE_CKPT=/checkpoints
+      - SGLANG_API_KEY=${SGLANG_API_KEY:-xagent-rl}
+      - PORT=30000
+      - HOST=0.0.0.0
+      - OPENCLAW_RECORD_ENABLED=1
+      - OPENCLAW_RECORD_FILE=/records/conversations.jsonl
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:30000/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s  # Model loading takes time
+    restart: unless-stopped
+
+  # Xagent - configured to route through the RL server
+  xagent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      rl-server:
+        condition: service_healthy
+    ports:
+      - "${XAGENT_PORT:-18790}:18790"
+    volumes:
+      - xagent-workspace:/root/.xagent
+      - ./config.json:/root/.xagent/config.json
+    environment:
+      # Route all LLM requests through the RL server
+      - XAGENT_AGENTS_DEFAULTS_PROVIDER=rl
+      - XAGENT_RL_ENABLED=true
+      - XAGENT_RL_SERVER_URL=http://rl-server:30000/v1
+      - XAGENT_RL_API_KEY=${SGLANG_API_KEY:-xagent-rl}
+      - XAGENT_RL_MODEL=${RL_MODEL:-qwen3-4b}
+      - XAGENT_RL_FEEDBACK_MODE=${RL_FEEDBACK_MODE:-implicit}
+      - XAGENT_GATEWAY_HOST=0.0.0.0
+      - XAGENT_GATEWAY_PORT=18790
+    restart: unless-stopped
+
+volumes:
+  rl-records:
+  xagent-workspace:

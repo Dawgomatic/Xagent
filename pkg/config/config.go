@@ -52,7 +52,15 @@ type Config struct {
 	Tools     ToolsConfig     `json:"tools"`
 	Heartbeat HeartbeatConfig `json:"heartbeat"`
 	Devices   DevicesConfig   `json:"devices"`
+	Vault     VaultConfig     `json:"vault"`
 	mu        sync.RWMutex
+}
+
+// VaultConfig configures the Obsidian-compatible knowledge vault.
+// When enabled, xagent writes markdown notes with [[wikilinks]] for graph view.
+type VaultConfig struct {
+	Enabled bool   `json:"enabled" env:"XAGENT_VAULT_ENABLED"`
+	Path    string `json:"path" env:"XAGENT_VAULT_PATH"` // default: ~/.xagent/vault
 }
 
 type AgentsConfig struct {
@@ -180,6 +188,18 @@ type ProvidersConfig struct {
 	Gemini        ProviderConfig `json:"gemini"`
 	Nvidia        ProviderConfig `json:"nvidia"`
 	GitHubCopilot ProviderConfig `json:"github_copilot"`
+	RL            RLConfig       `json:"rl"`
+}
+
+// RLConfig configures the OpenClaw-RL reinforcement learning server.
+// When enabled, xagent routes LLM requests through the RL proxy server
+// which collects training data from live conversations.
+type RLConfig struct {
+	Enabled      bool   `json:"enabled" env:"XAGENT_RL_ENABLED"`
+	ServerURL    string `json:"server_url" env:"XAGENT_RL_SERVER_URL"` // e.g. "http://gpu-box:30000/v1"
+	APIKey       string `json:"api_key" env:"XAGENT_RL_API_KEY"`
+	Model        string `json:"model" env:"XAGENT_RL_MODEL"`                 // e.g. "qwen3-4b"
+	FeedbackMode string `json:"feedback_mode" env:"XAGENT_RL_FEEDBACK_MODE"` // "implicit" or "explicit"
 }
 
 type ProviderConfig struct {
@@ -296,13 +316,20 @@ func DefaultConfig() *Config {
 		},
 		// SWE100821: Removed Zhipu, Moonshot, ShengSuanYun (Chinese providers stripped)
 		Providers: ProvidersConfig{
-			Anthropic:    ProviderConfig{},
-			OpenAI:       ProviderConfig{},
-			OpenRouter:   ProviderConfig{},
-			Groq:         ProviderConfig{},
-			VLLM:         ProviderConfig{},
-			Gemini:       ProviderConfig{},
-			Nvidia:       ProviderConfig{},
+			Anthropic:  ProviderConfig{},
+			OpenAI:     ProviderConfig{},
+			OpenRouter: ProviderConfig{},
+			Groq:       ProviderConfig{},
+			VLLM:       ProviderConfig{},
+			Gemini:     ProviderConfig{},
+			Nvidia:     ProviderConfig{},
+			RL: RLConfig{
+				Enabled:      false,
+				ServerURL:    "",
+				APIKey:       "",
+				Model:        "qwen3-4b",
+				FeedbackMode: "implicit",
+			},
 		},
 		Gateway: GatewayConfig{
 			Host: "0.0.0.0",
@@ -328,6 +355,10 @@ func DefaultConfig() *Config {
 		Devices: DevicesConfig{
 			Enabled:    false,
 			MonitorUSB: true,
+		},
+		Vault: VaultConfig{
+			Enabled: true,
+			Path:    "~/.xagent/vault",
 		},
 	}
 }
@@ -438,7 +469,8 @@ func (c *Config) Validate() (warnings []string, err error) {
 		c.Providers.Gemini.APIKey != "" ||
 		c.Providers.VLLM.APIBase != "" ||
 		c.Providers.Nvidia.APIKey != "" ||
-		c.Providers.GitHubCopilot.APIBase != ""
+		c.Providers.GitHubCopilot.APIBase != "" ||
+		(c.Providers.RL.Enabled && c.Providers.RL.ServerURL != "")
 
 	if !hasProvider {
 		// For CLI providers that don't need keys

@@ -13,3 +13,6 @@
 [submodule "reference/picolm"]
 	path = reference/picolm
 	url = https://github.com/RightNow-AI/picolm.git
+[submodule "reference/openclaw-rl"]
+	path = reference/openclaw-rl
+	url = https://github.com/Gen-Verse/OpenClaw-RL.git

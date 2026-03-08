@@ -346,6 +346,16 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 			}
 			return NewGitHubCopilotProvider(apiBase, cfg.Providers.GitHubCopilot.ConnectMode, model)
 
+		case "rl", "rl-server", "openclaw-rl":
+			if cfg.Providers.RL.Enabled && cfg.Providers.RL.ServerURL != "" {
+				rlModel := cfg.Providers.RL.Model
+				if rlModel == "" {
+					rlModel = model
+				}
+				return NewRLProvider(cfg.Providers.RL.ServerURL, cfg.Providers.RL.APIKey, rlModel), nil
+			}
+			return nil, fmt.Errorf("RL provider not configured: set providers.rl.enabled=true and providers.rl.server_url")
+
 		}
 
 	}

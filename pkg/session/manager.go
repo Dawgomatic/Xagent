@@ -2,6 +2,7 @@ package session
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -299,4 +300,79 @@ func (sm *SessionManager) loadSessions() error {
 	}
 
 	return nil
+}
+
+// ExportTrajectory writes the full conversation history as JSONL for RL training.
+// Each line is a JSON object with session metadata and the message.
+// This format is compatible with the OpenClaw-RL server's record format.
+func (sm *SessionManager) ExportTrajectory(key string, outputPath string) error {
+	sm.mu.RLock()
+	session, ok := sm.sessions[key]
+	if !ok {
+		sm.mu.RUnlock()
+		return fmt.Errorf("session not found: %s", key)
+	}
+
+	// Snapshot under read lock
+	msgs := make([]providers.Message, len(session.Messages))
+	copy(msgs, session.Messages)
+	sessionKey := session.Key
+	created := session.Created
+	sm.mu.RUnlock()
+
+	// Ensure output directory exists
+	dir := filepath.Dir(outputPath)
+	if err := os.MkdirAll(dir, 0755); err != nil {
+		return fmt.Errorf("creating output directory: %w", err)
+	}
+
+	f, err := os.Create(outputPath)
+	if err != nil {
+		return fmt.Errorf("creating output file: %w", err)
+	}
+	defer f.Close()
+
+	for i, msg := range msgs {
+		record := map[string]interface{}{
+			"session_id": sessionKey,
+			"turn":       i,
+			"timestamp":  created.Add(time.Duration(i) * time.Second).Format("2006-01-02 15:04:05"),
+			"role":       msg.Role,
+			"content":    msg.Content,
+		}
+
+		if len(msg.ToolCalls) > 0 {
+			record["tool_calls"] = msg.ToolCalls
+		}
+		if msg.ToolCallID != "" {
+			record["tool_call_id"] = msg.ToolCallID
+		}
+
+		data, err := json.Marshal(record)
+		if err != nil {
+			continue
+		}
+		f.Write(append(data, '\n'))
+	}
+
+	return nil
+}
+
+// ExportAllTrajectories exports all sessions to a directory as JSONL files.
+func (sm *SessionManager) ExportAllTrajectories(outputDir string) (int, error) {
+	if err := os.MkdirAll(outputDir, 0755); err != nil {
+		return 0, err
+	}
+
+	keys := sm.GetAllKeys()
+	exported := 0
+	for _, key := range keys {
+		filename := sanitizeFilename(key) + ".jsonl"
+		outputPath := filepath.Join(outputDir, filename)
+		if err := sm.ExportTrajectory(key, outputPath); err != nil {
+			continue
+		}
+		exported++
+	}
+	return exported, nil
 }

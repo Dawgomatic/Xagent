@@ -30,18 +30,19 @@ type DreamMode struct {
 	lastDream   time.Time
 	lastMessage time.Time
 	running     bool
-	onInsight   func(insight string) // callback to send proactive message
+	onInsight   func(insight string)     // callback to send proactive message
+	onDream     func(result DreamResult) // callback for vault integration
 	mu          sync.Mutex
 	cancel      context.CancelFunc
 }
 
 // DreamResult contains the output of a dream session.
 type DreamResult struct {
-	Insights    []string  `json:"insights"`
-	Patterns    []string  `json:"patterns"`
-	Questions   []string  `json:"questions"` // open questions the agent identified
-	DreamedAt   time.Time `json:"dreamed_at"`
-	InputNotes  int       `json:"input_notes"` // how many notes were reviewed
+	Insights   []string  `json:"insights"`
+	Patterns   []string  `json:"patterns"`
+	Questions  []string  `json:"questions"` // open questions the agent identified
+	DreamedAt  time.Time `json:"dreamed_at"`
+	InputNotes int       `json:"input_notes"` // how many notes were reviewed
 }
 
 // NewDreamMode creates a dream mode manager.
@@ -75,6 +76,14 @@ func (dm *DreamMode) SetInsightCallback(fn func(insight string)) {
 	dm.mu.Lock()
 	defer dm.mu.Unlock()
 	dm.onInsight = fn
+}
+
+// SetDreamCallback registers a function to be called with the full dream result.
+// Used by the vault writer to create dream notes.
+func (dm *DreamMode) SetDreamCallback(fn func(result DreamResult)) {
+	dm.mu.Lock()
+	defer dm.mu.Unlock()
+	dm.onDream = fn
 }
 
 // RecordActivity updates the last-message timestamp to reset the idle timer.
@@ -231,7 +240,13 @@ MATERIAL:
 	dm.mu.Lock()
 	dm.lastDream = time.Now()
 	cb := dm.onInsight
+	dreamCb := dm.onDream
 	dm.mu.Unlock()
+
+	// Notify vault of dream results
+	if dreamCb != nil {
+		dreamCb(result)
+	}
 
 	if cb != nil && len(result.Insights) > 0 {
 		cb(fmt.Sprintf("💭 While reflecting during idle time, I noticed: %s", result.Insights[0]))
