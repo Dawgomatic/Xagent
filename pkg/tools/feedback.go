@@ -102,9 +102,9 @@ func (t *FeedbackTool) Execute(ctx context.Context, args map[string]interface{})
 	// Parse rating
 	var rating int
 	switch strings.ToLower(ratingStr) {
-	case "good", "thumbs_up", "", "positive", "+1":
+	case "good", "thumbs_up", "positive", "+1":
 		rating = 1
-	case "bad", "thumbs_down", "", "negative", "-1":
+	case "bad", "thumbs_down", "negative", "-1":
 		rating = -1
 	default:
 		rating = 0

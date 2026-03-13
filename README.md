@@ -23,6 +23,8 @@ xagent agent -m "What can you do?"   # Talk to the agent
 
 **Tool-Equipped Agent** -- The agent can execute shell commands, read/write files, search the web, manage Ollama models, control hardware I/O, and spawn sub-agents -- all sandboxed to the workspace.
 
+**Reinforcement Learning & Continuous Improvement** -- Integrates with OpenClaw-RL to train its underlying models. The agent uses a Sleep Cycle during idle periods to reflect, self-improve, research, pull code updates, and run reinforcement learning over collected awake data.
+
 **10,000+ Community Skills** -- Search, filter, and install skills from the OpenClaw archive. Skills are markdown files that teach the agent domain-specific knowledge.
 
 **Self-Upgrading** -- The agent checks for updates weekly and can upgrade its own binary (with SHA256 verification), pull new models, and update the skills archive.
@@ -48,7 +50,7 @@ xagent agent -m "What can you do?"   # Talk to the agent
 ```
 cmd/xagent/         CLI entry point
 pkg/                Go packages
-  agent/            Agent loop, context builder, memory
+  agent/            Agent loop, context builder, memory, sleep cycle
   llmcheck/         Hardware detection, model scoring, Ollama client
   tools/            Sandboxed tools (exec, filesystem, web, llm_check)
   channels/         Telegram, Discord, Slack, WhatsApp, LINE
@@ -57,12 +59,14 @@ pkg/                Go packages
   skills/           Skill loader and installer
   upgrade/          Self-upgrade system
   hwprofile/        Hardware tier detection
+  vault/            Obsidian-compatible knowledge vault and graph view
 workspace/          Built-in skills and agent identity files
 skills/             OpenClaw community skill archive (10,000+)
-reference/          Vanilla upstream repos (git submodules, read-only)
+reference/          Vanilla upstream repos (git submodules, read-only: hindsight, BitNet, openclaw-rl)
 start.sh            One-command installer
 skill_converter.py  Skill search, filter, and install tool
 memory_bridge.py    Optional Qdrant memory bridge
+docker-compose.rl   Optional RL server proxy and training loop setup
 Makefile            Build system
 ```
 

@@ -93,6 +93,8 @@ func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []Too
 	if len(tools) > 0 {
 		requestBody["tools"] = tools
 		requestBody["tool_choice"] = "auto"
+		// Structured output: constrain LLM to valid JSON for reliable tool calling
+		requestBody["response_format"] = map[string]string{"type": "json_object"}
 	}
 
 	if maxTokens, ok := options["max_tokens"].(int); ok {

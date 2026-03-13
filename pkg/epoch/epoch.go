@@ -9,15 +9,18 @@
 package epoch
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/Dawgomatic/Xagent/pkg/identity"
+	"github.com/Dawgomatic/Xagent/pkg/logger"
 )
 
 // Record is the journal for a single epoch (one boot-to-shutdown cycle).
@@ -54,6 +57,7 @@ type Manager struct {
 	dir      string
 	current  *Record
 	identity *identity.AgentIdentity
+	mu       sync.Mutex
 }
 
 // NewManager creates an epoch manager for the given workspace.
@@ -72,12 +76,14 @@ func NewManager(workspace string, id *identity.AgentIdentity) *Manager {
 // This is the "waking up and remembering yesterday" step.
 func (m *Manager) Wake() (*Record, error) {
 	// SWE100821: Create current epoch record
+	m.mu.Lock()
 	m.current = &Record{
 		SessionID: m.identity.SessionID,
 		AgentID:   m.identity.AgentID,
 		BootTime:  m.identity.BootTime,
 		Events:    []Event{},
 	}
+	m.mu.Unlock()
 
 	// Load the most recent completed epoch
 	prev, err := m.LoadLast()
@@ -89,6 +95,8 @@ func (m *Manager) Wake() (*Record, error) {
 
 // RecordEvent logs a notable event during the current epoch.
 func (m *Manager) RecordEvent(kind, summary string) {
+	m.mu.Lock()
+	defer m.mu.Unlock()
 	if m.current == nil {
 		return
 	}
@@ -101,6 +109,8 @@ func (m *Manager) RecordEvent(kind, summary string) {
 
 // UpdateStats updates the current epoch's statistics.
 func (m *Manager) UpdateStats(fn func(*EpochStats)) {
+	m.mu.Lock()
+	defer m.mu.Unlock()
 	if m.current == nil {
 		return
 	}
@@ -110,6 +120,8 @@ func (m *Manager) UpdateStats(fn func(*EpochStats)) {
 // Sleep finalizes the current epoch — writes the journal to disk.
 // This is the "going to sleep and writing in your diary" step.
 func (m *Manager) Sleep(reflection string) error {
+	m.mu.Lock()
+	defer m.mu.Unlock()
 	if m.current == nil {
 		return fmt.Errorf("epoch: no active epoch to sleep")
 	}
@@ -211,6 +223,8 @@ func ForSystemPrompt(prev *Record) string {
 
 // GetCurrent returns the current epoch record (may be nil if Wake not called).
 func (m *Manager) GetCurrent() *Record {
+	m.mu.Lock()
+	defer m.mu.Unlock()
 	return m.current
 }
 
@@ -283,4 +297,70 @@ func (m *Manager) PruneOld(maxAge time.Duration, minKeep int) int {
 	}
 
 	return pruned
+}
+
+// Rollover finalizes the current epoch and starts a new one transparently.
+func (m *Manager) Rollover(reflection string) error {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+
+	if m.current == nil {
+		return fmt.Errorf("epoch: no active epoch to rollover")
+	}
+
+	now := time.Now()
+	m.current.ShutdownTime = &now
+	m.current.Uptime = now.Sub(m.current.BootTime).Truncate(time.Second).String()
+	m.current.Reflection = reflection
+
+	// Write the old epoch record to disk
+	if err := m.saveCurrent(); err != nil {
+		return fmt.Errorf("epoch: failed to save during rollover: %w", err)
+	}
+
+	// Carry over state to the new epoch journal
+	newRecord := &Record{
+		SessionID: m.identity.SessionID,
+		AgentID:   m.identity.AgentID,
+		BootTime:  now,
+		Events:    []Event{},
+		Stats: EpochStats{
+			FatigueLevel: m.current.Stats.FatigueLevel,
+			IsSleeping:   m.current.Stats.IsSleeping,
+		},
+	}
+
+	m.current = newRecord
+	return nil
+}
+
+// StartRolloverMonitor begins a background check to automatically rollover epochs
+// older than the specified interval (e.g., 24 hours).
+func (m *Manager) StartRolloverMonitor(ctx context.Context, interval time.Duration) {
+	go func() {
+		ticker := time.NewTicker(15 * time.Minute)
+		defer ticker.Stop()
+
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-ticker.C:
+				m.mu.Lock()
+				if m.current == nil {
+					m.mu.Unlock()
+					continue
+				}
+				uptime := time.Since(m.current.BootTime)
+				m.mu.Unlock()
+
+				if uptime >= interval {
+					logger.InfoCF("epoch", fmt.Sprintf("Epoch uptime %s exceeded interval %s. Rolling over.", uptime.Truncate(time.Minute), interval), nil)
+					if err := m.Rollover(fmt.Sprintf("Automatic %s rollover.", interval)); err != nil {
+						logger.ErrorCF("epoch", "Failed to rollover epoch", map[string]interface{}{"error": err.Error()})
+					}
+				}
+			}
+		}
+	}()
 }

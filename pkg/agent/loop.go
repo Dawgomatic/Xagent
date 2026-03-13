@@ -124,6 +124,12 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	feedbackTool := tools.NewFeedbackTool(workspace)
 	registry.Register(feedbackTool)
 
+	// Vision: Local image analysis via Ollama vision models
+	registry.Register(tools.NewVisionTool(workspace))
+
+	// Browser: Headless web automation
+	registry.Register(tools.NewBrowserTool(workspace))
+
 	return registry, feedbackTool
 }
 

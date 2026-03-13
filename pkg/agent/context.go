@@ -50,8 +50,7 @@ func NewContextBuilder(workspace string) *ContextBuilder {
 	semanticMem := memory.NewSemanticMemory("", "", "", "")
 
 	// SWE100821: Initialize skill auto-discoverer
-	catalogPath := filepath.Join(workspace, "skill_catalog.json")
-	autoDisc := skills.NewAutoDiscoverer(workspace, catalogPath)
+	autoDisc := skills.NewAutoDiscoverer(workspace)
 
 	return &ContextBuilder{
 		workspace:      workspace,

@@ -100,7 +100,7 @@ Connect the agent to messaging platforms:
 | Telegram | Supported |
 | Discord | Supported |
 | Slack | Supported |
-| WhatsApp | Supported |
+| WhatsApp | Supported (via Node.js bridge) |
 | LINE | Supported |
 | MaixCam | Supported |
 
@@ -163,6 +163,58 @@ Cron-style task scheduling via the heartbeat system:
 - Weekly upgrade checks
 - Periodic health reports
 - Custom scheduled tasks via `~/.xagent/workspace/cron/`
+
+---
+
+## Agent Continuous Improvement (Sleep Cycle)
+
+During extended continuous idle periods, the agent scales its offline background operations (Sleep Cycle) in proportion to the activity and data processed while "awake":
+
+- **Self-Improvement**: Updates reference repositories and pulls new code from GitHub.
+- **Background Thinking**: Writes new code for itself, tests hypotheses, and stores learning.
+- **Dynamic Resource Scaling**: The processing power footprint for this self-improvement scales linearly with the amount of data the agent observed while "awake" (more interaction -> deeper "sleep" improvement).
+- **Dynamic Wake-ups**: Seamlessly handles sudden wake-up interruptions if a user interacts with the agent mid-sleep.
+
+Location: `pkg/agent/sleep.go`
+
+---
+
+## Reinforcement Learning (RL) Framework
+
+Xagent incorporates an integrated OpenClaw-RL training pipeline that learns from user conversations over time:
+
+- **RL Proxy Server**: A self-hosted OpenAI-compat proxy (`docker-compose.rl.yml`) intercepts interactions, aggregates session metadata, and exports conversation trajectories.
+- **Feedback Loops**: Collects user feedback implicitly and explicitly to refine the underlying models.
+- **Automated Training**: Learns from and trains on conversations in the background (fenced within the sleep cycle), continuously optimizing agent behavior without manual intervention.
+
+---
+
+## Obsidian-Compatible Knowledge Vault
+
+Rather than exclusively maintaining a linear memory array, the agent persists state using an Obsidian-compatible Knowledge Vault:
+
+- **Graph Visualization**: Agent memories, code artifacts, and thought processes are written as interlinked Markdown documents.
+- **Knowledge Webs**: Relationships are visualized using Markdown graph views for human inspectability.
+
+Location: `pkg/vault`
+
+---
+
+## Observer UI Integration
+
+An overlay interface is injected into PrismarineJS Minecraft Web Clients representing `claw_world`:
+
+- **Bird's Eye Monitoring**: Translates standard third-person/first-person views into an isometric "observer mode" where human operators can casually oversee agent actions, states, and tasks.
+- **HUD Integration**: Injects an overlay panel tailored to viewing agent status, obscuring default player-centric game indicators.
+
+---
+
+## Submodules
+Xagent utilizes several standalone upstream open-source projects via git submodules for domain-specific context:
+
+- **BitNet**: 1-bit LLM technology references (`reference/BitNet`).
+- **hindsight**: Research references for reasoning (`reference/hindsight`).
+- **openclaw-rl**: Core reinforcement learning loop implementation (`reference/openclaw-rl`).
 
 ---
 

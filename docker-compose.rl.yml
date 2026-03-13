@@ -34,7 +34,7 @@ services:
   # training data and running RL updates in the background.
   rl-server:
     build:
-      context: ./reference/openclaw-rl
+      context: ./rl-server
       dockerfile: Dockerfile.rl
     runtime: nvidia
     deploy:
@@ -43,7 +43,7 @@ services:
           devices:
             - driver: nvidia
               count: ${NUM_GPUS:-8}
-              capabilities: [gpu]
+              capabilities: [ gpu ]
     ports:
       - "${RL_PORT:-30000}:30000"
     volumes:
@@ -65,11 +65,11 @@ services:
       - OPENCLAW_RECORD_ENABLED=1
       - OPENCLAW_RECORD_FILE=/records/conversations.jsonl
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:30000/healthz"]
+      test: [ "CMD", "curl", "-f", "http://localhost:30000/healthz" ]
       interval: 30s
       timeout: 10s
       retries: 5
-      start_period: 120s  # Model loading takes time
+      start_period: 120s # Model loading takes time
     restart: unless-stopped
 
   # Xagent - configured to route through the RL server
