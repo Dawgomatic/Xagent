@@ -16,3 +16,9 @@
 [submodule "reference/openclaw-rl"]
 	path = reference/openclaw-rl
 	url = https://github.com/Gen-Verse/OpenClaw-RL.git
+[submodule "reference/BitNet"]
+	path = reference/BitNet
+	url = https://github.com/microsoft/BitNet.git
+[submodule "reference/hindsight"]
+	path = reference/hindsight
+	url = https://github.com/vectorize-io/hindsight.git
